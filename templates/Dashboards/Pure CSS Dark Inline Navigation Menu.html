@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Pure CSS Dark Inline Navigation Menu</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Open sans", sans-serif;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #333;
+        }
+
+        nav#navigation {
+            position: fixed;
+            width: 225px;
+            height: 100%;
+            background: #262626;
+            border-right: 1px solid #293649;
+        }
+
+        nav#navigation ul {
+            list-style: none;
+        }
+
+        nav#navigation ul li {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 60px;
+            border-bottom: 1px solid #293649;
+        }
+
+        nav#navigation ul li.active {
+            background: #2e2e2e;
+        }
+
+        nav#navigation ul li.dropdown:hover ul[class*="dropdown-"] {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        nav#navigation ul li.dropdown:before {
+            font-family: ionicons;
+            content: "\f125";
+            position: absolute;
+            margin: 20px 0 0 0;
+            left: 85%;
+            color: #aaa;
+        }
+
+        nav#navigation ul li:hover:after {
+            width: 225px;
+        }
+
+        nav#navigation ul li:after {
+            content: ' ';
+            position: absolute;
+            z-index: 1;
+            width: 0px;
+            height: 2px;
+            margin: -2px 0 0 0;
+            background: #126CA1;
+            -webkit-transition: 150ms ease all;
+            -moz-transition: 150ms ease all;
+            transition: 150ms ease all;
+        }
+
+        nav#navigation ul li a {
+            display: block;
+            width: 100%;
+            line-height: 60px;
+            padding: 0 15px;
+            text-decoration: none;
+            color: #aaa;
+            -webkit-transition: 150ms ease all;
+            -moz-transition: 150ms ease all;
+            transition: 150ms ease all;
+        }
+
+        nav#navigation ul li a:hover {
+            background: #2e2e2e;
+            color: #eee;
+        }
+
+        nav#navigation ul li a i,
+        nav#navigation ul li a span {
+            display: inline-block;
+        }
+
+        nav#navigation ul li a i {
+            position: absolute;
+            font-size: 1.3em;
+        }
+
+        nav#navigation ul li a span {
+            margin: 0 0 0 35px;
+            font-size: 0.85em;
+        }
+
+        nav#navigation ul li ul[class*="dropdown-"] {
+            position: absolute;
+            display: block;
+            margin: -61px 0 0 225px;
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transition: 150ms ease all;
+            -moz-transition: 150ms ease all;
+            transition: 150ms ease all;
+        }
+
+        nav#navigation ul li ul[class*="dropdown-"] li {
+            width: 225px;
+            background: #171717;
+        }
+
+        nav#navigation ul li ul[class*="dropdown-"] li a:hover {
+            background: #1f1f1f;
+        }
+
+        #wrapper {
+            margin: 0 0 0 225px;
+            padding: 15px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <nav id="navigation">
+        <ul>
+            <li><a href="#"><i class="ion-ios-speedometer-outline"></i><span>Dashboard</span></a></li>
+            <li><a href="#"><i class="ion-chatbubbles"></i><span>Forum</span></a></li>
+            <li class="dropdown" rel="1">
+               <a href="#"><i class="ion-email"></i><span>Messages</span>
+               </a>
+               <ul class="dropdown-1">
+                  <a href="#">
+                  </a>
+                  <li><a href="#"></a><a href="#"><i class="ion-email"></i><span>Read</span></a></li>
+            <li><a href="#"><i class="ion-email-unread"></i><span>Unread</span></a></li>
+            <li><a href="#"><i class="ion-plus"></i><span>Create Message</span></a></li>
+        </ul>
+        </li>
+        <li class="dropdown" rel="2">
+               <a href="#"><i class="ion-gear-a"></i><span>Settings</span>
+               </a>
+               <ul class="dropdown-2">
+                  <a href="#">
+                  </a>
+                  <li><a href="#"></a><a href="#"><i class="ion-person"></i><span>Edit Profile</span></a></li>
+        <li><a href="#"><i class="ion-gear-b"></i><span>Edit Options</span></a></li>
+        </ul>
+        </li>
+        <li><a href="#"><i class="ion-log-out"></i><span>Logout</span></a></li>
+        </ul>
+    </nav>
+    <div id="wrapper"><span>Lorem ipsum dolor sit amet, pri at quot exerci, pri in debet detraxit. Nostrum postulant has ut, ne pri tempor albucius accommodare, dicat munere integre id est. Ut liber ignota temporibus quo, vel modus doctus honestatis eu, his ea atqui veniam suscipit. Cu tritani torquatos has, cu civibus petentium disputando duo. Oporteat molestiae urbanitas ei mel. Id verear meliore nonumes est, no affert oporteat sapientem vis.</span></div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+</body>
+
+</html>

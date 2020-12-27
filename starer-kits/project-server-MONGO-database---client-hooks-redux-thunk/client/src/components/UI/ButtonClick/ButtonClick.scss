@@ -1,0 +1,62 @@
+.button-container {
+    display: flex;
+    flex-basis: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 40px;
+
+    .button {
+        width: 200px;
+        height: 20px;
+        color: #ffffff;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        border-radius: 90px;
+        background: rgb(40, 44, 52);
+        padding: 1.5rem;
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;
+
+        p {
+            position: relative;
+            top: 0rem;
+        }
+    }
+
+    @keyframes loading-bar-spinner {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .loader {
+        width: 40px;
+        height: 40px;
+        border: solid 4px transparent;
+        border-top-color: #3498db !important;
+        border-left-color: #3498db !important;
+        border-radius: 50%;
+        left: 50%;
+        margin-left: -20px;
+        z-index: 19 !important;
+        animation: loading-bar-spinner 400ms linear infinite;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+}

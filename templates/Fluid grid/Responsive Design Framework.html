@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Design Framework</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body:after {
+            background: red;
+            font-family: sans-serif;
+            font-size: 10px;
+            border-radius: 0 0 8px 0;
+            text-transform: uppercase;
+            color: white;
+            content: "undefined";
+            left: 0;
+            padding: .5em 1em;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            z-index: 999;
+        }
+
+        @media only screen and (max-width: 529px) {
+            body:after {
+                background: rgba(255, 0, 255, 0.5);
+                content: "phone";
+                text-shadow: 0px 0px 10px #1e0033, 1px 1px 5px #590099;
+                box-shadow: 0px 0px 5px #ff66ff;
+            }
+        }
+
+        @media only screen and (min-width: 530px) and (max-width: 768px) {
+            body:after {
+                background: rgba(0, 0, 255, 0.5);
+                content: "tablet";
+                text-shadow: 0px 0px 10px #001533, 1px 1px 5px #004099;
+                box-shadow: 0px 0px 5px #6666ff;
+            }
+        }
+
+        @media only screen and (min-width: 769px) and (max-width: 1128px) {
+            body:after {
+                background: rgba(0, 128, 0, 0.5);
+                content: "desktop";
+                text-shadow: 0px 0px 10px #000000, 1px 1px 5px #0b1a00;
+                box-shadow: 0px 0px 5px #00e600;
+            }
+        }
+
+        @media only screen and (min-width: 1129px) {
+            body:after {
+                background: rgba(255, 0, 0, 0.5);
+                content: "desktop-xl";
+                text-shadow: 0px 0px 10px #330015, 1px 1px 5px #990040;
+                box-shadow: 0px 0px 5px #ff6666;
+            }
+        }
+
+        #grid {
+            text-align: justify !important;
+            text-justify: distribute-all-lines;
+            font-size: 0 !important;
+        }
+
+        #grid:after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+        }
+
+        #grid>* {
+            text-align: left;
+            font-size: medium;
+        }
+
+        /* EXAMPLE GRID */
+        section {
+            text-align: justify !important;
+            text-justify: distribute-all-lines;
+            font-size: 0 !important;
+        }
+
+        section:after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+        }
+
+        section>* {
+            text-align: left;
+            font-size: medium;
+        }
+
+        section .whole {
+            vertical-align: top;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+            width: calc((100% - 0rem) / 1);
+            margin-bottom: 1rem;
+        }
+
+        section>div {
+            vertical-align: top;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        section>div.whole {
+            width: calc((100% - 0rem) / 1);
+            margin-bottom: 1rem;
+        }
+
+        section>div.half {
+            width: calc((100% - 1rem) / 2);
+            margin-bottom: 1rem;
+        }
+
+        section>div.third {
+            width: calc((100% - 2rem) / 3);
+            margin-bottom: 1rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            section>div.third {
+                width: calc((100% - 0rem) / 1);
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media only screen and (min-width: 1129px) {
+            section>div.third {
+                width: calc((100% - 3rem) / 4);
+                margin-bottom: 1rem;
+            }
+        }
+
+        section>div.fourth {
+            width: calc((100% - 3rem) / 4);
+            margin-bottom: 1rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            section>div.fourth {
+                width: calc((100% - 1rem) / 2);
+                margin-bottom: 1rem;
+            }
+        }
+
+        section>div.eighth {
+            width: calc((100% - 0.5rem) / 1.5);
+            margin-bottom: 1rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            section>div.eighth {
+                width: calc((100% - 0rem) / 1);
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media only screen and (min-width: 1129px) {
+            section>div.eighth {
+                width: calc((100% - 0.33333333333333326rem) / 1.3333333333333333);
+                margin-bottom: 1rem;
+            }
+        }
+
+        section {
+            padding: 1rem;
+        }
+
+        section div {
+            background: rgba(46, 206, 241, 0.5);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .column-display {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
+            width: 100%;
+            padding: 0;
+            text-align: justify !important;
+            text-justify: distribute-all-lines;
+            font-size: 0 !important;
+        }
+
+        .column-display:after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+        }
+
+        .column-display .column {
+            vertical-align: top;
+            display: inline-block;
+            width: 100%;
+            text-align: left;
+            font-size: medium;
+            box-sizing: border-box;
+            min-height: 100%;
+            width: calc((100% - 11rem) / 12);
+            background: rgba(46, 206, 241, 0.02);
+            border: 1px dashed rgba(46, 206, 241, 0.4);
+            border-top: none;
+            border-bottom: none;
+        }
+
+        /* THE GRID justifygrid.com */
+        #grid {
+            text-align: justify !important;
+            text-justify: distribute-all-lines;
+            font-size: 0 !important;
+        }
+
+        #grid:after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+        }
+
+        #grid>* {
+            text-align: left;
+            font-size: medium;
+        }
+
+        /* EXAMPLE GRID */
+        section {
+            text-align: justify !important;
+            text-justify: distribute-all-lines;
+            font-size: 0 !important;
+        }
+
+        section:after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+        }
+
+        section>* {
+            text-align: left;
+            font-size: medium;
+        }
+
+        section>div {
+            vertical-align: top;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        section>div.whole {
+            width: calc((100% - 0rem) / 1);
+            margin-bottom: 1rem;
+        }
+
+        section>div.half {
+            width: calc((100% - 1rem) / 2);
+            margin-bottom: 1rem;
+        }
+
+        section>div.third {
+            width: calc((100% - 2rem) / 3);
+            margin-bottom: 1rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            section>div.third {
+                width: calc((100% - 0rem) / 1);
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media only screen and (min-width: 1129px) {
+            section>div.third {
+                width: calc((100% - 3rem) / 4);
+                margin-bottom: 1rem;
+            }
+        }
+
+        section>div.fourth {
+            width: calc((100% - 3rem) / 4);
+            margin-bottom: 1rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            section>div.fourth {
+                width: calc((100% - 1rem) / 2);
+                margin-bottom: 1rem;
+            }
+        }
+
+        section>div.eighth {
+            width: calc((100% - 0.5rem) / 1.5);
+            margin-bottom: 1rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            section>div.eighth {
+                width: calc((100% - 0rem) / 1);
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media only screen and (min-width: 1129px) {
+            section>div.eighth {
+                width: calc((100% - 0.33333333333333326rem) / 1.3333333333333333);
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* IRRELEVANT STYLE STUFF */
+        body {
+            background: rgba(46, 206, 241, 0.1);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            color: #4a5566;
+            text-align: center;
+            margin: 0 0 .8rem;
+        }
+
+        section {}
+
+        section>div {
+            background: white;
+            position: relative;
+            transition: all .5s ease;
+            padding-top: 2rem;
+        }
+
+        section>div:before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            width: 96%;
+            bottom: 0;
+            height: 10px;
+            left: 2%;
+            border-radius: 50%;
+            transition: all .5s ease;
+        }
+
+        section>div text {
+            display: block;
+            padding: .5rem;
+            color: gray;
+        }
+
+        section>div:after {
+            display: block;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            z-index: 99;
+            width: 100%;
+            font-size: 1.5rem;
+            padding-top: .5rem;
+        }
+
+        section>div.whole:before {
+            box-shadow: 0 0 12px #dc143c;
+        }
+
+        section>div.whole:after {
+            content: "1";
+            color: #dc143c;
+        }
+
+        section>div.half:before {
+            box-shadow: 0 0 12px BlueViolet;
+        }
+
+        section>div.half:after {
+            content: "1/2";
+            color: BlueViolet;
+        }
+
+        section>div.third:before {
+            box-shadow: 0 0 12px DodgerBlue;
+        }
+
+        section>div.third:after {
+            content: "1/3";
+            color: DodgerBlue;
+        }
+
+        @media only screen and (max-width: 768px) {
+            section>div.third:before {
+                box-shadow: 0 0 12px #dc143c;
+            }
+
+            section>div.third:after {
+                content: "1";
+                color: #dc143c;
+            }
+        }
+
+        @media only screen and (min-width: 1129px) {
+            section>div.third:before {
+                box-shadow: 0 0 12px MediumSeaGreen;
+            }
+
+            section>div.third:after {
+                content: "1/4";
+                color: MediumSeaGreen;
+            }
+        }
+
+        section>div.fourth:before {
+            box-shadow: 0 0 12px MediumSeaGreen;
+        }
+
+        section>div.fourth:after {
+            content: "1/4";
+            color: MediumSeaGreen;
+        }
+
+        @media only screen and (max-width: 768px) {
+            section>div.fourth:before {
+                box-shadow: 0 0 12px BlueViolet;
+            }
+
+            section>div.fourth:after {
+                content: "1/2";
+                color: BlueViolet;
+            }
+        }
+
+        section>div.eighth:before {
+            box-shadow: 0 0 12px #7185a3;
+        }
+
+        section>div.eighth:after {
+            content: "1/8";
+            color: #7185a3;
+        }
+
+        @media only screen and (max-width: 768px) {
+            section>div.eighth:before {
+                box-shadow: 0 0 12px #dc143c;
+            }
+
+            section>div.eighth:after {
+                content: "1";
+                color: #dc143c;
+            }
+        }
+
+        @media only screen and (min-width: 1129px) {
+            section>div.eighth:after {
+                content: "1/9";
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section>
+        <div class="whole">
+            <h1>Responsive Design Framework</h1>
+        </div>
+        <div class="half">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="half">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="third">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="third">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="third">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="fourth">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="fourth">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="fourth">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="fourth">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="half">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="fourth">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="fourth">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="eighth">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+        <div class="third">
+            <text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, labore a blanditiis quam quos iusto adipisci porro ab, quis reprehenderit nesciunt ad odio quas facere explicabo odit esse eligendi. Obcaecati!</text>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+.wrapper {
+    label {
+        display: block;
+        padding-bottom: .65em;
+        font-size: 1em;
+    }
+
+    .boolean {
+        select {
+            box-shadow: 0 0 1px;
+            width: 20%;
+            height: 3em;
+            background-color: #ffffff;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            border-color: #ffffff;
+            text-indent: 10px;
+            transition: border-color .4s ease-in-out;
+            cursor: pointer;
+
+            &:focus {
+                border: 2px solid #46698b;
+            }
+        }
+    }
+}
+
+@media(max-width: 760px) {
+    .wrapper {
+        .boolean {
+            select {
+                text-align: left;
+                margin-right: 50%;
+            }
+        }
+    }
+}

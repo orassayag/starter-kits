@@ -1,0 +1,15 @@
+{
+    "name": "server",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start": "node server.js",
+        "stop": "taskkill -f -im node.exe",
+        "debug": "node --inspect-brk server.js"
+    },
+    "dependencies": {
+        "babel-eslint": "^10.1.0",
+        "death": "^1.1.0",
+        "eslint": "^7.16.0"
+    }
+}

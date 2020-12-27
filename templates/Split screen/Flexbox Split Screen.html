@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox Split Screen</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .split {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .split_full {
+            width: 100vw;
+            height: 50vh;
+            background-color: beige;
+            border: 1px solid grey;
+            box-sizing: border-box;
+        }
+
+        .split_part {
+            width: 50vw;
+            height: 50vh;
+            background-color: orange;
+            border: 1px solid grey;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="split">
+        <div class="split_full">cdscsd</div>
+        <div class="split_part">fvdvv</div>
+        <div class="split_part">dfvdf</div>
+    </div>
+</body>
+
+</html>

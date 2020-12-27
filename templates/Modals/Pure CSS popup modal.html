@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Pure CSS popup modal</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <style type="text/css">
+        /* Add animation (Chrome, Safari, Opera) */
+        @-webkit-keyframes example {
+            from {
+                top: -100px;
+                opacity: 0;
+            }
+
+            to {
+                top: 0px;
+                opacity: 1;
+            }
+        }
+
+        /* Add animation (Standard syntax) */
+        @keyframes example {
+            from {
+                top: -100px;
+                opacity: 0;
+            }
+
+            to {
+                top: 0px;
+                opacity: 1;
+            }
+        }
+
+        /* The modal's background */
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Display the modal when targeted */
+        .modal:target {
+            display: table;
+            position: absolute;
+        }
+
+        /* The modal box */
+        .modal-dialog {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        /* The modal's content */
+        .modal-dialog .modal-content {
+            margin: auto;
+            background-color: #f3f3f3;
+            position: relative;
+            padding: 0;
+            outline: 0;
+            border: 1px #777 solid;
+            text-align: justify;
+            width: 50%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-animation-name: example;
+            -webkit-animation-duration: 0.5s;
+            animation-name: example;
+            animation-duration: 0.5s;
+        }
+
+        /* The button used to close the modal */
+        .closebtn {
+            text-decoration: none;
+            float: right;
+            font-size: 35px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .closebtn:hover,
+        .closebtn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        header {
+            background-color: #5cb85c;
+            font-size: 25px;
+            color: white;
+        }
+
+        footer {
+            background-color: #5cb85c;
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <a href="#id01">Open Modal</a>
+    <div id="id01" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <header class="container">
+                    <a href="#" class="closebtn">×</a>
+                    <h2>Modal Header</h2>
+                </header>
+                <div class="container">
+                    <p>Some text in the modal.</p>
+                    <p>Some text in the modal.</p>
+                </div>
+                <footer class="container">
+                    <p>Modal footer</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+	"cSpell.words": [
+		"Assayag",
+		"IMDB",
+		"Inlines",
+		"Plug'n'Play",
+		"axios",
+		"devtool",
+		"fnames",
+		"hrefs",
+		"minification",
+		"onstatechange",
+		"onupdatefound",
+		"orassayag",
+		"sockjs",
+		"svgr",
+		"todos"
+	],
+	"search.exclude": {
+		"dist": true,
+		"**src/dist/": true,
+		"src/dist/": true
+    }
+}

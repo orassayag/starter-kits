@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" class=" -webkit-">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Pure CSS modal box</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <style type="text/css" media="" data-href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        button,
+        hr,
+        input {
+            overflow: visible
+        }
+
+        audio,
+        canvas,
+        progress,
+        video {
+            display: inline-block
+        }
+
+        progress,
+        sub,
+        sup {
+            vertical-align: baseline
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%
+        }
+
+        body {
+            margin: 0
+        }
+
+        menu,
+        article,
+        aside,
+        details,
+        footer,
+        header,
+        nav,
+        section {
+            display: block
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: .67em 0
+        }
+
+        figcaption,
+        figure,
+        main {
+            display: block
+        }
+
+        figure {
+            margin: 1em 40px
+        }
+
+        hr {
+            box-sizing: content-box;
+            height: 0
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: monospace, monospace;
+            font-size: 1em
+        }
+
+        a {
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects
+        }
+
+        a:active,
+        a:hover {
+            outline-width: 0
+        }
+
+        abbr[title] {
+            border-bottom: none;
+            text-decoration: underline;
+            text-decoration: underline dotted
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        dfn {
+            font-style: italic
+        }
+
+        mark {
+            background-color: #ff0;
+            color: #000
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        audio:not([controls]) {
+            display: none;
+            height: 0
+        }
+
+        img {
+            border-style: none
+        }
+
+        svg:not(:root) {
+            overflow: hidden
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: sans-serif;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0
+        }
+
+        button,
+        input {}
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        [type=submit],
+        [type=reset],
+        button,
+        html [type=button] {
+            -webkit-appearance: button
+        }
+
+        [type=button]::-moz-focus-inner,
+        [type=reset]::-moz-focus-inner,
+        [type=submit]::-moz-focus-inner,
+        button::-moz-focus-inner {
+            border-style: none;
+            padding: 0
+        }
+
+        [type=button]:-moz-focusring,
+        [type=reset]:-moz-focusring,
+        [type=submit]:-moz-focusring,
+        button:-moz-focusring {
+            outline: ButtonText dotted 1px
+        }
+
+        fieldset {
+            border: 1px solid silver;
+            margin: 0 2px;
+            padding: .35em .625em .75em
+        }
+
+        legend {
+            box-sizing: border-box;
+            color: inherit;
+            display: table;
+            max-width: 100%;
+            padding: 0;
+            white-space: normal
+        }
+
+        progress {}
+
+        textarea {
+            overflow: auto
+        }
+
+        [type=checkbox],
+        [type=radio] {
+            box-sizing: border-box;
+            padding: 0
+        }
+
+        [type=number]::-webkit-inner-spin-button,
+        [type=number]::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        [type=search]::-webkit-search-cancel-button,
+        [type=search]::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        [hidden],
+        template {
+            display: none
+        }
+    </style>
+    <style type="text/css">
+        /* [Object] Modal */
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: left;
+            background: rgba(0, 0, 0, .9);
+            transition: opacity .25s ease;
+        }
+
+        .modal__bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            cursor: pointer;
+        }
+
+        .modal-state {
+            display: none;
+        }
+
+        .modal-state:checked+.modal {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-state:checked+.modal .modal__inner {
+            top: 0;
+        }
+
+        .modal__inner {
+            transition: top .25s ease;
+            position: absolute;
+            top: -20%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            margin: auto;
+            overflow: auto;
+            background: #fff;
+            border-radius: 5px;
+            padding: 1em 2em;
+            height: 50%;
+        }
+
+        .modal__close {
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            width: 1.1em;
+            height: 1.1em;
+            cursor: pointer;
+        }
+
+        .modal__close:after,
+        .modal__close:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 1.5em;
+            background: #ccc;
+            display: block;
+            transform: rotate(45deg);
+            left: 50%;
+            margin: -3px 0 0 -1px;
+            top: 0;
+        }
+
+        .modal__close:hover:after,
+        .modal__close:hover:before {
+            background: #aaa;
+        }
+
+        .modal__close:before {
+            transform: rotate(-45deg);
+        }
+
+        @media screen and (max-width: 768px) {
+            .modal__inner {
+                width: 90%;
+                height: 90%;
+                box-sizing: border-box;
+            }
+        }
+
+        /* Other */
+        body {
+            padding: 1%;
+            font: 1/1.5em sans-serif;
+            text-align: center;
+        }
+
+        .btn {
+            cursor: pointer;
+            background: #27ae60;
+            display: inline-block;
+            padding: .5em 1em;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background: #2ecc71;
+        }
+
+        .btn:active {
+            background: #27ae60;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .2) inset;
+        }
+
+        .btn--blue {
+            background: #2980b9;
+        }
+
+        .btn--blue:hover,
+        .btn--blue:focus {
+            background: #3498db;
+        }
+
+        .btn--blue:active {
+            background: #2980b9;
+        }
+
+        p img {
+            max-width: 200px;
+            height: auto;
+            float: left;
+            margin: 0 1em 1em 0;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+
+<body translate="no">
+    <h1>Pure CSS modal box</h1>
+    <div>
+        <p>You can place trigger button wherever you want.</p>
+        <p>
+            <label class="btn" for="modal-1">Show me modal with a cat</label>
+            <label class="btn btn--blue" for="modal-2">Click for more AWW</label>
+        </p>
+    </div>
+    <input class="modal-state" id="modal-1" type="checkbox" />
+    <div class="modal">
+        <label class="modal__bg" for="modal-1"></label>
+        <div class="modal__inner">
+            <label class="modal__close" for="modal-1"></label>
+            <h2>Caaaats FTW!</h2>
+            <p><img src="https://i.imgur.com/HnrkBwB.gif" alt="" title="" />Aliquam in sagittis nulla. Curabitur euismod diam eget risus venenatis, sed dictum lectus bibendum. Nunc nunc nisi, hendrerit eget nisi id, rhoncus rutrum velit. Nunc vel mauris dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam fringilla quis nisi eget imperdiet.</p>
+        </div>
+    </div>
+    <input class="modal-state" id="modal-2" type="checkbox" />
+    <div class="modal">
+        <label class="modal__bg" for="modal-2"></label>
+        <div class="modal__inner">
+            <label class="modal__close" for="modal-2"></label>
+            <h2>Sleppy sloth</h2>
+            <p><img src="https://i.imgur.com/TPx9zYo.gif" alt="" title="" />Aliquam in sagittis nulla. Curabitur euismod diam eget risus venenatis, sed dictum lectus bibendum. Nunc nunc nisi, hendrerit eget nisi id, rhoncus rutrum velit. Nunc vel mauris dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam fringilla quis nisi eget imperdiet.</p>
+        </div>
+    </div>
+</body>
+
+</html>

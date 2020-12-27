@@ -1,0 +1,19 @@
+.links {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: space-between;
+    text-align: left;
+}
+
+@media (max-width: 1155px) {
+    .details-area {
+        .details-content {
+            .extra-features {
+                .links {
+                    margin-top: 3%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Responsive Portfolio</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            color: #444;
+            background: #f9f9f9;
+            font-size: 16px;
+            font-family: "PT Sans", sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100%;
+            background: url('https://source.unsplash.com/a2NRu2Wxa2o/');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero .content {
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero .content .header {
+            position: absolute;
+            top: 55%;
+            width: 100%;
+            -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+            text-align: center;
+            opacity: 0;
+        }
+
+        .hero .content .header h1 {
+            color: #fff;
+            font-size: 2.5em;
+            text-shadow: 0px 2px 3px #2d2d2d;
+        }
+
+        /* ABOUT MYSELF SECTION */
+        .about-myself {
+            padding: 50px 20px;
+        }
+
+        .about-myself .content {
+            text-align: center;
+        }
+
+        .about-myself .content h2 {
+            color: #3d3d3d;
+            font-size: 3em;
+            margin-bottom: 20px;
+            -webkit-transform: translateY(-50px) scale(0);
+            transform: translateY(-50px) scale(0);
+            -webkit-transition: transform .7s;
+            -moz-transition: transform .7s;
+            transition: transform .7s;
+        }
+
+        .about-myself .content .aboutTitleVisible {
+            -webkit-transform: translateY(0px) scale(1);
+            transform: translateX(0px) scale(1);
+        }
+
+        .about-myself .content p span {
+            color: #c0392b;
+            font-weight: bold;
+        }
+
+        /* EXPERIENCE SECTION */
+        .experience {
+            background: #002440;
+            padding: 50px 0;
+            overflow-x: hidden;
+        }
+
+        .experience .content {
+            text-align: center;
+        }
+
+        .experience .content h1 {
+            font-size: 2em;
+            color: #fff;
+        }
+
+        .experience .content ul {
+            padding: 50px 0;
+            list-style-type: none;
+        }
+
+        .experience .content ul li {
+            background: #f5f5f5;
+            position: relative;
+            margin-left: 20px;
+            width: 5px;
+            padding-bottom: 40px;
+        }
+
+        .experience .content ul li:last-child {
+            padding-bottom: 7px;
+        }
+
+        .experience .content ul li:before {
+            content: '';
+            background: #002440;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border: 4px solid #f5f5f5;
+        }
+
+        .experience .content ul li .hidden {
+            opacity: 0;
+            margin-left: 10vw;
+        }
+
+        .experience .content ul li .experience-content {
+            background: #f5f5f5;
+            position: relative;
+            top: 7px;
+            left: 48px;
+            width: calc(100vw - 100px);
+            padding: 20px;
+            text-align: center;
+            -webkit-border-radius: 0 5px 5px;
+            -moz-border-radius: 0 5px 5px;
+            border-radius: 0 5px 5px;
+        }
+
+        .experience .content ul li .experience-content h2 {
+            font-size: 1.5em;
+            color: #3c3c3c;
+            padding-bottom: 10px;
+        }
+
+        .experience .content ul li .experience-content .experience-time {
+            color: #777;
+            font-size: 1.1em;
+            padding-bottom: 10px;
+        }
+
+        .experience .content ul li .experience-content p {
+            color: #1a1a1a;
+            font-size: .95em;
+        }
+
+        .experience .content ul li .experience-content:before {
+            content: '';
+            background: #f5f5f5;
+            position: absolute;
+            top: 0;
+            left: -35px;
+            width: 35px;
+            height: 5px;
+        }
+
+        /* SKILLS SECTION */
+        .skills {
+            padding: 70px 20px;
+        }
+
+        .skills .content .development-wrapper .development-title {
+            color: #3c3c3c;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .skills .content .development-wrapper .skills-bar-container {
+            position: relative;
+            width: 100%;
+            list-style-type: none;
+        }
+
+        .skills .content .development-wrapper .skills-bar-container li {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .skills .content .development-wrapper .skills-bar-container li .progressbar-title {
+            color: #3c3c3c;
+            margin-bottom: 5px;
+        }
+
+        .skills .content .development-wrapper .skills-bar-container li .progressbar-title h3 {
+            display: inline-block;
+        }
+
+        .skills .content .development-wrapper .skills-bar-container li .progressbar-title .percent {
+            position: absolute;
+            right: 20px;
+            font-size: 1.1em;
+        }
+
+        .skills .content .development-wrapper .skills-bar-container li .bar-container {
+            background: #ececec;
+            position: relative;
+            width: 100%;
+            height: 10px;
+        }
+
+        .skills .content .development-wrapper .skills-bar-container li .bar-container .progressbar {
+            background: #34495e;
+            position: absolute;
+            width: 0%;
+            height: 100%;
+        }
+
+        .skills .content .tools-knowledge-wrapper {
+            width: 100%;
+        }
+
+        .skills .content .tools-knowledge-wrapper .tools-wrapper,
+        .skills .content .tools-knowledge-wrapper .knowledge-wrapper {
+            position: relative;
+            padding: 20px 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .skills .content .tools-knowledge-wrapper .tools-wrapper .title,
+        .skills .content .tools-knowledge-wrapper .knowledge-wrapper .title {
+            color: #3c3c3c;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .skills .content .tools-knowledge-wrapper .tools-wrapper ul,
+        .skills .content .tools-knowledge-wrapper .knowledge-wrapper ul {
+            list-style-type: none;
+            margin-left: 40px;
+        }
+
+        .skills .content .tools-knowledge-wrapper .tools-wrapper ul li,
+        .skills .content .tools-knowledge-wrapper .knowledge-wrapper ul li {
+            color: #444;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: left;
+        }
+
+        .skills .content .tools-knowledge-wrapper .tools-wrapper ul li i,
+        .skills .content .tools-knowledge-wrapper .knowledge-wrapper ul li i {
+            color: #27ae60;
+        }
+
+        /* RESUME SECTION */
+        .resume {
+            background: url('https://source.unsplash.com/L8126OwlroY/');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .resume .content {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .resume .content a {
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .resume .content a .btn-resume {
+            display: inline-block;
+            font-size: 1.1em;
+            padding: 20px;
+            margin: 0 15px;
+            background: rgba(255, 255, 255, 0.2);
+            position: relative;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .resume .content a .btn-resume span {
+            -webkit-transition: opacity 1.2s;
+            -moz-transition: opacity 1.2s;
+            transition: opacity 1.2s;
+        }
+
+        .resume .content a .btn-resume i {
+            color: #fff;
+            position: absolute;
+            padding: 20px 0;
+            top: -80px;
+            width: 100%;
+            left: 0;
+            -webkit-transition: top .5s;
+            -moz-transition: top .5s;
+            transition: top .5s;
+        }
+
+        .resume .content a .btn-resume:hover span {
+            opacity: 0;
+            -webkit-transition: opacity .4s;
+            -moz-transition: opacity .4s;
+            transition: opacity .4s;
+        }
+
+        .resume .content a .btn-resume:hover i {
+            top: 0;
+        }
+
+        /* PORTFOLIO SECTION */
+        .portfolio {
+            background: #f9f9f9;
+            padding: 80px 0;
+        }
+
+        .portfolio .content {
+            text-align: center;
+        }
+
+        .portfolio .content h1 {
+            color: #3c3c3c;
+            font-size: 2em;
+            margin-bottom: 50px;
+        }
+
+        .portfolio .content .projects {
+            width: 100%;
+        }
+
+        .portfolio .content .projects .project {
+            color: #fff;
+            position: relative;
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-bottom: 10%;
+            overflow: hidden;
+        }
+
+        .portfolio .content .projects .project:last-child {
+            margin-bottom: 0;
+        }
+
+        .portfolio .content .projects .project .project-image img {
+            width: 100%;
+        }
+
+        .portfolio .content .projects .project .project-title {
+            color: #3c3c3c;
+            padding: 10px 0;
+        }
+
+        .portfolio .content .projects .project .project-description {
+            color: #444;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 30px 0;
+        }
+
+        .contact .socials {
+            list-style-type: none;
+            width: 100%;
+        }
+
+        .contact .socials .social {
+            width: 25%;
+            float: left;
+            text-align: center;
+        }
+
+        .contact .socials .social a {
+            color: #3d3d3d;
+            font-size: 1.5em;
+            -webkit-transition: color .3s;
+            -moz-transition: color .3s;
+            transition: color .3s;
+        }
+
+        .contact .socials .social .email:hover {
+            color: #c8a028;
+        }
+
+        .contact .socials .social .twitter:hover {
+            color: #57AEE7;
+        }
+
+        .contact .socials .social .linkedin:hover {
+            color: #0177B5;
+        }
+
+        .contact .socials .social .codepen:hover {
+            color: #707070;
+        }
+
+        .contact .clear {
+            clear: both;
+        }
+
+        .footer {
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #777;
+            font-size: 1.1em;
+        }
+
+        .footer i {
+            color: #e74c3c;
+        }
+
+        /* RESPONSIVE */
+        @media screen and (min-width: 480px) {
+
+            .skills .content .tools-knowledge-wrapper .tools-wrapper,
+            .skills .content .tools-knowledge-wrapper .knowledge-wrapper {
+                width: 50%;
+                float: left;
+                padding: 0;
+            }
+
+            .skills .content .tools-knowledge-wrapper .tools-wrapper ul,
+            .skills .content .tools-knowledge-wrapper .knowledge-wrapper ul {
+                margin-left: 0;
+            }
+
+            .skills .content .clear {
+                clear: both;
+            }
+        }
+
+        @media screen and (min-width: 640px) {
+            .about-myself {
+                padding: 100px 40px;
+            }
+
+            .skills {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .skills .content .development-wrapper {
+                width: 600px;
+                margin: auto;
+                margin-bottom: 50px;
+            }
+
+            .skills .content .tools-knowledge-wrapper {
+                width: 600px;
+                margin: auto;
+            }
+
+            .contact .content .socials {
+                width: 600px;
+                margin: auto;
+            }
+        }
+
+        @media screen and (min-width: 960px) {
+            .experience .content ul li {
+                margin: 0 auto;
+            }
+
+            .experience .content ul li .experience-content {
+                width: 40vw;
+            }
+
+            .experience .content ul li:nth-child(odd) .experience-content {
+                left: 63px;
+            }
+
+            .experience .content ul li:nth-child(odd) .experience-content:before {
+                left: -50px;
+                width: 50px;
+            }
+
+            .experience .content ul li:nth-child(even) .experience-content {
+                left: calc(-40vw - 57px);
+                -webkit-border-radius: 5px 0px 5px 5px;
+                -moz-border-radius: 5px 0px 5px 5px;
+                border-radius: 5px 0px 5px 5px;
+            }
+
+            .experience .content ul li:nth-child(even) .experience-content:before {
+                left: auto;
+                right: -50px;
+                width: 50px;
+            }
+
+            .experience .content ul li:nth-child(odd) .hidden {
+                margin-left: 10vw;
+            }
+
+            .experience .content ul li:nth-child(even) .hidden {
+                margin-left: -10vw;
+            }
+
+            .skills {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+
+            .skills .content {
+                max-width: 1100px;
+                margin: auto;
+            }
+
+            .skills .content .development-wrapper,
+            .skills .content .tools-knowledge-wrapper {
+                float: left;
+            }
+
+            .skills .content .development-wrapper {
+                margin-bottom: 0;
+                width: 60%;
+            }
+
+            .skills .content .tools-knowledge-wrapper {
+                width: 40%;
+                margin-top: 60px;
+            }
+
+            .skills .content .tools-knowledge-wrapper .tools-wrapper,
+            .skills .content .tools-knowledge-wrapper .knowledge-wrapper {
+                float: none;
+                margin: auto;
+            }
+
+            .skills .content .tools-knowledge-wrapper .tools-wrapper {
+                margin-bottom: 30px;
+            }
+
+            .portfolio .content .projects .project {
+                position: relative;
+                margin: auto;
+                margin-bottom: 3%;
+                width: 680px;
+                height: 450px;
+                overflow: hidden;
+            }
+
+            .portfolio .content .projects .project:hover .project-image {
+                -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+            }
+
+            .portfolio .content .projects .project:hover .project-title,
+            .portfolio .content .projects .project:hover .project-description {
+                opacity: 1;
+            }
+
+            .portfolio .content .projects .project .project-image {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                -webkit-transition: transform .5s ease;
+                transition: transform .5s ease;
+                -webkit-transform-origin: left top;
+                transform-origin: left top;
+                z-index: 3;
+                overflow: hidden;
+            }
+
+            .portfolio .content .projects .project .project-image img {
+                width: 100%;
+                height: auto;
+                min-height: 100%;
+                min-width: 100%;
+            }
+
+            .portfolio .content .projects .project .project-title,
+            .portfolio .content .projects .project .project-description {
+                position: absolute;
+                height: 50%;
+                opacity: 0;
+                -webkit-transition: opacity .3s linear;
+                transition: opacity .3s linear;
+                overflow: hidden;
+            }
+
+            .portfolio .content .projects .project .project-title {
+                width: 50%;
+                top: 0;
+                right: 0;
+                padding: 10px;
+                text-align: center;
+                display: table;
+            }
+
+            .portfolio .content .projects .project .project-title h2 {
+                font-size: 2em;
+                text-decoration: underline;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .portfolio .content .projects .project .project-description {
+                width: 100%;
+                top: 50%;
+                left: 0;
+                padding: 25px 10px;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section class="hero">
+        <div class="content">
+            <div class="header" style="top: 50%; opacity: 1;">
+                <h1>Simple Responsive Portfolio</h1>
+            </div>
+        </div>
+    </section>
+    <section class="about-myself">
+        <div class="content">
+            <h2 class="aboutTitleVisible">Hi !</h2>
+            <p>I'm <span>name</span>.. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, dicta. Veniam pariatur minima voluptas culpa rem. Suscipit veritatis vel non neque alias, molestiae id incidunt natus ipsum vero, quod aut qui sequi quis laudantium <span>architecto exercitationem</span> recusandae eius. Incidunt velit quasi debitis, commodi vero optio nesciunt perspiciatis quidem quos accusantium! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius harum minima, ipsum animi. Provident quae hic, perspiciatis accusamus quaerat iure <span>tenetur</span> explicabo dicta quos aspernatur quis, delectus itaque vel.</p>
+        </div>
+    </section>
+    <section class="experience">
+        <div class="content">
+            <h1>Experience</h1>
+            <ul>
+                <li>
+                  <div class="experience-content hidden" style="opacity: 1; margin-left: 0px;">
+                     <h2>Company</h2>
+                     <div class="experience-time">Jan - Jun 2016</div>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis praesentium itaque veniam dolorum cupiditate asperiores optio beatae, qui perferendis ipsam odit modi nemo natus corrupti neque quos distinctio facilis?</p>
+                  </div>
+               </li>
+                <li>
+                  <div class="experience-content hidden" style="opacity: 1; margin-left: 0px;">
+                     <h2>Company</h2>
+                     <div class="experience-time">Jul - Dec 2015</div>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quas, reiciendis quis sequi voluptatem consectetur adipisci accusamus hic vel vero ea ad iure! Natus, ipsum, enim aspernatur fugit voluptatibus similique?</p>
+                  </div>
+               </li>
+                <li>
+                  <div class="experience-content hidden" style="opacity: 1; margin-left: 0px;">
+                     <h2>Company</h2>
+                     <div class="experience-time">Mar - Jun 2015</div>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quas, reiciendis quis sequi voluptatem consectetur adipisci accusamus hic vel vero ea ad iure! Natus, ipsum, enim aspernatur fugit voluptatibus similique?</p>
+                  </div>
+               </li>
+            </ul>
+        </div>
+    </section>
+    <section class="skills">
+        <div class="content">
+            <div class="development-wrapper">
+                <h2 class="development-title">Development</h2>
+                <ul class="skills-bar-container">
+                    <li>
+                     <div class="progressbar-title">
+                        <h3>HTML5</h3>
+                        <span class="percent" id="html-pourcent">95 %</span>
+                     </div>
+                     <div class="bar-container" data-percent="95">
+                        <span class="progressbar" id="progress-html" style="width: 95%;"></span>
+                     </div>
+                  </li>
+                    <li>
+                     <div class="progressbar-title">
+                        <h3>CSS / SASS</h3>
+                        <span class="percent" id="css-pourcent">85 %</span>
+                     </div>
+                     <div class="bar-container" data-percent="85">
+                        <span class="progressbar" id="progress-css" style="width: 85%;"></span>
+                     </div>
+                  </li>
+                    <li>
+                     <div class="progressbar-title">
+                        <h3>JavaScript / jQuery</h3>
+                        <span class="percent" id="javascript-pourcent">80 %</span>
+                     </div>
+                     <div class="bar-container" data-percent="80">
+                        <span class="progressbar" id="progress-javascript" style="width: 80%;"></span>
+                     </div>
+                  </li>
+                    <li>
+                     <div class="progressbar-title">
+                        <h3>PHP</h3>
+                        <span class="percent" id="php-pourcent">65 %</span>
+                     </div>
+                     <div class="bar-container" data-percent="65">
+                        <span class="progressbar" id="progress-php" style="width: 65%;"></span>
+                     </div>
+                  </li>
+                    <li>
+                     <div class="progressbar-title">
+                        <h3>AngularJS</h3>
+                        <span class="percent" id="angular-pourcent">70 %</span>
+                     </div>
+                     <div class="bar-container" data-percent="70">
+                        <span class="progressbar" id="progress-angular" style="width: 70%;"></span>
+                     </div>
+                  </li>
+                </ul>
+            </div>
+            <div class="tools-knowledge-wrapper">
+                <div class="tools-wrapper">
+                    <h2 class="title">Tools</h2>
+                    <ul class="tools">
+                        <li>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Photoshop
+                     </li>
+                        <li>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Adobe Illustrator
+                     </li>
+                        <li>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Sublime text
+                     </li>
+                    </ul>
+                </div>
+                <div class="knowledge-wrapper">
+                    <h2 class="title">Knowledge</h2>
+                    <ul class="knowledge">
+                        <li>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Wireframing
+                     </li>
+                        <li>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Responsive design
+                     </li>
+                        <li>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        ...
+                     </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </section>
+    <section class="resume">
+        <div class="content">
+            <a href="#" target="_blank">
+               <div class="btn-resume">
+                  <i class="fa fa-download fa-2x" aria-hidden="true"></i>
+                  <span>Download my resume<span>
+                  </span></span>
+               </div>
+            </a>
+        </div>
+    </section>
+    <section class="portfolio">
+        <div class="content">
+            <h1>Some works</h1>
+            <div class="projects">
+                <div class="project">
+                    <div class="project-image">
+                        <img src="https://source.unsplash.com/WLUHO9A_xik/" alt="" title="" />
+                    </div>
+                    <div class="project-title">
+                        <h2>Project #1</h2>
+                    </div>
+                    <div class="project-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi asperiores odio libero, molestiae at suscipit totam sequi, delectus temporibus. Provident itaque illum animi cupiditate quaerat! Id inventore, excepturi sequi totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores iure ex repudiandae, enim maxime.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-image">
+                        <img src="https://source.unsplash.com/jd0hS7Vhn_A" alt="" title="" />
+                    </div>
+                    <div class="project-title">
+                        <h2>Project #2</h2>
+                    </div>
+                    <div class="project-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi magni consequatur dolores distinctio quod accusamus voluptatum obcaecati animi expedita rem odio explicabo veritatis voluptas ducimus voluptate earum laborum, qui maiores doloremque deserunt sapiente corporis et culpa, nihil fuga. Sit nemo maxime itaque maiores iure, similique ratione veritatis quidem nulla explicabo.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-image">
+                        <img src="https://source.unsplash.com/AyYW_bUWerc/" alt="" title="" />
+                    </div>
+                    <div class="project-title">
+                        <h2>Project #3</h2>
+                    </div>
+                    <div class="project-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi asperiores odio libero, molestiae at suscipit totam sequi, delectus temporibus. Provident itaque illum animi cupiditate quaerat! Id inventore, excepturi sequi totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores iure ex repudiandae, enim maxime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact">
+        <div class="content">
+            <ul class="socials">
+                <li class="social">
+                  <a href="#" target="_blank" class="email">
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                  </a>
+               </li>
+                <li class="social">
+                  <a href="#" target="_blank" class="twitter">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </a>
+               </li>
+                <li class="social">
+                  <a href="#" target="_blank" class="linkedin">
+                  <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                  </a>
+               </li>
+                <li class="social">
+                  <a href="#" target="_blank" class="codepen">
+                  <i class="fa fa-codepen" aria-hidden="true"></i>
+                  </a>
+               </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </section>
+    <section class="footer">
+        <p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by Arnaud</p>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" id="rendered-js">
+        $(document).ready(function() {
+            // Main variables
+            var $aboutTitle = $('.about-myself .content h2');
+            var $developmentWrapper = $('.development-wrapper');
+            var developmentIsVisible = false;
+
+            /* HERO SECTION */
+
+            $('.hero .content .header').delay(500).animate({
+                    'opacity': '1',
+                    'top': '50%'
+                },
+                1000);
+
+            $(window).scroll(function() {
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                /* ABOUT MYSELF SECTION */
+
+                if (bottom_of_window > $aboutTitle.offset().top + $aboutTitle.outerHeight()) {
+                    $('.about-myself .content h2').addClass('aboutTitleVisible');
+                }
+
+                /* EXPERIENCE SECTION */
+
+                // Check the location of each element hidden */
+                $('.experience .content .hidden').each(function(i) {
+                    var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+                    /* If the object is completely visible in the window, fadeIn it */
+                    if (bottom_of_window > bottom_of_object) {
+                        $(this).animate({
+                                'opacity': '1',
+                                'margin-left': '0'
+                            },
+                            600);
+                    }
+                });
+
+                /* SKILLS SECTION */
+
+                var middle_of_developmentWrapper = $developmentWrapper.offset().top + $developmentWrapper.outerHeight() / 2;
+                if (bottom_of_window > middle_of_developmentWrapper && developmentIsVisible == false) {
+                    $('.skills-bar-container li').each(function() {
+                        var $barContainer = $(this).find('.bar-container');
+                        var dataPercent = parseInt($barContainer.data('percent'));
+                        var elem = $(this).find('.progressbar');
+                        var percent = $(this).find('.percent');
+                        var width = 0;
+                        var id = setInterval(frame, 15);
+
+                        function frame() {
+                            if (width >= dataPercent) {
+                                clearInterval(id);
+                            } else {
+                                width++;
+                                elem.css("width", width + "%");
+                                percent.html(width + " %");
+                            }
+                        }
+                    });
+                    developmentIsVisible = true;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

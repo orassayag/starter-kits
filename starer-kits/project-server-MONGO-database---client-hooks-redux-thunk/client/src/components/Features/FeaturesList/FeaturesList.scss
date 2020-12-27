@@ -1,0 +1,39 @@
+.features {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+
+    .options {
+        flex-direction: row;
+    }
+}
+
+.extra-features {
+    .features {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        width: 700px;
+    }
+}
+
+@media (max-width: 1160px) {
+    .features {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 1155px) {
+    .details-area {
+        .details-content {
+            .extra-features {
+                .features {
+                    width: 50rem;
+                    margin-left: 5vw;
+                    margin-top: 3%;
+                }
+            }
+        }
+    }
+}

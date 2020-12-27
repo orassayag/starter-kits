@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox masonry layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        .wrapper {
+            background-color: #fff;
+            padding: 2rem;
+        }
+
+        .row {
+            margin: 20px auto;
+        }
+
+        @media (min-width: 768px) {
+            .row {
+                display: flex;
+                flex-direction: row;
+            }
+        }
+
+        .row:first-child {
+            margin-top: 0;
+        }
+
+        .row:last-child {
+            margin-bottom: 0;
+        }
+
+        .column {
+            margin-right: 0;
+        }
+
+        @media (min-width: 768px) {
+            .column {
+                flex: 1 1 33.3333%;
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .column:not(:last-child) {
+                margin-right: 2rem;
+            }
+        }
+
+        .item {
+            flex: 1 1 auto;
+            min-height: 200px;
+            min-width: 100px;
+            width: 100%;
+            padding: 2rem;
+            font-weight: bold;
+            font-size: 2.4rem;
+            color: #fff;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: 0 0 2px #000 inset;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .item:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        * {
+            box-sizing: inherit;
+        }
+
+        html {
+            font-size: 62.5%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #111;
+            padding: 2rem;
+            background-color: #000;
+        }
+
+        .column.one .item:nth-child(1) {
+            background-image: url('https://source.unsplash.com/user/erondu/500x500');
+        }
+
+        .column.two .item:nth-child(1) {
+            background-image: url('https://source.unsplash.com/user/ingle_jake/500x500');
+        }
+
+        .column.two .item:nth-child(2) {
+            background-image: url('https://source.unsplash.com/user/kc_luk/500x500');
+        }
+
+        .column.three .item:nth-child(1) {
+            background-image: url('https://source.unsplash.com/user/ingle_jake/500x500');
+        }
+
+        .column.three .item:nth-child(2) {
+            background-image: url('https://source.unsplash.com/user/lemuelbutler/500x500');
+        }
+
+        .column.three .item:nth-child(3) {
+            background-image: url('https://source.unsplash.com/user/cant89/500x500');
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wrapper">
+        <div class="row">
+            <div class="column two">
+                <div class="item"> ITEM</div>
+                <div class="item"> ITEM</div>
+            </div>
+            <div class="column three">
+                <div class="item"> ITEM</div>
+                <div class="item"> ITEM</div>
+                <div class="item"> ITEM</div>
+            </div>
+            <div class="column two">
+                <div class="item"> ITEM</div>
+                <div class="item"> ITEM</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column two">
+                <div class="item"> ITEM</div>
+                <div class="item"> ITEM</div>
+            </div>
+            <div class="column one">
+                <div class="item"> ITEM</div>
+            </div>
+            <div class="column one">
+                <div class="item"> ITEM</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column two">
+                <div class="item"> ITEM</div>
+                <div class="item"> ITEM</div>
+            </div>
+            <div class="column one">
+                <div class="item"> ITEM</div>
+            </div>
+            <div class="column two">
+                <div class="item"> ITEM</div>
+                <div class="item"> ITEM</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

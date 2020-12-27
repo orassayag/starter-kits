@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Portfolio Project</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Neuton', serif;
+        }
+
+        * {
+            padding: 0 0;
+            margin: 0 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: black;
+            width: 100%;
+        }
+
+        .intro {
+            color: white;
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .7)), url('http://i.imgur.com/uLET3f8.jpg');
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro h1 {
+            padding-top: 40vh;
+            font-size: 6em;
+            font-family: 'Neuton', serif;
+            letter-spacing: 4px;
+        }
+
+        .intro h3 {
+            font-family: Arial, sans-serif;
+        }
+
+        .intro .fa-angle-double-down {
+            font-size: 50px;
+            position: absolute;
+            bottom: 25px;
+            animation: bounce 0.5s infinite linear;
+        }
+
+        .intro ul {
+            padding-top: 20px;
+        }
+
+        .intro ul li {
+            display: inline;
+            padding-right: 10px;
+            font-size: 35px;
+        }
+
+        .intro ul li:hover {
+            opacity: 0.75;
+        }
+
+        .intro ul li i {
+            color: white;
+        }
+
+        @keyframes bounce {
+            0% {
+                bottom: 55px;
+            }
+
+            50% {
+                bottom: 40px;
+            }
+
+            70% {
+                bottom: 30px;
+            }
+
+            100% {
+                bottom: 55px;
+            }
+        }
+
+        .menu {
+            padding-top: 60px;
+            font-size: 26px;
+        }
+
+        .menu a {
+            opacity: 0.5;
+            color: white;
+        }
+
+        .work {
+            background: white;
+        }
+
+        .work h2 {
+            text-align: center;
+            padding: 0px 0;
+            font-family: 'Neuton', serif;
+            opacity: 0.75;
+        }
+
+        .work .container {
+            padding: 10px 10px;
+        }
+
+        .work .portfolio-item {
+            width: 100%;
+            display: inline-block;
+            padding-top: 30px;
+        }
+
+        .work .portfolio-item .meta {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .work .portfolio-item .img {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .work .portfolio-item img {
+            width: 100%;
+            border-radius: 2%;
+        }
+
+        .work .portfolio-item p {
+            line-height: 1.5em;
+        }
+
+        .work .portfolio-item h3 {
+            font-size: 34px;
+            padding-bottom: 15px;
+        }
+
+        .work .portfolio-item h4 {
+            padding-bottom: 20px;
+        }
+
+        .work .portfolio-item button {
+            border: 2px solid black;
+            background: none;
+            padding: 5px 15px;
+            margin-top: 24px;
+            font-size: 1em;
+            text-transform: uppercase;
+        }
+
+        .work .portfolio-item button a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .contact {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .7)), url('http://i.imgur.com/owLiZhv.jpg');
+            color: white;
+        }
+
+        .contact h2 {
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .contact .contactForm {
+            margin: 0 auto;
+            width: 70%;
+        }
+
+        .contact input,
+        .contact textarea {
+            padding: 8px 5px;
+            width: 100%;
+            font-size: 1.2em;
+            font-family: 'Neuton', serif;
+            background: white;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 13px;
+        }
+
+        .contact input:nth-child(8) {
+            height: 500px;
+        }
+
+        .contact label {
+            font-size: 22px;
+            font-weight: bold;
+            font-family: Arial;
+        }
+
+        .contact textarea {
+            height: 200px;
+        }
+
+        .contact button[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            width: 50%;
+            background: lightslategrey;
+            color: white;
+            font-family: Arial;
+            font-weight: bold;
+            font-size: 22px;
+            padding: 10px 0;
+            box-shadow: 0px 0px 5px grey;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media screen and (min-width: 800px) {
+            .work .container {
+                padding: 25px 25px;
+                margin-left: 12%;
+                margin-right: 12%;
+            }
+
+            .work .portfolio-item .meta {
+                width: 48%;
+                margin-left: 2%;
+                float: right;
+            }
+
+            .work .portfolio-item .img {
+                float: left;
+                width: 50%;
+            }
+
+            .contact .contactForm {
+                margin: 0 auto;
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 350px) {
+            .fa-angle-double-down:before {
+                display: none;
+            }
+        }
+
+        @media screen and (max-height: 750px) {
+            .intro h1 {
+                padding-top: 25vh;
+            }
+        }
+
+        @media screen and (max-height: 550px) {
+            .fa-angle-double-down:before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="intro">
+        <h1>Tim Fau</h1>
+        <h3>Web Design/Development</h3>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/tim-fau-10030151/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+            <li><a href="https://github.com/TimFau" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+            <li><a href="https://twitter.com/TimFau" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+        </ul>
+        <div class="menu">
+            <span>Check out my <a href="#work">featured projects</a> <span class="inTouch">and <a href="#contact">get in touch</a></span>.</span>
+        </div>
+        <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+    </div>
+    <div class="work" id="work">
+        <div class="container">
+            <h2 class="section_name">Featured Projects<br>___</h2>
+            <div class="portfolio-item">
+                <div class="img">
+                    <img src="http://faudesign.com/wp-content/uploads/2017/05/PuttyTribe.jpg" alt="" title="" />
+                </div>
+                <div class="meta">
+                    <h3>The Puttytribe</h3>
+                    <h4><em>HTML | CSS | Javascript | Discourse | Wordpress</em></h4>
+                    <p>The Puttytribe is a member-only online community for multipotentialites. Their old website was powered by Ning, which they wanted to get away from in favor of a solution with more freedom and room to develop as needed. I got the opportunity to join their team as the Front End Web Developer as we built a custom solution with WordPress and Discourse.</p>
+                    <button><a href="http://faudesign.com/the-puttytribe/">View More</a></button>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="img">
+                    <img src="http://faudesign.com/wp-content/uploads/2017/05/Numotus.jpg" alt="" title="" />
+                </div>
+                <div class="meta">
+                    <h3>Numotus</h3>
+                    <h4><em>HTML | CSS | Couch CMS</em></h4>
+                    <p>Numotus wanted a one page responsive website to showcase his music/shows and establish a professional online presence. I built a one-page site from scratch and then used Couch CMS to give him an easy way to manage his own content. He wanted the video playlist to be a central element on the site, so I added it above the floating nav bar in the starting viewport. Most of the content is aggregated from his various online handles leading to minimal site maintenance.</p>
+                    <button><a href="http://numotus.com/">Visit Website</a></button>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="img">
+                    <img src="http://faudesign.com/wp-content/uploads/2017/05/RWP.jpg" alt="" title="" />
+                </div>
+                <div class="meta">
+                    <h3>Rockin’ With Purpose </h3>
+                    <h4><em>HTML | CSS | Wordpress</em></h4>
+                    <p>Rockin’ with Purpose is a music blog geared towards promoting Christian Rock and Roll with purpose. They were looking for a hip new image for the site, taking it from a simple free-template blog to a scalable, hip web magazine. I designed a from-scratch WordPress template featuring most prominently a featured & recent content section, as well as spots for album and artist spotlights. It’s built to be responsive and allow for easy viewing of and by categories.</p>
+                    <button><a href="http://rockinwithpurpose.com/">Visit Website</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact" id="contact">
+        <h2>Contact Me<br>___</h2>
+        <div class="contactForm">
+            <label for="name">Name</label><br>
+            <input type="text" name="name" /><br>
+            <label for="email">Email</label><br>
+            <input type="text" name="email" /><br>
+            <label for="message">Message</label><br>
+            <textarea name="message"></textarea><br>
+            <button type="submit" value="submit">Submit</button>
+        </div>
+    </div>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Neuton');
+    </style>
+    <script type="text/javascript" src="https://use.fontawesome.com/40e6a83d72.js"></script>
+</body>
+
+</html>

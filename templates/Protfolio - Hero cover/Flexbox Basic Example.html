@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox Basic Example</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #eee;
+            color: #434344;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+        }
+
+        /* Page Layout */
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+        }
+
+        /* Header */
+        header {
+            color: #9f9c9c;
+            padding: 20px 0;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #b0e0ea;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header nav ul {
+            display: flex;
+            align-items: baseline;
+            list-style-type: none;
+        }
+
+        header nav li {
+            margin-right: 15px;
+        }
+
+        header button {
+            border: none;
+            padding: 8px 25px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 1.25rem;
+            background-color: #51bb7b;
+        }
+
+        /* Main Section */
+        .wrapper {
+            display: flex;
+        }
+
+        .main {
+            flex: 3;
+        }
+
+        .main h2 {
+            font-size: 32px;
+            margin: 1rem 0;
+            color: #50c6db;
+        }
+
+        .main p {
+            font-size: 1rem;
+            margin-bottom: .75rem;
+        }
+
+        .main img {
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            padding: 20px;
+            flex: 1;
+            margin-right: 60px;
+            border-top: 3px solid #693f7e;
+            background-color: #f9f9f9;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            margin-top: 1rem;
+            font-size: .75rem;
+        }
+
+        .sidebar ul>li {
+            padding: .25rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            margin-right: 1.5rem;
+            color: #50c6db;
+        }
+
+        /* Footer */
+        footer {
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+            padding: 20px 0;
+            background-color: #9f9c9c;
+        }
+
+        footer p {
+            color: #434344;
+            font-size: 12px;
+            padding: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .wrapper {
+                flex-direction: column;
+            }
+
+            .main {
+                margin-right: 0;
+                margin-bottom: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li class="logo">
+                     <a href="#">
+                        <i class="fa fa-file-code-o" aria-hidden="true"></i>
+                  <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <button>Login</button>
+        </header>
+        <div class="wrapper">
+            <aside class="sidebar">
+                <h3>Recent Posts</h3>
+                <ul>
+                    <li><a href="#">Post One</a></li>
+                    <li><a href="#">Post Two</a></li>
+                    <li><a href="#">Post Three</a></li>
+                    <li><a href="#">Post Four</a></li>
+                    <li><a href="#">Post Five</a></li>
+                </ul>
+            </aside>
+            <section class="main">
+                <img src="http://abbeyjfitzgerald.com/wp-content/uploads/2017/06/flexbox-header.jpg" alt="" title="" />
+                <h2>Flexbox Layout</h2>
+                <p>Starting from the outside and working in, adding display: flex; to the container is the first step in any flexbox layout. The flex-direction is column, so this will position all sections under each other. </p>
+                <p>One handy thing is how easy it is to align text. In the navigation, with align-items: baseline, all navigation items are aligned to the baseline of the text so they look more uniform. </p>
+            </section>
+        </div>
+        <footer>
+            <h3>Flexbox Layout Example</h3>
+            <p>Hope you enjoyed learning about Flexbox Layouts!</p>
+        </footer>
+    </div>
+</body>
+
+</html>

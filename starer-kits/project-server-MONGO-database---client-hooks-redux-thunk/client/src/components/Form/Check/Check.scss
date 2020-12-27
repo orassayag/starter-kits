@@ -1,0 +1,30 @@
+.genresList {
+    .check {
+        width: 10rem;
+        margin-left: 5px;
+
+        label {
+            display: inline-block;
+            padding-bottom: .65em;
+            font-size: 1em;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        input {
+            width: 10px;
+            height: 10px;
+            box-shadow: 0 0 1px;
+            background-color: #ffffff;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            border-color: #ffffff;
+            text-indent: 10px;
+            transition: border-color .4s ease-in-out;
+            transform: scale(1.4);
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    }
+}

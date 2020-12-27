@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Grid Based App</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            margin: 0;
+            background: #eee;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .nav-bar {
+            display: grid;
+            font-family: 'Roboto', sans-serif;
+            grid-template-columns: 1fr 1fr 1fr;
+            position: left;
+            top: 0;
+            background: #400000;
+            color: white;
+            padding: 11px;
+            font-size: 22px;
+        }
+
+        .nav-right {
+            text-align: right;
+        }
+
+        .actions {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            padding: 10px;
+            background: lightgrey;
+        }
+
+        .collection {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-gap: 15px;
+            padding: 11px;
+            margin: auto;
+            max-width: 1100px;
+        }
+
+        .item {
+            display: grid;
+            background: white;
+            box-shadow: 1px 1px 5px grey;
+        }
+
+        .item-content {
+            border-bottom: 1px solid lightgray;
+            height: 150px;
+            background-color: #004040;
+            color: white;
+            padding: 7px;
+        }
+
+        .item-actions {
+            display: grid;
+            height: 50px;
+            justify-items: center;
+            align-items: center;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .collection {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="app">
+        <div class="nav-bar">
+            <div class="nav-left">Dinner Recipes for the Lazy Woman</div>
+            <div class="nav-right"></div>
+        </div>
+        <div class="main-section">
+            <div class="actions">
+                <input class="main-input" placeholder="Add a recipe!" />
+                <button>Add</button>
+            </div>
+            <div class="collection">
+                <div class="item">
+                    <div class="item-content">
+                        Turkey Chili
+                    </div>
+                    <div class="item-actions">
+                        <i class="fas fa-thumbtack"></i>
+                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-content">
+                        FEATURED: Lasagna with a Twist
+                    </div>
+                    <div class="item-actions">
+                        <i class="fas fa-thumbtack"></i>
+                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-content">
+                        Roasted Vegetables with Chicken or Fish
+                    </div>
+                    <div class="item-actions">
+                        <i class="fas fa-thumbtack"></i>
+                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-content">
+                        Frozen Meals
+                    </div>
+                    <div class="item-actions">
+                        <i class="fas fa-thumbtack"></i>
+                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

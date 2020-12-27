@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>A flexbox equal height grid module</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        .toggleviews {
+            text-align: right;
+            color: #fff;
+        }
+
+        @media (max-width: 640px) {
+            .toggleviews {
+                display: none;
+            }
+        }
+
+        .toggleviews::after {
+            font-family: 'Material Icons';
+            content: '\E8EF';
+            font-size: 3em;
+        }
+
+        .toggleviews--active::after {
+            content: '\E8F0';
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+        }
+
+        .list__item {
+            display: flex;
+            padding: 0.5em;
+            width: 33.33%;
+        }
+
+        @media (max-width: 960px) {
+            .list__item {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .list__item {
+                width: 100%;
+            }
+        }
+
+        .list__content {
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            padding: 1em;
+            width: 100%;
+            border-radius: 4px;
+            transform: translate(0, 0);
+            transition: box-shadow 0.3s cubic-bezier(0.51, 0.92, 0.24, 1);
+            box-shadow: 0 20px 20px rgba(0, 0, 0, .08);
+        }
+
+        .list__content p {
+            flex: 1 0 auto;
+        }
+
+        .list--toggle {
+            display: block;
+        }
+
+        .list--toggle .list__item {
+            display: block;
+            width: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #28282c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            padding: 2%;
+            max-width: 80%;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <div class="toggleviews"></div>
+        <div class="list">
+            <div class="list__item">
+                <div class="list__content">
+                    <h2>Post Title</h2>
+                    <img src="http://placehold.it/250x120" alt="img" title="" />
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eveniet.</p>
+                    <a href="">Read More</a>
+                </div>
+            </div>
+            <div class="list__item">
+                <div class="list__content">
+                    <h2>Post Title</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, vel, quia. Non nostrum, consectetur ipsum doloribus enim maiores a laudantium, odio vel blanditiis id ea dolorum expedita fugit incidunt commodi.</p>
+                    <a href="">Read More</a>
+                </div>
+            </div>
+            <div class="list__item">
+                <div class="list__content">
+                    <h2>Post Title</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, vel, quia. Non nostrum, consectetur ipsum doloribus enim maiores a laudantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, vel, quia. Non nostrum, consectetur ipsum doloribus enim maiores a laudantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, vel, quia. Non nostrum, consectetur ipsum doloribus enim maiores a laudantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, vel, quia. Non nostrum, consectetur ipsum doloribus enim maiores a laudantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, vel, quia. Non nostrum, consectetur ipsum doloribus enim maiores a laudantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, vel, quia. Non nostrum, consectetur ipsum doloribus enim maiores a laudantium.</p>
+                    <a href="">Read More</a>
+                </div>
+            </div>
+            <div class="list__item">
+                <div class="list__content">
+                    <h2>Post Title</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur optio ipsa fuga vel repudiandae impedit illum delectus nihil error animi nobis quaerat quidem, amet, praesentium aspernatur inventore numquam! Totam, dolorem inventore reprehenderit, culpa obcaecati!</p>
+                    <a href="">Read More</a>
+                </div>
+            </div>
+            <div class="list__item">
+                <div class="list__content">
+                    <h2>Post Title</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo veniam tempore vero velit deleniti corporis recusandae placeat eum repellendus modi architecto, iste, numquam nulla, praesentium fuga soluta eos consequatur sequi expedita! Ea aspernatur explicabo optio ducimus officia blanditiis voluptas possimus veniam maxime!</p>
+                    <a href="">Read More</a>
+                </div>
+            </div>
+            <div class="list__item">
+                <div class="list__content">
+                    <h2>Post Title</h2>
+                    <img src="http://placehold.it/250x120" alt="img" title="" />
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestiae esse dolore corporis velit fugiat ipsam tempore optio dicta. Magnam iusto facere, maxime! Praesentium quo laborum, deserunt adipisci. Ipsam officia delectus repudiandae, aperiam magnam blanditiis fuga similique.</p>
+                    <a href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // simple view switcher
+        const toggleviews = document.querySelector('.toggleviews')
+        const list = document.querySelector('.list')
+        const listClass = 'list--toggle'
+        const activeClass = 'toggleviews--active'
+        toggleviews.addEventListener('click', function() {
+            list.classList.toggle(listClass)
+            toggleviews.classList.toggle(activeClass)
+
+        })
+    </script>
+</body>
+
+</html>

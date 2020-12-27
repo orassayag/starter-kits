@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox center topnav</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Pacifico');
+        @import url('https://fonts.googleapis.com/css?family=Poppins');
+
+        body {
+            background-color: lightblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            padding-top: 8em;
+            background-color: rgba(100, 100, 100, 0.3);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 800px;
+            max-width: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            margin-top: 50px;
+            box-shadow: 0 0 1em black;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 10em;
+            font-size: 20vmin;
+            line-height: 1.5em;
+            font-family: 'Pacifico', cursive;
+        }
+
+        nav {
+            font-size: 1.3em;
+            position: fixed;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.99);
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            justify-content: space-around;
+        }
+
+        nav li {
+            padding: 1em;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        #wrapper {
+            background-color: rgba(255, 255, 255, 0.95);
+            width: 800px;
+            max-width: 100%;
+            min-height: 1000px;
+        }
+
+        section {
+            padding: 2em;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 800px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgba(0, 0, 0, 0.1);
+            margin-bottom: 5em;
+        }
+
+        footer h1 {
+            line-height: 3em;
+        }
+
+        p {
+            line-height: 2em;
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <nav>
+        <ul>
+            <a href="#">
+               <li>Home</li>
+            </a>
+            <a href="#">
+               <li>About</li>
+            </a>
+            <a href="#">
+               <li>Contact</li>
+            </a>
+        </ul>
+    </nav>
+    <header>
+        <div id="header">
+            <h1>Center</h1>
+        </div>
+    </header>
+    <div id="wrapper">
+        <section>
+            <p>Hello world. This is centered with flexbox. Main section and nav eliments. Naturally responsive without media queries. You can change the page color just by changing the body background.</p>
+        </section>
+    </div>
+    <footer>
+        <h1>Copyright</h1>
+    </footer>
+</body>
+
+</html>

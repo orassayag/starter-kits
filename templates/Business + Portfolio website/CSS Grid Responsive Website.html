@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Grid Responsive Website</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script type="text/javascript" src="https://kit.fontawesome.com/2163c37111.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all" />
+    <style type="text/css">
+        /* CSS Variables */
+        :root {
+            --primary: #ddd;
+            --dark: #333;
+            --light: #fff;
+            --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+        }
+
+        html {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serfi;
+            color: var(--dark);
+        }
+
+        body {
+            background: #ccc;
+            margin: 30px 50px;
+            line-height: 1.4;
+        }
+
+        .btn {
+            background: var(--dark);
+            color: var(--light);
+            padding: 0.6rem 1.3rem;
+            text-decoration: none;
+            border: 0;
+        }
+
+        img {
+            max-width: 100%
+        }
+
+        .wrapper {
+            display: grid;
+            grid-gap: 20px;
+        }
+
+        /* Navigation */
+        .main-nav ul {
+            display: grid;
+            grid-gap: 20px;
+            padding: 0;
+            list-style: none;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .main-nav a {
+            background: var(--primary);
+            display: block;
+            text-decoration: none;
+            padding: 0.8rem;
+            text-align: center;
+            color: var(--dark);
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .main-nav a:hover {
+            background: var(--dark);
+            color: var(--light);
+        }
+
+        /* Top Container */
+        .top-container {
+            display: grid;
+            grid-gap: 20px;
+            grid-template-areas:
+                'showcase showcase top-box-a'
+                'showcase showcase top-box-b';
+        }
+
+        /* Showcase */
+        .showcase {
+            grid-area: showcase;
+            min-height: 400px;
+            background: url('https://images.pexels.com/photos/160107/pexels-photo-160107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+            background-size: cover;
+            background-position: center;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            box-shadow: var(--shadow);
+        }
+
+        .showcase h1 {
+            font-size: 4rem;
+            margin-bottom: 0;
+            color: var(--light);
+        }
+
+        .showcase p {
+            font-size: 1.3rem;
+            margin-top: 0;
+            color: var(--light);
+        }
+
+        /* Top Box */
+        .top-box {
+            background: var(--primary);
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+        }
+
+        .top-box .price {
+            font-size: 2.5rem;
+        }
+
+        .top-box-a {
+            grid-area: top-box-a;
+        }
+
+        .top-box-b {
+            grid-area: top-box-b;
+        }
+
+        /* Boxes */
+        .boxes {
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .box {
+            background: var(--primary);
+            text-align: center;
+            padding: 1.5rem 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* Info */
+        .info {
+            background: var(--primary);
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 3rem;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .portfolio img {
+            width: 100%;
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 2rem;
+            background: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Media Queries */
+        @media(max-width: 700px) {
+            .top-container {
+                grid-template-areas:
+                    'showcase showcase'
+                    'top-box-a top-box-b'
+            }
+
+            .showcase h1 {
+                font-size: 2.5rem;
+            }
+
+            .main-nav ul {
+                grid-template-columns: 1fr;
+            }
+
+            .info {
+                grid-template-columns: 1fr;
+            }
+
+            .info .btn {
+                display: block;
+                text-align: center;
+                margin: auto;
+            }
+        }
+
+        @media(max-width: 500px) {
+            .top-container {
+                grid-template-areas:
+                    'showcase'
+                    'top-box-a'
+                    'top-box-b'
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wrapper">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <section class="top-container">
+            <header class="showcase">
+                <h1>Your Web Presence</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem dicta quidem! Numquam, quisquam iste.</p>
+                <a href="#" class="btn">Read More</a>
+            </header>
+            <div class="top-box top-box-a">
+                <h4>Membership</h4>
+                <p class="price">£199</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="top-box top-box-b">
+                <h4>Pro Membership</h4>
+                <p class="price">£299</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+        </section>
+        <section class="boxes">
+            <div class="box">
+                <i class="fas fa-chart-pie fa-4x" aria-hidden="true"></i>
+                <h3>Analytics</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, fugit.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-globe fa-4x" aria-hidden="true"></i>
+                <h3>Marketing</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, fugit.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-cog fa-4x" aria-hidden="true"></i>
+                <h3>Development</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, fugit.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-users fa-4x" aria-hidden="true"></i>
+                <h3>Support</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, fugit.</p>
+            </div>
+        </section>
+        <section class="info">
+            <img src="https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260" alt="" title="" />
+            <div>
+                <h2>Your Business On The Web</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, perferendis voluptate quasi aperiam eum tenetur aut, iste in provident vero dolore esse expedita assumenda a unde totam praesentium nam mollitia.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </section>
+        <section class="portfolio">
+            <img src="https://source.unsplash.com/random/200x200" alt="" title="" />
+            <img src="https://source.unsplash.com/random/201x200" alt="" title="" />
+            <img src="https://source.unsplash.com/random/202x200" alt="" title="" />
+            <img src="https://source.unsplash.com/random/203x200" alt="" title="" />
+            <img src="https://source.unsplash.com/random/204x200" alt="" title="" />
+            <img src="https://source.unsplash.com/random/205x200" alt="" title="" />
+            <img src="https://source.unsplash.com/random/206x200" alt="" title="" />
+            <img src="https://source.unsplash.com/random/207x200" alt="" title="" />
+            <img src="https://source.unsplash.com/random/208x200" alt="" title="" />
+        </section>
+        <footer>
+            <p>SJama © 2020</p>
+        </footer>
+    </div>
+</body>
+
+</html>

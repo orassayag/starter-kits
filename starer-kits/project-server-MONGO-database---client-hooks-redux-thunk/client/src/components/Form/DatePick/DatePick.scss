@@ -1,0 +1,63 @@
+.wrapper {
+    .date-pick {
+        display: flex;
+        flex-direction: row;
+
+        label {
+            padding-bottom: .65em;
+            font-size: 1em;
+            display: inline-block;
+            width: 12.5%;
+        }
+
+        input {
+            box-shadow: 0 0 1px;
+            width: 60%;
+            height: 3em;
+            background-color: #ffffff;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            border-color: #ffffff;
+            text-indent: 10px;
+            transition: border-color .4s ease-in-out;
+
+            &:focus {
+                border: 2px solid #46698b;
+            }
+        }
+
+        &.error {
+            input {
+                border: 2px solid red;
+
+                &:focus {
+                    border: 2px solid red;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 760px) {
+    .wrapper {
+        .date-pick {
+            text-align: left;
+            flex-direction: column;
+            display: block;
+
+            label {
+                width: 50%;
+                display: block;
+            }
+
+            .react-datepicker-wrapper {
+                display: block;
+            }
+
+            input {
+                text-align: left;
+            }
+        }
+    }
+}

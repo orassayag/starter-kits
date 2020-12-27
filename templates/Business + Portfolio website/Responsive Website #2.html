@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Website #2</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Yantramanav:300,400,500,700&amp;display=swap" />
+    <style type="text/css">
+        .body {
+            font-family: 'Yantramanav', sans-serif;
+            padding: 0;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-size: 16px;
+        }
+
+        /* General Styles */
+        .masthead {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            min-height: 700px;
+            background: repeating-linear-gradient(135deg, rgba(145, 145, 145, 0.02) 0px, rgba(145, 145, 145, 0.02) 39px, rgba(140, 140, 140, 0.02) 39px, rgba(140, 140, 140, 0.02) 57px, rgba(9, 9, 9, 0.02) 57px, rgba(9, 9, 9, 0.02) 91px, rgba(217, 217, 217, 0.02) 91px, rgba(217, 217, 217, 0.02) 119px, rgba(45, 45, 45, 0.02) 119px, rgba(45, 45, 45, 0.02) 141px, rgba(227, 227, 227, 0.02) 141px, rgba(227, 227, 227, 0.02) 184px, rgba(236, 236, 236, 0.02) 184px, rgba(236, 236, 236, 0.02) 227px, rgba(124, 124, 124, 0.02) 227px, rgba(124, 124, 124, 0.02) 244px), repeating-linear-gradient(135deg, rgba(39, 39, 39, 0.02) 0px, rgba(39, 39, 39, 0.02) 23px, rgba(2, 2, 2, 0.02) 23px, rgba(2, 2, 2, 0.02) 55px, rgba(13, 13, 13, 0.02) 55px, rgba(13, 13, 13, 0.02) 71px, rgba(44, 44, 44, 0.02) 71px, rgba(44, 44, 44, 0.02) 98px, rgba(240, 240, 240, 0.02) 98px, rgba(240, 240, 240, 0.02) 134px, rgba(182, 182, 182, 0.02) 134px, rgba(182, 182, 182, 0.02) 159px, rgba(246, 246, 246, 0.02) 159px, rgba(246, 246, 246, 0.02) 174px, rgba(157, 157, 157, 0.02) 174px, rgba(157, 157, 157, 0.02) 190px), repeating-linear-gradient(135deg, rgba(145, 145, 145, 0.02) 0px, rgba(145, 145, 145, 0.02) 35px, rgba(217, 217, 217, 0.02) 35px, rgba(217, 217, 217, 0.02) 53px, rgba(199, 199, 199, 0.02) 53px, rgba(199, 199, 199, 0.02) 70px, rgba(196, 196, 196, 0.02) 70px, rgba(196, 196, 196, 0.02) 114px, rgba(137, 137, 137, 0.02) 114px, rgba(137, 137, 137, 0.02) 143px, rgba(249, 249, 249, 0.02) 143px, rgba(249, 249, 249, 0.02) 191px, rgba(247, 247, 247, 0.02) 191px, rgba(247, 247, 247, 0.02) 239px, rgba(38, 38, 38, 0.02) 239px, rgba(38, 38, 38, 0.02) 273px), linear-gradient(90deg, rgb(69, 69, 69), rgb(3, 3, 3));
+        }
+
+        .container-1 {
+            width: 84%;
+            margin: auto;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            padding: 0px 0px 80px 0px;
+        }
+
+        .container-1--container-2 {
+            margin-top: 35px;
+            padding: 0;
+        }
+
+        .container-1--container-3 {
+            margin-top: 90px;
+            margin-bottom: 0px;
+            display: block;
+        }
+
+        .content__title {
+            text-transform: capitalize;
+            font: bold 32px Yantramanav;
+            text-align: center;
+            margin-top: 70px;
+            margin-bottom: 0;
+        }
+
+        .hr {
+            width: 60px;
+            height: 2px;
+            background-color: #f4363b;
+            border: 0;
+            margin-bottom: 50px;
+        }
+
+        /* Header */
+        .header {
+            width: 100%;
+            height: 80px;
+            position: fixed;
+            display: flex;
+        }
+
+        .navbar {
+            background: #d3d3d3;
+            width: 100%;
+        }
+
+        #check {
+            display: none;
+        }
+
+        .check-btn {
+            font-size: 25px;
+            color: #000;
+            float: right;
+            line-height: 80px;
+            margin-right: 40px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .brand {
+            color: #000;
+            font-size: 20px;
+            line-height: 80px;
+            padding: 0 60px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .brand__link {
+            color: #000;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+
+        .nav-wrapper {
+            float: right;
+            padding: 0;
+            margin: 0;
+            line-height: 80px;
+        }
+
+        .menu {
+            float: right;
+            padding: 0px;
+            margin: 0 20px 0 0;
+        }
+
+        .menu__item {
+            float: left;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .menu__link {
+            color: #000;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 7px 13px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .menu__link:hover {
+            color: #f4363b;
+        }
+
+        /* Masthead */
+        .col-left-1 {
+            width: 100%;
+            float: left;
+        }
+
+        .masthead__title {
+            margin-top: 200px;
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 50px;
+            font-weight: 900;
+        }
+
+        .masthead__paragraph {
+            width: 100%;
+            margin-top: 32px;
+            color: #fff;
+            line-height: 1.5em;
+        }
+
+        .col-right-1 {
+            color: #000;
+            margin-top: 150px;
+            margin-left: 7%;
+            width: 512px;
+            padding: 0;
+            height: 512px;
+        }
+
+        .container__img-1 {
+            height: 512px;
+            padding: 0;
+            width: 80%;
+        }
+
+        .btns {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 50px;
+        }
+
+        .btns__item {
+            display: inline-block;
+            border-radius: 3px;
+            margin-right: 20px;
+            line-height: 50px;
+        }
+
+        .btns__link {
+            background: #f4363b;
+            color: #fff;
+            font-size: 17px;
+            border-radius: 3px;
+            text-decoration: none;
+            padding: 14px 15px;
+            line-height: 50px;
+        }
+
+        .btns__link:hover {
+            border: 1px solid;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+            text-shadow: 1px 1px 2px #427388;
+        }
+
+        .btns__i {
+            font-size: 23px;
+            padding: 0;
+            line-height: 50px;
+        }
+
+        /* Features */
+        .col-left-2 {
+            float: left;
+            width: 50%;
+            margin-left: 0;
+        }
+
+        .features__title {
+            margin-top: 35px;
+            margin-bottom: 15px;
+            color: #000;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .features__paragraph {
+            width: 100%;
+            margin-top: 32px;
+            color: #000;
+            line-height: 24px;
+            margin-bottom: 0px;
+        }
+
+        .icons-features {
+            margin-bottom: 40px;
+            font-size: 25px;
+            height: 62px;
+        }
+
+        .icons-features__i {
+            margin: 0 20px 0 20px;
+            height: 50px;
+            width: 60px;
+            color: #000;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+            text-align: center;
+            border-radius: 50%;
+            border: 1px solid #f4363b;
+            float: left;
+            font-size: 40px;
+            padding-top: 10px;
+        }
+
+        .icons-features__title {
+            line-height: 62px;
+        }
+
+        .col-right-2 {
+            color: #000;
+            width: 50%;
+            padding: 0;
+            text-align: right;
+            height: 435px;
+            margin-top: -100px;
+        }
+
+        .container__img-2 {
+            width: 430px;
+            height: 430px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.13);
+            margin-right: 3px;
+        }
+
+        /* Screenshots */
+        .screenshots-img {
+            width: 100%;
+            height: 740px;
+            text-align: center;
+        }
+
+        .container__img-3 {
+            width: 640px;
+            height: 640px;
+            box-shadow: 0 50px 50px -40px #fbb8ba;
+        }
+
+        /* Social */
+        .icons-social {
+            padding: 5px;
+        }
+
+        .list-social {
+            text-align: center;
+            padding: 0;
+        }
+
+        .icons-social__item {
+            display: inline-block;
+            transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+        }
+
+        .icons-social__item:hover {
+            transform: rotate(10deg);
+            -webkit-transform: rotate(10deg);
+        }
+
+        .icons-social__link {
+            font-size: 23px;
+            color: #444442;
+            padding: 10px;
+        }
+
+        .icons-social__link:hover {
+            color: #f4363b;
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 40px;
+            color: #444442;
+            text-align: center;
+            background: #ececec;
+            margin: 0;
+        }
+
+        .container-footer__link {
+            color: #444442;
+            text-decoration: none;
+        }
+
+        .container-footer__link:hover {
+            color: #f4363b;
+        }
+
+        /* Media Queries */
+        @media (max-width: 1000px) {
+            .header {
+                height: 65px;
+            }
+
+            #check:checked~.nav-wrapper .menu {
+                left: 0;
+            }
+
+            .check-btn {
+                display: block;
+                line-height: 65px;
+            }
+
+            .brand {
+                line-height: 65px;
+                padding: 0 30px;
+                margin-left: 5px;
+            }
+
+            .menu {
+                position: fixed;
+                width: 100%;
+                height: 25vh;
+                background: #dfdfdf;
+                top: 60px;
+                left: -100%;
+                text-align: center;
+                transition: all .5s;
+            }
+
+            .menu__item {
+                display: block;
+                margin: 15px 0;
+                line-height: 15px;
+                float: none;
+            }
+
+            .menu__link {
+                font-size: 14px;
+            }
+
+            .masthead {
+                width: 100%;
+                padding: 0;
+                text-align: center;
+                float: none;
+                display: block;
+            }
+
+            .container-1 {
+                display: block;
+                text-align: center;
+            }
+
+            .col-left-1 {
+                float: none;
+                width: 100%;
+                margin-top: -10px;
+            }
+
+            .btns {
+                width: 100%;
+                margin-bottom: 45px;
+            }
+
+            .btns__item {
+                display: block;
+                margin: 30px 0px;
+                width: 99.7%;
+            }
+
+            .btns__link {
+                width: 100%;
+                display: block;
+                padding: 0;
+            }
+
+            .col-right-1 {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 170px;
+                text-align: center;
+            }
+
+            .container__img-1 {
+                width: 260px;
+                height: 512px;
+            }
+
+            .container-1--container-2 {
+                display: block;
+            }
+
+            .col-left-2 {
+                width: 100%;
+                float: none;
+            }
+
+            .features__title {
+                margin-bottom: 15px;
+                text-align: left;
+            }
+
+            .features__paragraph {
+                text-align: left;
+            }
+
+            .icons-features__title {
+                width: 100%;
+                text-align: left;
+            }
+
+            .col-right-2 {
+                width: 100%;
+                text-align: center;
+                margin-top: 70px;
+                margin-bottom: 0;
+                height: 640px;
+            }
+
+            .container__img-2 {
+                width: 640px;
+                height: 635px;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .col-right-2 {
+                height: 490px;
+            }
+
+            .container__img-2 {
+                width: 485px;
+                height: 485px;
+            }
+
+            .screenshots-img {
+                height: 558px;
+            }
+
+            .container__img-3 {
+                width: 485px;
+                height: 485px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .header {
+                height: 60px;
+            }
+
+            .check-btn {
+                font-size: 20px;
+                line-height: 60px;
+                margin-right: 20px;
+            }
+
+            .brand {
+                font-size: 17px;
+                line-height: 60px;
+                padding: 0 20px;
+            }
+
+            .content__title {
+                margin-top: 35px;
+                font-size: 26px;
+            }
+
+            .col-left-1 {
+                margin-top: -60px;
+            }
+
+            .col-right-1 {
+                display: none;
+            }
+
+            .btns__item {
+                margin: 15px 0px;
+                width: 99.5%;
+            }
+
+            .features__title {
+                margin-top: 0;
+                font-size: 20px;
+                margin-bottom: 7.5px;
+            }
+
+            .features__paragraph {
+                margin-top: 16px;
+                margin-bottom: -20px;
+            }
+
+            .icons-features {
+                margin-bottom: 20px;
+                font-size: 20px;
+            }
+
+            .col-right-2 {
+                margin-top: 35px;
+                height: 300px;
+            }
+
+            .container__img-2 {
+                width: 295px;
+                height: 295px;
+            }
+
+            .container-1--container-3 {
+                margin-top: 55px;
+            }
+
+            .screenshots-img {
+                height: 347px;
+            }
+
+            .container__img-3 {
+                width: 300px;
+                height: 300px;
+            }
+
+            .icons-social {
+                padding: 0;
+            }
+
+            .footer {
+                padding: 32px;
+            }
+
+            .container-footer {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-height: 450px) {
+            .menu {
+                height: 100vh;
+            }
+
+            .menu__item {
+                margin: 15px 0;
+                line-height: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no" class="body">
+    <header class="header">
+        <nav class="navbar">
+            <input type="checkbox" id="check" />
+            <label for="check" class="check-btn"><i class="check-btn__i fas fa-bars"></i></label>
+            <label class="brand"><a class="brand__link" href="#">BRAND</a></label>
+            <div class="nav-wrapper">
+                <ul class="menu">
+                    <li class="menu__item"><a class="menu__link" href="#home-section">Home</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#features-section">Features</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#screenshots-section">Screenshots</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="masthead" id="home-section">
+        <div class="container-1">
+            <div class="col-left-1">
+                <h2 class="masthead__title">An Amazing App is Waiting For You.</h2>
+                <p class="masthead__paragraph">Lorem ipsum dolor sit amet, elementum curabitur ac vel lacus vulputat vivamus tellus ante rutrum dictum. Risus morbi eros etiam vel,sit nulla.</p>
+                <br>
+                <ul class="btns">
+                    <li class="btns__item"><a class="btns__link" href="#">Download <small>&nbsp;&nbsp;</small><i class="btns__i fab fa-android"></i></a></li>
+                    <li class="btns__item"><a class="btns__link" href="#">Download <small>&nbsp;&nbsp;&nbsp;&nbsp;</small><i class="btns__i fab fa-apple"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-right-1">
+                <img src="https://i.ibb.co/R9ZRtnz/img-1-640.png" class="container__img-1" alt="" title="" />
+            </div>
+        </div>
+    </section>
+    <section class="features" id="features-section">
+        <div class="content">
+            <h3 class="content__title">Features</h3>
+            <hr class="hr">
+        </div>
+        <div class="container-1 container-1--container-2">
+            <div class="col-left-2">
+                <h2 class="features__title">Lorem ipsum</h2>
+                <p class="features__paragraph">Lorem ipsum dolor sit amet, elementum curabitur ac vel lacus vulputat vivamus tellus ante rutrum dictum. Risus morbi eros etiam vel,sit nulla. Consectetur adipiscing elit donec varius auctor lacus nec feugiat.
+                    Lorem ipsum dolor sit amet, elementum curabitur ac vel lacus vulputat vivamus tellus ante rutrum dictum. Risus morbi eros etiam vel,sit nulla. Consectetur adipiscing elit donec varius auctor lacus nec feugiat.feugiat.
+                </p>
+                <br>
+                <div class="icons-features">
+                    <i class="fab fa-android  icons-features__i"></i>
+                    <h5 class="icons-features__title">Android application</h5>
+                </div>
+                <div class="icons-features">
+                    <i class="fab fa-apple icons-features__i"></i>
+                    <h5 class="icons-features__title">For Apple iOs</h5>
+                </div>
+                <div class="icons-features">
+                    <i class="fab fa-windows icons-features__i"></i>
+                    <h5 class="icons-features__title">Windows version</h5>
+                </div>
+                <div class="icons-features">
+                    <i class="fab fa-linux icons-features__i"></i>
+                    <h5 class="icons-features__title">Available for Linux</h5>
+                </div>
+            </div>
+            <div class="col-right-2">
+                <img src="https://i.ibb.co/hyP8DrB/img-2-640.jpg" class="container__img-2" alt="" title="" />
+            </div>
+        </div>
+    </section>
+    <section class="screenshots" id="screenshots-section">
+        <div class="content">
+            <h3 class="content__title">Screenshots</h3>
+            <hr class="hr">
+        </div>
+        <div class="container-1 container-1--container-2 container-1--container-3">
+            <div class="screenshots-img">
+                <img src="https://i.ibb.co/ZNHJSy9/img-3-640.jpg" class="container__img-3" alt="" title="" />
+            </div>
+            <div class="screenshots-img">
+                <img src="https://i.ibb.co/Y2dk3xV/img-4-640.jpg" class="container__img-3" alt="" title="" />
+            </div>
+            <div class="screenshots-img">
+                <img src="https://i.ibb.co/hyjTvH2/img-5-640.jpg" class="container__img-3" alt="" title="" />
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="icons-social">
+            <ul class="list-social">
+                <li class="icons-social__item"><a class="icons-social__link" href="#"><i class="icons-social__i fab fa-codepen"></i></a></li>
+                <li class="icons-social__item"><a class="icons-social__link" href="#"><i class="icons-social__i fab fa-instagram"></i></a></li>
+                <li class="icons-social__item"><a class="icons-social__link" href="#"><i class="icons-social__i fab fa-facebook"></i></a></li>
+                <li class="icons-social__item"><a class="icons-social__link" href="#"><i class="icons-social__i fab fa-twitter"></i></a></li>
+                <li class="icons-social__item"><a class="icons-social__link" href="#"><i class="icons-social__i fab fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+        <div class="container-footer">
+            <p>Develop by <a class="container-footer__link" href="#" target="_blank">Yulian Brito</a> | Copyright © 2020</p>
+        </div>
+    </footer>
+</body>
+
+</html>

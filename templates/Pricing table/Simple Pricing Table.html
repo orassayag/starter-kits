@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Pricing Table</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* Fonts */
+        @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+        /* icons */
+        @import url('http://weloveiconfonts.com/api/?family=iconicfill');
+
+        /* iconicfill */
+        [class*="iconicfill-"]:before {
+            font-family: 'IconicFill', sans-serif;
+        }
+
+        /* Simple Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* body */
+        body {
+            background: #f7f7f7;
+            color: #fff;
+            font: 400 87.5%/1.5em 'Lato', sans-serif;
+        }
+
+        /* layout */
+        .wrapper {
+            max-width: 1140px;
+            margin: 1.5em auto;
+            padding: 0 1.5em;
+        }
+
+        .pricing-table-wrapper {
+            margin-left: -3%;
+            max-width: 105%;
+        }
+
+        .pricing-table {
+            background: #fff;
+            border-radius: 6px;
+            border: 1px solid #e8e8e8;
+            border-bottom: 2px solid #e8e8e8;
+            display: inline-block;
+            margin-bottom: 1.5em;
+            margin-left: 3%;
+            margin-right: -.25em;
+            min-height: 200px;
+            overflow: hidden;
+            vertical-align: top;
+            width: 30.38%;
+        }
+
+        /* header */
+        .pricing-table-header {
+            background: #565656;
+            text-align: center;
+        }
+
+        .pricing-table-header h1 {
+            color: #fff;
+            font-size: 1.4em;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            padding: 40px 0;
+        }
+
+        .pricing-table-header h2 {
+            background: #fAb58e;
+            color: #fff;
+            font-size: 1em;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            line-height: 50px;
+            height: 50px;
+            text-transform: uppercase;
+        }
+
+        .popular h1 {
+            padding: 40px 0 10px;
+        }
+
+        .popular .sub {
+            color: #c4c4c4;
+            text-transform: uppercase;
+            padding-bottom: 24px;
+            display: block;
+        }
+
+        .strike {
+            color: #447f5e;
+            text-decoration: line-through;
+        }
+
+        /* list */
+        .pricing-table-content {
+            background: #fffcf7;
+            border: 1px solid #e2e1dc;
+            border-bottom-right-radius: 6px;
+            border-bottom-left-radius: 6px;
+            border-top: 0;
+            margin: 0 2em 2em;
+        }
+
+        .pricing-table-content li {
+            line-height: 1.5;
+            padding: 0.75em 0;
+            width: 100%;
+        }
+
+        .iconicfill-check {
+            color: #fAb58e;
+            padding: 0 1em 0 1.5em;
+            margin: 0;
+        }
+
+        .pricing-details {
+            color: #3a3937;
+            font-size: 1.1em;
+            line-height: 3em;
+            list-style: none;
+            padding: 1em 0;
+        }
+
+        /* button */
+        .signup {
+            background: #fAb58e;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            cursor: pointer;
+            display: block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9em;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin: 0 auto 2.250em;
+            padding: 15px 0;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            width: 88%;
+        }
+
+        /* plan colors */
+        .pricing-half-yearly h2,
+        .pricing-half-yearly .signup {
+            background: #db9dea !important;
+        }
+
+        .pricing-half-yearly .pricing-details {
+            background: #fff7fc;
+        }
+
+        .pricing-half-yearly .iconicfill-check {
+            color: #db9dea;
+        }
+
+        .pricing-yearly h2,
+        .pricing-yearly .signup {
+            background: #83cea7;
+        }
+
+        .pricing-yearly .pricing-details {
+            background: #f8fefa;
+        }
+
+        .pricing-yearly .iconicfill-check {
+            color: #83cea7;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .pricing-table-wrapper {
+                margin-left: 0;
+                max-width: none;
+            }
+
+            .pricing-table {
+                display: block;
+                margin-left: 0;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wrapper">
+        <div class="pricing-table-wrapper">
+            <div class="pricing-table pricing-monthly">
+                <div class="pricing-table-header">
+                    <h1>Unlimited <strong>Monthly</strong></h1>
+                    <h2><strong>Only $34.00</strong> / month</h2>
+                </div>
+                <div class="pricing-table-content">
+                    <ul class="pricing-details">
+                        <li class="pricing-list"><span class="iconicfill-check"></span>Get Unlimited Downloads!</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>No Download Caps</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>All 100% Royalty Free</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>No Contract / Cancel Anytime</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>Unbeatable Customer Support</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>20 - 30 New Uploads Monthly</li>
+                    </ul>
+                    <button class="signup" href="#">Choose This Plan</button>
+                </div>
+            </div>
+            <div class="pricing-table pricing-half-yearly">
+                <div class="pricing-table-header">
+                    <h1>Unlimited <strong>Half Yearly</strong></h1>
+                    <h2><strong>Only $79.00</strong> / 6 months</h2>
+                </div>
+                <div class="pricing-table-content">
+                    <ul class="pricing-details">
+                        <li class="pricing-list"><span class="iconicfill-check"></span>Get Unlimited Downloads!</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>No Download Caps</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>All 100% Royalty Free</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>No Contract / Cancel Anytime</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>Unbeatable Customer Support</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>20 - 30 New Uploads Monthly</li>
+                    </ul>
+                    <button class="signup" href="#">Choose This PlaN</button>
+                </div>
+            </div>
+            <div class="pricing-table pricing-yearly popular">
+                <div class="pricing-table-header">
+                    <h1>Unlimited <strong>Yearly</strong></h1>
+                    <span class="sub">Most Popular</span>
+                    <h2><strong>Only <span class="strike">$149.99</span> $99.00</strong> / year</h2>
+                </div>
+                <div class="pricing-table-content">
+                    <ul class="pricing-details">
+                        <li class="pricing-list"><span class="iconicfill-check"></span>Get Unlimited Downloads!</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>No Download Caps</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>All 100% Royalty Free</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>No Contract / Cancel Anytime</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>Unbeatable Customer Support</li>
+                        <li class="pricing-list"><span class="iconicfill-check"></span>20 - 30 New Uploads Monthly</li>
+                    </ul>
+                    <button class="signup" href="#">Choose This Plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

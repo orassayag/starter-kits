@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox blog style articles</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            background: #2e2e2e;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        header {
+            background: white;
+            color: black;
+            padding: 2rem 0;
+        }
+
+        header .container {
+            margin: 0 auto;
+        }
+
+        @media screen and (max-width: 1280px) {
+            header {
+                padding: 2rem;
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 2rem auto;
+        }
+
+        @media screen and (max-width: 1280px) {
+            .container {
+                margin-top: 0;
+            }
+
+            .container>.module {
+                margin-bottom: 1px;
+            }
+
+            .container>.module:nth-child(2n + 2) .split-left {
+                order: 2;
+            }
+        }
+
+        @media screen and (max-width: 52em) {
+            .container>.module:nth-child(2n + 2) .split-left {
+                order: 0;
+            }
+        }
+
+        .module {
+            background: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 600px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            transition: all 0.08s ease-in-out;
+        }
+
+        .module:hover {
+            box-shadow: 0px 18px 36px rgba(0, 0, 0, 0.35), 0px 0px 20px rgba(0, 0, 0, 0.06);
+            transform: scale(1.01);
+        }
+
+        .module .spr-header h2 {
+            font-size: 2rem;
+        }
+
+        @media screen and (max-width: 32em) {
+            .module .spr-header h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        .module .module--content {
+            padding: 0.6rem 1rem 1.5rem 1rem;
+            max-width: 480px;
+        }
+
+        .module>div {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .module.split-module>div {
+            width: 50%;
+        }
+
+        .module.split-module .split-left {
+            background: url('https://placeimg.com/800/800/animals');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 100% 50%;
+            box-shadow: 3px 3px 17px rgba(0, 0, 0, 0.45);
+        }
+
+        @media screen and (max-width: 52em) {
+            .module.split-module>div {
+                width: 100%;
+                flex: 1 1 100%;
+            }
+
+            .module.split-module .split-left {
+                min-height: 450px;
+            }
+        }
+
+        @media screen and (max-width: 32em) {
+            .module.split-module .split-left {
+                min-height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header>
+        <div class="container">
+            <p>
+                <strong>Blog style</strong> articles
+            </p>
+        </div>
+    </header>
+    <section class="container">
+        <article class="module split-module">
+            <div class="split-left"></div>
+            <div class="split-right">
+                <div class="module--content">
+                    <div class="spr-header">
+                        <h2 class="">Lorem ipsum dolor sit amet?</span></h2>
+                    </div>
+                    <p>Integer eget dolor vel dolor ullamcorper placerat quis ut dui. Quisque elit ante, tincidunt non tortor in, tristique tristique diam. Pellentesque lectus arcu, ullamcorper ut libero non, facilisis rutrum dui. Vivamus hendrerit, arcu vitae luctus
+                        consequat, sem justo iaculis massa, a condimentum ipsum justo ut felis.
+                    </p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. Aenean nisi purus, sodales eu neque in, dignissim scelerisque tellus. Etiam tempus nec tellus non vestibulum.</p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. Aenean nisi purus, sodales eu neque in, dignissim scelerisque tellus.</p>
+                </div>
+            </div>
+        </article>
+        <article class="module split-module">
+            <div class="split-left"></div>
+            <div class="split-right">
+                <div class="module--content">
+                    <div class="spr-header">
+                        <h2 class="">Lorem ipsum dolor sit amet?</span></h2>
+                    </div>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. Aenean nisi purus, sodales eu neque in, dignissim scelerisque tellus.</p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. , sodales eu neque in, dignissim scelerisque tellus.</p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla.Aenean nisi mirisao prdez.</p>
+                </div>
+            </div>
+        </article>
+        <article class="module split-module">
+            <div class="split-left"></div>
+            <div class="split-right">
+                <div class="module--content">
+                    <div class="spr-header">
+                        <h2 class="">Lorem ipsum dolor sit amet?</span></h2>
+                    </div>
+                    <p>Integer eget dolor vel dolor ullamcorper placerat quis ut dui. Quisque elit ante, tincidunt non tortor in, tristique tristique diam. Pellentesque lectus arcu, ullamcorper ut libero non, facilisis rutrum dui. Vivamus hendrerit, arcu vitae luctus
+                        consequat, sem justo iaculis massa, a condimentum ipsum justo ut felis.
+                    </p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. Aenean nisi purus, sodales eu neque in, dignissim scelerisque tellus. Etiam tempus nec tellus non vestibulum.</p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. Aenean nisi purus, sodales eu neque in, dignissim scelerisque tellus.</p>
+                </div>
+            </div>
+        </article>
+        <article class="module split-module">
+            <div class="split-left"></div>
+            <div class="split-right">
+                <div class="module--content">
+                    <div class="spr-header">
+                        <h2 class="">Lorem ipsum dolor sit amet?</span></h2>
+                    </div>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. Aenean nisi purus, sodales eu neque in, dignissim scelerisque tellus.</p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. , sodales eu neque in, dignissim scelerisque tellus.</p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla.Aenean nisi mirisao prdez.</p>
+                </div>
+            </div>
+        </article>
+        <article class="module split-module">
+            <div class="split-left"></div>
+            <div class="split-right">
+                <div class="module--content">
+                    <div class="spr-header">
+                        <h2 class="">Lorem ipsum dolor sit amet?</span></h2>
+                    </div>
+                    <p>Integer eget dolor vel dolor ullamcorper placerat quis ut dui. Quisque elit ante, tincidunt non tortor in, tristique tristique diam. Pellentesque lectus arcu, ullamcorper ut libero non, facilisis rutrum dui. Vivamus hendrerit, arcu vitae luctus
+                        consequat, sem justo iaculis massa, a condimentum ipsum justo ut felis.
+                    </p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. Aenean nisi purus, sodales eu neque in, dignissim scelerisque tellus. Etiam tempus nec tellus non vestibulum.</p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. Aenean nisi purus, sodales eu neque in, dignissim scelerisque tellus.</p>
+                </div>
+            </div>
+        </article>
+        <article class="module split-module">
+            <div class="split-left"></div>
+            <div class="split-right">
+                <div class="module--content">
+                    <div class="spr-header">
+                        <h2 class="">Lorem ipsum dolor sit amet?</span></h2>
+                    </div>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. Aenean nisi purus, sodales eu neque in, dignissim scelerisque tellus.</p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla. Cras quis consectetur risus. , sodales eu neque in, dignissim scelerisque tellus.</p>
+                    <p>Pellentesque non nisi quis ex malesuada auctor id mollis nulla.Aenean nisi mirisao prdez.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+</body>
+
+</html>

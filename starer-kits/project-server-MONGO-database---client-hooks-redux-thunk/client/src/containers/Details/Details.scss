@@ -1,0 +1,125 @@
+.details-body {
+    background-color: #fafafa;
+    min-height: 830px;
+    height: 100%;
+    width: 100%;
+
+    .loader-container {
+        padding-top: 3%;
+    }
+
+    .details-area {
+        padding-top: 1%;
+
+        .details-content {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            li {
+                padding: 20px;
+                padding-top: 0px;
+            }
+
+            .details-left {
+                position: relative;
+                background-size: 100% 100%;
+                width: 300px;
+                height: 400px;
+            }
+
+            .details-right {
+                h2 {
+                    font-size: 1.3em;
+                }
+
+                .genres {
+                    font-size: 14px;
+                }
+
+                .description {
+                    max-width: 800px;
+                    line-height: 1.5;
+                    text-align: left;
+                    padding-left: 0;
+
+                    &.short {
+                        font-size: 13px;
+                        height: 20px;
+                        overflow: hidden;
+                    }
+
+                    &.full {
+                        display: block;
+                        overflow: hidden;
+                        height: 120px;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                    }
+                }
+
+                .extra {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+            }
+        }
+
+        .extra-features {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 1%;
+        }
+    }
+}
+
+@media (max-width: 1160px) {
+    .details-body {
+        .details-area {
+            .details-content {
+                .extra {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .details-body {
+        .details-area {
+            .details-content {
+                li {
+                    padding-top: 5vh;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .details-body {
+        .details-area {
+            margin-top: 5%;
+        }
+    }
+}
+
+.actors-area,
+.crew-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.crew-area {
+    background-color: #fafafa;
+}

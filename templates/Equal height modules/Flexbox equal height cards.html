@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox equal height cards</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        #card-lists {
+            font-family: arial;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #card-lists .card {
+            width: 19.7368%;
+            border: 1px solid #ccc;
+            display: flex;
+            margin-left: 1.75438%;
+            overflow: hidden;
+        }
+
+        #card-lists .card:first-child {
+            margin-left: 0;
+        }
+
+        #card-lists .card figure {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+
+        #card-lists .card figure img {
+            width: 100%;
+            height: auto;
+        }
+
+        #card-lists .card figure figcaption {
+            padding: 10px;
+            margin: 0;
+            display: block;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section id="card-lists">
+        <div class="card">
+            <figure>
+                <img src="https://picsum.photos/500/300/?random" alt="" title="" />
+                <figcaption>
+                    <h3>Hello World</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec dictum erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec dictum erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec dictum erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    </p>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="card">
+            <figure>
+                <img src="https://picsum.photos/500/300/?random" alt="" title="" />
+                <figcaption>
+                    <h3>Hello World</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="card">
+            <figure>
+                <img src="https://picsum.photos/500/300/?random" alt="" title="" />
+                <figcaption>
+                    <h3>Hello World</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec dictum erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Donec nec dictum erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    </p>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="card">
+            <figure>
+                <img src="https://picsum.photos/500/300/?random" alt="" title="" />
+                <figcaption>
+                    <h3>Hello World</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec dictum erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Donec nec dictum erat. Class aptent taciti sociosqu ad litora torquent per conubia
+                    </p>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+</body>
+
+</html>

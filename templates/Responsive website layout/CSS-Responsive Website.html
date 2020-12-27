@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>CSS-Responsive Website</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style type="text/css">
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        #topBar {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 24px;
+            padding: sticky;
+        }
+
+        #imgLogo {
+            width: 40px;
+            height: 40px;
+        }
+
+        #DDL:hover #DDL-List {
+            display: block;
+        }
+
+        #DDL-List {
+            position: absolute;
+            border-top: 2px solid rgb(170, 210, 54);
+            background-color: white;
+            box-shadow: 0 2px 5px #ccc;
+            display: none;
+        }
+
+        .DDLItem {
+            display: block;
+            border-bottom: 1px solid #aaa;
+            margin: 8px;
+            padding: 10px;
+        }
+
+        .DDLItem:last-of-type {
+            border-bottom: none;
+        }
+
+        .menu-item {
+            display: inline-block;
+            list-style-type: none;
+            color: black;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 16px;
+        }
+
+        .menu-item .fa {
+            font-size: 15px;
+        }
+
+        #btnBuyNow {
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            background-color: rgb(170, 210, 54);
+            padding: 9px 34px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            margin-top: -30px;
+        }
+
+        #imgLanding {
+            width: 100%;
+        }
+
+        #landingSection {
+            height: 550px;
+        }
+
+        #divHeading {
+            font-family: 'Poppins', sans-serif;
+            font-size: 44px;
+            font-weight: 600;
+            letter-spacing: 8.8px;
+            line-height: 1.2;
+            position: absolute;
+            top: 250px;
+            width: 900px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        #divDescription {
+            font-family: 'Poppins', sans-serif;
+            font-feature-settings: 14px;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+            color: #8b8b99;
+            position: absolute;
+            top: 400px;
+            width: 1110px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        #Section2,
+        #Feedback-Sec {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: stretch;
+        }
+
+        .Scale {
+            height: 550px;
+            width: 25%;
+            padding: 100px 48px;
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        #item1 {
+            background-color: #5acda6;
+        }
+
+        #item2 {
+            background-color: #91ac41;
+        }
+
+        #item3 {
+            background-color: #e4b476;
+        }
+
+        #item4 {
+            background-color: #5acda6;
+        }
+
+        #Section2 .fa {
+            font-size: 96px;
+            color: white;
+        }
+
+        .items {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 24px;
+            color: white;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+
+        .items-descrp {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+            color: white;
+        }
+
+        .Scale:hover .fa {
+            transform: scale(1.5);
+        }
+
+        #Section3 {
+            background-color: #f7eee2;
+            width: 100%;
+        }
+
+        .sectionHeader {
+            padding-top: 70px;
+            text-align: center;
+        }
+
+        #divFoodContainer,
+        #Card-Contnr {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: stretch;
+        }
+
+        .divFood {
+            height: 500px;
+            width: 25%;
+            padding: 100px 48px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        #Section3 .fa {
+            background-color: #e3b375;
+            font-size: 60px;
+            color: white;
+            padding: 48px;
+            border-radius: 80px;
+        }
+
+        #Section3 .fa:hover {
+            transform: scale(1.1);
+        }
+
+        .foodHeading {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .foodDescription {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #8b8b99;
+        }
+
+        .freshFoodText {
+            color: #91ac41;
+            font-size: 24px;
+            font-family: 'Caveat', cursive;
+            margin: 0;
+            margin-top: 35px;
+        }
+
+        .headingVeganStore {
+            font-family: 'Poppins', sans-serif;
+            font-size: 44px;
+            font-weight: 600;
+        }
+
+        .storeDescription {
+            font-size: 16px;
+            font-weight: 500;
+            color: #8b8b99;
+            letter-spacing: 0.5px;
+        }
+
+        #storeDesc {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        #Card-Contnr {
+            margin: 70px 100px;
+        }
+
+        .Card {
+            height: 350px;
+            width: 25%;
+            text-align: center;
+            box-sizing: border-box;
+            background-color: #f5f6fb;
+            border-top-left-radius: 45px;
+            border-bottom-left-radius: 45px;
+            border-bottom-right-radius: 45px;
+            padding: 40px;
+            margin-left: 30px;
+        }
+
+        .Card-img {
+            border-radius: 50%;
+            Width: 80px;
+        }
+
+        .Card-discrptn {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            font-style: Italic;
+            color: #8b8b99;
+            height: 110px;
+        }
+
+        .Card-auth {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 0px;
+        }
+
+        .Sub-auth {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #8b8b99;
+            font-style: Italic;
+        }
+
+        #Section5 {
+            width: 100%;
+            height: 550px;
+        }
+
+        #Strwbry-img {
+            width: 65%;
+            display: inline-block;
+            height: 550px;
+        }
+
+        #img-camp {
+            width: 100%;
+            height: 550px;
+        }
+
+        #Followus-div {
+            display: inline-block;
+            width: 33%;
+            vertical-align: top;
+            background-image: url('https://firebasestorage.googleapis.com/v0/b/demoapi-43d03.appspot.com/o/strawberry-white.png?alt=media');
+            background-repeat: no-repeat;
+            padding: 100px;
+            box-sizing: border-box;
+            background-size: cover;
+            height: 600px;
+        }
+
+        #Email {
+            margin-top: 20px;
+            background-color: white;
+            padding: 16px;
+            width: 150px;
+            border: 1px solid white;
+            border-radius: 2px;
+        }
+
+        #Sub-btn {
+            background-color: #f69dad;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            margin-bottom: 0px;
+        }
+
+        #Followus-title {
+            font-size: 44px;
+            font-weight: bold;
+            margin-top: -10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #FollowUs-desc {
+            font-size: 18px;
+            color: #aaa;
+        }
+
+        #Sub-btn:hover {
+            border: 1px solid #f69dad;
+            color: #f69dad;
+            background-color: white;
+        }
+
+        #Feedback-Sec {
+            background-color: #f6fcfa;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .feedback-detail {
+            width: 25%;
+            padding: 100px 48px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .feedback-detail div {
+            font-weight: bold;
+            font-size: 32px;
+        }
+
+        .feedback-detail p {
+            font-style: italic;
+            font-size: 14px;
+            color: #57e3b5;
+        }
+
+        #Section7 {
+            text-align: center;
+        }
+
+        #video-title {
+            color: #8b8b99;
+            font-size: 44px;
+            font-weight: 400;
+            margin-top: 45px;
+            margin-bottom: 45px;
+        }
+
+        #blank-line {
+            background-color: #e4b476;
+            width: 100px;
+            margin-bottom: 30px;
+        }
+
+        video {
+            margin-bottom: 80px;
+        }
+
+        /* Code for Section-8 */
+        #Section8 {
+            width: 100%;
+            height: 700px;
+            display: flex;
+        }
+
+        #Address-section {
+            margin-top: -10px;
+            width: 45%;
+            text-align: left;
+        }
+
+        #Signup-Section {
+            margin-top: -10px;
+            width: 45%;
+            text-align: right;
+            vertical-align: top;
+            padding-left: 100px;
+        }
+
+        .Cntact-info {
+            color: #91ac41;
+            font-size: 24px;
+            font-family: 'Caveat', cursive;
+            margin: 0px;
+            margin-top: 35px;
+            text-align: left;
+            padding-left: 80px;
+        }
+
+        .contact-heading {
+            font-size: 44px;
+            font-weight: 600;
+            text-align: left;
+            padding-left: 80px;
+        }
+
+        .contact-descp {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            Color: #8b8b99;
+            text-align: left;
+            padding-left: 80px;
+        }
+
+        .Address-title {
+            font-size: 24px;
+            font-weight: 600;
+            padding-top: 60px;
+            padding-left: 80px;
+        }
+
+        .Address-desc {
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            Color: #8b8b99;
+            width: 270px;
+            padding-left: 80px;
+        }
+
+        .Signup-info {
+            color: #91ac41;
+            font-size: 24px;
+            font-family: 'Caveat', cursive;
+            margin: 0px;
+            margin-top: 35px;
+            text-align: left;
+            padding-left: 25;
+        }
+
+        .Signup-heading {
+            font-size: 44px;
+            font-weight: 600;
+            text-align: left;
+            padding-left: 25;
+        }
+
+        .Signup-descp {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            Color: #8b8b99;
+            text-align: left;
+            padding-left: 25;
+        }
+
+        #Signup-field {
+            padding-top: 20px;
+            padding-bottom: 40px;
+            padding-left: 25;
+            padding-right: 88px;
+            width: 70px;
+        }
+
+        .Signup-item {
+            font-size: 18px;
+            padding-bottom: 7px;
+            margin-bottom: 16px;
+            border-color: 1px solid grey;
+            display: block;
+            width: 400px;
+            height: 50px;
+            padding-left: 10px;
+        }
+
+        #message {
+            height: 60px;
+            padding-top: none;
+            color: #8b8b99;
+        }
+
+        #Submit {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            background-color: rgb(170, 210, 54);
+            padding: 9px 34px;
+            border-radius: 4px;
+            border: none;
+            height: 50px;
+        }
+
+        /* Code End for Section-8 */
+        #divFooter {
+            background-color: #232323;
+            text-align: center;
+            padding: 48px;
+            color: white;
+        }
+
+        @media screen and (max-width:720px) {
+            .menu-link {
+                display: none;
+            }
+
+            #imgLanding {
+                height: 550px;
+            }
+
+            #divHeading {
+                font-size: 24px;
+                letter-spacing: 2.8px;
+                width: 400px;
+            }
+
+            #divDescription {
+                font-size: 12px;
+                letter-spacing: 0.2px;
+                width: 400px;
+            }
+
+            .Scale,
+            .feedback-detail,
+            .divFood,
+            .feedback-detail,
+            .Followus {
+                width: 100%;
+                display: block;
+            }
+
+            #Section2,
+            #Section3 #divFoodContainer,
+            #Section5,
+            #Feedback-Sec,
+            #Section8 {
+                flex-direction: column;
+            }
+
+            #Feedback-Sec {
+                margin-top: 550px;
+            }
+
+            #Card-Contnr {
+                flex-direction: column;
+                margin: 20px 5px;
+            }
+
+            .divFood {
+                height: 350px;
+                padding: 50px;
+            }
+
+            .Card {
+                width: 95%;
+                display: block;
+                margin: 10px;
+            }
+
+            video {
+                width: 100%;
+            }
+
+            #Strwbry-img {
+                width: 100%;
+                height: 550px;
+                display: block;
+            }
+
+            #Followus-div {
+                width: 100%;
+                height: 550px;
+                display: block;
+                padding: 10px;
+                position: relative;
+            }
+
+            #Address-section {
+                width: 100%;
+                display: block;
+                height: 700px;
+            }
+
+            #Signup-Section {
+                width: 100%;
+                display: block;
+                height: 700px;
+            }
+
+            #divFooter {
+                margin-top: 700px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <main>
+        <section>
+            <nav id="topBar">
+                <div><img src="https://mobirise.com/extensions/organicamp/assets/images/logo1.jpg" id="imgLogo" alt="Logo" title="Logo" /></div>
+                <div>
+                    <ul>
+                        <li class="menu-item menu-link">
+                     <div id="DDL">
+                        <a>Demo Pages</a> <i class="fa fa-caret-down"></i>
+                        <div id="DDL-List">
+                           <a Class="DDLItem">Menu Item 1</a>
+                           <a Class="DDLItem">Menu Item 1</a>
+                           <a Class="DDLItem">Menu Item 1</a>
+                        </div>
+                     </div>
+                  </li>
+                        <li class="menu-item menu-link">Watch video</li>
+                        <li class="menu-item menu-link">Blocks <i class="fa fa-caret-down"></i></li>
+                        <li class="menu-item"><input type="button" id="btnBuyNow" value="BUY NOW" /></li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+        <section id="landingSection">
+            <div id="divHeading">Vegan Store Simple Website Template</div>
+            <div id="divDescription">With nutrition, all the vital functions of the body are connected. It is the
+                source of the
+                development of tissues and cells, their constant renewal, the saturation of man with energy.
+            </div>
+            <img src="https://firebasestorage.googleapis.com/v0/b/demoapi-43d03.appspot.com/o/landing-background.png?alt=media" id="imgLanding" alt="media" title="media" />
+        </section>
+        <div id="Section2">
+            <div id="item1" class="Scale">
+                <i class="fa fa-cut"></i>
+                <div class="items">item 01.</div>
+                <p class="items-descrp">Vegetables are an integral part of the human diet. They are extremely useful
+                    because of the high content of carbohydrates, various acids, vitamins and active elements in the
+                    form,
+                    easy for digestion.
+                </p>
+            </div>
+            <div id="item2" class="Scale">
+                <i class="fa fa-paint-brush"></i>
+                <div class="items">item 02.</div>
+                <p class="items-descrp">Fresh tomatoes are ideal for replenishing the loss of minerals. These
+                    vegetables
+                    contain a lot of acids that our body needs for full-fledged work.
+                </p>
+            </div>
+            <div id="item3" class="Scale">
+                <i class="fa fa-shopping-bag"></i>
+                <div class="items">item 03.</div>
+                <p class="items-descrp">In the content of vitamin C, sweet peppers are superior to lemons and even
+                    black
+                    currants! The greatest amount of vitamin is contained around the stalk, that is, in the part of the
+                    product that is usually cut during cleaning.
+                </p>
+            </div>
+            <div id="item4" class="Scale">
+                <i class="fa fa-smile-o"></i>
+                <div class="items">item 04.</div>
+                <p class="items-descrp">If you sometimes eat hot chili peppers, this will help normalize cerebral
+                    circulation, ease the condition with bronchial asthma, cough, sore throat, flu.
+                </p>
+            </div>
+        </div>
+        <div id="Section3">
+            <div class="sectionHeader">
+                <p class="freshFoodText">Fresh Food</p>
+                <p class="headingVeganStore">Our Vegan Store!</p>
+                <p class="storeDescription">Radish contains a lot of fiber, pectin and mineral salts.</p>
+            </div>
+            <div id="divFoodContainer">
+                <div id="divFoodProperty1" class="divFood">
+                    <i class="fa fa-camera"></i>
+                    <div class="foodHeading">Fresh Vegetables</div>
+                    <p class="foodDescription">Use for cooking several types of vegetable oil.</p>
+                </div>
+                <div id="divFoodProperty2" class="divFood">
+                    <i class="fa-rocket fa"></i>
+                    <div class="foodHeading">High Quality</div>
+                    <p class="foodDescription">This is the best source of essential fatty acids for the body.</p>
+                </div>
+                <div id="divFoodProperty3" class="divFood">
+                    <i class="fa fa-twitter"></i>
+                    <div class="foodHeading">Sale</div>
+                    <p class="foodDescription">It is very good, if in the kitchen there will always be several bottles
+                        with
+                        different oils.
+                    </p>
+                </div>
+                <div id="divFoodProperty4" class="divFood">
+                    <i class="fa fa-weixin"></i>
+                    <div class="foodHeading">Best Price</div>
+                    <p class="foodDescription">Remember that unrefined oils are not suitable for heat treatment.</p>
+                </div>
+            </div>
+        </div>
+        <div id="Section4">
+            <div class="sectionHeader">
+                <p class="freshFoodText">Fresh Food</p>
+                <p class="headingVeganStore">Our Vegan Store!</p>
+                <p id="storeDesc" class="storeDescription">According to experts, any habit can be formed in 21 days. The
+                    same statement
+                    applies to healthy eating.
+                </p>
+            </div>
+            <div id="Card-Contnr">
+                <div id="Card1" class="Card">
+                    <img src="https://mobirise.com/extensions/organicamp/assets/images/face5.jpg" class="Card-img" alt="face5" title="face5" />
+                    <div class="Card-discrptn">Sales consultants are very polite. Many of the products have tried and are
+                        ready to prompt and recommend to customers. The staff shows that they completely share the
+                        philosophy of proper nutrition, if you can say so.
+                    </div>
+                    <p class="Card-auth">VERONICA KING</p>
+                    <p class="Sub-auth">Cook</p>
+                </div>
+                <div id="Card2" class="Card">
+                    <img src="https://mobirise.com/extensions/organicamp/assets/images/face6.jpg" class="Card-img" alt="face6" title="face6" />
+                    <div class="Card-discrptn">The assortment is very wide. From useful organic oils, cereals and teas to
+                        specific products for vegetarians, such as sausages and pies without meat.
+                    </div>
+                    <p class="Card-auth">JIM CASH</p>
+                    <p class="Sub-auth">Seller</p>
+                </div>
+                <div id="Card3" class="Card">
+                    <img src="https://mobirise.com/extensions/organicamp/assets/images/face7.jpg" class="Card-img" alt="face7" title="face7" />
+                    <div class="Card-discrptn">I want to say a huge thank you to the management of the store and all its
+                        employees, I'm not a vegetarian, it would seem that the store is not for me, but it's not so,
+                        any person who comes here will find something useful.
+                    </div>
+                    <p class="Card-auth">PETER GOODMAN</p>
+                    <p class="Sub-auth">Manager</p>
+                </div>
+            </div>
+        </div>
+        <div id="Section5">
+            <div id="Strwbry-img" class="Followus">
+                <img src="https://mobirise.com/extensions/organicamp/assets/images/19.jpg" id="img-camp" alt="organicamp" title="organicamp" />
+            </div>
+            <div id="Followus-div" class="Followus">
+                <p id="Followus-title">Follow Us</p>
+                <p id="FollowUs-desc">A wide range of products; many unusual and tasty products; courteous staff.</p>
+                <p><input type="text" name="email" id="Email" placeholder="Your Email" /></p>
+                <input type="button" id="Sub-btn" value="SUBSCRIBE" />
+            </div>
+        </div>
+        <div id="Feedback-Sec">
+            <div class="feedback-detail">
+                <div>7</div>
+                <p>Year of experiences</p>
+            </div>
+            <div class="feedback-detail">
+                <div>123k</div>
+                <p>Happy Customers</p>
+            </div>
+            <div class="feedback-detail">
+                <div>72k</div>
+                <p>100% Satisfaction</p>
+            </div>
+            <div class="feedback-detail">
+                <div>13k</div>
+                <p>Detox Smoothies</p>
+            </div>
+        </div>
+        <div id="Section7">
+            <div id="video-title">Vimeo Video</div>
+            <hr id="blank-line" />
+            <video width="800" controls>
+                <source src="https://player.vimeo.com/video/275412279" type="video/ogg">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+        <div id="Section8">
+            <div id="Address-section" class="contact-detail">
+                <div Class="Cntact-info">Contact Us</div>
+                <div class="contact-heading">Address Information</div>
+                <p class="contact-descp">Overeating is one of the most common causes of overweight and digestive problems.</p>
+                <div class="Address-title">London Store</div>
+                <p class="Address-desc"> Roeterseiland Campus Building E</p>
+                <p class="Address-desc">6th floor London</p>
+                <p class="Address-desc"> Monday to Friday : 9am to 8pm</p>
+                <p class="Address-desc">examplemail.mail.com</p>
+                <div class="Address-title">Berlin Store</div>
+                <p class="Address-desc"> Roeterseiland Campus Building E</p>
+                <p class="Address-desc">6th floor London</p>
+                <p class="Address-desc">Monday to Friday : 9am to 8pm</p>
+                <p class="Address-desc">examplemail.mail.com</p>
+            </div>
+            <div id="Signup-Section" class="contact-detail">
+                <div Class="Signup-info">Meet Our Team</div>
+                <div class="Signup-heading">Get In Touch</div>
+                <p class="Signup-descp">The task of proper nutrition - to remove from the diet harmful food and enrich it useful.</p>
+                <div id="Signup-field">
+                    <input class="Signup-item" placeholder="Name" type="text" name="name" />
+                    <input class="Signup-item" placeholder="Phone No." type="text" name="Phoneno" required />
+                    <input class="Signup-item" placeholder="Subject" type="text" name="Subject" />
+                    <input class="Signup-item" placeholder="Email" type="email" name="Email" />
+                    <textarea class="Signup-item" id="message" type="text" name="message">Message</textarea>
+                    <div class="menu-items"><input type="button" id="Submit" value="Submit Now" name="Submit Now" /></div>
+                </div>
+            </div>
+        </div>
+        <div id="divFooter">
+            <div id="footer">© Copyright 2018 Mobirise - All Rights Reserved</div>
+        </div>
+    </main>
+
+    </html>

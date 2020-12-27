@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>The Band We see life in terms of music</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500');
+        @import url('https://fonts.googleapis.com/css?family=Charm:400');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #14213D;
+            --secondary-color: #ffffff;
+        }
+
+        body,
+        html {
+            margin: 0;
+            line-height: 1.4;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--secondary-color);
+        }
+
+        .main-header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 3.5rem;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .main-header .mobile-menu__icon {
+            font-size: 1.5rem;
+            margin-left: 2rem;
+            align-self: center;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .main-header .mobile-menu__icon:focus {
+            outline: none;
+        }
+
+        .main-header .main-header-links {
+            display: none;
+        }
+
+        @keyframes bell {
+            from {
+                transform: rotate(15deg);
+            }
+
+            to {
+                transform: rotate(-15deg);
+            }
+        }
+
+        .main-header .main-header-bell {
+            font-size: 1.5rem;
+            margin-right: 2rem;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            animation: bell 0.5s 1s alternate linear infinite;
+        }
+
+        .main-header-bell:focus {
+            outline: none;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -5000px;
+            z-index: 400;
+            width: 70%;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.96);
+            transition: left 0.7s;
+            color: var(--primary-color);
+        }
+
+        .mobile-menu .mobile-menu__close-btn {
+            position: absolute;
+            font-size: 1.5rem;
+            top: 2rem;
+            right: 2rem;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .mobile-menu .mobile-menu-links {
+            list-style-type: none;
+            margin: 2rem auto;
+            padding: 0px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 1.5rem;
+            width: 80%;
+            height: 90%;
+            justify-items: center;
+            align-content: center;
+        }
+
+        .mobile-menu-link {
+            text-align: center;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .mobile-menu-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .open {
+            left: 0;
+        }
+
+        /* media query for header */
+        @media screen and (min-width:40rem) {
+            body {
+                overflow-x: hidden;
+            }
+
+            .main-header .mobile-menu__icon {
+                display: none;
+            }
+
+            .main-header .main-header-links {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+
+            .main-header-link {
+                margin: 0px 1.5rem;
+                padding: 0px;
+            }
+
+            .main-header-link a {
+                text-decoration: none;
+                color: inherit;
+                padding: 4px 8px;
+                margin: 0px;
+                letter-spacing: 1.5px;
+                background-color: transparent;
+                transition: all 0.3s linear;
+            }
+
+            .main-header-link:hover>a,
+            .main-header-link:active>a {
+                background-color: var(--secondary-color);
+                color: var(--primary-color);
+            }
+        }
+
+        .band-overview {
+            background: url('https://res.cloudinary.com/drymsmld5/image/upload/v1590903486/Codepen/band%20website/bg2-mobile_hol8rv.jpg') center/cover no-repeat;
+            width: 100%;
+            height: 50vh;
+            color: var(--secondary-color);
+            text-align: center;
+            position: relative;
+            left: 0;
+            top: 3.5rem;
+        }
+
+        .band-overview .band-overview__title {
+            position: absolute;
+            bottom: 0rem;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 3.2rem;
+            font-weight: 200;
+            margin: 1.5rem auto;
+            font-family: 'Charm', cursive;
+        }
+
+        .band-overview .band-overview__subtitle {
+            display: none;
+        }
+
+        @keyframes scroll-effect {
+            from {
+                transform: translateY(-10px);
+            }
+
+            to {
+                transform: translateY(25px);
+            }
+        }
+
+        .band-overview .scroll-indicator {
+            display: none;
+        }
+
+        .band {
+            text-align: center;
+            padding: 4rem 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .band .band-title {
+            font-weight: 200;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .band .band-subtitle {
+            color: rgba(20, 33, 61, 0.65);
+            margin-top: -8px;
+        }
+
+        .band .band-about {
+            text-align: justify;
+            margin: 0 auto;
+        }
+
+        .band-members {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            padding: 0 2rem;
+            margin: 2rem auto 0;
+        }
+
+        .band-member-name {
+            text-align: center;
+            font-weight: 400;
+            margin: 8px;
+        }
+
+        .band-member__image {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* media query for main and band section */
+        @media screen and (min-width:40rem) {
+            .band-overview {
+                background: url('https://res.cloudinary.com/drymsmld5/image/upload/v1590903487/Codepen/band%20website/bg2_hf7wq0.jpg') center/cover no-repeat;
+                height: calc(100vh - 52px);
+            }
+
+            .band-overview .band-overview__title {
+                bottom: 5rem;
+                font-size: 4rem;
+                margin: 2rem auto;
+            }
+
+            .band-overview .band-overview__subtitle {
+                display: block;
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                bottom: 5rem;
+                left: 0;
+                margin: 0;
+                font-size: 1.2rem;
+            }
+
+            .band-overview .scroll-indicator {
+                display: block;
+                position: absolute;
+                font-size: 2.5rem;
+                bottom: 2rem;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                animation: scroll-effect 0.6s infinite alternate;
+            }
+
+            .band {
+                padding: 4.8rem 2rem;
+            }
+
+            .band .band-title {
+                font-size: 2.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .band .band-about {
+                max-width: 90rem;
+            }
+
+            .band-members {
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 3.1rem;
+                width: 90%;
+                max-width: 100rem;
+            }
+        }
+
+        @media screen and (min-width:62rem) {
+            .band {
+                padding: 4.8rem 8rem;
+            }
+        }
+
+        .tour {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .tour .tour-title {
+            font-size: 2rem;
+            font-weight: 200;
+        }
+
+        .tour .tour-subtitle {
+            color: rgba(255, 255, 255, 0.65);
+            margin-top: -10px;
+        }
+
+        .tour .tour-months {
+            list-style-type: none;
+            margin: 1.5rem auto;
+            padding: 0px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-align: left;
+            max-width: 30rem;
+        }
+
+        .tour-month {
+            padding: 0.2rem;
+            line-height: 2;
+        }
+
+        .tour-month:last-of-type {
+            border-bottom: none;
+        }
+
+        .tour-month::after {
+            content: "Sold out";
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            font-size: 12px;
+            padding: 3px;
+            margin-left: 0.5rem;
+        }
+
+        .tour-month:last-of-type::after {
+            content: '';
+            background: none;
+        }
+
+        .tour .tour-cards {
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 2rem;
+        }
+
+        .tour-card {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            justify-self: center;
+            max-width: 20rem;
+        }
+
+        .tour-card__image-container {
+            width: 100%;
+            height: 14rem;
+            position: relative;
+        }
+
+        .tour-card__image-overlay {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            position: absolute;
+            z-index: 10;
+            transition: all 0.4s;
+        }
+
+        .tour-card__image-container:hover>.tour-card__image-overlay {
+            opacity: 1;
+        }
+
+        .tour-card__image {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tour-card__info {
+            padding: 1rem;
+            margin: 0.5rem;
+            text-align: left;
+        }
+
+        .tour-card__info .tour-card__place {
+            margin: 0px;
+        }
+
+        .tour-card__info .tour-card__date {
+            color: rgba(20, 33, 61, 0.6);
+            margin: 0;
+        }
+
+        .tour-card__info .tour-card__buy-btn {
+            color: var(--primary-color);
+            padding: 8px 16px;
+            cursor: pointer;
+            background-color: transparent;
+            -webkit-tap-highlight-color: transparent;
+            border: 1px solid var(--primary-color);
+            transition: all 0.3s linear;
+        }
+
+        .tour-card__info .tour-card__buy-btn:hover,
+        .tour-card__info .tour-card__buy-btn:active {
+            color: var(--secondary-color);
+            background-color: var(--primary-color);
+        }
+
+        .tour-card__info .tour-card__buy-btn:focus {
+            outline: none;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .contact .contact-title {
+            font-size: 2rem;
+            font-weight: 200;
+        }
+
+        .contact .contact-subtitle {
+            color: rgba(20, 33, 61, 0.65);
+            margin-top: 0;
+        }
+
+        .contact .contact-area {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-area .contact-lists {
+            list-style-type: none;
+            margin: 2rem auto;
+            padding: 0;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .contact-lists .contact-list {
+            display: grid;
+            width: 100%;
+            grid-template-columns: 25px auto;
+            grid-gap: 1rem;
+        }
+
+        .contact-lists .contact-list p {
+            margin: 0 1rem 0.5rem 1rem;
+            align-self: baseline;
+            font-size: 1rem;
+        }
+
+        .contact-area .contact-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 10px 20px;
+        }
+
+        .contact-form input {
+            padding: 0.5rem;
+            border: 1px solid var(--primary-color);
+        }
+
+        .contact-form input[type="submit"] {
+            text-align: center;
+            background-color: var(--secondary-color);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            justify-self: end;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            transition: all 0.3s linear;
+        }
+
+        .contact-form input[type="submit"]:hover,
+        .contact-form input[type="submit"]:active {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .contact-form input[type="submit"]:focus {
+            outline: none;
+        }
+
+        .map {
+            background: radial-gradient(circle, transparent, #14213D), url('https://res.cloudinary.com/drymsmld5/image/upload/v1559935521/Codepen/band%20website/map_u1ddhc.jpg') center/cover no-repeat;
+        }
+
+        .main-footer {
+            width: 100%;
+            height: 4rem;
+            background: #ffffff;
+            text-align: center;
+            color: var(--primary-color);
+            margin: 2rem 0;
+        }
+
+        .main-footer .main-footer__links {
+            display: flex;
+            list-style-type: none;
+            margin: 0 auto;
+            padding: 0;
+            justify-content: center;
+        }
+
+        .main-footer__links .main-footer__link {
+            font-size: 1.5rem;
+            padding: 0 0.4rem;
+        }
+
+        .main-footer__links .main-footer__link a {
+            color: var(--primary-color);
+        }
+
+        /* media query for rest of all */
+        @media screen and (min-width:40rem) {
+            .tour {
+                padding: 3.1rem 2rem;
+            }
+
+            .tour .tour-title {
+                font-size: 2.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .tour .tour-months {
+                margin: 3.1rem auto;
+                max-width: 90rem;
+            }
+
+            .tour .tour-cards {
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 0.5rem;
+                max-width: 100rem;
+            }
+
+            .tour-cards .tour-card {
+                max-width: 19rem;
+                height: auto;
+            }
+
+            .contact {
+                padding: 3.1rem 2rem;
+                height: 28rem;
+            }
+
+            .contact .contact-title {
+                font-size: 2.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .contact .contact-area {
+                grid-gap: 0;
+                max-width: 100rem;
+            }
+
+            .contact .contact-area {
+                margin: 4rem auto;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-area .contact-lists {
+                margin: 0;
+                justify-self: center;
+            }
+
+            .contact-area .contact-form {
+                grid-template-columns: 1fr 1fr;
+                justify-self: center;
+            }
+
+            .contact-form input[name="message"] {
+                grid-column: 1/-1;
+            }
+
+            .contact-form input[type="submit"] {
+                grid-column: 2/-1;
+            }
+
+            .map {
+                height: 35rem;
+            }
+
+            .main-footer {
+                height: 200px;
+                padding: 4rem 8rem;
+                margin: 0px;
+            }
+
+            .main-footer .main-footer__links {
+                width: 80%;
+            }
+
+            .main-footer__links .main-footer__link {
+                font-size: 2rem;
+                padding: 0 0.5rem;
+                transform: scale(1);
+                transition: all 0.3s;
+            }
+
+            .main-footer__links .main-footer__link:hover {
+                transform: scale(1.2);
+            }
+        }
+
+        @media screen and (min-width:62rem) {
+            .tour {
+                padding: 3.1rem 8rem;
+            }
+
+            .contact {
+                padding: 3.1rem 8rem;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no" translate="no" id="home">
+    <header class="main-header">
+        <div class="fas fa-bars mobile-menu__icon" title="Menu"></div>
+        <nav class="main-header-nav">
+            <ul class="main-header-links">
+                <li class="main-header-link"><a href="#home">Home</a></li>
+                <li class="main-header-link"><a href="#about">About</a></li>
+                <li class="main-header-link"><a href="#concerts">Concerts</a></li>
+                <li class="main-header-link"><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="main-header-bell">
+            <span class="far fa-bell"></span>
+        </div>
+    </header>
+    <div class="mobile-menu">
+        <div class="fas fa-times mobile-menu__close-btn" title="Close"></div>
+        <ul class="mobile-menu-links">
+            <li class="mobile-menu-link"><a href="#home">Home</a></li>
+            <li class="mobile-menu-link"><a href="#about">About</a></li>
+            <li class="mobile-menu-link"><a href="#concerts">Concerts</a></li>
+            <li class="mobile-menu-link"><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    <main>
+        <section class="band-overview">
+            <h2 class="band-overview__title">The Band</h2>
+            <p class="band-overview__subtitle">Music in the soul can be heard by the universe!</p>
+            <div class="fas fa-caret-down scroll-indicator"></div>
+        </section>
+        <section class="band" id="about">
+            <h2 class="band-title">About</h2>
+            <p class="band-subtitle">music is life</p>
+            <p class="band-about">The Band is a rock band formed in Delhi in 1997. We have a team of three members. Our style is folk and fusion music and we perfom rock and pop music concerts at any event. We are a power trio of a guitar player, a drummer and a signer.</p>
+            <div class="band-members">
+                <div class="band-member">
+                    <h3 class="band-member-name">Singer</h3>
+                    <div class="band-member__image-container">
+                        <img src="https://res.cloudinary.com/drymsmld5/image/upload/v1590903486/Codepen/band%20website/singer_c0x50c.jpg" class="band-member__image" alt="singer image" title="singer image" />
+                    </div>
+                </div>
+                <div class="band-member">
+                    <h3 class="band-member-name">Guitarist</h3>
+                    <div class="band-member__image-container">
+                        <img src="https://res.cloudinary.com/drymsmld5/image/upload/v1590903486/Codepen/band%20website/guitar_nbo3lc.jpg" class="band-member__image" alt="guitar image" title="guitar image" />
+                    </div>
+                </div>
+                <div class="band-member">
+                    <h3 class="band-member-name">Drummer</h3>
+                    <div class="band-member__image-container">
+                        <img src="https://res.cloudinary.com/drymsmld5/image/upload/v1590903486/Codepen/band%20website/drummer_bljwbz.jpg" class="band-member__image" alt="drummer image" title="drummer image" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="tour" id="concerts">
+            <h2 class="tour-title">Concerts</h2>
+            <p class="tour-subtitle">Our upcoming events</p>
+            <ul class="tour-months">
+                <li class="tour-month">September</li>
+                <li class="tour-month">October</li>
+                <li class="tour-month">November</li>
+            </ul>
+            <div class="tour-cards">
+                <div class="tour-card">
+                    <div class="tour-card__image-container">
+                        <div class="tour-card__image-overlay"></div>
+                        <img src="https://res.cloudinary.com/drymsmld5/image/upload/v1559935520/Codepen/band%20website/newyork_jzmyjx.jpg" class="tour-card__image" alt="New York image" title="New York image" />
+                    </div>
+                    <div class="tour-card__info">
+                        <h3 class="tour-card__place">New York</h3>
+                        <p class="tour-card__date">Fri 27 Nov 2018</p>
+                        <p class="tour-card__about">Remix music event</p>
+                        <button class="tour-card__buy-btn">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-card__image-container">
+                        <div class="tour-card__image-overlay"></div>
+                        <img src="https://res.cloudinary.com/drymsmld5/image/upload/v1559935520/Codepen/band%20website/paris_o8wics.jpg" class="tour-card__image" alt="Paris image" title="Paris image" />
+                    </div>
+                    <div class="tour-card__info">
+                        <h3 class="tour-card__place">Paris</h3>
+                        <p class="tour-card__date">Sat 21 Oct 2018</p>
+                        <p class="tour-card__about">Rock and fusion music event</p>
+                        <button class="tour-card__buy-btn">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-card__image-container">
+                        <div class="tour-card__image-overlay"></div>
+                        <img src="https://res.cloudinary.com/drymsmld5/image/upload/v1559935521/Codepen/band%20website/sanfran_jk4f7p.jpg" class="tour-card__image" alt="San Francisco image" title="San Francisco image" />
+                    </div>
+                    <div class="tour-card__info">
+                        <h3 class="tour-card__place">San Francisco</h3>
+                        <p class="tour-card__date">Sun 29 Nov 2018</p>
+                        <p class="tour-card__about">EDM night event</p>
+                        <button class="tour-card__buy-btn">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <h2 class="contact-title">Contact</h2>
+            <p class="contact-subtitle">let's connect</p>
+            <div class="contact-area">
+                <ul class="contact-lists">
+                    <li class="contact-list">
+                     <p class="fas fa-map-marker-alt"></p>
+                     <p>Delhi, India</p>
+                  </li>
+                    <li class="contact-list">
+                     <p class="fas fa-mobile-alt"></p>
+                     <p>Phone: +91 8888888888</p>
+                  </li>
+                    <li class="contact-list">
+                     <p class="fas fa-envelope"></p>
+                     <p>Email: band@gmail.com</p>
+                  </li>
+                </ul>
+                <form action="" class="contact-form">
+                    <input type="text" name="name" placeholder="Name" />
+                    <input type="email" name="email" placeholder="Email" />
+                    <input type="text" name="message" placeholder="Message" />
+                    <input type="submit" value="SEND" />
+                </form>
+            </div>
+        </section>
+        <section class="map">
+        </section>
+    </main>
+    <footer class="main-footer">
+        <ul class="main-footer__links">
+            <li class="main-footer__link"><a href="#"><span class="fab fa-facebook"></span></a></li>
+            <li class="main-footer__link"><a href="#"><span class="fab fa-instagram"></span></a></li>
+            <li class="main-footer__link"><a href="#"><span class="fab fa-twitter"></span></a></li>
+        </ul>
+        <p class="main-footer__info">Made with <span class="fas fa-heart"></span> by Vaibhav</p>
+    </footer>
+    <script type="text/javascript" id="rendered-js">
+        const mobileMenuIcon = document.querySelector(".mobile-menu__icon");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const mobileMenuCloseBtn = document.querySelector('.mobile-menu__close-btn');
+        const mobileMenulinks = document.querySelectorAll('.mobile-menu-link');
+
+        mobileMenuIcon.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+
+        });
+
+        mobileMenuCloseBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+
+        });
+
+        mobileMenulinks.forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.toggle('open');
+            });
+        });
+
+        var mainHeaderLinks = document.querySelectorAll('.main-header-link');
+        var mobileHeaderLinks = document.querySelectorAll('.mobile-menu-link');
+        mainHeaderLinks.forEach(link => {
+            link.addEventListener('click', event => {
+                var linkHash = event.target.hash;
+                if (linkHash !== undefined) {
+                    event.preventDefault();
+                    var linkSection = document.querySelector(linkHash);
+                    var linkSectionTop = linkSection.getBoundingClientRect().top;
+                    window.scrollBy({
+                        top: linkSectionTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        mobileHeaderLinks.forEach(link => {
+            link.addEventListener('click', event => {
+                var linkHash = event.target.hash;
+                if (linkHash !== undefined) {
+                    event.preventDefault();
+                    var linkSection = document.querySelector(linkHash);
+                    var linkSectionTop = linkSection.getBoundingClientRect().top;
+                    window.scrollBy({
+                        top: linkSectionTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

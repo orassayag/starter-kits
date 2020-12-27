@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Fluid Grid Layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* Base styles: opinionated defaults */
+        html,
+        button,
+        input,
+        select,
+        textarea {
+            color: #222;
+        }
+
+        html {
+            font-size: 1em;
+            line-height: 1.4;
+        }
+
+        ::-moz-selection {
+            background: #b3d4fc;
+            text-shadow: none;
+        }
+
+        ::selection {
+            background: #b3d4fc;
+            text-shadow: none;
+        }
+
+        /* A better looking default horizontal rule */
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 0;
+        }
+
+        audio,
+        canvas,
+        img,
+        video {
+            vertical-align: middle;
+        }
+
+        /* Remove default fieldset styles. */
+        fieldset {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Allow only vertical resizing of textareas. */
+        textarea {
+            resize: vertical;
+        }
+
+        /* Helper classes */
+        /* Image replacement */
+        .ir {
+            background-color: transparent;
+            border: 0;
+            overflow: hidden;
+            *text-indent: -9999px;
+        }
+
+        .ir:before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 150%;
+        }
+
+        /* Hide from both screenreaders and browsers: h5bp.com/u */
+        .hidden {
+            display: none !important;
+            visibility: hidden;
+        }
+
+        /* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+        .visuallyhidden {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+
+        .visuallyhidden.focusable:active,
+        .visuallyhidden.focusable:focus {
+            clip: auto;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            position: static;
+            width: auto;
+        }
+
+        /* Hide visually and from screenreaders, but maintain layout */
+        .invisible {
+            visibility: hidden;
+        }
+
+        @media only screen and (min-width: 35em) {}
+
+        @media print,
+        (-o-min-device-pixel-ratio: 5/4),
+        (-webkit-min-device-pixel-ratio: 1.25),
+        (min-resolution: 120dpi) {}
+
+        /* Print styles. */
+        @media print {
+            * {
+                background: transparent !important;
+                color: #000 !important;
+                /* Black prints faster: h5bp.com/s */
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+
+            a,
+            a:visited {
+                text-decoration: underline;
+            }
+
+            a[href]:after {
+                content: " ("attr(href) ")";
+            }
+
+            abbr[title]:after {
+                content: " ("attr(title) ")";
+            }
+
+            /* Don't show links for images, or javascript/internal links */
+            .ir a:after,
+            a[href^="javascript:"]:after,
+            a[href^="#"]:after {
+                content: '';
+            }
+
+            pre,
+            blockquote {
+                border: 1px solid #999;
+                page-break-inside: avoid;
+            }
+
+            thead {
+                display: table-header-group;
+            }
+
+            tr,
+            img {
+                page-break-inside: avoid;
+            }
+
+            img {
+                max-width: 100% !important;
+            }
+
+            @page {
+                margin: 0.5cm;
+            }
+
+            p,
+            h2,
+            h3 {
+                orphans: 3;
+                widows: 3;
+            }
+
+            h2,
+            h3 {
+                page-break-after: avoid;
+            }
+        }
+
+        /* Author's custom styles */
+        /* Utility Classes */
+        /* Hide */
+        .hidden {
+            display: none;
+        }
+
+        /* Hide on tablet */
+        @media (max-width: 900px) {
+            .hidden--tablet {
+                display: none;
+            }
+        }
+
+        /* Hide on mobile */
+        @media (max-width: 600px) {
+            .hidden--mobile {
+                display: none;
+            }
+        }
+
+        /* cleafix */
+        .clearfix:before,
+        .clearfix:after {
+            content: ' ';
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        /* pull left and pull right */
+        .pull-left {
+            float: left !important;
+        }
+
+        .pull-right {
+            float: right !important;
+        }
+
+        body {}
+
+        .outer-wrapper {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            padding: 0;
+            width: 100%;
+            background: #fff;
+        }
+
+        .wrapper {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            margin: 0 auto;
+            max-width: 1200px;
+            background: #fff;
+            padding: 48px;
+        }
+
+        .wrapper--full-width {
+            margin: 0 auto;
+            max-width: none;
+        }
+
+        .wrapper--full-width--dark {
+            background-color: #111;
+            color: #ddd;
+        }
+
+        .main-nav {
+            margin: 0 0 48px -24px;
+            padding-left: 0;
+        }
+
+        .main-nav li {
+            float: left;
+            display: block;
+            list-style-type: none;
+        }
+
+        .main-nav li a {
+            display: block;
+            text-decoration: none;
+            padding: 24px;
+            color: #900;
+            text-transform: uppercase;
+        }
+
+        .hero-banner {
+            margin-bottom: 48px;
+        }
+
+        /* Grid System, built of rows and columns */
+        .row {
+            margin: 0 -24px;
+        }
+
+        .row:before,
+        .row:after,
+        .image-with-caption:before,
+        .image-with-caption:after,
+        .main-nav:before,
+        .main-nav:after {
+            content: ' ';
+            display: table;
+        }
+
+        .row:after,
+        .image-with-caption:after,
+        .main-nav:after {
+            clear: both;
+        }
+
+        .column {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            float: left;
+            margin: 24px 0;
+            padding: 0 24px;
+        }
+
+        /* Desktop classes (default) */
+        .column--16 {
+            width: 16.66%;
+        }
+
+        .column--20 {
+            width: 20%;
+        }
+
+        .column--25 {
+            width: 25%;
+        }
+
+        .column--33 {
+            width: 33.33%;
+        }
+
+        .column--40 {
+            width: 40%;
+        }
+
+        .column--50 {
+            width: 50%;
+        }
+
+        .column--60 {
+            width: 60%;
+        }
+
+        .column--66 {
+            width: 66.66%;
+        }
+
+        .column--75 {
+            width: 75%;
+        }
+
+        .column--80 {
+            width: 80%;
+        }
+
+        .column--100 {
+            width: 100%;
+        }
+
+        /* Tablet classes */
+        @media (max-width: 900px) {
+            .column--16--tablet {
+                width: 16.66%;
+            }
+
+            .column--20--tablet {
+                width: 20%;
+            }
+
+            .column--25--tablet {
+                width: 25%;
+            }
+
+            .column--33--tablet {
+                width: 33.33%;
+            }
+
+            .column--40--tablet {
+                width: 40%;
+            }
+
+            .column--50--tablet {
+                width: 50%;
+            }
+
+            .column--60--tablet {
+                width: 60%;
+            }
+
+            .column--66--tablet {
+                width: 66.66%;
+            }
+
+            .column--75--tablet {
+                width: 75%;
+            }
+
+            .column--80--tablet {
+                width: 80%;
+            }
+
+            .column--100--tablet {
+                width: 100%;
+            }
+        }
+
+        /* Mobile classes */
+        @media (max-width: 600px) {
+            .column--16--mobile {
+                width: 16.66%;
+            }
+
+            .column--20--mobile {
+                width: 20%;
+            }
+
+            .column--25--mobile {
+                width: 25%;
+            }
+
+            .column--33--mobile {
+                width: 33.33%;
+            }
+
+            .column--40--mobile {
+                width: 40%;
+            }
+
+            .column--50--mobile {
+                width: 50%;
+            }
+
+            .column--60--mobile {
+                width: 60%;
+            }
+
+            .column--66--mobile {
+                width: 66.66%;
+            }
+
+            .column--75--mobile {
+                width: 75%;
+            }
+
+            .column--80--mobile {
+                width: 80%;
+            }
+
+            .column--100--mobile {
+                width: 100%;
+            }
+        }
+
+        /* responsive images */
+        img {
+            max-width: 100%;
+        }
+
+        .image--stretch {
+            width: 100%;
+        }
+
+        .image--thumbnail {
+            float: left;
+            margin: 0 24px 24px 0;
+        }
+
+        @media (max-width: 600px) {
+            .image--thumbnail--100--mobile {
+                width: 100%;
+                float: none;
+                margin: 0 0 24px 0;
+            }
+        }
+
+        /* Images with captions */
+        .image-with-caption {
+            position: relative;
+        }
+
+        .image-with-caption {
+            position: relative;
+        }
+
+        .image-with-caption p {
+            position: absolute;
+            bottom: 0;
+            background: rbg(0, 0, 0);
+            background: rgba(0, 0, 0, 0.65);
+            color: #fff;
+            padding: 24px;
+            margin: 0;
+        }
+
+        /* Headings */
+        .row>h1,
+        .row>h2,
+        .row>h3,
+        .row>h4,
+        .row>h5,
+        .row>h6 {
+            margin: 24px 24px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            max-width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 18px;
+        }
+
+        .table th,
+        .table td {
+            padding: 8px;
+            line-height: 18px;
+            text-align: left;
+            vertical-align: top;
+            border-top: 1px solid #ddd;
+        }
+
+        .table th {
+            font-weight: bold;
+        }
+
+        .table thead th {
+            vertical-align: bottom;
+        }
+
+        .table thead:first-child tr th,
+        .table thead:first-child tr td {
+            border-top: 0;
+        }
+
+        .table tbody+tbody {
+            border-top: 2px solid #ddd;
+        }
+
+        .table-condensed th,
+        .table-condensed td {
+            padding: 4px 5px;
+        }
+
+        .table-bordered {
+            border: 1px solid #ddd;
+            border-collapse: separate;
+            *border-collapse: collapsed;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        .table-bordered th+th,
+        .table-bordered td+td,
+        .table-bordered th+td,
+        .table-bordered td+th {
+            border-left: 1px solid #ddd;
+        }
+
+        .table-bordered thead:first-child tr:first-child th,
+        .table-bordered tbody:first-child tr:first-child th,
+        .table-bordered tbody:first-child tr:first-child td {
+            border-top: 0;
+        }
+
+        .table-bordered thead:first-child tr:first-child th:first-child,
+        .table-bordered tbody:first-child tr:first-child td:first-child {
+            -webkit-border-radius: 4px 0 0 0;
+            -moz-border-radius: 4px 0 0 0;
+            border-radius: 4px 0 0 0;
+        }
+
+        .table-bordered thead:first-child tr:first-child th:last-child,
+        .table-bordered tbody:first-child tr:first-child td:last-child {
+            -webkit-border-radius: 0 4px 0 0;
+            -moz-border-radius: 0 4px 0 0;
+            border-radius: 0 4px 0 0;
+        }
+
+        .table-bordered thead:last-child tr:last-child th:first-child,
+        .table-bordered tbody:last-child tr:last-child td:first-child {
+            -webkit-border-radius: 0 0 0 4px;
+            -moz-border-radius: 0 0 0 4px;
+            border-radius: 0 0 0 4px;
+        }
+
+        .table-bordered thead:last-child tr:last-child th:last-child,
+        .table-bordered tbody:last-child tr:last-child td:last-child {
+            -webkit-border-radius: 0 0 4px 0;
+            -moz-border-radius: 0 0 4px 0;
+            border-radius: 0 0 4px 0;
+        }
+
+        .table-striped tbody tr:nth-child(odd) td,
+        .table-striped tbody tr:nth-child(odd) th {
+            background-color: #f9f9f9;
+        }
+
+        .table tbody tr:hover td,
+        .table tbody tr:hover th {
+            background-color: #f5f5f5;
+        }
+
+        table .span1 {
+            float: none;
+            width: 44px;
+            margin-left: 0;
+        }
+
+        table .span2 {
+            float: none;
+            width: 124px;
+            margin-left: 0;
+        }
+
+        table .span3 {
+            float: none;
+            width: 204px;
+            margin-left: 0;
+        }
+
+        table .span4 {
+            float: none;
+            width: 284px;
+            margin-left: 0;
+        }
+
+        table .span5 {
+            float: none;
+            width: 364px;
+            margin-left: 0;
+        }
+
+        table .span6 {
+            float: none;
+            width: 444px;
+            margin-left: 0;
+        }
+
+        table .span7 {
+            float: none;
+            width: 524px;
+            margin-left: 0;
+        }
+
+        table .span8 {
+            float: none;
+            width: 604px;
+            margin-left: 0;
+        }
+
+        table .span9 {
+            float: none;
+            width: 684px;
+            margin-left: 0;
+        }
+
+        table .span10 {
+            float: none;
+            width: 764px;
+            margin-left: 0;
+        }
+
+        table .span11 {
+            float: none;
+            width: 844px;
+            margin-left: 0;
+        }
+
+        table .span12 {
+            float: none;
+            width: 924px;
+            margin-left: 0;
+        }
+
+        .table-bordered th+th,
+        .table-bordered td+td,
+        .table-bordered th+td,
+        .table-bordered td+th {
+            border-left: 1px solid #ddd;
+        }
+
+        @media (max-width: 900px) {
+            .table--flip-scroll .clearfix:after {
+                clear: both;
+                content: ' ';
+                display: block;
+                font-size: 0;
+                height: 0;
+                visibility: hidden;
+            }
+
+            .table--flip-scroll {
+                border-collapse: collapse;
+                border-spacing: 0;
+                width: 100%;
+            }
+
+            .table--flip-scroll th,
+            .table--flip-scroll td {
+                margin: 0;
+                vertical-align: top;
+            }
+
+            .table--flip-scroll th {
+                text-align: left;
+            }
+
+            .table--flip-scroll {
+                display: block;
+                position: relative;
+                width: 100%;
+            }
+
+            .table--flip-scroll thead {
+                display: block;
+                float: left;
+            }
+
+            .table--flip-scroll tbody {
+                display: block;
+                width: auto;
+                overflow-x: auto;
+                position: relative;
+                white-space: nowrap;
+            }
+
+            .table--flip-scroll thead tr {
+                display: block;
+            }
+
+            .table--flip-scroll th {
+                display: block;
+                text-align: right;
+            }
+
+            .table--flip-scroll tbody tr {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .table--flip-scroll td {
+                display: block;
+                min-height: 1.25em;
+                text-align: left;
+            }
+
+            .table--flip-scroll th {
+                border-bottom: 0;
+                border-left: 0;
+            }
+
+            .table--flip-scroll td {
+                border-bottom: 0;
+                border-left: 0;
+                border-right: 0;
+            }
+
+            .table--flip-scroll tbody tr {
+                border-left: 1px solid #babcbf;
+            }
+
+            .table--flip-scroll th:last-child,
+            .table--flip-scroll td:last-child {
+                border-bottom: 1px solid #babcbf;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0;
+            }
+
+            .wrapper {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="outer-wrapper">
+        <div class="wrapper">
+            <h1>Responsive Grid System</h1>
+            <ul class="main-nav">
+                <li><a href="#">Nav item 1</a></li>
+                <li><a href="#">Nav item 2</a></li>
+                <li><a href="#">Nav item 3</a></li>
+                <li><a href="#">Nav item 4</a></li>
+                <li><a href="#">Nav item 5</a></li>
+                <li><a href="#">Nav item 6</a></li>
+            </ul>
+            <div class="hero-banner">
+                <img src="http://dummyimage.com/1200x500/000/ffffff&text=Hero+Banner" class="image--stretch" alt="hero banner" title="hero banner" />
+            </div>
+            <section class="row">
+                <h2>2 columns desktop, 2 columns tablet, 1 column mobile</h2>
+                <div class="column  column--50  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="column  column--50  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </section>
+            <section class="row">
+                <h2>2 columns desktop, 2 columns tablet, 1 column mobile</h2>
+                <div class="column  column--50  column--100--mobile">
+                    <aside class="image-with-caption">
+                        <img src="http://www.pointsandtravel.com/wp-content/uploads/2013/06/Norway3-The-carefree-Traveler.jpg" class="image--stretch" alt="norway" title="norway" />
+                        <p class="caption  hidden--tablet  hidden--mobile">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore.
+                        </p>
+                    </aside>
+                </div>
+                <div class="column  column--50  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </section>
+        </div>
+        <div class="wrapper  wrapper--full-width  wrapper--full-width--dark">
+            <section class="row">
+                <h2>Full width row. 3 columns desktop, 1 column tablet, 1 column mobile</h2>
+                <div class="column  column--33  column--100--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="column  column--33  column--100--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="column  column--33  column--100--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </section>
+        </div>
+        <div class="wrapper">
+            <section class="row">
+                <h2>3 columns desktop, 3 column tablet, 1 column mobile</h2>
+                <div class="column  column--33  column--100--mobile">
+                    <img src="https://d19lgisewk9l6l.cloudfront.net/wexas/www/images/web/europe/iceland/iceland.jpg" class="img-stretch" alt="landscape in Iceland" title="landscape in Iceland" />
+                </div>
+                <div class="column  column--33  column--100--mobile">
+                    <img src="https://d19lgisewk9l6l.cloudfront.net/wexas/www/images/web/europe/iceland/iceland.jpg" class="img-stretch" alt="" title="" />
+                </div>
+                <div class="column  column--33  column--100--mobile">
+                    <img src="https://d19lgisewk9l6l.cloudfront.net/wexas/www/images/web/europe/iceland/iceland.jpg" class="img-stretch" alt="" title="" />
+                </div>
+            </section>
+            <section class="row">
+                <h2>3 columns desktop, 2 columns tablet, 1 column mobile</h2>
+                <div class="column  column--50  column--100--mobile">
+                    <img class="image--thumbnail  image--thumbnail--100--mobile" src="http://dummyimage.com/150x150/000/ffffff&text=Thumbnail" alt="thumbnail" title="thumbnail" /> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="column  column--25  column--50--tablet  column--100--mobile">
+                    <img class="image--thumbnail  image--thumbnail--100--mobile" src="http://dummyimage.com/150x150/000/ffffff&text=Thumbnail" alt="thumbnail" title="thumbnail" /> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="column  column--25  column--50--tablet  column--100--mobile">
+                    <img class="image--thumbnail  image--thumbnail--100--mobile" src="http://dummyimage.com/150x150/000/ffffff&text=Thumbnail" alt="thumbnail" title="thumbnail" /> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </section>
+            <section class="row">
+                <h2>2 columns desktop, 2 columns tablet, 1 column mobile</h2>
+                <div class="column  column--60  column--50--tablet  column--100--mobile">
+                    <img class="img-stretch" src="https://d19lgisewk9l6l.cloudfront.net/wexas/www/images/web/europe/iceland/iceland.jpg" alt="landscape in Iceland" title="landscape in Iceland" />
+                </div>
+                <div class="column  column--40  column--50--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </section>
+            <section class="row">
+                <h2>5 columns desktop, 2 columns tablet, 1 column mobile</h2>
+                <div class="column  column--20  column--50--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="column  column--20  column--50--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="column  column--20  column--50--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="column  column--20  column--50--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="column  column--20  column--50--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </section>
+            <section class="row">
+                <h2>3 columns desktop, 3 columns tablet, 1 column mobile</h2>
+                <div class="column  column--40  column--33--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="column  column--40  column--33--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="column  column--20  column--33--tablet  column--100--mobile">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </section>
+            <section class="row">
+                <h2>Responsive Table</h2>
+                <div class="column  column--100 ">
+                    <table class="table-bordered  table-striped  table-condensed  table--flip-scroll  clearfix">
+                        <thead class="cf">
+                            <tr>
+                                <th>Code</th>
+                                <th>Company</th>
+                                <th class="numeric">Price</th>
+                                <th class="numeric">Change</th>
+                                <th class="numeric">Change %</th>
+                                <th class="numeric">Open</th>
+                                <th class="numeric">High</th>
+                                <th class="numeric">Low</th>
+                                <th class="numeric">Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AAC</td>
+                                <td>AUSTRALIAN AGRICULTURAL COMPANY LIMITED.</td>
+                                <td class="numeric">$1.38</td>
+                                <td class="numeric">-0.01</td>
+                                <td class="numeric">-0.36%</td>
+                                <td class="numeric">$1.39</td>
+                                <td class="numeric">$1.39</td>
+                                <td class="numeric">$1.38</td>
+                                <td class="numeric">9,395</td>
+                            </tr>
+                            <tr>
+                                <td>AAD</td>
+                                <td>ARDENT LEISURE GROUP</td>
+                                <td class="numeric">$1.15</td>
+                                <td class="numeric"> +0.02</td>
+                                <td class="numeric">1.32%</td>
+                                <td class="numeric">$1.14</td>
+                                <td class="numeric">$1.15</td>
+                                <td class="numeric">$1.13</td>
+                                <td class="numeric">56,431</td>
+                            </tr>
+                            <tr>
+                                <td>AAX</td>
+                                <td>AUSENCO LIMITED</td>
+                                <td class="numeric">$4.00</td>
+                                <td class="numeric">-0.04</td>
+                                <td class="numeric">-0.99%</td>
+                                <td class="numeric">$4.01</td>
+                                <td class="numeric">$4.05</td>
+                                <td class="numeric">$4.00</td>
+                                <td class="numeric">90,641</td>
+                            </tr>
+                            <tr>
+                                <td>ABC</td>
+                                <td>ADELAIDE BRIGHTON LIMITED</td>
+                                <td class="numeric">$3.00</td>
+                                <td class="numeric"> +0.06</td>
+                                <td class="numeric">2.04%</td>
+                                <td class="numeric">$2.98</td>
+                                <td class="numeric">$3.00</td>
+                                <td class="numeric">$2.96</td>
+                                <td class="numeric">862,518</td>
+                            </tr>
+                            <tr>
+                                <td>ABP</td>
+                                <td>ABACUS PROPERTY GROUP</td>
+                                <td class="numeric">$1.91</td>
+                                <td class="numeric">0.00</td>
+                                <td class="numeric">0.00%</td>
+                                <td class="numeric">$1.92</td>
+                                <td class="numeric">$1.93</td>
+                                <td class="numeric">$1.90</td>
+                                <td class="numeric">595,701</td>
+                            </tr>
+                            <tr>
+                                <td>ABY</td>
+                                <td>ADITYA BIRLA MINERALS LIMITED</td>
+                                <td class="numeric">$0.77</td>
+                                <td class="numeric"> +0.02</td>
+                                <td class="numeric">2.00%</td>
+                                <td class="numeric">$0.76</td>
+                                <td class="numeric">$0.77</td>
+                                <td class="numeric">$0.76</td>
+                                <td class="numeric">54,567</td>
+                            </tr>
+                            <tr>
+                                <td>ACR</td>
+                                <td>ACRUX LIMITED</td>
+                                <td class="numeric">$3.71</td>
+                                <td class="numeric"> +0.01</td>
+                                <td class="numeric">0.14%</td>
+                                <td class="numeric">$3.70</td>
+                                <td class="numeric">$3.72</td>
+                                <td class="numeric">$3.68</td>
+                                <td class="numeric">191,373</td>
+                            </tr>
+                            <tr>
+                                <td>ADU</td>
+                                <td>ADAMUS RESOURCES LIMITED</td>
+                                <td class="numeric">$0.72</td>
+                                <td class="numeric">0.00</td>
+                                <td class="numeric">0.00%</td>
+                                <td class="numeric">$0.73</td>
+                                <td class="numeric">$0.74</td>
+                                <td class="numeric">$0.72</td>
+                                <td class="numeric">8,602,291</td>
+                            </tr>
+                            <tr>
+                                <td>AGG</td>
+                                <td>ANGLOGOLD ASHANTI LIMITED</td>
+                                <td class="numeric">$7.81</td>
+                                <td class="numeric">-0.22</td>
+                                <td class="numeric">-2.74%</td>
+                                <td class="numeric">$7.82</td>
+                                <td class="numeric">$7.82</td>
+                                <td class="numeric">$7.81</td>
+                                <td class="numeric">148</td>
+                            </tr>
+                            <tr>
+                                <td>AGK</td>
+                                <td>AGL ENERGY LIMITED</td>
+                                <td class="numeric">$13.82</td>
+                                <td class="numeric"> +0.02</td>
+                                <td class="numeric">0.14%</td>
+                                <td class="numeric">$13.83</td>
+                                <td class="numeric">$13.83</td>
+                                <td class="numeric">$13.67</td>
+                                <td class="numeric">846,403</td>
+                            </tr>
+                            <tr>
+                                <td>AGO</td>
+                                <td>ATLAS IRON LIMITED</td>
+                                <td class="numeric">$3.17</td>
+                                <td class="numeric">-0.02</td>
+                                <td class="numeric">-0.47%</td>
+                                <td class="numeric">$3.11</td>
+                                <td class="numeric">$3.22</td>
+                                <td class="numeric">$3.10</td>
+                                <td class="numeric">5,416,303</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

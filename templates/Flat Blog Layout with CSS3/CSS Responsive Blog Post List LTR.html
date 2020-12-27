@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Responsive Blog Post List LTR</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap');
+
+        :root {
+            --accent: #00c0ea;
+        }
+
+        body {
+            font-family: "Lato", Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 900;
+        }
+
+        h2 {
+            font-size: 1.375rem;
+            font-weight: 900;
+            line-height: 28px;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .section__heading {
+            margin: 0 0 20px;
+        }
+
+        .article {
+            border: 1px solid #dbdbdb;
+            margin: 0 0 20px;
+            -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.06);
+            -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.06);
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        .article__content {
+            padding: 15px 25px 20px 15px;
+        }
+
+        .article__image {
+            width: 100%;
+        }
+
+        .article__image:hover {
+            opacity: 0.5;
+            transition: opacity 0.5s ease-out;
+            -moz-transition: opacity 0.5s ease-out;
+            -webkit-transition: opacity 0.5s ease-out;
+            -o-transition: opacity 0.5s ease-out;
+        }
+
+        .article__category {
+            color: var(--accent);
+            font-size: 0.75rem;
+            letter-spacing: 0.075rem;
+            line-height: 16px;
+            margin: 0 0 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .article__title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 24px;
+        }
+
+        .article__title a {
+            display: block;
+        }
+
+        .article__title a:hover {
+            color: #444;
+        }
+
+        .article__footer {
+            color: #818181;
+            font-size: 0.875rem;
+            margin-top: 10px;
+        }
+
+        .article__author {
+            font-weight: 700;
+        }
+
+        .article__date::before {
+            content: "\2022";
+            padding: 0 0.5rem;
+        }
+
+        /* desktop */
+        @media (min-width: 700px) {
+            h2 {
+                font-size: 1.5rem;
+                line-height: 34px;
+            }
+
+            .container {
+                width: 900px;
+            }
+
+            .article {
+                display: flex;
+            }
+
+            .article__content {
+                padding: 24px 65px 55px 29px;
+            }
+
+            .article__photo {
+                order: 2;
+            }
+
+            .article__image {
+                width: 395px;
+                max-width: 395px;
+            }
+
+            .article__footer {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                padding: 0 29px 27px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <div class="section__heading">
+            <h1>Featured Articles</h1>
+        </div>
+        <div class="articles">
+            <article class="article">
+                <figure class="article__photo">
+                    <a href="#"><img src="https://source.unsplash.com/sibVwORYqs0/395x225" class="article__image" alt="Image Alt" title="Image Alt" /></a>
+                </figure>
+                <div class="article__content">
+                    <div class="article__category">Celebrity</div>
+                    <div class="article__title">
+                        <h2>
+                            <a href="#">Ryan Reynolds Tries to Leave His Bad-Mouthed Characters Behind to Keep It 'Clean' at Home for His Kids</a>
+                        </h2>
+                    </div>
+                    <footer class="article__footer">
+                        <span class="article__author">Jane Doe</span>
+                        <span class="article__date">May 3, 2019</span>
+                    </footer>
+                </div>
+            </article>
+            <article class="article">
+                <figure class="article__photo">
+                    <a href="#"><img src="https://source.unsplash.com/87kYkk3oHTM/395x225" class="article__image" alt="Image Alt" title="Image Alt" /></a>
+                </figure>
+                <div class="article__content">
+                    <div class="article__category">Health</div>
+                    <div class="article__title">
+                        <h2>
+                            <a href="#">Selma Blair Is Feeling 'Sick as All Hell' and Vomiting: 'The Medical Treatments Take Their Toll'</a>
+                        </h2>
+                    </div>
+                    <footer class="article__footer">
+                        <span class="article__author">John Smith</span>
+                        <span class="article__date">May 1, 2019</span>
+                    </footer>
+                </div>
+            </article>
+            <article class="article">
+                <figure class="article__photo">
+                    <a href="#"><img src="https://source.unsplash.com/VFrcRtEQKL8/395x225" class="article__image" alt="Image Alt" title="Image Alt" /></a>
+                </figure>
+                <div class="article__content">
+                    <div class="article__category">Shopping</div>
+                    <div class="article__title">
+                        <h2>
+                            <a href="#">Exactly What to Buy From the 3 Best Sales Happening This Weekend</a>
+                        </h2>
+                    </div>
+                    <footer class="article__footer">
+                        <span class="article__author">Kenold Beauplan</span>
+                        <span class="article__date">May 3, 2019</span>
+                    </footer>
+                </div>
+            </article>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Holy Grail via table-display and the direction property</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Cinzel');
+
+        /* Reset and basic typography stuffs */
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -o-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            min-height: 100%;
+            background: gainsboro;
+            color: #444;
+            font-size: 1rem;
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, Papyrus, cursive;
+            font-weight: 300;
+        }
+
+        aside,
+        body,
+        div,
+        footer,
+        h1,
+        h2,
+        h3,
+        h4,
+        header,
+        li,
+        main,
+        nav,
+        p,
+        section,
+        ul {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        aside,
+        body,
+        div,
+        footer,
+        header,
+        main,
+        nav,
+        section,
+        ul {
+            line-height: 1;
+            direction: ltr;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        p {
+            font-family: inherit;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        h2,
+        h3 {
+            margin-bottom: 1.5rem;
+            font-family: Georgia, serif;
+            font-weight: normal;
+            line-height: 1.5;
+        }
+
+        h1 {
+            margin-bottom: 2rem;
+            font-family: "Cinzel", serif;
+            font-weight: normal;
+            font-size: 3rem;
+            line-height: 1.1;
+        }
+
+        a {
+            color: #F9245D;
+            text-decoration: none;
+        }
+
+        code {
+            font-family: Monaco, Menlo, mono;
+            color: #999;
+            font-size: 90%;
+        }
+
+        .column *:last-child {
+            margin-bottom: 0;
+        }
+
+        /* The Structure (i.e. the only stuff you need) */
+        /* in WebKit, Switcheroo, Main, and Nav must be set to inline-block for equal heights to work */
+        .container {
+            margin: 0 auto;
+        }
+
+        .switcheroo {
+            width: 100%;
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3rem;
+            z-index: 2;
+        }
+
+        #nav-list {
+            height: 1px;
+            overflow: hidden;
+            -webkit-transition: all 0.2s ease-in-out;
+        }
+
+        #mobile-menu {
+            width: 2.25rem;
+            height: 2.25rem;
+            margin: 0.46875rem 0 0 0.9375rem;
+            padding: 0;
+            border: 2px groove #2F2E2D;
+            border-radius: 0;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        #mobile-menu b {
+            display: block;
+            width: 1.5rem;
+            height: 0.275rem;
+            background: whitesmoke;
+            margin: 0.25rem auto;
+        }
+
+        .open #nav-list {
+            height: auto;
+            overflow: visible;
+        }
+
+        .wrapper {
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0.9375rem;
+        }
+
+        .wrapper.first {
+            max-width: 75rem;
+            padding: 3rem 0.9375rem 0.9375rem;
+        }
+
+        @media (min-width: 48em) {
+            #mobile-menu {
+                position: absolute;
+                clip: square(0, 0, 0, 0);
+                opacity: 0;
+            }
+
+            #nav-list {
+                width: auto;
+                height: auto;
+                overflow: visible;
+            }
+
+            .switcheroo {
+                display: table;
+                table-layout: fixed;
+                background: #fff;
+                direction: rtl;
+            }
+
+            main,
+            nav {
+                display: table-cell;
+                vertical-align: top;
+                position: relative;
+                direction: ltr;
+            }
+
+            main {
+                width: 75%;
+            }
+
+            nav {
+                width: 25%;
+            }
+
+            .wrapper.first {
+                padding: 1.875rem 1.875rem 1.875rem;
+            }
+        }
+
+        @media (min-width: 60em) {
+            .container {
+                display: table;
+                table-layout: fixed;
+            }
+
+            .switcheroo {
+                display: table-cell;
+                vertical-align: top;
+                width: 75%;
+            }
+
+            /* the magic ingredient for equal height columns */
+            .switcheroo main,
+            .switcheroo nav {
+                height: 100vmin;
+            }
+
+            aside {
+                display: table-cell;
+                vertical-align: top;
+                width: 25%;
+            }
+
+            .column {
+                height: 100%;
+            }
+        }
+
+        /* Fluff (it's the pretty-pretty) */
+        main {
+            background: #fff;
+        }
+
+        nav {
+            background: #2F2E2D;
+        }
+
+        aside {
+            background: #f5f5f5;
+        }
+
+        #nav-list li {
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        #nav-list li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #2F2E2D;
+            color: #ccc;
+            font-weight: bold;
+            -webkit-transition: all 0.3s ease-in-out;
+        }
+
+        @media (min-width: 48rem) {
+            #nav-list li a {
+                background: transparent;
+            }
+        }
+
+        #nav-list li a:hover {
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+        }
+
+        @media (min-width: 37.5em) and (max-width: 60.1em) {
+
+            aside section:first-of-type,
+            aside section:nth-of-type(2) {
+                display: inline-block;
+                vertical-align: top;
+                width: 49%;
+            }
+        }
+
+        .spacer-gif {
+            display: none;
+            opacity: 0;
+        }
+
+        @media (min-width: 60em) {
+            .spacer-gif {
+                display: block;
+            }
+        }
+
+        #tag-cloud {
+            padding: 0.625rem;
+            text-align: center;
+        }
+
+        #tag-cloud li {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0.15625rem 0.05rem;
+        }
+
+        #tag-cloud li a {
+            display: block;
+            padding: 0.3125rem 0.5rem;
+            background: #5DBEDD;
+            color: #444;
+            font-size: 0.875rem;
+            font-weight: bold;
+            border-radius: 20px;
+            -webkit-transition: -webkit-transform 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        #tag-cloud li a:hover {
+            background: #F9245D;
+            color: #fff;
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        @media (min-width: 60em) {
+            #tag-cloud {
+                width: 94%;
+                background: #fff;
+                border-radius: 8px;
+            }
+        }
+
+        #ad {
+            background: -webkit-radial-gradient(center, ellipse cover, rgba(111, 170, 63, 1) 0%, rgba(255, 0, 132, 1) 100%);
+            background: -o-radial-gradient(center, ellipse cover, rgba(111, 170, 63, 1) 0%, rgba(255, 0, 132, 1) 100%);
+            background: -ms-radial-gradient(center, ellipse cover, rgba(111, 170, 63, 1) 0%, rgba(255, 0, 132, 1) 100%);
+            background: radial-gradient(ellipse at center, rgba(111, 170, 63, 1) 0%, rgba(255, 0, 132, 1) 100%);
+            color: magenta;
+            font-family: "Comic Sans MS", Impact, Courier, cursive;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: -1px -1px 1px blue, 1px 1px 1px white, 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        #ad h3 {
+            margin: 0;
+            font-family: "Comic Sans MS", Impact, Courier, cursive;
+            line-height: 1.75;
+        }
+
+        #ad small {
+            color: lime;
+        }
+
+        #ad p {
+            color: yellow;
+            line-height: 1.75;
+        }
+
+        #ad a {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container wrapper first">
+        <div class="switcheroo">
+            <main class="column">
+                <article class="wrapper">
+                    <h1>
+                        Set Your Holy Grail on a False Table
+                    </h1>
+                    <h2>
+                        Attain the holiest of holies (circa 2006) via <code>display: table;</code> and using the values of the <code>direction</code> property
+                    </h2>
+                    <p>
+                        There are many hack-ish ways to attain the Holy Grail and this is one more. By wrapping the first and second column in a container assigned <code>direction: rtl;</code> we can put the main content of our page before everything else (just remember to give the two wrapped columns a direction value of <code>ltr</code>).
+                    </p>
+                    <p>
+                        But what about equal height columns? That where <code>display: table;</code> comes in. Using this as the display property for the wrapping element of all three columns we can make sure that column three and the container element for columns one and two are of equal height by giving them the property of <code>display: table-cell</code>.
+                    </p>
+                    <p>
+                        &ldquo;But if the columns one and two wrapper is set to <code>display: table-cell;</code> how do we get those two columns to be of equal height to column three? You can't give an element a height of 100% when its parent is set to table display&rdquo;
+                    </p>
+                    <p>
+                        Carnsarnit! I didn't think about that. What if I set the height of columns one and two to 100vh or 100vmin?
+                    </p>
+                    <p>
+                        &ldquo;Well, you could do that, but that seems like a pretty hack-ish thing to do and it will probably create some bugs somewhere down the line in develop&hellip;&rdquo;
+                    </p>
+                    <p>
+                        <strong>Quiet you!</strong> Stop stepping on my dreams!
+                    </p>
+                    <p>
+                        &ldquo;You're dreams are to create a sketchy layout pattern that would have been popular, like, eight years ago? Pfft! Some dreams.&rdquo;
+                    </p>
+                    <p>
+                        You know? my friends were right&mdash;marrying you was a huge mistake. <strong>HUGE!</strong>
+                    </p>
+                </article>
+            </main>
+            <nav class="column">
+                <button id="mobile-menu">
+                    <b></b>
+                    <b></b>
+                    <b></b>
+                </button>
+                <ul id="nav-list">
+                    <li><a class="wrapper" href="/">Item 1</a></li>
+                    <li><a class="wrapper" href="/">Item 2</a></li>
+                    <li><a class="wrapper" href="/">Item 3</a></li>
+                    <li><a class="wrapper" href="/">Item 4</a></li>
+                    <li><a class="wrapper" href="/">Item 5</a></li>
+                </ul>
+            </nav>
+        </div>
+        <aside class="column">
+            <section class="wrapper">
+                <h3>
+                    Aside!
+                </h3>
+                <p>
+                    I think this is where people put ads for erectile dysfunction and list other articles they've written that nobody has read&hellip; OH! And a tag cloud!
+                </p>
+            </section>
+            <hr class="spacer-gif">
+            <section id="tag-cloud" class="wrapper">
+                <ul>
+                    <li>
+                     <a href="/">blogs</a>
+                  </li>
+                    <li>
+                     <a href="/"><big>SEO</big></a>
+                  </li>
+                    <li>
+                     <a href="/">blogs on blogging</a></a>
+                  </li>
+                    <li>
+                     <a href="/"><big>Synergy</big></a>
+                  </li>
+                    <li>
+                     <a href="/">blogging</a>
+                  </li>
+                    <li>
+                     <a href="/">blogging on blogs</a>
+                  </li>
+                    <li>
+                     <a href="/"><small>SEO again</small></a>
+                  </li>
+                    <li>
+                     <a href="/"><big>9-11 was an inside job</big></a>
+                  </li>
+                    <li>
+                     <a href="/">innovation</a>
+                  </li>
+                    <li>
+                     <a href="/"><small>SEO like a Mofo</small></a>
+                  </li>
+                    <li>
+                     <a href="/"><big>smart phone</big></a>
+                  </li>
+                    <li>
+                     <a href="/">ROI</a>
+                  </li>
+                    <li>
+                     <a href="/"><big>MySpace</big></a>
+                  </li>
+                    <li>
+                     <a href="/"><small>Bring back Farscape!</small></a>
+                  </li>
+                    <li>
+                     <a href="/"><big>2006</big></a>
+                  </li>
+                    <li>
+                     <a href="/">leadership</a>
+                  </li>
+                    <li>
+                     <a href="/"><big>&lt;big&gt; tag?</big></a>
+                  </li>
+                </ul>
+            </section>
+            <hr class="spacer-gif">
+            <section>
+                <article id="ad" class="wrapper">
+                    <h3>
+                        Try some herbal Viagara!</br>
+                        <small>by Fizer<sup>☹</sup> (without a "P")</small>
+                    </h3>
+                    <p>
+                        C'mon, it's not like it's ipecac!<a name="lie" href="#total-lie"><sup>*</sup></a>
+                    </p>
+                    <p class="wrapper"><small name="total-lie"><a href="#lie"><sup>*</sup></a>It's totally ipecac. ¯\_(ツ)_/¯</small></p>
+                </article>
+            </section>
+        </aside>
+    </div>
+    <script type="text/javascript">
+        $('#mobile-menu').on({
+            click: function() {
+                var $parent = $(this).parent();
+                var open = $parent.toggleClass('open');
+            }
+        });
+    </script>
+</body>
+
+</html>

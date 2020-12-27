@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Replicating a WordPress theme w flex+grid</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* CSS Reset */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        a {
+            color: #161616;
+            text-decoration: none;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        h4 {
+            font-size: 1.6rem;
+        }
+
+        h5 {
+            font-size: 1.2rem;
+        }
+
+        h6 {
+            font-size: 1rem;
+        }
+
+        /* Start */
+        .container {
+            padding: 0 10rem;
+        }
+
+        .topnav {
+            background: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem 10rem;
+        }
+
+        .topnav--subsection {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topnav--subsection a.icon {
+            background: url('https://cdn.rawgit.com/ivorpad/b9adce880f800f53195041a4ed8546c9/raw/a905a3b479ab7880340856a3d15369a932f7b24c/ham.svg') center center no-repeat;
+            background-size: 20px 20px;
+            width: 20px;
+            height: 20px;
+            display: none;
+        }
+
+        .topnav--subsection nav a {
+            transition: border 0.1s ease-in-out;
+        }
+
+        .topnav--subsection nav a:hover {
+            border-bottom: 1px solid #161616;
+        }
+
+        .topnav--subsection nav a,
+        .shop-item--container .meta>span {
+            text-transform: uppercase;
+        }
+
+        .topnav--subsection nav a.active {
+            color: grey;
+            border-bottom: 1px solid grey;
+        }
+
+        .topnav--subsection .branding {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .topnav--subsection nav:not(.branding) a,
+        .shop-item--container .meta span {
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+        }
+
+        .topnav--subsection nav:first-child a {
+            margin-right: 1.5rem;
+        }
+
+        .topnav--subsection nav:nth-last-child(2) a {
+            margin-left: 1.5rem;
+        }
+
+        .banner {
+            background: #f1f1f1;
+            padding: 5rem;
+            margin-top: 8rem;
+        }
+
+        .banner .slide {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .banner h1 {
+            text-transform: uppercase;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .banner p {
+            color: grey;
+        }
+
+        .slide img {
+            width: 30%;
+            height: 30%;
+            align-self: center;
+        }
+
+        .slide .description {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            width: 50%;
+        }
+
+        .shop-items {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-rows: repeat(2, minmax(360px, 1fr));
+            gap: 3rem;
+            grid-gap: 3rem;
+            grid-auto-rows: 360px;
+        }
+
+        .shop-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .shop-item--container {
+            background: #f1f1f1;
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+            transition: all 0.15s ease-in-out;
+        }
+
+        .shop-item--container:hover {
+            background: #f6f6f6;
+        }
+
+        .shop-item--container .meta {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .shop-item--container .meta>span {
+            font-weight: bold;
+        }
+
+        .shop-item h3 {
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 1.5px;
+            font-size: 1.1rem;
+            margin: 0.8rem;
+        }
+
+        .shop-item h3 a:hover {
+            color: grey;
+        }
+
+        .shop-item .price {
+            text-align: center;
+        }
+
+        .shop-item .title>a {
+            display: block;
+        }
+
+        .shop-item .price span {
+            margin-top: 1rem;
+            text-align: center;
+            color: grey;
+            font-size: 1.3rem;
+        }
+
+        .shop-item--container img {
+            align-self: center;
+            margin: auto 0;
+        }
+
+        .main-footer {
+            margin: 7rem 0;
+            padding-top: 5rem;
+            border-top: 1px solid #f1f1f1;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .main-footer>nav ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .main-footer>nav ul li {
+            margin-bottom: 1rem;
+        }
+
+        .main-footer>nav ul li a {
+            color: grey;
+            font-size: 1.2rem;
+        }
+
+        .main-footer>nav ul li a:hover {
+            color: #010101;
+        }
+
+        .main-footer h3 {
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 1.3rem;
+        }
+
+        /* Media Queries */
+        @media (min-width: 1350px) {
+            .shop-items {
+                grid-template-columns: repeat(4, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+
+            .topnav {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            nav.menu,
+            .user-engagement {
+                display: none;
+            }
+
+            .topnav--subsection a.icon {
+                display: block;
+            }
+        }
+
+        @media (max-width: 895px) {
+            .main-footer {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 425px) {
+            .slide img {
+                display: none;
+            }
+
+            .slide .left {
+                width: 100%;
+            }
+
+            .main-footer {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .shop-item .title h3 {
+                font-size: 1.5rem;
+            }
+
+            .shop-item .price span {
+                font-size: 1.5rem;
+            }
+
+            .main-footer>nav ul li a {
+                background: #f1f1f1;
+                display: block;
+                padding: 1.5rem;
+                color: grey;
+                font-size: 1.5rem;
+            }
+
+            .main-footer>nav ul li a:hover {
+                color: grey;
+            }
+
+            .main-footer h3 {
+                font-size: 1.5rem;
+            }
+
+            .slide .description {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <header class="topnav">
+            <div class="topnav--subsection">
+                <nav class="menu">
+                    <a class="active" href="#">Home</a>
+                    <a href="#">Home</a>
+                    <a href="#">Home</a>
+                    <a href="#">Home</a>
+                </nav>
+                <nav class="branding">
+                    <a href="#">eshop</a>
+                </nav>
+                <nav class="user-engagement">
+                    <a href="#">Profile</a>
+                    <a href="#">Cart</a>
+                    <a href="#">Contact us</a>
+                </nav>
+                <a class="icon" href="#"></a>
+            </div>
+        </header>
+        <section class="banner">
+            <div class="slide">
+                <div class="description">
+                    <h1>Premium comfort</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque deleniti similique fugit expedita commodi, consectetur, eligendi.</p>
+                </div>
+                <img src="https://user-images.githubusercontent.com/52452/42075807-a4f568fc-7b40-11e8-8024-d4183c805a69.png" width="350" height="350" alt="" title="" />
+            </div>
+        </section>
+        <section class="shop-items">
+            <div class="shop-item">
+                <a href="#" class="shop-item--container">
+                  <div class="meta">
+                     <span class="tag">new</span>
+                     <span class="discount">-19%</span>
+                  </div>
+                  <img src="https://user-images.githubusercontent.com/52452/42075807-a4f568fc-7b40-11e8-8024-d4183c805a69.png" width="160" height="160" alt="" title="" />
+               </a>
+                <div class="title">
+                    <h3><a href="#">Basket with handles</a></h3>
+                </div>
+                <div class="price"><span>$160</span></div>
+            </div>
+            <div class="shop-item">
+                <a href="#" class="shop-item--container">
+                  <div class="meta">
+                     <span class="tag">new</span>
+                     <span class="discount">-19%</span>
+                  </div>
+                  <img src="https://user-images.githubusercontent.com/52452/42075807-a4f568fc-7b40-11e8-8024-d4183c805a69.png" width="160" height="160" alt="" title="" />
+               </a>
+                <div class="title">
+                    <h3><a href="#">Basket with handles</a></h3>
+                </div>
+                <div class="price"><span>$160</span></div>
+            </div>
+            <div class="shop-item">
+                <a href="#" class="shop-item--container">
+                  <div class="meta">
+                     <span class="tag">new</span>
+                     <span class="discount">-19%</span>
+                  </div>
+                  <img src="https://user-images.githubusercontent.com/52452/42075807-a4f568fc-7b40-11e8-8024-d4183c805a69.png" width="160" height="160" alt="" title="" />
+               </a>
+                <div class="title">
+                    <h3><a href="#">Basket with handles</a></h3>
+                </div>
+                <div class="price"><span>$160</span></div>
+            </div>
+            <div class="shop-item">
+                <a href="#" class="shop-item--container">
+                  <div class="meta">
+                     <span class="tag">new</span>
+                     <span class="discount">-19%</span>
+                  </div>
+                  <img src="https://user-images.githubusercontent.com/52452/42075807-a4f568fc-7b40-11e8-8024-d4183c805a69.png" width="160" height="160" alt="" title="" />
+               </a>
+                <div class="title">
+                    <h3><a href="#">Basket with handles</a></h3>
+                </div>
+                <div class="price"><span>$160</span></div>
+            </div>
+            <div class="shop-item">
+                <a href="#" class="shop-item--container">
+                  <div class="meta">
+                     <span class="tag">new</span>
+                     <span class="discount">-19%</span>
+                  </div>
+                  <img src="https://user-images.githubusercontent.com/52452/42075807-a4f568fc-7b40-11e8-8024-d4183c805a69.png" width="160" height="160" alt="" title="" />
+               </a>
+                <div class="title">
+                    <h3><a href="#">Basket with handles</a></h3>
+                </div>
+                <div class="price"><span>$160</span></div>
+            </div>
+            <div class="shop-item">
+                <a href="#" class="shop-item--container">
+                  <div class="meta">
+                     <span class="tag">new</span>
+                     <span class="discount">-19%</span>
+                  </div>
+                  <img src="https://user-images.githubusercontent.com/52452/42075807-a4f568fc-7b40-11e8-8024-d4183c805a69.png" width="160" height="160" alt="" title="" />
+               </a>
+                <div class="title">
+                    <h3><a href="#">Basket with handles</a></h3>
+                </div>
+                <div class="price"><span>$160</span></div>
+            </div>
+            <div class="shop-item">
+                <a href="#" class="shop-item--container">
+                  <div class="meta">
+                     <span class="tag">new</span>
+                     <span class="discount">-19%</span>
+                  </div>
+                  <img src="https://user-images.githubusercontent.com/52452/42075807-a4f568fc-7b40-11e8-8024-d4183c805a69.png" width="160" height="160" alt="" title="" />
+               </a>
+                <div class="title">
+                    <h3><a href="#">Basket with handles</a></h3>
+                </div>
+                <div class="price"><span>$160</span></div>
+            </div>
+            <div class="shop-item">
+                <a href="#" class="shop-item--container">
+                  <div class="meta">
+                     <span class="tag">new</span>
+                     <span class="discount">-19%</span>
+                  </div>
+                  <img src="https://user-images.githubusercontent.com/52452/42075807-a4f568fc-7b40-11e8-8024-d4183c805a69.png" width="160" height="160" alt="" title="" />
+               </a>
+                <div class="title">
+                    <h3><a href="#">Basket with handles</a></h3>
+                </div>
+                <div class="price"><span>$160</span></div>
+            </div>
+        </section>
+        <footer class="main-footer">
+            <nav>
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Help & Contact Us</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Online Stores</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Help & Contact Us</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Online Stores</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Help & Contact Us</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Online Stores</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Help & Contact Us</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Online Stores</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>

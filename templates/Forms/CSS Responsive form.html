@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage
+   websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage
+   borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms
+   csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage
+   webworkers applicationcache svg inlinesvg smil svgclippaths -webkit-">
+
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Responsive form</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <style type="text/css">
+        body {
+            font: normal 12px/25px Arial, Helvetica, sans-serif;
+        }
+
+        .divform {
+            display: table;
+            border-collapse: collapse;
+        }
+
+        .divform .r {
+            display: table-row;
+        }
+
+        .divform .c {
+            display: table-cell;
+            padding: 5px 0px;
+            vertical-align: middle;
+        }
+
+        input[type="text"],
+        select,
+        label {
+            height: 30px;
+        }
+
+        input[type="text"],
+        select,
+        textarea,
+        label,
+        input[type="submit"] {
+            margin: 0 5px;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            padding: 5px;
+            width: 96%;
+            border: 1px solid #CCC;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            margin-top: 15px;
+            background-color: #F5F5F5;
+            color: #444444;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 5px;
+            font-weight: bold;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            background-color: #F5F5F5;
+            background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+            background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+            background-repeat: repeat-x;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 0 0 0 2%;
+            padding: 0;
+            vertical-align: middle;
+        }
+
+        input[type="text"],
+        select,
+        textarea,
+        .divform,
+        .divform .r,
+        .divform .c,
+        form {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        /* iPads (portrait and landscape) */
+        @media only screen and (min-width: 480px) and (max-width: 1024px) {
+            body {
+                font: normal 16px/30px Arial, Helvetica, sans-serif;
+            }
+
+            .divform,
+            .divform .r,
+            .divform .c {
+                display: block;
+            }
+
+            .divform .r {
+                clear: both;
+            }
+
+            .divform .c {
+                width: 50%;
+                float: left;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .divform .c:nth-child(2n+3) {
+                clear: left;
+            }
+
+            label,
+            .fheading,
+            input[type="submit"] {
+                margin-left: 0;
+                text-indent: 0;
+            }
+
+            input[type="submit"] {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            textarea,
+            input[type="text"],
+            select {
+                width: 100%;
+                margin: 0;
+            }
+
+            input[type="radio"],
+            input[type="checkbox"] {
+                margin: 0 5px;
+                padding: 0;
+                vertical-align: middle;
+            }
+
+            .ver2 .c {
+                width: 35%;
+            }
+
+            .ver2 .c:nth-child(2n+2) {
+                width: 65%;
+            }
+
+            .c.frwd {
+                width: 100%;
+            }
+
+            .c.frwd textarea,
+            .c.frwd input[type="text"],
+            .c.frwd select {
+                width: 100%;
+            }
+
+            .ver2 .frwd.c:nth-child(2n+2) {
+                width: 100%;
+            }
+        }
+
+        /* Smartphones (portrait and landscape) */
+        @media only screen and (max-width: 480px) {
+            body {
+                font: normal 16px/30px Arial, Helvetica, sans-serif;
+            }
+
+            h1 {
+                margin: 0 0 20px 0;
+            }
+
+            label,
+            .fheading,
+            input[type="submit"] {
+                margin: 0;
+                text-indent: 0;
+            }
+
+            .divform,
+            .divform .r,
+            .divform .c {
+                display: block;
+            }
+
+            .divform .r {
+                clear: both;
+            }
+
+            input[type="text"],
+            select,
+            textarea {
+                width: 100%;
+                margin: 0;
+            }
+
+            input[type="radio"],
+            input[type="checkbox"] {
+                margin: 0 2%;
+            }
+
+            input[type="submit"] {
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+
+        /* Only Safari */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            select {
+                text-indent: 5px;
+                line-height: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <h1>CSS Responsive form</h1>
+    <form name="wittysparks" id="ws" method="post" action="#">
+        <div class="divform">
+            <div class="r">
+                <div class="c"><label for="Firstname">First Name:</label><input id="Firstname" name="Firstname" type="text" /></div>
+                <div class="c"><label for="Middlename">Middle Name:</label><input id="Middlename" name="Middlename" type="text" /></div>
+                <div class="c"><label for="Lastname">Last Name:</label><input id="Lastname" name="Lastname" type="text" /></div>
+                <div class="c"><label for="Email">Email:</label><input id="Email" name="Email" type="text" /></div>
+            </div>
+            <div class="r">
+                <div class="c"><span class="fheading">Membership</span><input id="rdiobox" name="rdiobox" type="radio" value="Premium" /><label for="rdiobox">Premium</label> <input id="rdiobox2" name="rdiobox" type="radio" value="Free" /><label for="rdiobox2">Free</label></div>
+                <div class="c"><span class="fheading">Newsletter</span><input id="chkbox" name="chkbox" type="checkbox" value="Checkbox" /><label for="chkbox">Yes / No</label></div>
+                <div class="c"><label for="Telephoneno">Tel:</label><input id="Telephoneno" name="Telephoneno" type="text" /></div>
+                <div class="c"><label for="DOB">D.O.B:</label><input id="DOB" name="DOB" type="text" /></div>
+            </div>
+            <div class="r">
+                <div class="c"><label for="Occupation">Occupation:</label><input id="Occupation" name="Occupation" type="text" /></div>
+                <div class="c">
+                    <label for="Country">Country:</label>
+                    <select name="Country" id="Country">
+                        <option selected="selected">U.S</option>
+                        <option>India</option>
+                    </select>
+                </div>
+                <div class="c">
+                    <label for="City">City:</label>
+                    <select id="City" name="city">
+                        <option selected="selected">New York</option>
+                    </select>
+                </div>
+            </div>
+            <div class="r">
+                <div class="c frwd"><label for="Comments">Comments:</label><textarea id="Comments" name="Comments" rows="3"></textarea></div>
+            </div>
+            <div class="r">
+                <div class="c"><input name="button" type="submit" value="Submit" /></div>
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</body>
+
+</html>

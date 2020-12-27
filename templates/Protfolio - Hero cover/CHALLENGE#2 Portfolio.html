@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>CHALLENGE#2 Portfolio</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=News+Cycle|Petit+Formal+Script');
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            font-family: 'News Cycle', sans-serif;
+        }
+
+        /* FLEXBOX */
+        .page-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 auto;
+            flex-wrap: no-wrap;
+            align-items: stretch;
+            align-content: space-between;
+        }
+
+        .flex-item {
+            width: 100%;
+            text-align: center;
+        }
+
+        .nav {
+            height: 50px;
+            background-color: #EDEDED;
+            line-height: 50px;
+            order: 1;
+        }
+
+        .about:before {
+            content: '';
+            display: block;
+            height: 10px;
+            background-color: #C42F45;
+        }
+
+        .about {
+            background: linear-gradient(45deg, #160C28, #4B1D3F);
+            order: 2;
+            text-align: center;
+        }
+
+        .skills {
+            order: 3;
+            background-color: #339989;
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        .work {
+            order: 4;
+            background-color: #EDEDED;
+            padding-top: 30px;
+        }
+
+        .contact {
+            order: 5;
+            background-color: #C42F45;
+            padding: 30px 0;
+        }
+
+        .footer {
+            order: 6;
+            background-color: #212121;
+            height: 100px;
+            bottom: 0;
+        }
+
+        /* RÓŻNE */
+        .my-photo {
+            width: 180px;
+            height: 180px;
+            background-color: #EDEDED;
+            border-radius: 90px;
+            margin: 30px auto;
+        }
+
+        .nav ul {
+            list-style-type: none;
+            position: absolute;
+            right: 50px;
+        }
+
+        .nav ul li {
+            display: inline-block;
+            padding-left: 30px;
+            line-height: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        /* TYPOGRAFIA */
+        h1 {
+            color: #EDEDED;
+            font-size: 3em;
+            margin: 30px 0;
+            font-weight: 600;
+            font-family: Petit Formal Script, sans-serif;
+        }
+
+        h3 {
+            color: #EDEDED;
+            font-size: 1.8em;
+            font-family: Petit Formal Script, sans-serif;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about p {
+            color: #EDEDED;
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+
+        .nav ul li a {
+            color: #C42F45;
+            text-decoration: none;
+            transition: color 0.5s;
+        }
+
+        .nav ul li a:hover {
+            color: #160C28;
+        }
+
+        .skills p {
+            color: #EDEDED;
+            display: block;
+            width: 800px;
+            text-align: justify;
+            margin: 0 auto 30px auto;
+        }
+
+        .footer p {
+            text-align: center;
+            line-height: 100px;
+            color: #EDEDED;
+        }
+
+        .work h3 {
+            color: #160C28;
+        }
+
+        h3:before,
+        h3:after {
+            content: "-";
+        }
+
+        /* PORTFOLIO DIV */
+        .work-wrapper {
+            width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .work-item {
+            width: 250px;
+            height: 150px;
+            background-color: #160C28;
+            color: #EDEDED;
+            text-align: center;
+            line-height: 150px;
+            font-size: 3em;
+            transition: background-color 1s ease;
+            margin: 0 auto 5px auto;
+            display: inline-block;
+        }
+
+        .work-item:hover {
+            background-color: #4B1D3F;
+        }
+
+        /* FORMULARZ */
+        input,
+        textarea {
+            display: block;
+            background-color: #EDEDED;
+            border: none;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        input {
+            height: 25px;
+            width: 500px;
+        }
+
+        textarea {
+            height: 100px;
+            width: 500px;
+        }
+
+        .button {
+            background-color: #212121;
+            color: #EDEDED;
+        }
+
+        /* MEDIA */
+        @media screen and (max-width: 650px) {
+            .skills p {
+                width: 450px;
+            }
+
+            .work-wrapper {
+                width: 450px;
+            }
+
+            .work-item {
+                width: 200px;
+                height: 125px;
+                line-height: 125px;
+            }
+
+            input {
+                width: 300px;
+            }
+
+            textarea {
+                width: 300px;
+            }
+        }
+
+        @media screen and (max-width: 830px) and (min-width: 651px) {
+            .skills p {
+                width: 550px;
+            }
+
+            .work-wrapper {
+                width: 550px;
+            }
+
+            .work-item {
+                width: 250px;
+                height: 125px;
+                line-height: 125px;
+            }
+
+            input {
+                width: 400px;
+            }
+
+            textarea {
+                width: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="page-wrap">
+        <div class="flex-item nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="flex-item about" id="about">
+            <div class="my-photo"></div>
+            <h1>Gabriela S.</h1>
+            <p>Front-end developer (and possibly graphic designer) to be.</p>
+        </div>
+        <div class="flex-item skills" id="skills">
+            <h3>Skills</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam enim nunc, posuere eget velit a, ultricies venenatis justo. Vivamus quam massa, rutrum ut libero eget, dapibus lacinia elit. Vivamus a sagittis ante. Donec sed ex ut ex aliquet tempus. Maecenas at nisi lacinia, aliquet metus nec, placerat urna. Donec nec velit sit amet turpis consectetur vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ac quam erat. Sed lacinia, nunc quis fringilla tempus, erat mauris efficitur nisi, nec varius sapien urna convallis lorem.</p>
+            <p>Cras ullamcorper semper mi, vel feugiat sapien interdum vel. Proin ut lacus a turpis luctus molestie. Praesent et purus eu nisl auctor dictum id at velit. Etiam volutpat dui posuere suscipit vulputate. Proin placerat, quam in semper fringilla, est turpis placerat risus, a cursus est arcu a enim. In tincidunt aliquet tortor, sit amet tempus nunc lacinia vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sodales, libero at tempus dignissim, nunc elit hendrerit leo, non fermentum neque nunc sed erat. Praesent maximus augue sed metus iaculis imperdiet nec sit amet metus. Vivamus luctus lacus augue. Nullam mollis augue ac mauris blandit commodo non at enim. Nam consectetur ut lacus id cursus. Curabitur cursus egestas tortor a dictum. Phasellus id purus ac justo volutpat blandit sit amet a diam.</p>
+        </div>
+        <div class="flex-item work" id="work">
+            <h3>Work</h3>
+            <div class="work-wrapper">
+                <div class="work-item work-1">#1</div>
+                <div class="work-item work-2">#2</div>
+                <div class="work-item work-3">#3</div>
+                <div class="work-item work-4">#4</div>
+                <div class="work-item work-5">#5</div>
+                <div class="work-item work-6">#6</div>
+            </div>
+        </div>
+        <div class="flex-item contact" id="contact">
+            <h3>Contact me</h3>
+            <form>
+                <input type="text" name="firstname" value="Your name" />
+                <input type="text" name="email" value="Your e-mail address" />
+                <textarea name="msg" value=""></textarea>
+                <input type="submit" value="Send" class="button" />
+            </form>
+        </div>
+        <div class="flex-item footer">
+            <p>2016. Made for freeCodeCamp Challenge #2.</p>
+        </div>
+    </div>
+</body>
+
+</html>

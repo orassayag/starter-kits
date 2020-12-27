@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive holy grail layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            font-family: 'Baloo Tamma', cursive;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            background: #E89595;
+            text-align: center;
+            font-size: 50px;
+            padding: 24px;
+            color: #D64141;
+            margin: 18px 18px 9px 18px;
+        }
+
+        .body-wrapper {
+            flex-grow: 1;
+            display: flex;
+        }
+
+        .body-wrapper .left,
+        .body-wrapper .right {
+            flex-basis: 170px;
+            padding: 20px 0;
+            background: #7FADE5;
+            color: #215FAA;
+            font-size: 20px;
+            text-align: center;
+            margin: 9px 18px;
+        }
+
+        .body-wrapper .center {
+            flex-grow: 1;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 40px;
+            background: #ddd;
+            color: #999;
+            margin: 9px 0;
+        }
+
+        footer {
+            padding: 24px;
+            background: #BAEE9A;
+            color: #244A0C;
+            font-size: 20px;
+            text-align: center;
+            margin: 9px 18px 18px 18px;
+        }
+
+        @media (max-width: 992px) {
+            body {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .body-wrapper {
+                flex-direction: column;
+            }
+
+            .body-wrapper .center {
+                margin: 9px 18px;
+            }
+
+            .body-wrapper .left,
+            .body-wrapper .right {
+                flex-basis: auto;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header>Titel</header>
+    <div class="body-wrapper">
+        <nav class="left">Navigation</nav>
+        <main class="center">Inhalt</main>
+        <aside class="right">Werbung</aside>
+    </div>
+    <footer>Footer</footer>
+</body>
+
+</html>

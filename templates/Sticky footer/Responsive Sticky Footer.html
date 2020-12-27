@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Sticky Footer</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Lato');
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: lato;
+            color: #fff;
+            background: #2ecc71;
+        }
+
+        h1 {
+            font-weight: normal;
+            font-size: 40px;
+            font-weight: normal;
+            text-transform: uppercase;
+            padding: 55px 30px;
+        }
+
+        h1 span {
+            font-size: 13px;
+            display: block;
+            padding-left: 4px;
+        }
+
+        p {
+            display: block;
+            float: left;
+            font-size: 20px;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        .wrapper {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -200px;
+        }
+
+        .sticky {
+            height: 200px;
+        }
+
+        footer {
+            background-color: #208e4e;
+            height: 200px;
+        }
+
+        footer h1 {
+            padding-top: 20px !important;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wrapper">
+        <header>
+            <h1>Sticky Footer <span>Just CSS!</span></h1>
+        </header>
+        <div class="sticky"></div>
+    </div>
+    <footer>
+        <h1>Footer <span>Resize the window!</span></h1>
+    </footer>
+</body>
+
+</html>

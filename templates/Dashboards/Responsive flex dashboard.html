@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive flex dashboard</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <style type="text/css">
+        /* Variables */
+        body {
+            background: #EAEAEA;
+            width: 100%;
+            font-family: "segoe ui light";
+        }
+
+        body .outer {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-direction: row;
+            -webkit-box-pack: start;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        body .outer .tile {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            box-sizing: border-box;
+            color: white;
+            box-shadow: 1px 7px 22px -6px rgba(0, 0, 0, 0.53);
+            padding: 20px;
+            outline: 1px solid rgba(255, 255, 255, 0.4);
+            -webkit-transition: -webkit-transform 100ms ease-out;
+            transition: -webkit-transform 100ms ease-out;
+            transition: transform 100ms ease-out;
+            transition: transform 100ms ease-out, -webkit-transform 100ms ease-out;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        body .outer .tile:hover,
+        body .outer .tile:focus {
+            outline: 1px solid rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+        }
+
+        body .outer .tile.tile1x2 {
+            width: 420px;
+        }
+
+        body .outer .tile p {
+            height: 70px;
+            margin: 0;
+            text-align: left;
+            line-height: 100px;
+        }
+
+        body .outer .tile p.number {
+            font-size: 70px;
+        }
+
+        body .outer .tile p.text {
+            font-size: 25px;
+        }
+
+        body .outer .tile.red {
+            background: #e74c3c;
+        }
+
+        body .outer .tile.green {
+            background: #25b768;
+        }
+
+        body .outer .tile.blue {
+            background: #0078d7;
+        }
+
+        body .outer .tile.yellow {
+            background: #f1c40f;
+            color: black;
+        }
+
+        @media only screen and (max-width: 600px) {
+            body .outer {
+                -webkit-box-pack: center;
+                justify-content: center;
+            }
+        }
+
+        body h1 {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <h1>
+        Dashboard
+    </h1>
+    <section class="outer">
+        <section class="tile red">
+            <p class="number">25</p>
+            <p class="text">Bugs</p>
+        </section>
+        <section class="tile blue">
+            <p class="number">25</p>
+            <p class="text">User Stories</p>
+        </section>
+        <section class="tile tile1x2 red">
+            <p class="number">12</p>
+            <p class="text">Features</p>
+        </section>
+        <section class="tile green">
+            <p class="number">25</p>
+            <p class="text">Feedback</p>
+        </section>
+        <section class="tile blue">
+            <p class="number">99+</p>
+            <p class="text">Feedback</p>
+        </section>
+        <section class="tile yellow">
+            <p class="number">25</p>
+            <p class="text">Feedbacks</p>
+        </section>
+        <section class="tile red">
+            <p class="number">25</p>
+            <p class="text">Feedbacks</p>
+        </section>
+        <section class="tile red">
+            <p class="number">25</p>
+            <p class="text">Feedbacks</p>
+        </section>
+        <section class="tile green">
+            <p class="number">25</p>
+            <p class="text">Feedbacks</p>
+        </section>
+        <section class="tile blue">
+            <p class="number">25</p>
+            <p class="text">Feedbacks</p>
+        </section>
+        <section class="tile yellow">
+            <p class="number">25</p>
+            <p class="text">Feedbacks</p>
+        </section>
+        <section class="tile tile1x2 blue">
+            <p class="number">25</p>
+            <p class="text">Work Items</p>
+        </section>
+        <section class="tile yellow">
+            <p class="number">25</p>
+            <p class="text">Feedbacks</p>
+        </section>
+        <section class="tile green">
+            <p class="number">25</p>
+            <p class="text">Scenarios</p>
+        </section>
+    </section>
+    <script type="text/javascript" id="rendered-js">
+        "use strict";
+    </script>
+</body>
+
+</html>

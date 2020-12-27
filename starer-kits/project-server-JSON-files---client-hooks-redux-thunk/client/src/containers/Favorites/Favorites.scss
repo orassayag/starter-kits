@@ -1,0 +1,9 @@
+.main-area {
+    min-height: 750px;
+    height: 100%;
+    width: 100%;
+
+    &.favorites {
+        margin-top: 5%;
+    }
+}

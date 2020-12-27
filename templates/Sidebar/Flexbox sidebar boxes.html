@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox sidebar boxes</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        aside,
+        section {
+            margin: 0.5rem;
+            padding: 1rem;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -0.5rem;
+        }
+
+        aside {
+            flex-basis: 15rem;
+            flex-grow: 1;
+        }
+
+        section {
+            min-width: 50%;
+            flex-grow: 666;
+            flex-basis: 0;
+        }
+
+        /* styles */
+        body {
+            padding: 1rem;
+        }
+
+        main {
+            background-color: gainsboro;
+        }
+
+        aside {
+            background-color: red;
+        }
+
+        section {
+            background-color: hotpink;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <main>
+        <aside>
+            <h2>Sidebar</h2>
+            <ul>
+                <li>Sed scelerisque</li>
+                <li>accumsan rutrum</li>
+                <li>Morbi eleifend</li>
+                <li>malesuada quam</li>
+                <li>sed laoreet</li>
+            </ul>
+        </aside>
+        <section>
+            <h1>Not sidebar</h1>
+            <p><a href="https://www.youtube.com/watch?v=qOUtkN6M52M">Watch this plz.</a></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et fermentum mi. Integer nec iaculis velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas vel ante nulla. Duis vestibulum dolor sem, quis faucibus lacus egestas a. Donec fermentum ut ante id convallis. Nulla a enim dictum, dignissim lectus a, ultricies leo. Phasellus sem felis, finibus eget justo in, laoreet faucibus mi. Duis tempus sem bibendum ipsum venenatis, eget eleifend elit bibendum.</p>
+        </section>
+    </main>
+</body>
+
+</html>

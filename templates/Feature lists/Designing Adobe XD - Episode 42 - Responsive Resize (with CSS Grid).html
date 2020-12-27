@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Designing Adobe XD - Episode 42 - Responsive Resize (with CSS Grid)</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+
+        body {
+            padding: 20px;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            background-color: deepskyblue;
+            border-radius: 5px;
+            color: white;
+            margin-bottom: 1em;
+            padding: 5px 10px;
+        }
+
+        .header__menu-burger {
+            border: none;
+            background-color: transparent;
+            margin-right: 0.7em;
+        }
+
+        .header__menu-burger .menu-burger {
+            cursor: pointer;
+            transition: 0.5s ease;
+            height: 5px;
+        }
+
+        .header__menu-burger .menu-burger:hover .bar {
+            box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.3);
+        }
+
+        .header__menu-burger .menu-burger .bar {
+            width: 30px;
+            height: 5px;
+            background: #fff;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+            transition: 0.4s ease;
+        }
+
+        .header__menu-burger .menu-burger .bar:not(:first-child) {
+            margin-top: 4px;
+        }
+
+        .header__menu-burger .menu-burger-input {
+            position: absolute;
+            left: -999px;
+            top: -999px;
+        }
+
+        .header__menu-burger .menu-burger-input:checked+.menu-burger {
+            transform: translate(-50%, -50%) rotatey(180deg);
+        }
+
+        .header__menu-burger .menu-burger-input:checked+.menu-burger .bar {
+            transform: rotatey(180deg) rotatex(360deg);
+        }
+
+        .header__menu-burger .menu-burger-input:checked+.menu-burger .bar:first-child {
+            transform: rotate(-45deg);
+            margin-top: 0;
+        }
+
+        .header__menu-burger .menu-burger-input:checked+.menu-burger .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .header__menu-burger .menu-burger-input:checked+.menu-burger .bar:nth-child(3) {
+            margin-top: -14px;
+            transform: rotate(45deg);
+        }
+
+        .header__title {
+            font-size: 1.3rem;
+        }
+
+        .header__image {
+            max-width: 45px;
+            margin-left: auto;
+        }
+
+        .header__nav {
+            width: 100%;
+            display: none;
+            transform: translateY(-100%);
+            transition: transform 0.25s ease-out;
+        }
+
+        .header__nav--active {
+            display: block;
+            transform: translateY(0);
+        }
+
+        .header__nav ul {
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .header__nav ul li {
+            list-style-type: none;
+        }
+
+        .header__nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: border 0.25s ease-out;
+        }
+
+        .header__nav ul li a:hover,
+        .header__nav ul li a:focus {
+            border-color: white;
+        }
+
+        .hero {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+            grid-gap: 1em;
+        }
+
+        .hero__card {
+            border-radius: 10px;
+            box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero__header {
+            padding: 1em;
+        }
+
+        .hero__category {
+            text-transform: uppercase;
+            font-weight: 700;
+            color: darkgray;
+            font-size: 0.9em;
+        }
+
+        .hero__title {
+            margin-top: 0;
+            margin-bottom: 0.25em;
+            font-size: 1.6em;
+        }
+
+        .hero__description {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: gray;
+            font-size: 0.8em;
+        }
+
+        .hero__image {
+            max-width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .products-list {
+            border-radius: 10px;
+            box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.7);
+            padding: 1em;
+        }
+
+        .products-list__content {
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+            grid-gap: 2em;
+        }
+
+        .products-list__category {
+            text-transform: uppercase;
+            font-weight: 700;
+            color: darkgray;
+            margin-bottom: 0;
+            font-size: 0.9em;
+        }
+
+        .products-list__title {
+            margin-top: 0;
+            margin-bottom: 1.6rem;
+        }
+
+        .products-list .product-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .products-list .product-item__image {
+            margin-right: 10px;
+        }
+
+        .products-list .product-item__title,
+        .products-list .product-item__description {
+            margin: 0;
+        }
+
+        .products-list .product-item__title {
+            font-size: 1rem;
+        }
+
+        .products-list .product-item__description {
+            font-size: 0.8rem;
+            color: gray;
+            font-weight: 500;
+        }
+
+        .products-list .product-item__button {
+            margin-left: auto;
+            padding: 10px 14px;
+            border: none;
+            border-radius: 10px;
+            background-color: #eee;
+            color: deepskyblue;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            transition: background 0.25s ease-out;
+        }
+
+        .products-list .product-item__button:hover,
+        .products-list .product-item__button:focus {
+            cursor: pointer;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <header class="header">
+            <button class="header__menu-burger">
+                <input type="checkbox" id="menu-burger" class="menu-burger-input" />
+                <label class="menu-burger" for="menu-burger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </label>
+            </button>
+            <h2 class="header__title">Search store</h2>
+            <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light" class="header__image" alt="" title="" />
+            <nav class="header__nav">
+                <ul>
+                    <li>
+                     <a href="">Link 1</a>
+                  </li>
+                    <li>
+                     <a href="">Link 2</a>
+                  </li>
+                    <li>
+                     <a href="">Link 3</a>
+                  </li>
+                    <li>
+                     <a href="">Link 4</a>
+                  </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="hero">
+            <div class="hero__card">
+                <img src="https://images.unsplash.com/photo-1554355606-4422a150de0b?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" class="hero__image" alt="" title="" />
+                <header class="hero__header">
+                    <span class="hero__category">Category</span>
+                    <h1 class="hero__title">This is a headline, sometimes two.</h1>
+                    <p class="hero__description">This is a copy that is meant to be easily read, even when the content may go and on.</p>
+                </header>
+            </div>
+            <div class="hero__card">
+                <img src="https://images.unsplash.com/photo-1554355606-4422a150de0b?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" class="hero__image" alt="" title="" />
+                <header class="hero__header">
+                    <span class="hero__category">Category</span>
+                    <h1 class="hero__title">This is a headline, sometimes two.</h1>
+                    <p class="hero__description">This is a copy that is meant to be easily read, even when the content may go and on.</p>
+                </header>
+            </div>
+            <div class="hero__card">
+                <img src="https://images.unsplash.com/photo-1554355606-4422a150de0b?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" class="hero__image" alt="" title="" />
+                <header class="hero__header">
+                    <span class="hero__category">Category</span>
+                    <h1 class="hero__title">This is a headline, sometimes two.</h1>
+                    <p class="hero__description">This is a copy that is meant to be easily read, even when the content may go and on.</p>
+                </header>
+            </div>
+        </section>
+        <section class="products-list">
+            <header class="products-list__header">
+                <span class="products-list__category">Category</span>
+                <h2 class="products-list__title">This is a secondary list</h2>
+            </header>
+            <ul class="products-list__content">
+                <li class="product-item">
+                  <svg class="product-item__image" width="24" height="24" viewBox="0 0 24 24">
+                     <path d="M4,3H20A2,2 0 0,1 22,5V19A2,2 0 0,1 20,21H4A2,2 0 0,1 2,19V5A2,2 0 0,1 4,3M4,5V19H8V13H6.75V5H4M9,19H15V13H13.75V5H10.25V13H9V19M16,19H20V5H17.25V13H16V19Z"></path>
+                  </svg>
+                  <div class="product-item__content">
+                     <h3 class="product-item__title">New item 1</h3>
+                     <p class="product-item__description">Description</p>
+                  </div>
+                  <button class="product-item__button">Buy</button>
+               </li>
+                <li class="product-item">
+                  <svg class="product-item__image" width="24" height="24" viewBox="0 0 24 24">
+                     <path d="M5,20.5A3.5,3.5 0 0,1 1.5,17A3.5,3.5 0 0,1 5,13.5A3.5,3.5 0 0,1 8.5,17A3.5,3.5 0 0,1 5,20.5M5,12A5,5 0 0,0 0,17A5,5 0 0,0 5,22A5,5 0 0,0 10,17A5,5 0 0,0 5,12M14.8,10H19V8.2H15.8L13.86,4.93C13.57,4.43 13,4.1 12.4,4.1C11.93,4.1 11.5,4.29 11.2,4.6L7.5,8.29C7.19,8.6 7,9 7,9.5C7,10.13 7.33,10.66 7.85,10.97L11.2,13V18H13V11.5L10.75,9.85L13.07,7.5M19,20.5A3.5,3.5 0 0,1 15.5,17A3.5,3.5 0 0,1 19,13.5A3.5,3.5 0 0,1 22.5,17A3.5,3.5 0 0,1 19,20.5M19,12A5,5 0 0,0 14,17A5,5 0 0,0 19,22A5,5 0 0,0 24,17A5,5 0 0,0 19,12M16,4.8C17,4.8 17.8,4 17.8,3C17.8,2 17,1.2 16,1.2C15,1.2 14.2,2 14.2,3C14.2,4 15,4.8 16,4.8Z"></path>
+                  </svg>
+                  <div class="product-item__content">
+                     <h3 class="product-item__title">New item 2</h3>
+                     <p class="product-item__description">Description</p>
+                  </div>
+                  <button class="product-item__button">Buy</button>
+               </li>
+                <li class="product-item">
+                  <svg class="product-item__image" width="24" height="24" viewBox="0 0 24 24">
+                     <path d="M4.22,14.12L3.5,13.41C2.73,12.63 2.73,11.37 3.5,10.59C4.3,9.8 5.56,9.8 6.34,10.59L8.92,13.16L13.16,8.92L10.59,6.34C9.8,5.56 9.8,4.3 10.59,3.5C11.37,2.73 12.63,2.73 13.41,3.5L14.12,4.22L19.78,9.88L20.5,10.59C21.27,11.37 21.27,12.63 20.5,13.41C19.7,14.2 18.44,14.2 17.66,13.41L15.08,10.84L10.84,15.08L13.41,17.66C14.2,18.44 14.2,19.7 13.41,20.5C12.63,21.27 11.37,21.27 10.59,20.5L9.88,19.78L4.22,14.12M3.16,19.42L4.22,18.36L2.81,16.95C2.42,16.56 2.42,15.93 2.81,15.54C3.2,15.15 3.83,15.15 4.22,15.54L8.46,19.78C8.85,20.17 8.85,20.8 8.46,21.19C8.07,21.58 7.44,21.58 7.05,21.19L5.64,19.78L4.58,20.84L3.16,19.42M19.42,3.16L20.84,4.58L19.78,5.64L21.19,7.05C21.58,7.44 21.58,8.07 21.19,8.46C20.8,8.86 20.17,8.86 19.78,8.46L15.54,4.22C15.15,3.83 15.15,3.2 15.54,2.81C15.93,2.42 16.56,2.42 16.95,2.81L18.36,4.22L19.42,3.16Z"></path>
+                  </svg>
+                  <div class="product-item__content">
+                     <h3 class="product-item__title">New item 3</h3>
+                     <p class="product-item__description">Description</p>
+                  </div>
+                  <button class="product-item__button">Buy</button>
+               </li>
+            </ul>
+        </section>
+    </div>
+    <script type="text/javascript">
+        var menuBurger = document.querySelector('.menu-burger-input');
+        var headerNav = document.querySelector('.header__nav');
+        menuBurger.addEventListener('click', function() {
+            headerNav.classList.toggle('header__nav--active');
+        });
+    </script>
+</body>
+
+</html>

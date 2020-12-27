@@ -1,0 +1,38 @@
+.wrapper {
+    .longText {
+        label {
+            display: block;
+            padding-bottom: .65em;
+            font-size: 1em;
+            vertical-align: top;
+        }
+
+        textarea {
+            box-shadow: 0 0 1px;
+            width: 70%;
+            height: 5em;
+            background-color: #ffffff;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            border-color: #ffffff;
+            text-indent: 10px;
+            padding-top: 5px;
+            transition: border-color .4s ease-in-out;
+
+            &:focus {
+                border: 2px solid #46698b;
+            }
+        }
+
+        &.error {
+            textarea {
+                border: 2px solid red;
+
+                &:focus {
+                    border: 2px solid red;
+                }
+            }
+        }
+    }
+}

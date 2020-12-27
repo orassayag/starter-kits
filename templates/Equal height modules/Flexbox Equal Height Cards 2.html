@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox Equal Height Cards 2</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* Here is what you need to make the cards equal height */
+        /* Row/Container Element */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Card/Item Element */
+        .card {
+            flex: 1;
+        }
+
+        /* The rest of this is just extra styling */
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            min-width: 100%;
+            width: 100%;
+        }
+
+        .cards {
+            width: 100%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .card {
+            width: 33.33%;
+            min-width: 300px;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12);
+            margin: 10px;
+        }
+
+        .card .header,
+        .card .body {
+            padding: 0 12px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="cards">
+        <div class="card">
+            <div class="header">
+                <h2>Header</h2>
+            </div>
+            <img src="//placehold.it/400x200" alt="" title="" />
+            <div class="body">
+                <p>Lorem Ipsum</p>
+                <p>Lorem Ipsum</p>
+                <p>Lorem Ipsum</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="header">
+                <h2>Header</h2>
+            </div>
+            <img src="//placehold.it/400x200" alt="" title="" />
+            <div class="body">
+                <p>Lorem Ipsum</p>
+                <p>Lorem Ipsum</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="header">
+                <h2>Header</h2>
+            </div>
+            <img src="//placehold.it/400x200" alt="" title="" />
+            <div class="body">
+                <p>Lorem Ipsum</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="header">
+                <h2>Header</h2>
+            </div>
+            <img src="//placehold.it/400x200" alt="" title="" />
+            <div class="body">
+                <p>Lorem Ipsum</p>
+                <p>Lorem Ipsum</p>
+                <p>Lorem Ipsum</p>
+                <p>Lorem Ipsum</p>
+                <p>Lorem Ipsum</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="header">
+                <h2>Header</h2>
+            </div>
+            <img src="//placehold.it/400x200" alt="" title="" />
+            <div class="body">
+                <p>Lorem Ipsum</p>
+                <p>Lorem Ipsum</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="header">
+                <h2>Header</h2>
+            </div>
+            <img src="//placehold.it/400x200" alt="" title="" />
+            <div class="body">
+                <p>Lorem Ipsum</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

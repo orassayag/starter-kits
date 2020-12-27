@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Grid CSS Responsive Website Layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            font-size: 1.1em;
+            line-height: 1.5;
+            text-align: center;
+            color: #fff;
+            background-color: #393232;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            padding: 1em 0;
+        }
+
+        p {
+            margin: 0;
+            padding: 1em 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1em 2em;
+            border: 1px solid #666;
+            text-decoration: none;
+            color: #fff;
+            background-color: #333;
+        }
+
+        .btn:hover {
+            color: #333;
+            background-color: #eaeaea;
+        }
+
+        /* Header Showcase */
+        #showcase {
+            min-height: 450px;
+            color: #fff;
+            text-align: center;
+        }
+
+        #showcase .bg-image {
+            position: absolute;
+            background: #333 url('https://images.pexels.com/photos/434708/pexels-photo-434708.jpeg?w=940&h=650&auto=compress&cs=tinysrgb');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 450px;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        #showcase h1 {
+            padding-top: 100px;
+            padding-bottom: 0;
+        }
+
+        #showcase .content-wrap,
+        #section-a .content-wrap {
+            padding: 0 1.5em;
+        }
+
+        /* Sectiona A */
+        #section-a {
+            color: #333;
+            background-color: #eaeaea;
+            padding-bottom: 2em;
+        }
+
+        /* Section B */
+        #section-b {
+            padding: 2em 1em 1em;
+        }
+
+        #section-b ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #section-b li {
+            margin-bottom: 1em;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Section C */
+        #section-c {
+            padding: 2em;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Section D / Boxes */
+        #section-d .box {
+            padding: 2em;
+            color: #fff;
+        }
+
+        #section-d .box:first-child {
+            background-color: #2690d4;
+        }
+
+        #main-footer {
+            padding: 2em;
+            text-align: center;
+            color: #fff;
+            background-color: #000;
+        }
+
+        #main-footer a {
+            color: #2690d4;
+            text-decoration: none;
+        }
+
+        /* Media Queries */
+        @media(min-width: 700px) {
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+            }
+
+            #section-a .content-text {
+                columns: 2;
+                column-gap: 2em;
+            }
+
+            #section-a .content-text p {
+                padding-top: 0;
+            }
+
+            .content-wrap,
+            #section-b ul {
+                grid-column: 2/4;
+            }
+
+            .box,
+            #main-footer div {
+                grid-column: span 2;
+            }
+
+            #section-b ul {
+                display: flex;
+                justify-content: space-around;
+            }
+
+            #section-b li {
+                width: 31%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header id="showcase" class="grid">
+        <div class="bg-image"></div>
+        <div class="content-wrap">
+            <h1>Welcome to Acme Web Solution</h1>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non qui
+                sint veritatis ad corrupti consequatur aliquam totam! Facilis,
+                unde corrupti.
+            </p>
+            <a href="#section-a" class="btn">
+            Read More
+            </a>
+        </div>
+    </header>
+    <main id="main">
+        <section id="section-a" class="grid">
+            <div class="content-wrap">
+                <h2 class="content-title">Web & Application Development</h2>
+                <div class="content-text">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum debitis a
+                        modi repellat velit recusandae necessitatibus error corrupti ex incidunt illum
+                        laudantium laboriosam dolorem blanditiis quod dignissimos similique architecto
+                        asperiores, facilis voluptatem temporibus est commodi. Excepturi reprehenderit
+                        perspiciatis aliquam velit.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="section-b" class="grid">
+            <ul>
+                <li>
+                  <div class="card">
+                     <img src="https://images.pexels.com/photos/842548/pexels-photo-842548.jpeg?w=1200&h=650&auto=compress&cs=tinysrgb" alt="Section two image" title="Section two image" />
+                     <div class="card-content">
+                        <h3 class="card-title">Tech Marketing</h3>
+                        <p>
+                           Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                           Minus, blanditiis explicabo. Commodi debitis laudantium
+                           temporibus repudiandae dolores, quos fuga optio.
+                        </p>
+                     </div>
+                  </div>
+               </li>
+                <li>
+                  <div class="card">
+                     <img src="https://images.pexels.com/photos/705869/pexels-photo-705869.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Section two image" title="Section two image" />
+                     <div class="card-content">
+                        <h3 class="card-title">Tech Marketing</h3>
+                        <p>
+                           Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                           Minus, blanditiis explicabo. Commodi debitis laudantium
+                           temporibus repudiandae dolores, quos fuga optio.
+                        </p>
+                     </div>
+                  </div>
+               </li>
+                <li>
+                  <div class="card">
+                     <img src="https://images.pexels.com/photos/5362/restaurant-hands-people-coffee.jpg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Section two image" title="Section two image" />
+                     <div class="card-content">
+                        <h3 class="card-title">Tech Marketing</h3>
+                        <p>
+                           Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                           Minus, blanditiis explicabo. Commodi debitis laudantium
+                           temporibus repudiandae dolores, quos fuga optio.
+                        </p>
+                     </div>
+                  </div>
+               </li>
+            </ul>
+        </section>
+        <section id="section-c" class="grid">
+            <div class="content-wrap">
+                <h2 class="content-title">We handle all your digital needs</h2>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed
+                    rem quis maxime vel accusantium. Necessitatibus eaque aut
+                    cupiditate tempore laudantium!
+                </p>
+            </div>
+        </section>
+        <section id="section-d" class="grid">
+            <div class="box">
+                <h2 class="content-title">Contact Us</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Laboriosam, quo!
+                </p>
+            </div>
+            <div class="box">
+                <h2 class="content-title">About Our Company</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Laboriosam, quo!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. A culpa recusandae repellendus quas dolores
+                    officia reiciendis similique, magni asperiores. Tempora?
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer id="main-footer" class="grid">
+        <div>Acme Web Solutions</div>
+        <div>
+            Project By <a href="#" target="_blank">Jeison Perez</a>
+        </div>
+    </footer>
+</body>
+
+</html>

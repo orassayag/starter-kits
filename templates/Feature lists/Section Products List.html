@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Section Products List</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        .demo {
+            margin: 0 auto;
+            max-width: 960px;
+            font-family: sans-serif;
+        }
+
+        .demo-inner {
+            position: relative;
+            padding: 50px;
+        }
+
+        .demo-body {
+            position: relative;
+            border: 1px solid #009688;
+            border-top: none;
+            padding: 30px;
+        }
+
+        .demo-body:first-child {
+            border-top: 1px solid #009688;
+        }
+
+        .demo-header {
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            background: #fff;
+            padding: 0 3px;
+            display: inline-block;
+        }
+
+        .demo-row {
+            display: flex;
+            margin-left: -20px;
+            margin-right: -20px;
+            margin-bottom: 40px;
+            justify-content: space-between;
+        }
+
+        .demo-col {
+            padding-left: 20px;
+            padding-right: 20px;
+            flex-grow: 1;
+            max-width: 40%;
+        }
+
+        html {
+            font-size: 1rem;
+        }
+
+        body {
+            text-rendering: optimizelegibility;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
+            font-family: Arial, sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        a:hover {
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        h1,
+        .heading1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+
+            h1,
+            .heading1 {
+                font-size: 2rem;
+            }
+        }
+
+        h2,
+        .heading2 {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+
+            h2,
+            .heading2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        h3,
+        .heading3 {
+            font-size: 2.2rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+
+            h3,
+            .heading3 {
+                font-size: 1.6rem;
+            }
+        }
+
+        h4,
+        .heading4 {
+            font-size: 1.8rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+
+            h4,
+            .heading4 {
+                font-size: 1.4rem;
+            }
+        }
+
+        h5,
+        .heading5 {
+            font-size: 1.4rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+
+            h5,
+            .heading5 {
+                font-size: 1.1rem;
+            }
+        }
+
+        h6,
+        .heading6 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: rgba(0, 0, 0, .7);
+            font-weight: bold;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .demo {
+            margin: 0 auto;
+            max-width: 960px;
+            font-family: sans-serif;
+        }
+
+        .demo-inner {
+            position: relative;
+            padding: 50px;
+        }
+
+        .demo-body {
+            position: relative;
+            border: 1px solid #009688;
+            border-top: none;
+            padding: 30px;
+        }
+
+        .demo-body:first-child {
+            border-top: 1px solid #009688;
+        }
+
+        .demo-header {
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            background: #fff;
+            padding: 0 3px;
+            display: inline-block;
+            font-weight: bold;
+            color: #009688;
+            text-transform: uppercase;
+        }
+
+        .demo-row {
+            display: flex;
+            margin-left: -20px;
+            margin-right: -20px;
+            margin-bottom: 40px;
+            justify-content: space-between;
+        }
+
+        .demo-col {
+            padding-left: 20px;
+            padding-right: 20px;
+            flex-grow: 1;
+            max-width: 40%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f4f4;
+        }
+
+        .mystyle-products {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 600px) {
+            .mystyle-products {
+                display: block;
+            }
+        }
+
+        .mystyle-products.slider-products .product {
+            width: auto;
+            margin-bottom: 0;
+        }
+
+        .mystyle-products .product {
+            width: 25%;
+            margin-bottom: 20px;
+            position: relative;
+            padding: 20px;
+            background: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .mystyle-products .product {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .mystyle-products .product {
+                width: auto;
+            }
+        }
+
+        .mystyle-products .product:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+            z-index: 7;
+        }
+
+        .mystyle-products .product:hover .btn-circle {
+            transform: translateY(0);
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .mystyle-products .product h3 {
+            font-size: 12px;
+            line-height: 20px;
+            margin-top: 10px;
+            height: 39px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 600px) {
+            .mystyle-products .product h3 {
+                height: auto;
+            }
+        }
+
+        .mystyle-products .product>a {
+            position: relative;
+            display: block;
+            color: #333;
+        }
+
+        .mystyle-products .product>a:hover {
+            text-decoration: none;
+        }
+
+        .mystyle-products .product .add_to_cart_button {
+            display: none;
+        }
+
+        .mystyle-products .product .attachment-shop_catalog {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .mystyle-products .product .btn-circle {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            display: block;
+            padding: 0;
+            position: absolute;
+            top: 20%;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 2;
+            color: #fff;
+            -webkit-transform: translateY(-20px);
+            -moz-transform: translateY(-20px);
+            -ms-transform: translateY(-20px);
+            -o-transform: translateY(-20px);
+            transform: translateY(-20px);
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: color 0.5s 0.001s ease-out, background 0.3s 0.001s ease-out, visibility 0.5s 0.25s ease-out, opacity 0.5s 0.25s ease-out, -webkit-transform 0.5s 0.25s ease-out;
+            -moz-transition: color 0.5s 0.001s ease-out, background 0.3s 0.001s ease-out, visibility 0.5s 0.25s ease-out, opacity 0.5s 0.25s ease-out, -moz-transform 0.5s 0.25s ease-out;
+            -ms-transition: color 0.5s 0.001s ease-out, background 0.3s 0.001s ease-out, visibility 0.5s 0.25s ease-out, opacity 0.5s 0.25s ease-out, -ms-transform 0.5s 0.25s ease-out;
+            -o-transition: color 0.5s 0.001s ease-out, background 0.3s 0.001s ease-out, visibility 0.5s 0.25s ease-out, opacity 0.5s 0.25s ease-out, -o-transform 0.5s 0.25s ease-out;
+            transition: color 0.5s 0.001s ease-out, background 0.3s 0.001s ease-out, visibility 0.5s 0.25s ease-out, opacity 0.5s 0.25s ease-out, transform 0.5s 0.25s ease-out;
+        }
+
+        .mystyle-products .product .price {
+            font-size: 14px;
+        }
+
+        .mystyle-products .product .price ins {
+            text-decoration: none;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .mystyle-products .product .price del {
+            color: #666;
+            font-size: 11px;
+            padding-right: 7px;
+            white-space: nowrap;
+        }
+
+        .mystyle-products .product .price .sale-tag {
+            color: red;
+            font-size: 12px;
+            padding-left: 7px;
+            font-weight: 700;
+        }
+
+        .mystyle-products .onsale {
+            z-index: 6;
+            position: absolute;
+            top: 15px;
+            left: -20px;
+            padding: 2px 10px;
+            background: #e41919;
+            color: #fff;
+            box-shadow: -1px 2px 3px rgba(0, 0, 0, .3);
+            border-radius: 0 5px 5px 0;
+            height: 25px;
+            line-height: 25px;
+            font-size: 0.8rem;
+            font-weight: normal;
+            padding-top: 0;
+            padding-bottom: 0;
+            min-height: 0;
+        }
+
+        .mystyle-products .onsale:before,
+        .mystyle-products .onsale:after {
+            content: '';
+            position: absolute;
+        }
+
+        .mystyle-products .onsale:before {
+            width: 7px;
+            height: 33px;
+            top: 0;
+            left: -6.5px;
+            padding: 0 0 7px;
+            background: inherit;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .mystyle-products .onsale:after {
+            width: 5px;
+            height: 5px;
+            bottom: -5px;
+            left: -4.5px;
+            background: #880f0f;
+            border-radius: 5px 0 0 5px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <ul class="mystyle-products">
+        <li class="product">
+            <a href="14-single-product.html">
+               <span class="onsale">Sale!</span>
+               <img src="https://vcdn.tikicdn.com/cache/200x200/media/catalog/product/v/e/vet%20vang%20(1).u2470.d20160606.t122127.jpg" class="attachment-shop_catalog" alt="" title="" />
+               <h3>Chuột Không Dây Logitech M238 Party</h3>
+               <span class="price">
+               <del> <span class="amount">399.000 ₫</span> </del>
+               <ins> <span class="amount">269.000 ₫</span> </ins>
+               <span class="sale-tag sale-tag-square">-33%</span>
+               </span>
+            </a>
+            <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">
+            Mua ngay
+            </a>
+            <a href="#" class="btn btn-dark btn-circle btn-review" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="ion ion-ios-move"></i></a>
+         </li>
+        <li class="product">
+            <a href="14-single-product.html">
+               <span class="onsale">Sale!</span>
+               <img src="https://vcdn.tikicdn.com/cache/200x200/media/catalog/product/a/n/anker%202%20cong%20power%2024w_white%20(1).u2470.d20160609.t094609.jpg" class="attachment-shop_catalog" alt="" title="" />
+               <h3>Adapter Sạc Anker PowerPort 2 Cổng USB -...</h3>
+               <span class="price">
+               <ins> <span class="amount">439.000 ₫</span> </ins>
+               </span>
+            </a>
+            <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">
+            Mua ngay
+            </a>
+            <a href="#" class="btn btn-dark btn-circle btn-review" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="ion ion-ios-move"></i></a>
+         </li>
+        <li class="product">
+            <a href="14-single-product.html">
+               <span class="onsale">24h</span>
+               <img src="https://vcdn.tikicdn.com/cache/200x200/media/catalog/product/e/x/ex200-1.u425.d20170309.t162916.175240.jpg" class="attachment-shop_catalog" alt="" title="" />
+               <h3>
+                  Totolink EX200 - Bộ Mở Rộng Sóng Wifi Chuẩn N Tốc Độ 300Mbps
+               </h3>
+               <span class="price">
+               <del> <span class="amount">299.000 ₫</span> </del>
+               <ins> <span class="amount">233.000 ₫</span> </ins>
+               <span class="sale-tag sale-tag-square">-22%</span>
+               </span>
+            </a>
+            <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">
+            Mua ngay
+            </a>
+            <a href="#" class="btn btn-dark btn-circle btn-review" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="ion ion-ios-move"></i></a>
+         </li>
+        <li class="product">
+            <a href="14-single-product.html">
+               <span class="onsale">Sale!</span>
+               <img src="https://vcdn.tikicdn.com/cache/200x200/media/catalog/product/4/5/450bt_black_angle_03-1606x1606px.u2769.d20170512.t164639.178330.jpg" class="attachment-shop_catalog" alt="" title="" />
+               <h3>Tai Nghe JBL T450BT</h3>
+               <span class="price">
+               <del> <span class="amount">1.600.000 ₫</span> </del>
+               <ins> <span class="amount">1.466.000 ₫</span> </ins>
+               <span class="sale-tag sale-tag-square">-7%</span>
+               </span>
+            </a>
+            <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">
+            Mua ngay
+            </a>
+            <a href="#" class="btn btn-dark btn-circle btn-review" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="ion ion-ios-move"></i></a>
+         </li>
+        <li class="product">
+            <a href="14-single-product.html">
+               <span class="onsale">Sale!</span>
+               <img src="https://vcdn.tikicdn.com/cache/200x200/media/catalog/product/d/s/dsc_0212.u425.d20160408.t134929.jpg" class="attachment-shop_catalog" alt="" title="" />
+               <h3>Phụ Kiện Số/Loa nghe nhạc/Loa Bluetooth</h3>
+               <span class="price">
+               <ins> <span class="amount">750.000 ₫</span> </ins>
+               </span>
+            </a>
+            <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">
+            Mua ngay
+            </a>
+            <a href="#" class="btn btn-dark btn-circle btn-review" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="ion ion-ios-move"></i></a>
+         </li>
+        <li class="product">
+            <a href="14-single-product.html">
+               <span class="onsale">Sale!</span>
+               <img src="https://vcdn.tikicdn.com/cache/200x200/media/catalog/product/d/i/divoom-airbeat-10-black-4_1.jpg" class="attachment-shop_catalog" alt="" title="" />
+               <h3>Loa Di Động Divoom Airbeat 10 3.5W</h3>
+               <span class="price">
+               <del> <span class="amount">639.000 ₫</span> </del>
+               <ins> <span class="amount">760.000 ₫</span> </ins>
+               <span class="sale-tag sale-tag-square">-16%</span>
+               </span>
+            </a>
+            <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">
+            Mua ngay
+            </a>
+            <a href="#" class="btn btn-dark btn-circle btn-review" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="ion ion-ios-move"></i></a>
+         </li>
+        <li class="product">
+            <a href="14-single-product.html">
+               <span class="onsale">Sale!</span>
+               <img src="https://vcdn.tikicdn.com/cache/200x200/media/catalog/product/1/4/1454517182000_img_582809_1.jpg" class="attachment-shop_catalog" alt="" title="" />
+               <h3>Máy Ảnh Sony Alpha A6300 + Kit 16-50mm</h3>
+               <span class="price">
+               <del> <span class="amount">21.990.000 ₫</span> </del>
+               <ins> <span class="amount">27.490.000 ₫</span> </ins>
+               <span class="sale-tag sale-tag-square">-20%</span>
+               </span>
+            </a>
+            <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">
+            Mua ngay
+            </a>
+            <a href="#" class="btn btn-dark btn-circle btn-review" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="ion ion-ios-move"></i></a>
+         </li>
+        <li class="product">
+            <a href="14-single-product.html">
+               <span class="onsale">Sale!</span>
+               <img src="https://vcdn.tikicdn.com/cache/200x200/media/catalog/product/1/4/1419_02_mypassportformac_hero_png_imgw_1000_1000.u689.d20161214.t120338.15169.jpg" class="attachment-shop_catalog" alt="" title="" />
+               <h3>Ổ Cứng Di Động WD My Passport 1TB (ver 2016)</h3>
+               <span class="price">
+               <del> <span class="amount">1.699.000 ₫</span> </del>
+               <ins> <span class="amount">1.890.000 ₫</span> </ins>
+               <span class="sale-tag sale-tag-square">-11%</span>
+               </span>
+            </a>
+            <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">
+            Mua ngay
+            </a>
+            <a href="#" class="btn btn-dark btn-circle btn-review" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="ion ion-ios-move"></i></a>
+         </li>
+    </ul>
+</body>
+
+</html>

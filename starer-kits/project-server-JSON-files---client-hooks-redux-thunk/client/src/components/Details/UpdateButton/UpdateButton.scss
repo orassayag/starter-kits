@@ -1,0 +1,25 @@
+.details-area {
+    .details-content {
+        .details-right {
+            .extra {
+                .features {
+                    .update-icon {
+                        margin-top: 10px;
+                        margin-left: 10px;
+                        cursor: pointer;
+                        background-color: transparent;
+                        text-align: left;
+                        display: inline-block;
+                        width: 35px;
+
+                        i {
+                            font-size: 2.5em;
+                            color: #ffffff;
+                            text-shadow: 0 0 3px #000000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,103 @@
+.wrapper {
+    label {
+        display: block;
+        padding-bottom: .65em;
+        font-size: 1em;
+    }
+
+    input {
+        box-shadow: 0 0 1px;
+        width: 70%;
+        height: 3em;
+        background-color: #ffffff;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        border-color: #ffffff;
+        text-indent: 10px;
+        transition: border-color .4s ease-in-out;
+
+        &:focus {
+            border: 2px solid #46698b;
+        }
+    }
+
+    input[type="number"] {
+        width: 20%;
+    }
+
+    .additional-data {
+        .container {
+            label {
+                text-align: left;
+                width: 100%;
+                font-size: 0.75em;
+            }
+
+            input {
+                text-align: left;
+                width: 100%;
+                height: 2em;
+            }
+        }
+    }
+
+    .error {
+        input {
+            border: 2px solid red;
+
+            &:focus {
+                border: 2px solid red;
+            }
+        }
+    }
+}
+
+@media(min-width: 760px) {
+    .wrapper {
+        .container {
+            label {
+                display: inline-block;
+                width: 25%;
+            }
+        }
+    }
+}
+
+@media(min-width: 1024px) {
+    .wrapper {
+        .main-form {
+            .container {
+                label {
+                    display: inline-block;
+                    width: 25%;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 760px) {
+    .wrapper {
+        .container {
+            input[type="number"] {
+                width: 20%;
+                text-align: left;
+                margin-right: 50%;
+            }
+
+            label {
+                text-align: left;
+                margin-left: 15%;
+            }
+        }
+
+        .additional-data {
+            .container {
+                label {
+                    margin-left: 0%;
+                }
+            }
+        }
+    }
+}

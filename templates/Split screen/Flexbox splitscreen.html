@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox splitscreen</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        .split-screen {
+            background: #add8e6;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .split-screen__left,
+        .split-screen__right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+
+        .split-screen__right {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="split-screen">
+        <div class="split-screen__left">LEFT</div>
+        <div class="split-screen__right">RIGHT</div>
+    </div>
+</body>
+
+</html>

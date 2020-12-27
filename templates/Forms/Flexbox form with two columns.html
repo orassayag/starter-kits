@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox form with two columns</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <style type="text/css">
+        body {
+            background: #eeeeee;
+        }
+
+        .form {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .form__field {
+            display: flex;
+            flex-flow: column wrap;
+        }
+
+        .form__field+.form__field {
+            margin-top: 18px;
+        }
+
+        .form__field--rows {
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+
+        .form__field--rows>div:first-child {
+            flex: 1;
+            margin-right: 30px;
+        }
+
+        .form__text {
+            color: #000000;
+            display: block;
+            font: 300 16px Arial;
+            margin-bottom: 3px;
+        }
+
+        .form__item {
+            border: 2px solid #000000;
+            font: 300 16px Arial;
+            padding: 8px;
+        }
+
+        .form__item--full-width {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form__item--fixed-small-width {
+            width: 60px;
+        }
+
+        .form__item--fixed-large-width {
+            width: 180px;
+        }
+
+        .form__columns {
+            display: flex;
+        }
+
+        .form__columns--left {
+            margin-right: 36px;
+        }
+
+        .form__columns--right {
+            margin-left: 36px;
+        }
+
+        .form__submit {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+        }
+
+        .form__button {
+            padding: 10px 30px;
+            background-color: #000000;
+            border: none;
+            color: #ffffff;
+            font: 300 16px Arial;
+        }
+
+        @media screen and (min-width: 900px) {
+            .form__columns {
+                display: flex;
+            }
+
+            .form__columns>div {
+                flex: 1;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .form__columns {
+                display: flex;
+                flex-flow: column wrap;
+            }
+
+            .form__columns--left {
+                margin-right: 0;
+            }
+
+            .form__columns--right {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <form action="" class="form">
+        <div>
+            <div class="form__columns">
+                <div class="form__columns--left">
+                    <h1>Column 1</h1>
+                    <div class="form__field">
+                        <label class="form__text">
+                            Company Logo (in 240x200px)
+                        </label>
+                        <div style="height: 116px; width: 260px; background: #cccccc;"></div>
+                    </div>
+                    <div class="form__field">
+                        <label for="name" class="form__text">Your name</label>
+                        <input name="name" type="text" class="form__item" placeholder="Text" />
+                    </div>
+                    <div class="form__field">
+                        <label for="name" class="form__text">Your name</label>
+                        <input type="text" class="form__item" placeholder="Text" />
+                    </div>
+                </div>
+                <div class="form__columns--right">
+                    <h1>Column 2</h1>
+                    <div class="form__field form__field--rows">
+                        <div>
+                            <label for="name" class="form__text">Your name</label>
+                            <input name="name" type="text" class="form__item form__item--full-width" placeholder="Text" />
+                        </div>
+                        <div>
+                            <label for="name" class="form__text">Number</label>
+                            <input name="name" type="text" class="form__item form__item--fixed-small-width" placeholder="Text" />
+                        </div>
+                    </div>
+                    <div class="form__field">
+                        <label for="name" class="form__text">Your name</label>
+                        <input type="text" class="form__item" placeholder="Text" />
+                    </div>
+                    <div class="form__field form__field--rows">
+                        <div>
+                            <label for="name" class="form__text">Your name</label>
+                            <input name="name" type="text" class="form__item form__item--full-width" placeholder="Text" />
+                        </div>
+                        <div>
+                            <label for="name" class="form__text">Number</label>
+                            <input name="name" type="text" class="form__item form__item--fixed-large-width" placeholder="Text" />
+                        </div>
+                    </div>
+                    <div class="form__field">
+                        <label for="name" class="form__text">Your name</label>
+                        <input type="text" class="form__item" placeholder="Text" />
+                    </div>
+                </div>
+            </div>
+            <div class="form__submit">
+                <input type="submit" value="Save changes" class="form__button" />
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Form Blue</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oldenburg" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <style type="text/css">
+        *,
+        *:after,
+        *:before {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #47A3DA;
+            color: #2c3060;
+            font-family: 'Oldenburg', cursive;
+            min-width: 320px;
+        }
+
+        header,
+        .form__submit--wrap {
+            text-align: center;
+        }
+
+        h1 {
+            text-shadow: 0px 1px 1px #fff;
+        }
+
+        section.main {
+            width: 100%;
+            padding: 0 2em 3em;
+            max-width: 100em;
+            margin: 0 auto;
+        }
+
+        .form {
+            position: relative;
+            font-size: 80%;
+        }
+
+        .form__column {
+            width: 100%;
+            padding: 10px;
+            float: left;
+        }
+
+        @media (min-width: 1024px) {
+            .form__column {
+                width: 30%;
+                margin-right: 3%;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .form__column {
+                width: 27%;
+                margin-right: 6%;
+            }
+        }
+
+        .form__column label {
+            display: block;
+            padding: 40px 5px 5px 2px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .form__column input,
+        .form__column textarea,
+        .form__column select {
+            display: block;
+            width: 100%;
+            background: transparent;
+            border: 3px solid #b2e2ff;
+            padding: 9px 10px;
+        }
+
+        .form__column input:focus,
+        .form__column textarea:focus,
+        .form__column select:focus {
+            outline-style: solid;
+            outline-color: #10689a;
+        }
+
+        .form__column textarea {
+            min-height: 200px;
+        }
+
+        .form__column input:focus,
+        .form__column textarea:focus,
+        .form__column label:active+input,
+        .form__column label:active+textarea {
+            border: 3px solid #10689a;
+        }
+
+        ::-webkit-input-placeholder {
+            color: #10689a;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        :-moz-placeholder {
+            color: #10689a;
+            font-style: italic;
+        }
+
+        ::-moz-placeholder {
+            color: #10689a;
+            font-style: italic;
+        }
+
+        :-ms-input-placeholder {
+            color: #10689a;
+            font-style: italic;
+        }
+
+        .form__submit--wrap {
+            padding-top: 40px;
+            clear: both;
+        }
+
+        .form__submit-btn {
+            background: #10689a;
+            border: none;
+            color: #fff;
+            width: auto;
+            cursor: pointer;
+            text-transform: uppercase;
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 2px;
+            letter-spacing: 1px;
+            text-shadow: 0px 1px 1px #2c3060;
+        }
+
+        .form__submit-btn:hover {
+            background: #1478b1;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header>
+        <h1>Responsive Form</h1>
+    </header>
+    <section class="main">
+        <form action="#" class="form">
+            <div class="form__column">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Emma" />
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Kawendish" />
+                <label for="email">Email Adress</label>
+                <input type="text" id="email" name="email" placeholder="emma@kawendish.com" />
+                <label for="country">Country</label>
+                <select name="country" id="country">
+                    <option value="">Choose a country</option>
+                    <option value="">Finland</option>
+                    <option value="">Iceland</option>
+                    <option value="">England</option>
+                </select>
+                <label for="bio">Biography</label>
+                <textarea name="bio" id="bio"></textarea>
+            </div>
+            <div class="form__column">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="+12 344 43 43" />
+                <label for="last-name">Affiliations</label>
+                <textarea id="affiliations" name="affiliations"></textarea>
+                <label>Occupation</label>
+                <select id="occupation" name="occupation">
+                    <option>Choose an occupation</option>
+                    <option>Web Designer</option>
+                    <option>Web Developer</option>
+                    <option>Hybrid</option>
+                </select>
+                <label for="cat_name">Cat's name</label>
+                <input type="text" id="cat_name" name="cat_name" placeholder="Kitty" />
+                <label for="gagdet">Favorite Gadget</label>
+                <input type="text" id="gagdet" name="gagdet" placeholder="Annoy-a-tron" />
+            </div>
+            <div class="form__column">
+                <label>Type of Talent</label>
+                <select id="talent" name="talent">
+                    <option>Choose a talent</option>
+                    <option>Ninja silence</option>
+                    <option>Sumo power</option>
+                    <option>Samurai precision</option>
+                </select>
+                <label for="drink">Favorite Drink</label>
+                <input type="text" id="drink" name="drink" placeholder="Green Tea" />
+                <label for="power">Special power</label>
+                <input type="text" id="power" name="power" placeholder="Anti-gravity" />
+                <label for="weapon">Weapon of choice</label>
+                <input type="weapon" id="weapon" name="weapon" placeholder="Lightsaber" />
+                <label for="comments">Comments</label>
+                <textarea id="comments" name="comments"></textarea>
+            </div>
+            <div class="form__submit--wrap">
+                <input class="form__submit-btn" type="submit" value="Send your data" />
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

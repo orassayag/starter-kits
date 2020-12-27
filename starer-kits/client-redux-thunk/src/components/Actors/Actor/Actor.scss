@@ -1,0 +1,36 @@
+.actor {
+    width: 10rem;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+
+    .image {
+        width: 80px;
+        height: 120px;
+        box-shadow: rgb(204, 204, 204) 3px 3px 10px 6px;
+        display: flex;
+        align-content: space-between;
+        background-size: 100% 100%;
+        margin: 10px;
+        border-radius: 5px;
+        background-repeat: no-repeat;
+        background-position: center top;
+        animation: 2s ease 0s 1 normal none running ciAbGt;
+        transition: all 0.5s ease 0s;
+    }
+
+    .name {
+        font-size: .8em;
+        color: #000000;
+        text-align: center;
+    }
+
+    .also-known-as {
+        font-size: .6em;
+        color: #000000;
+        text-align: center;
+    }
+}

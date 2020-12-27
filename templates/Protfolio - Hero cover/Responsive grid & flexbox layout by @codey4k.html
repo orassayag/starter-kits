@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive grid & flexbox layout by @codey4k</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Quicksand:500');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.5s;
+        }
+
+        body {
+            font-family: 'Quicksand', Helvetica;
+            background-image: linear-gradient(135deg, #f97794 10%, #623aa2 100%);
+        }
+
+        body::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        .wrap {
+            margin-top: 0;
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas: "menu menu""main main""services services""spotlight spotlight""slide slide""banner banner""footer footer";
+        }
+
+        @media screen and (min-width: 600px) {
+            .wrap {
+                margin-top: 2em;
+                margin-bottom: 2em;
+                border-radius: 5px;
+                overflow: hidden;
+                grid-template-rows: 80px auto 400px 300px 400px 200px 100px;
+                grid-template-columns: 1fr repeat(2, 4fr) 1fr;
+                grid-template-areas: ".menu menu."".main main."".services services."".spotlight spotlight."".slide slide."".banner banner."".footer footer.";
+            }
+        }
+
+        .menu {
+            grid-area: menu;
+            height: 80px;
+            background: rgba(238, 238, 238, 0.9);
+            display: flex;
+        }
+
+        .menu__container {
+            margin: auto;
+            width: 90%;
+            height: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu__icon {
+            color: #aaa;
+            font-size: 2em;
+        }
+
+        @media screen and (min-width: 600px) {
+            .menu__icon {
+                display: none;
+            }
+        }
+
+        .menu__logo {
+            color: #aaa;
+        }
+
+        .menu__list {
+            display: none;
+        }
+
+        @media screen and (min-width: 600px) {
+            .menu__list {
+                display: inline-flex;
+            }
+        }
+
+        .menu__item {
+            padding: 1em;
+            list-style: none;
+        }
+
+        .fixed {
+            position: fixed;
+            width: 100%;
+            height: 80px;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        @media screen and (min-width: 600px) {
+            .fixed {
+                position: fixed;
+                width: 80%;
+            }
+        }
+
+        .services {
+            padding: 1em;
+            display: block;
+            text-align: center;
+            grid-area: services;
+            background: linear-gradient(135deg, #ddd 10%, #eee 100%);
+        }
+
+        .services h3 {
+            margin: 3em;
+            color: #623aa2;
+        }
+
+        @media screen and (max-width: 440px) {
+            .services h3 {
+                margin-top: 1.8em;
+                margin-bottom: 1em;
+            }
+        }
+
+        .services p {
+            margin: 2em;
+            color: #777;
+        }
+
+        @media screen and (max-width: 440px) {
+            .services p {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+
+        .services ul {
+            display: inline-flex;
+            margin: 2em;
+            flex-wrap: wrap;
+        }
+
+        .services ul li {
+            margin: 1em;
+            margin-top: 0;
+            margin-left: 2em;
+            list-style: none;
+        }
+
+        @media screen and (max-width: 440px) {
+            .services ul li {
+                margin-left: 5.2em;
+            }
+        }
+
+        .services ul li .i-serv {
+            color: #623aa2;
+            font-size: 2.5em;
+        }
+
+        .main {
+            padding-top: 3em;
+            padding-bottom: 3em;
+            grid-area: main;
+            background: url('https://images.pexels.com/photos/38326/pexels-photo-38326.jpeg?w=940&h=650&auto=compress&cs=tinysrgb');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            height: auto;
+        }
+
+        .main__center {
+            margin: auto;
+            width: 80%;
+            height: 60%;
+            min-height: 250px;
+            max-width: 800px;
+            padding: 1em;
+            background: linear-gradient(135deg, rgba(249, 119, 148, 0.7) 10%, rgba(98, 58, 162, 0.7) 100%);
+            border-radius: 5px;
+            color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .main__title,
+        .main__description {
+            text-align: center;
+            padding-top: 0;
+            padding-left: 0;
+            padding-right: 0;
+            padding-bottom: 1em;
+        }
+
+        .main__title {
+            font-size: 10vmin;
+            padding-bottom: 0;
+        }
+
+        .main__description {
+            font-size: 3vmin;
+            padding-bottom: 1em;
+        }
+
+        .spotlight {
+            grid-area: spotlight;
+            background: #00f;
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+            grid-template-rows: auto;
+        }
+
+        .spotlight__left {
+            height: 250px;
+            min-height: 100%;
+            background: linear-gradient(135deg, #f97794 10%, #623aa2 100%);
+            grid-row: 2/3;
+            grid-column: span 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            color: #eee;
+        }
+
+        .spotlight__left p {
+            padding: 1em;
+        }
+
+        .spotlight__left button {
+            color: #eee;
+            margin-top: 0.5em;
+            padding: 1em;
+            border: 1px solid #eee;
+            outline: none;
+            border-radius: 3px;
+            background: transparent;
+        }
+
+        @media screen and (min-width: 600px) {
+            .spotlight__left {
+                grid-column: span 1;
+                grid-row: span 2;
+            }
+        }
+
+        .spotlight__right {
+            height: 250px;
+            min-height: 100%;
+            background: url('https://images.pexels.com/photos/5168/black-and-white-coffee-cup-apple.jpg?w=940&h=650&auto=compress&cs=tinysrgb');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            grid-column: span 2;
+        }
+
+        @media screen and (min-width: 600px) {
+            .spotlight__right {
+                grid-column: span 1;
+                grid-row: span 2;
+            }
+        }
+
+        .slide {
+            padding: 2.5em;
+            grid-area: slide;
+            background: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .slide__thumbnail {
+            width: 100px;
+            height: 100px;
+            background: url('https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-9/10671423_748140941966872_4431492635682761711_n.jpg?oh=0c2ee3878277104980e19c357d143a75&oe=5A468FDF');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+        }
+
+        .slide__description {
+            color: #888;
+            padding-top: 2em;
+            padding-left: 2em;
+            padding-right: 2em;
+            text-align: center;
+        }
+
+        .banner {
+            height: 200px;
+            grid-area: banner;
+            background: linear-gradient(135deg, #3b2667 10%, #360940 100%);
+        }
+
+        .footer {
+            grid-area: footer;
+            background: #666;
+            text-align: center;
+            display: flex;
+        }
+
+        .footer__list {
+            margin: auto;
+            display: inline-flex;
+        }
+
+        .footer__item {
+            color: #ddd;
+            padding: 2em;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wrap">
+        <div class="menu">
+            <div class="menu__container">
+                <h3 class="menu__logo">CodeY4k</h3>
+                <i class="menu__icon ion-navicon" id="icon"></i>
+                <ul class="menu__list">
+                    <li class="menu__item">Home</li>
+                    <li class="menu__item">Contact</li>
+                    <li class="menu__item">About us</li>
+                </ul>
+            </div>
+        </div>
+        <div class="services">
+            <h3>Services</h3>
+            <p>div Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, excepturi.</p>
+            <ul>
+                <li>
+                  <span class="i-serv ion-social-html5"></span>
+                  <h4>icon</h4>
+               </li>
+                <li>
+                  <span class="i-serv ion-social-javascript"></span>
+                  <h4>icon</h4>
+               </li>
+                <li>
+                  <span class="i-serv ion-social-python"></span>
+                  <h4>icon</h4>
+               </li>
+                <li>
+                  <span class="i-serv ion-social-tux"></span>
+                  <h4>icon</h4>
+               </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="main__center">
+                <h1 class="main__title">Lorem</h1>
+                <p class="main__description">div Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+        </div>
+        <div class="spotlight">
+            <div class="spotlight__left">
+                <p>div Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <button>more</button>
+            </div>
+            <div class="spotlight__right"></div>
+        </div>
+        <div class="slide">
+            <div class="slide__thumbnail"></div>
+            <p class="slide__description">div Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt mollitia voluptatibus distinctio, rerum qui atque? Necessitatibus dignissimos animi nisi placeat dicta repellendus dolore ipsa quasi, perspiciatis minus vel. Natus, doloribus!</p>
+        </div>
+        <div class="banner"></div>
+        <div class="footer">
+            <ul class="footer__list">
+                <li class="footer__item ion-social-twitter"></li>
+                <li class="footer__item ion-social-facebook"></li>
+                <li class="footer__item ion-social-github"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    // fixed nav bar
+    window.addEventListener('scroll', () => {
+        let scroll = document.documentElement.scrollTop || document.body.scrollTop,
+            menu = document.getElementsByClassName('menu')
+        scroll >= 48 ?
+            menu[0].classList.add('fixed') :
+            menu[0].classList.remove('fixed')
+    })
+</script>
+
+</html>

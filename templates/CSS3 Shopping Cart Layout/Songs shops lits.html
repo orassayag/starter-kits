@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Songs shops lits</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <style type="text/css">
+        /* GLOBAL SETTINGS */
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        a:active,
+        a:selected,
+        a:visited {
+            border: 0;
+            outline: 0;
+        }
+
+        a:hover {
+            color: #8bcbad !important;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .clear:before,
+        .clear:after {
+            content: '';
+            display: table;
+        }
+
+        .clear:after {
+            clear: both;
+        }
+
+        .clear {
+            *zoom: 1;
+        }
+
+        /* apply a natural box layout model to all elements */
+        *,
+        *:before,
+        *:after {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        /* GLOBAL STYLES */
+        body {
+            margin: 0;
+            font-family: source-sans-pro, 'Arial', 'Helvetica', sans-serif;
+            font-size: 16px;
+            background: #eee;
+        }
+
+        .wrapper {
+            position: relative;
+            margin: 0px auto;
+            max-width: 1200px;
+            min-width: 315px;
+            background: #fff;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            text-align: center;
+            color: #555;
+            text-shadow: 1px 1px 0 #FFF, 2px 2px 0 #959595;
+            margin: 15px 0 0 0;
+            font-size: 3em;
+        }
+
+        /* SERP STYLES */
+        /* Main containers */
+        .item {
+            padding: 0 10px;
+            height: 5em;
+            line-height: 5em;
+            background-color: #fff;
+            border-bottom: 1px solid #feda82;
+            position: relative;
+            font-size: 13px;
+        }
+
+        .item-controls {
+            float: left;
+        }
+
+        .item-primary-info {
+            position: absolute;
+            left: 74px;
+            right: 164px;
+        }
+
+        .item-secondary-info {
+            position: absolute;
+            left: 370px;
+            right: 250px;
+            font-size: 15px;
+        }
+
+        .item-actions {
+            position: relative;
+            float: right;
+        }
+
+        /* Individual cells */
+        .item-play {
+            cursor: pointer;
+            float: left;
+            font-size: 20px;
+            position: relative;
+            text-align: center;
+            color: #ffc208;
+        }
+
+        .item-play:hover {
+            color: #ed4b92;
+        }
+
+        .item-name-cell,
+        .item-artist-cell,
+        .item-description-cell {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .item-description-cell {
+            width: 77%;
+            float: left;
+            font-size: 15px;
+            color: #999;
+        }
+
+        .item-length-cell {
+            float: right;
+            font-size: 21px;
+            text-align: right;
+            color: #999;
+        }
+
+        .item-name-cell,
+        .item-artist-cell,
+        .item-description-cell,
+        .item-length-cell {
+            padding: 0 10px 0 0;
+            overflow-y: hidden;
+        }
+
+        .item-name-cell,
+        .item-artist-cell {
+            display: inline-block;
+        }
+
+        .item-name-cell {
+            font-weight: 400;
+        }
+
+        .item-name-cell a {
+            font-size: 21px;
+            color: #000;
+        }
+
+        .item-name-cell em {
+            font-size: 15px;
+            font-style: italic;
+            color: #ffc208;
+        }
+
+        .item-name-cell .fa {
+            font-size: 20px;
+            vertical-align: sub;
+            color: #ffc208;
+        }
+
+        .item-name-cell:hover a,
+        .item-name-cell:hover em,
+        .item-name-cell:hover .fa {
+            color: #8bcbad !important;
+        }
+
+        .item-artist-cell {}
+
+        .item-artist-cell a {
+            font-size: 15px;
+            color: #999;
+        }
+
+        .item-share-button .fa,
+        .item-favourite-button .fa {
+            margin-top: 20px;
+            display: block;
+        }
+
+        .item-action {
+            float: left;
+            margin: 0 10px;
+        }
+
+        .item-action a {
+            color: #feda82;
+        }
+
+        .item-action:last-child {
+            margin-right: 0;
+        }
+
+        .item-favourite.favourited {
+            color: #c24b4b;
+        }
+
+        a.item-basket-button {
+            width: 54px;
+            font-size: 14px;
+            padding: 11px 10px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #ed4b92;
+            border-radius: 9px;
+            color: #ed4b92;
+        }
+
+        /* Breakpoints */
+        @media only screen and (max-width: 600px) {
+            .item {
+                height: 5em;
+                line-height: 5em;
+                cursor: pointer;
+            }
+
+            .item-primary-info {
+                left: 74px;
+                right: 80px;
+            }
+
+            .item-secondary-info {
+                display: none;
+            }
+
+            .item-actions {
+                float: right;
+            }
+
+            .item-name-cell {
+                display: block;
+                width: initial;
+                margin-top: -0.6em;
+                font-size: 11px;
+            }
+
+            .item-artist-cell {
+                display: block;
+                width: initial;
+                margin-top: -4.0em;
+            }
+
+            .item-name-cell a {
+                font-size: 15px;
+            }
+
+            .item-artist-cell a {
+                font-size: 11px;
+            }
+
+            .item-name-cell em,
+            .item-secondary-info,
+            .item-share,
+            .item-favourite,
+            .hide-label {
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width: 601px) {
+            .item-name-cell {
+                width: 300px;
+                margin-top: -0.6em;
+                font-size: 15px;
+            }
+
+            .item-artist-cell {
+                display: block;
+                width: 300px;
+                margin-top: -5.8em;
+            }
+        }
+
+        @media only screen and (max-width: 900px) {
+            .item-secondary-info {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wrapper">
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Black Lights <em>14 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Gareth Johnson</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Action packed, cinematic drum ’n’ bass with epic orchestral strings & bass</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 05:01</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Zen Garden <em>4 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Christopher Ashmore / Benjamin Marks</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Meditative, peaceful Far Eastern chillout</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:31</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">House Work <em>7 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Barrie Gledden / Steve Dymond / Jason Pedder</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Cool house with smooth strings & flute</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:53</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Deep River <em>5 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Evelyn Glennie / Igor Dvorkin</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Thoughtful anthemic, eclectic Chill Out. Features kalimba</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 05:01</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Journey <em>8 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Alex Arcoleo / Alyusha Chagrin</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Ambient chill out with light garage beats, electronica & female vocals</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:34</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Nightmoves <em>6 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Chris Blackwell</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Cool, slick groove with light jazz funk feel & lush string pads</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:27</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Highly Strung <em>8 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Tom Quick</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Chilled orchestral samples with emotional hip-hop beat</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:19</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Happy Robots <em>6 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Darren Leigh Purkiss</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Funky & sexy electro groove with distant voices & bendy bass</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 02:19</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Above And Beyond <em>8 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Bruce Maginnis</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Floating acoustic rock chill out with haunting female vocal textures</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:13</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Black Lights <em>14 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Gareth Johnson</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Action packed, cinematic drum ’n’ bass with epic orchestral strings & bass</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 05:01</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Zen Garden <em>4 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Christopher Ashmore / Benjamin Marks</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Meditative, peaceful Far Eastern chillout</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:31</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">House Work <em>7 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Barrie Gledden / Steve Dymond / Jason Pedder</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Cool house with smooth strings & flute</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:53</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Deep River <em>5 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Evelyn Glennie / Igor Dvorkin</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Thoughtful anthemic, eclectic Chill Out. Features kalimba</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 05:01</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Journey <em>8 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Alex Arcoleo / Alyusha Chagrin</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Ambient chill out with light garage beats, electronica & female vocals</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:34</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite  favourited  item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Nightmoves <em>6 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Chris Blackwell</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Cool, slick groove with light jazz funk feel & lush string pads</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:27</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Highly Strung <em>8 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Tom Quick</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Chilled orchestral samples with emotional hip-hop beat</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:19</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Happy Robots <em>6 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Darren Leigh Purkiss</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Funky & sexy electro groove with distant voices & bendy bass</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 02:19</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">Above And Beyond <em>8 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">Bruce Maginnis</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">Floating acoustic rock chill out with haunting female vocal textures</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 03:13</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-controls">
+                <div class="item-play">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="item-primary-info">
+                <div class="item-name-cell"><a href="#">XXXX <em>14 mixes</em> <i class="fa fa-ellipsis-h"></i></a></div>
+                <div class="item-artist-cell"><a href="#">XXXXXXX</a></div>
+            </div>
+            <div class="item-secondary-info">
+                <div class="item-description-cell">XXXXXXXXXX</div>
+                <div class="item-length-cell"><i class="fa fa-clock-o"></i> 05:01</div>
+            </div>
+            <div class="item-actions">
+                <div class="item-favourite item-action">
+                    <a href="#" class="item-favourite-button">
+                  <i class="fa fa-heart fa-2x"></i><i class="hide">Favourite</i>
+                  </a>
+                </div>
+                <div class="item-share item-action">
+                    <a href="#" class="item-share-button">
+                  <i class="fa fa-share-square-o fa-2x"></i><i class="hide">Share</i>
+                  </a>
+                </div>
+                <div class="item-basket item-action">
+                    <a href="#" class="item-basket-button">
+                  <i class="fa fa-shopping-cart"></i> Add<i class="hide-label"> to basket</i></a>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

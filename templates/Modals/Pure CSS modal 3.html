@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Pure CSS modal 3</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: #B8AE9C;
+            color: #595241;
+            font-weight: 200;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        h1 {
+            margin: 0;
+            font-weight: inherit;
+        }
+
+        .lede {
+            font-size: 1.25em;
+        }
+
+        .code {
+            padding: 2px;
+            font-size: .9em;
+            border-radius: 4px;
+            font-family: 'Source Code Pro', Menlo, Consolas, Monaco, monospace;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* horizontal & vertical centering */
+        .center {
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+
+        .center__inner {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        /* modal */
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .modal__overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: none;
+        }
+
+        /* display the modal overlay when the input[type=radio] is checked */
+        .modal__state:checked+.modal__overlay {
+            opacity: 1;
+            animation: fade-in .4s;
+            display: block;
+        }
+
+        @keyframes scoot-up {
+            0% {
+                margin-top: 80px;
+            }
+
+            100% {
+                margin-top: 50px;
+            }
+        }
+
+        .modal {
+            position: relative;
+            margin: 50px;
+            margin-top: 80px;
+            padding: 40px 20px;
+            background: #cdc6ba;
+            text-align: left;
+            box-shadow: 0px 0px 38px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal__state:checked+.modal__overlay .modal {
+            margin-top: 50px;
+            animation: scoot-up .2s;
+            animation-timing-function: ease-out;
+            transform-origin: 50% 0px;
+        }
+
+        .modal__close {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+        }
+
+        .modal__overlay-close {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* the input[type=radio] that's toggled when the label is clicked */
+        .modal__state {
+            display: none;
+        }
+
+        /* button styles */
+        .button {
+            display: inline-block;
+            padding: 1em;
+            font-weight: bold;
+            border-radius: 4px;
+            box-shadow: 0 4px 0 #8cbcb8;
+            background: #ACCFCC;
+            color: #595241;
+        }
+
+        .button:hover,
+        .button:focus {
+            cursor: pointer;
+            background-color: #cce2e0;
+            box-shadow: 0 4px 0 #ACCFCC;
+        }
+
+        .button:active {
+            margin-top: 4px;
+            margin-bottom: -4px;
+            box-shadow: 0 0 0 #ACCFCC;
+        }
+
+        /* close button */
+        .button--close {
+            padding: .2em .5em;
+            background-color: #8A0917;
+            box-shadow: 0 4px 0 #5a060f;
+            color: #fff;
+        }
+
+        .button--inline {
+            padding: .25em .5em;
+        }
+
+        .button--close:hover,
+        .button--close:focus {
+            background-color: #ba0c1f;
+            box-shadow: 0 4px 0 #8A0917;
+        }
+
+        .button--close:active {
+            box-shadow: 0 0 0 #8A0917;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section class="center">
+        <div class="center__inner">
+            <div class="content">
+                <label class="button" for="modal__state"><i class="fa fa-rocket"></i> Launch it!</label>
+                <input type="checkbox" name="modal__state" id="modal__state" class="modal__state" />
+                <div class="modal__overlay">
+                    <label for="modal__state" class="modal__overlay-close"></label>
+                    <div class="modal">
+                        <label class="button button--close modal__close" for="modal__state"><i class="fa fa-times"></i></label>
+                        <h1>Here is the modal!</h1>
+                        <p class="lede">Created with pure CSS, and probably non-functional in many browsers.</p>
+                        <p>The <span class="button button--inline">launch</span> button is a <span class="code">&lt;label&gt;</span> attached to a radio <span class="code">&lt;input&gt;</span>. Clicking the label toggles the radio input. Using the <span class="code">:checked</span> pseudo-selector and the <span class="code">+</span> sibling selector, the <span class="code">.modal__wrapper</span> is made visible when the radio is checked.</p>
+                        <p>The close button in a second label/radio input with the same name attribute, so when it is clicked, the launch button loses its :checked state and the modal goes back to <span class="code">display: none</span>.</p>
+                        <p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

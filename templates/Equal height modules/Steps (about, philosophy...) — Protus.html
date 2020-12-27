@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Steps (about, philosophy...) — Protus</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic|Roboto:400,300italic,300,400italic,700,700italic');
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        html,
+        body {
+            font-family: "Roboto", helvetica, arial, sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            font-size: 62.5%;
+        }
+
+        body {
+            background: #fafafa;
+            color: #333;
+            font-size: 1.8rem;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            text-decoration: none;
+            color: #04b;
+        }
+
+        a:hover {
+            color: #06b;
+        }
+
+        .flexgrid li>a {
+            color: inherit;
+        }
+
+        p,
+        li,
+        time {
+            line-height: 3.6rem;
+            margin: 0 0 2.4rem;
+        }
+
+        hr {
+            border: none;
+            clear: both;
+            display: block;
+            height: 1px;
+            width: 100%;
+            margin: 6rem auto;
+            background: #eee;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0, rgba(255, 255, 255, 0) 75%);
+        }
+
+        h1 {
+            font: 3.6rem/4.8rem "Roboto", helvetica, arial, sans-serif;
+            margin: 0 0 2.4rem;
+        }
+
+        h2 {
+            font: 600 2.4rem/3.6rem "Noto Serif", times, serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            border: 0;
+            height: auto;
+            max-width: 100%;
+        }
+
+        img:hover {
+            filter: alpha(opacity=9000);
+            opacity: 0.90;
+            filter: alpha(opacity=90);
+        }
+
+        figure {
+            position: relative;
+            margin: 0;
+            line-height: 0;
+        }
+
+        main {
+            position: relative;
+            width: 1200px;
+            max-width: 96%;
+            margin: 0 auto;
+        }
+
+        main article {
+            position: relative;
+            display: -webkit-flex;
+            display: flex;
+            justify-content: center;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            padding: 3.6rem 0;
+        }
+
+        @media (min-width: 768px) {
+            main article {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+            }
+        }
+
+        .flexgrid {
+            margin: 0 auto;
+            padding: 0;
+            display: -webkit-flex;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .flexgrid li {
+            position: relative;
+            list-style: none;
+            display: -webkit-flex;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex: auto;
+            width: 100%;
+        }
+
+        .flexgrid li>a {
+            width: 100%;
+        }
+
+        .flexgrid li>a,
+        .flexgrid.nolinks li {
+            position: relative;
+            padding: 2.4rem;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+        }
+
+        @media (min-width:600px) {
+            .flexgrid li {
+                width: 50%;
+            }
+        }
+
+        @media (min-width:1024px) {
+            .flexgrid li {
+                width: 25%;
+            }
+        }
+
+        .steps li img,
+        .steps li svg {
+            margin: 0 auto 2.4rem;
+            display: block;
+        }
+
+        .flexgrid ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .flexgrid li li,
+        .flexgrid.nolinks li li {
+            padding: 0 1.2rem;
+            width: 100%;
+        }
+
+        /* Colors */
+        @media (min-width: 1024px) {
+            .steps li {
+                width: 25%;
+            }
+
+            .process {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 0;
+                height: 0;
+                border-left-style: solid;
+                border-left-width: 15px;
+            }
+        }
+
+        .steps li:nth-child(1) {
+            background-color: #eee;
+        }
+
+        .steps li:nth-child(2) {
+            background-color: #ddd;
+        }
+
+        .steps li:nth-child(3) {
+            background-color: #ccc;
+        }
+
+        .steps li:nth-child(4) {
+            background-color: #bbb;
+        }
+
+        .process {
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .steps li:hover>a {
+            background: #aaa;
+        }
+
+        @media (min-width: 1024px) {
+            .process.step-2 {
+                border-left-color: #eee;
+            }
+
+            .process.step-3 {
+                border-left-color: #ddd;
+            }
+
+            .process.step-4 {
+                border-left-color: #ccc;
+            }
+
+            .steps li:hover+li [class*="step-"] {
+                border-left-color: #aaa
+            }
+
+            .steps.nolinks li:hover+li [class*="step-"] {
+                border-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <main role="main">
+        <article>
+            <p>Flexbox Equal Height Columns (block links) &rarr; <a href="#">Blue</a>.</p>
+            <ul class="flexgrid steps">
+                <li>
+                  <a href="https://dribbble.com/shots/2428885-Philosophy-Steps-Protus" title="Protus (Dribbble)">
+                     <figure><img src="http://jlantunez.com/imgs/engravings/quijote.png" alt="Quixote" title="Quixote" /></figure>
+                     <h2>01. Passion</h2>
+                     <p>When you're really passionate about your job, you can change the world.</p>
+                  </a>
+               </li>
+                <li>
+                  <a href="https://dribbble.com/shots/2428885-Philosophy-Steps-Protus" title="Protus (Dribbble)">
+                     <div class="process step-2"></div>
+                     <figure><img src="http://jlantunez.com/imgs/engravings/compass.png" alt="Compass" title="Compass" /></figure>
+                     <h2>02. Purpose</h2>
+                     <p>Why does this business exist? How are you different? Why matters?</p>
+                  </a>
+               </li>
+                <li>
+                  <a href="https://dribbble.com/shots/2428885-Philosophy-Steps-Protus" title="Protus (Dribbble)">
+                     <div class="process step-3"></div>
+                     <figure><img src="http://jlantunez.com/imgs/engravings/nyc-liberty.png" alt="Statue of Liberty" title="Statue of Liberty" /></figure>
+                     <h2>03. Principles</h2>
+                     <p>Leadership through openness, empathy, usefulness, and good taste.</p>
+                  </a>
+                  </a>
+               </li>
+                <li>
+                  <a href="https://dribbble.com/jlantunez/projects/338916-Protus" title="Protus (Dribbble)">
+                     <div class="process step-4"></div>
+                     <figure><img src="http://jlantunez.com/imgs/engravings/microscope.png" alt="Microscope" title="Microscope" /></figure>
+                     <h2>04. Process</h2>
+                     <ul>
+                        <li>Useful</li>
+                <li>Easy</li>
+                <li>Fast</li>
+                <li>Beautiful</li>
+            </ul>
+            </a>
+            </li>
+            </ul>
+        </article>
+        <hr>
+        <article>
+            <p>Auto adjust. flex:auto;</p>
+            <ul class="flexgrid steps">
+                <li>
+                  <a href="https://dribbble.com/shots/2428885-Philosophy-Steps-Protus" title="Protus (Dribbble)">
+                     <figure><img src="http://jlantunez.com/imgs/engravings/compass.png" alt="Compass" title="Compass" /></figure>
+                     <h2>01. Purpose</h2>
+                     <p>Why does this business exist? How are you different? Why matters?</p>
+                  </a>
+               </li>
+                <li>
+                  <a href="https://dribbble.com/shots/2428885-Philosophy-Steps-Protus" title="Protus (Dribbble)">
+                     <div class="process step-2"></div>
+                     <figure><img src="http://jlantunez.com/imgs/engravings/nyc-liberty.png" alt="Statue of Liberty" title="" /></figure>
+                     <h2>02. Principles</h2>
+                     <p>Leadership through openness, empathy, usefulness, and good taste.</p>
+                  </a>
+                  </a>
+               </li>
+                <li>
+                  <a href="https://dribbble.com/jlantunez/projects/338916-Protus" title="Protus (Dribbble)">
+                     <div class="process step-3"></div>
+                     <figure><img src="http://jlantunez.com/imgs/engravings/microscope.png" alt="Microscope" title="Microscope" /></figure>
+                     <h2>03. Process</h2>
+                     <ul>
+                        <li>Useful</li>
+                <li>Easy</li>
+                <li>Fast</li>
+                <li>Beautiful</li>
+            </ul>
+            </a>
+            </li>
+            </ul>
+        </article>
+        <hr>
+        <article>
+            <p>Flexbox Equal Height Columns (class .nolinks)</p>
+            <ul class="flexgrid steps nolinks">
+                <li>
+                  <figure><img src="http://jlantunez.com/imgs/engravings/quijote.png" alt="Quixote" title="Quixote" /></figure>
+                  <h2>01. Passion</h2>
+                  <p>When you're really passionate about your job, you can change the world.</p>
+               </li>
+                <li>
+                  <div class="process step-2"></div>
+                  <figure><img src="http://jlantunez.com/imgs/engravings/compass.png" alt="Compass" title="Compass" /></figure>
+                  <h2>02. Purpose</h2>
+                  <p>Why does this business exist? How are you different? Why matters?</p>
+               </li>
+                <li>
+                  <div class="process step-3"></div>
+                  <figure><img src="http://jlantunez.com/imgs/engravings/nyc-liberty.png" alt="Statue of Liberty" title="Statue of Liberty" /></figure>
+                  <h2>03. Principles</h2>
+                  <p>Leadership through openness, <a href="https://en.wikipedia.org/wiki/Empathy" title="Empathy - Wikipedia">empathy</a>, usefulness, and good taste.</p>
+               </li>
+                <li>
+                  <div class="process step-4"></div>
+                  <figure><img src="http://jlantunez.com/imgs/engravings/microscope.png" alt="Microscope" title="Microscope" /></figure>
+                  <h2>04. Process</h2>
+                  <ul>
+                     <li>Useful</li>
+                <li>Easy</li>
+                <li>Fast</li>
+                <li>Beautiful</li>
+            </ul>
+            </li>
+            </ul>
+        </article>
+    </main>
+</body>
+
+</html>

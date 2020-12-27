@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Easy Flexbox Sidebar</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            display: flex;
+        }
+
+        sidebar {
+            background: #999;
+            min-width: 250px;
+        }
+
+        main {
+            background: #eaeaea;
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <sidebar>
+        <h1>Sidebar</h1>
+        <ul>
+            <li>Item</li>
+        </ul>
+    </sidebar>
+    <main>
+        <h1>Content</h1>
+        <p>Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.</p>
+    </main>
+</body>
+
+</html>

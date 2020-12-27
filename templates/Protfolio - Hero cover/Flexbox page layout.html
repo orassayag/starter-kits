@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox page layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+            text-align: center;
+        }
+
+        .container>* {
+            padding: 10px;
+            flex-basis: 100%;
+            margin: 5px;
+            border-radius: 4px;
+            border: 6px solid #171717;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .header {
+            background: #948d9b;
+        }
+
+        .navigation {
+            padding: 0;
+        }
+
+        .navigation ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background: #2d2d2b;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            display: block;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .navigation a:hover {
+            background: #d81159;
+        }
+
+        .main {
+            background: #ffbc42;
+        }
+
+        article {
+            padding: 10px;
+            margin-bottom: 15px;
+            background: #4bac3f;
+            border-radius: 4px;
+            border: 6px solid #171717;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        article:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .aside-1 {
+            background: #d81159;
+        }
+
+        .aside-2 {
+            background: #0496ff;
+        }
+
+        .footer {
+            color: #fff;
+            background: #006ba6;
+        }
+
+        /* Small screens */
+        @media all and (max-width: 600px) {
+            .navigation ul {
+                flex-flow: column wrap;
+            }
+
+            .navigation a {
+                text-align: center;
+                padding: 10px;
+                border-bottom: 1px solid #666b7a;
+            }
+        }
+
+        /* Medium screens */
+        @media all and (min-width: 601px) {
+            .navigation ul {
+                flex-flow: row wrap;
+                justify-content: space-around;
+            }
+
+            .aside {
+                flex-grow: 1;
+                flex-basis: auto;
+            }
+        }
+
+        /* Large screens */
+        @media all and (min-width: 800px) {
+            .navigation ul {
+                flex-flow: row wrap;
+                justify-content: flex-end;
+            }
+
+            .main {
+                flex-grow: 2;
+                flex-basis: auto;
+            }
+
+            .aside-1 {
+                order: 1;
+            }
+
+            .main {
+                order: 2;
+            }
+
+            .aside-2 {
+                order: 3;
+            }
+
+            .footer {
+                order: 4;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <header class="header">
+            <h1>Header</h1>
+        </header>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <main class="main">
+            <section>
+                <h2>Section</h2>
+                <article>
+                    <h3>Article 1</h3>
+                </article>
+                <article>
+                    <h3>Article 2</h3>
+                </article>
+                <article>
+                    <h3>Article 3</h3>
+                </article>
+            </section>
+        </main>
+        <aside class="aside aside-1">
+            <h2>Aside 1</h2>
+        </aside>
+        <aside class="aside aside-2">
+            <h2>Aside 2</h2>
+        </aside>
+        <footer class="footer">Footer</footer>
+    </div>
+</body>
+
+</html>

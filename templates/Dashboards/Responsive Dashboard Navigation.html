@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Dashboard Navigation</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <style type="text/css">
+        html {
+            box-sizing: border-box;
+            font-size: 62.5%;
+        }
+
+        body {
+            color: #49525a;
+            font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+            font-size: 1.6em;
+            font-weight: 300;
+            letter-spacing: .01em;
+            line-height: 1.6;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .app {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            height: 60px;
+            background: #262C3D;
+            color: #fff;
+        }
+
+        @media only screen and (min-width: 768px) {
+            header {
+                height: 75px;
+            }
+        }
+
+        header .logo {
+            float: left;
+        }
+
+        header .logo::before {
+            content: '';
+            display: inline-block;
+            height: 44px;
+            width: 44px;
+            background: #FF0039;
+            border-radius: 50%;
+        }
+
+        header .logo::before,
+        header .logo-text {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 1rem;
+            line-height: 60px;
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            header .logo::before,
+            header .logo-text {
+                line-height: 75px;
+            }
+        }
+
+        header .nav-trigger,
+        header .right-links {
+            float: right;
+            line-height: 60px;
+            padding: 0 2.4rem;
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            header .nav-trigger,
+            header .right-links {
+                line-height: 75px;
+            }
+        }
+
+        .body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background: #E9EFF3;
+            max-height: calc(100vh - 60px);
+            overflow: hidden;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .body {
+                flex-direction: row;
+                max-height: calc(100vh - 75px);
+            }
+        }
+
+        .content {
+            flex: 1;
+            max-height: calc(100vh - 60px);
+            overflow-y: scroll;
+            padding: 0.5rem 2rem;
+        }
+
+        .side-nav {
+            background: #262C3D;
+            max-height: calc(100vh - 60px);
+            overflow-y: scroll;
+            display: none;
+            color: #fff;
+            flex: 0 0 350px;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .side-nav {
+                display: block;
+                flex: 0 0 225px;
+                max-height: calc(100vh - 75px);
+            }
+        }
+
+        .side-nav.is-open {
+            display: block;
+        }
+
+        .side-nav .event {
+            height: 60px;
+            line-height: 60px;
+            vertical-align: middle;
+            background: #313748;
+            padding: 0 1.8rem;
+        }
+
+        .side-nav ul {
+            list-style-type: none;
+            padding: 2rem 0;
+            margin: 0;
+        }
+
+        .side-nav ul li {
+            position: relative;
+            padding: 1rem 1.8rem;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .side-nav ul li.active {
+            color: #fff;
+        }
+
+        .side-nav ul li.active::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 10%;
+            height: 80%;
+            width: 3px;
+            background: #FF0039;
+        }
+
+        .side-nav ul li i {
+            display: inline-block;
+            width: 24px;
+            text-align: center;
+            padding-right: 1rem;
+        }
+
+        .side-nav li.label {
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.15rem;
+            font-size: 1.2rem;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .hidden-M {
+                display: none;
+            }
+        }
+
+        .visible-M {
+            display: none;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .visible-M {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="app">
+        <header>
+            <div class="logo">
+                <div class="logo-text">Logo</div>
+            </div>
+            <div class="nav-trigger hidden-M">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="right-links visible-M">
+                <a>Logout</a>
+            </div>
+        </header>
+        <div class="body">
+            <nav class="side-nav">
+                <div class="event">
+                    ELYSIAN GAMES <i class="fa fa-angle-down"></i>
+                </div>
+                <ul>
+                    <li class="label">Main</li>
+                    <li class="active"><i class="fa fa-dashboard"></i>Overview</li>
+                    <li><i class="fa fa-trophy"></i>Leaderboard</li>
+                    <li><i class="fa fa-user"></i>Athletes</li>
+                    <li><i class="fa fa-credit-card"></i>Payments</li>
+                </ul>
+                <ul>
+                    <li class="label">Settings</li>
+                    <li><i class="fa fa-calendar"></i>Event Settings</li>
+                    <li><i class="fa fa-group"></i>Divisions</li>
+                    <li><i class="fa fa-photo"></i>Cover Photo</li>
+                </ul>
+                <ul class="hidden-M">
+                    <li class="label">Account</li>
+                    <li><i class="fa fa-gear"></i>Event Settings</li>
+                    <li><i class="fa fa-sign-out"></i>Logout</li>
+                </ul>
+            </nav>
+            <div class="content">
+                <h1>Aloha</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius, odio in porta porttitor, odio libero sagittis eros, quis imperdiet velit lacus id purus. Proin non vestibulum turpis. Suspendisse id fermentum nunc. Vestibulum risus nisl, sodales a augue nec, venenatis volutpat mauris. Pellentesque congue, arcu eu sollicitudin tempor, augue arcu pretium nulla, a rhoncus nisi ex et orci. Vivamus ipsum tellus, bibendum iaculis ligula semper, maximus vehicula tellus. Aliquam erat volutpat. Maecenas in dignissim nisi, ut convallis odio. Vestibulum gravida ipsum ut orci suscipit tristique. Quisque a erat nec tellus lacinia interdum. Donec ac pellentesque magna.</p>
+                <p>Vivamus a euismod elit. Nam elit erat, rhoncus eget eleifend id, vestibulum a elit. Nullam luctus dapibus rutrum. Maecenas at enim et purus pharetra vehicula. Vestibulum quis varius sem. Nullam commodo diam mauris, a posuere mauris posuere faucibus. Nullam molestie in nulla quis dignissim. Morbi viverra sagittis nisl, quis bibendum lorem malesuada sit amet. Vestibulum lacinia nunc in varius consequat. Vivamus et varius neque, sit amet semper ex. Nulla laoreet congue dolor, aliquet ullamcorper est scelerisque non. Sed at egestas ipsum, nec dictum nulla. Morbi pharetra dolor nec quam vestibulum, at dignissim eros tempor. Morbi vehicula consequat justo, in facilisis mauris scelerisque at. Suspendisse sit amet ornare augue.</p>
+                <p>Vivamus nec urna lacinia, mollis felis ut, mollis justo. Morbi id accumsan velit, ut suscipit justo. Mauris at mattis risus, eget gravida mi. Vivamus tincidunt consequat felis nec condimentum. Nunc mollis sapien ut auctor hendrerit. Aenean pretium, metus quis ullamcorper dignissim, velit neque varius massa, eu eleifend justo diam vel erat. Cras interdum posuere mattis. Donec ac ornare magna. In ut ex magna. Pellentesque neque risus, sodales ac consectetur in, consectetur at arcu. Sed molestie est vitae lectus faucibus, id ullamcorper elit maximus. Ut finibus porttitor accumsan. Fusce accumsan ipsum at metus feugiat dignissim.</p>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque vel accumsan nisl. Curabitur maximus eget felis eget gravida. Nullam ac malesuada lacus. Praesent interdum eget dolor in facilisis. Vestibulum ac quam vel felis congue eleifend a ac erat. Sed accumsan ante diam, ac consectetur tellus vulputate nec. Sed scelerisque rhoncus fringilla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut quis metus ut libero fermentum imperdiet sit amet porttitor sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce lobortis, enim id tempor tincidunt, velit risus aliquam purus, et pharetra justo elit eu libero. Etiam at dignissim urna. Duis cursus sollicitudin nisi. Donec et elementum nisl.</p>
+                <p>Duis pulvinar massa nisl, nec commodo arcu vulputate vitae. Aliquam id sem feugiat, suscipit neque vel, tincidunt diam. Donec eget ligula fermentum, laoreet ex a, venenatis tortor. Duis semper volutpat interdum. Pellentesque interdum, dolor ornare imperdiet congue, felis sem lobortis ante, sed tempor massa odio sit amet sapien. Nullam tincidunt ipsum a lacus luctus, sed sodales ipsum dapibus. Cras feugiat iaculis enim, et egestas nisi feugiat sit amet. Nulla posuere orci sed pretium elementum. Maecenas id porttitor felis, non placerat nibh. Nam nec massa mi. Cras ullamcorper ipsum neque, eu tincidunt odio sodales id. Cras scelerisque nibh lorem, in vulputate felis tincidunt eu. Nulla scelerisque vehicula tincidunt. Integer tincidunt lobortis mauris, suscipit gravida ex auctor in.</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" id="rendered-js">
+        $('.nav-trigger').click(function() {
+            $('.side-nav').toggleClass('is-open');
+        });
+    </script>
+</body>
+
+</html>

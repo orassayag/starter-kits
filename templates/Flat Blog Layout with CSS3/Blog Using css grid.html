@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Blog Using css grid</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fff;
+            font-size: 16px;
+            font-family: Roboto, sans-serif;
+        }
+
+        .blog {
+            text-align: center;
+            margin: 40px 0px;
+        }
+
+        .blog .blog_title {
+            margin: 0px 0px 30px;
+            color: #666;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .blog .blog_wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-content: center;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .blog .blog_wrapper .blog_item {
+            margin: 0px 20px 40px;
+            min-height: 300px;
+            background: #fff 50%;
+            background-size: cover;
+            border-radius: 5px;
+            text-decoration: none;
+            box-shadow: 8px 14px 38px rgba(39, 44, 49, .06), 1px 3px 8px rgba(39, 44, 49, .03);
+            transition: all 0.5s ease;
+        }
+
+        .blog .blog_wrapper .blog_item a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        .blog .blog_wrapper .blog_item .bi_img {
+            height: 200px;
+            margin: 0px 0px 20px;
+            overflow: hidden;
+        }
+
+        .blog .blog_wrapper .blog_item .bi_img img {
+            width: 90%;
+        }
+
+        .blog .blog_wrapper .blog_item .bi_title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.5em 0 0.5em;
+        }
+
+        .blog .blog_wrapper .blog_item .bi_content {
+            padding: 20px;
+            font-size: 0.8rem;
+            text-align: justify;
+            color: #999;
+        }
+
+        .blog .blog_wrapper .blog_item .reading_time {
+            font-family: 'Raleway', sans-serif;
+            color: #738a94;
+            font-size: 0.8rem;
+            line-height: 33px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .blog .blog_wrapper .blog_item:hover {
+            box-shadow: 8px 28px 50px rgba(39, 44, 49, .07), 1px 6px 12px rgba(39, 44, 49, .04);
+            transition: all 0.4s ease;
+            transform: translate3D(0, -1px, 0) scale(1.02);
+        }
+
+        .blog .blog_button a {
+            text-decoration: inherit;
+            display: block;
+            width: 200px;
+            margin: 0px auto 24px;
+            letter-spacing: 1px;
+            padding: 15px 26px;
+            background: #fc4f4f;
+            color: white;
+            outline-offset: -2px;
+            transition: all 0.3s ease;
+        }
+
+        .blog .blog_button a:hover {
+            background: #fff;
+            color: #fc4f4f;
+        }
+
+        @media only screen and (max-width: 900px) {
+            .blog .blog_wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .blog .blog_wrapper {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="blog">
+        <div class="blog_title">
+            <h1>Our Latest Blogs</h1>
+        </div>
+        <div class="blog_wrapper">
+            <div class="blog_item">
+                <a href="#">
+                  <div class="bi_img"><img src="https://source.unsplash.com/random/300" alt="" title="" /></div>
+                  <div class="bi_title">Mobile Wallets Demystified : Eligibility, Permissions Etc.</div>
+                  <div class="bi_content">Mobile wallets are making headlines these days. Domestic e-commerce companies, such
+                     as Flipkart, plan to launch a wallet soon, while a few payment gateways, such as Paytm and Mobikwik, offer
+                     semi-closed wallets already. Telecom operators also offer this facility.
+                  </div>
+                  <div class="reading_time">5 MIN READ</div>
+               </a>
+            </div>
+            <div class="blog_item">
+                <a href="#">
+                  <div class="bi_img"><img src="https://source.unsplash.com/random/301" alt="" title="" /></div>
+                  <div class="bi_title">Mobile Wallets Demystified : Eligibility, Permissions Etc.</div>
+                  <div class="bi_content">Mobile wallets are making headlines these days. Domestic e-commerce companies, such
+                     as Flipkart, plan to launch a wallet soon, while a few payment gateways, such as Paytm and Mobikwik, offer
+                     semi-closed wallets already. Telecom operators also offer this facility.
+                  </div>
+                  <div class="reading_time">5 MIN READ</div>
+               </a>
+            </div>
+            <div class="blog_item">
+                <a href="#">
+                  <div class="bi_img"><img src="https://source.unsplash.com/random/302" alt="" title="" /></div>
+                  <div class="bi_title">Mobile Wallets Demystified : Eligibility, Permissions Etc.</div>
+                  <div class="bi_content">Mobile wallets are making headlines these days. Domestic e-commerce companies, such
+                     as Flipkart, plan to launch a wallet soon, while a few payment gateways, such as Paytm and Mobikwik, offer
+                     semi-closed wallets already. Telecom operators also offer this facility.
+                  </div>
+                  <div class="reading_time">5 MIN READ</div>
+               </a>
+            </div>
+        </div>
+        <div class="blog_button"><a href="#">See all blogs</a></div>
+    </div>
+</body>
+
+</html>

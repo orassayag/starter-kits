@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Form Options</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <style type="text/css">
+        form {
+            background: #f5f5f5;
+            padding: 5%;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            margin: 20px auto;
+            text-align: center;
+            width: 90%;
+        }
+
+        form p {
+            width: 100%;
+            display: inline-block;
+            margin: 1px 0;
+            padding: 0;
+        }
+
+        input,
+        text,
+        email,
+        password,
+        input[type=text],
+        input[type=password],
+        input[type=email],
+        input[type=textarea],
+        textarea,
+        input[type=select],
+        select {
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            height: 25px;
+            line-height: 25px;
+            float: right;
+            border: solid #ccc 1px;
+            font-size: 11px;
+            color: #666;
+        }
+
+        input,
+        text,
+        email,
+        password,
+        input[type=text],
+        input[type=password],
+        input[type=email],
+        input[type=textarea],
+        textarea {
+            width: 48%;
+            padding: 0px 1%;
+        }
+
+        input[type=select],
+        select {
+            width: 50%;
+            padding: 0px 1%;
+            height: 30px;
+        }
+
+        input[type=radio],
+        radio,
+        input[type=checkbox],
+        checkbox {
+            width: auto;
+            padding: 0px;
+            margin-left: 2%;
+            float: left;
+        }
+
+        input[type=submit],
+        submit {
+            background: blue;
+            border-color: blue;
+            color: #fff;
+            padding: 0px 25px;
+            line-height: 25px;
+            font-size: 16px;
+            width: 96%;
+            margin: 0px 1%;
+            padding: 0px 1%;
+            float: left;
+        }
+
+        input[type=submit]:hover,
+        submit:hover {
+            cursor: pointer;
+            background: pink;
+            border-color: pink;
+        }
+
+        textarea,
+        input[type=textarea] {
+            min-height: 80px;
+        }
+
+        label {
+            width: 46%;
+            margin: 2px 1%;
+            font-size: 12px;
+            color: #666;
+            text-align: right;
+            float: left;
+            line-height: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 16px;
+        }
+
+        .twoinputs:nth-child(3) {
+            margin: 0 !important;
+            width: 23% !important;
+        }
+
+        .twoinputs:nth-child(2) {
+            margin: 0 0 0 .7% !important;
+            width: 22.2% !important;
+        }
+
+        .threeinputs {
+            margin: 0 !important;
+            width: 14.15% !important;
+        }
+
+        .threeinputs:nth-child(3) {
+            margin: 0 .75% !important;
+            width: 14% !important;
+        }
+
+        .formhalf {
+            float: left;
+            width: 48%;
+            margin: 0px 1%;
+        }
+
+        .formthird {
+            float: left;
+            width: 31%;
+            margin: 0px 1%;
+        }
+
+        .submitbuttons {
+            display: inline-block;
+            margin: 20px auto;
+        }
+
+        .submitbuttons p {
+            clear: both;
+            width: 100%;
+            margin: 5px auto;
+        }
+
+        p.submitone input {
+            width: 98%;
+            margin: 0px 1%;
+        }
+
+        p.submittwo input {
+            width: 48%;
+            margin: 0px 1%;
+            float: left;
+        }
+
+        p.submitthree input {
+            width: 31.3%;
+            margin: 0px 1%;
+        }
+
+        .fa-question-circle {
+            color: #666;
+            font-size: 18px !important;
+            line-height: 25px !important;
+            margin-right: 5px;
+            position: relative;
+            top: 2px;
+        }
+
+        @media only screen and (max-width: 960px) {
+            .twoinputs:nth-child(3) {
+                margin: 1px 0 !important;
+                width: 48% !important;
+            }
+
+            .twoinputs:nth-child(2) {
+                margin: 1px 0 !important;
+                width: 48% !important;
+            }
+
+            .threeinputs,
+            .threeinputs:nth-child(3) {
+                margin: 1px 0 !important;
+                width: 48% !important;
+            }
+
+            input,
+            text,
+            email,
+            password,
+            input[type=text],
+            input[type=password],
+            input[type=email],
+            input[type=textarea],
+            textarea,
+            input[type=select],
+            select {
+                float: right;
+            }
+
+            input[type=radio],
+            radio,
+            input[type=checkbox],
+            checkbox {
+                float: left;
+            }
+
+            label {
+                font-size: 11px;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .formhalf {
+                float: left;
+                width: 98%;
+                margin: 0px 1%;
+            }
+
+            .formthird {
+                float: left;
+                width: 95%;
+                margin: 0px 1%;
+            }
+
+            label {
+                font-size: 11px;
+            }
+        }
+
+        h2 {
+            margin: 20px auto;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            width: 100%;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <form>
+        <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+        <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+        <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+        <p><label><i class="fa fa-question-circle"></i>Chekbox fields</label><input type="checkbox" /><input type="checkbox" /><input type="checkbox" /></p>
+        <p><label><i class="fa fa-question-circle"></i>Radio fields</label><input type="radio" /><input type="radio" /></p>
+        <p>
+            <label><i class="fa fa-question-circle"></i>Select field</label>
+            <select>
+                <option>----Choose---</option>
+            </select>
+        </p>
+        <p><label><i class="fa fa-question-circle"></i>Textarea</label><textarea></textarea></p>
+        <p><label><i class="fa fa-question-circle"></i>Two Inputs</label><input class="twoinputs" type="text" /><input class="twoinputs" type="text" /></p>
+        <p><label><i class="fa fa-question-circle"></i>Three Inputs</label><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /></p>
+        <h2>Two Columns</h2>
+        <div class="formhalf">
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Chekbox fields</label><input type="checkbox" /><input type="checkbox" /><input type="checkbox" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Radio fields</label><input type="radio" /><input type="radio" /></p>
+            <p>
+                <label><i class="fa fa-question-circle"></i>Select field</label>
+                <select>
+                    <option>----Choose---</option>
+                </select>
+            </p>
+            <p><label><i class="fa fa-question-circle"></i>Textarea</label><textarea></textarea></p>
+            <p><label><i class="fa fa-question-circle"></i>Two Inputs</label><input class="twoinputs" type="text" /><input class="twoinputs" type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Three Inputs</label><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /></p>
+        </div>
+        <div class="formhalf">
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Chekbox fields</label><input type="checkbox" /><input type="checkbox" /><input type="checkbox" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Radio fields</label><input type="radio" /><input type="radio" /></p>
+            <p>
+                <label><i class="fa fa-question-circle"></i>Select field</label>
+                <select>
+                    <option>----Choose---</option>
+                </select>
+            </p>
+            <p><label><i class="fa fa-question-circle"></i>Textarea</label><textarea></textarea></p>
+            <p><label><i class="fa fa-question-circle"></i>Two Inputs</label><input class="twoinputs" type="text" /><input class="twoinputs" type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Three Inputs</label><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /></p>
+        </div>
+        <h2>Three Columns</h2>
+        <div class="formthird">
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Chekbox fields</label><input type="checkbox" /><input type="checkbox" /><input type="checkbox" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Radio fields</label><input type="radio" /><input type="radio" /></p>
+            <p>
+                <label><i class="fa fa-question-circle"></i>Select field</label>
+                <select>
+                    <option>----Choose---</option>
+                </select>
+            </p>
+            <p><label><i class="fa fa-question-circle"></i>Textarea</label><textarea></textarea></p>
+            <p><label><i class="fa fa-question-circle"></i>Two Inputs</label><input class="twoinputs" type="text" /><input class="twoinputs" type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Three Inputs</label><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /></p>
+        </div>
+        <div class="formthird">
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Chekbox fields</label><input type="checkbox" /><input type="checkbox" /><input type="checkbox" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Radio fields</label><input type="radio" /><input type="radio" /></p>
+            <p>
+                <label><i class="fa fa-question-circle"></i>Select field</label>
+                <select>
+                    <option>----Choose---</option>
+                </select>
+            </p>
+            <p><label><i class="fa fa-question-circle"></i>Textarea</label><textarea></textarea></p>
+            <p><label><i class="fa fa-question-circle"></i>Two Inputs</label><input class="twoinputs" type="text" /><input class="twoinputs" type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Three Inputs</label><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /></p>
+        </div>
+        <div class="formthird">
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Text field</label><input type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Chekbox fields</label><input type="checkbox" /><input type="checkbox" /><input type="checkbox" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Radio fields</label><input type="radio" /><input type="radio" /></p>
+            <p>
+                <label><i class="fa fa-question-circle"></i>Select field</label>
+                <select>
+                    <option>----Choose---</option>
+                </select>
+            </p>
+            <p><label><i class="fa fa-question-circle"></i>Textarea</label><textarea></textarea></p>
+            <p><label><i class="fa fa-question-circle"></i>Two Inputs</label><input class="twoinputs" type="text" /><input class="twoinputs" type="text" /></p>
+            <p><label><i class="fa fa-question-circle"></i>Three Inputs</label><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /><input class="threeinputs" type="text" /></p>
+        </div>
+        <div class="submitbuttons">
+            <p class="submitone"><input type="submit" /></p>
+            <p class="submittwo"><input type="submit" /><input type="submit" /></p>
+            <p class="submitthree"><input type="submit" /><input type="submit" /><input type="submit" /></p>
+        </div>
+    </form>
+</body>
+
+</html>

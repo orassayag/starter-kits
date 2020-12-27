@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Grid + Flexbox blog style layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            background: #2e2e2e;
+        }
+
+        header {
+            background: white;
+            color: black;
+        }
+
+        header .container {
+            margin: 0 auto;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        a {
+            color: #5b7f00;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #363636;
+        }
+
+        .home-wrapp {
+            display: grid;
+            grid-auto-rows: auto;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            .home-wrapp {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .home-wrapp {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .home-wrapp {
+                display: block;
+            }
+
+            .home-wrapp .grid__item {
+                margin-bottom: 20px;
+            }
+        }
+
+        .home-wrapp .module {
+            background: #fff;
+            padding: 1rem;
+            flex-direction: column;
+        }
+
+        .home-wrapp .module article {
+            border-top: 1px solid #afafaf;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+        }
+
+        .home-wrapp .module article .module-title {
+            font-size: 1rem;
+        }
+
+        .home-wrapp .module article .module-subtitle {
+            font-size: 1rem;
+        }
+
+        .home-wrapp .module article.lead .module-subtitle {
+            font-size: 2rem;
+        }
+
+        .home-wrapp .module article:not(.lead) {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .home-wrapp .module article:not(.lead) .module-img-top {
+            margin-right: 0.6rem;
+        }
+
+        @media (max-width: 768px) {
+            .home-wrapp .module {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header>
+        <div class="container">
+            <strong>Grid + Flexbox</strong> blog style layout
+        </div>
+    </header>
+    <div class="container">
+        <div role="main" class="home-wrapp">
+            <section class="module">
+                <h1 class="module-title"><a href="">Articles on: Kategorija</a></h1>
+                <article class="lead">
+                    <img src="http://via.placeholder.com/800x600" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum...</p>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+            </section>
+            <section class="module">
+                <h1 class="module-title"><a href="">Articles on: Kategorija</a></h1>
+                <article class="lead">
+                    <img src="http://via.placeholder.com/800x600" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum...</p>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+            </section>
+            <section class="module">
+                <h1 class="module-title"><a href="">Articles on: Kategorija</a></h1>
+                <article class="lead">
+                    <img src="http://via.placeholder.com/800x600" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum...</p>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+            </section>
+            <section class="module">
+                <h1 class="module-title"><a href="">Articles on: Kategorija</a></h1>
+                <article class="lead">
+                    <img src="http://via.placeholder.com/800x600" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum...</p>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+            </section>
+            <section class="module">
+                <h1 class="module-title"><a href="">Articles on: Kategorija</a></h1>
+                <article class="lead">
+                    <img src="http://via.placeholder.com/800x600" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum...</p>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+            </section>
+            <section class="module">
+                <h1 class="module-title"><a href="">Articles on: Kategorija</a></h1>
+                <article class="lead">
+                    <img src="http://via.placeholder.com/800x600" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum...</p>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+                <article>
+                    <img src="http://via.placeholder.com/60x60" class="module-img-top" alt="" title="" />
+                    <h2 class="module-subtitle"><a href="">Heading.h2</a></h2>
+                </article>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

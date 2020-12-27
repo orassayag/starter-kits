@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" class="fa-events-icons-ready">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Build a Portfolio site</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script type="text/javascript" src="https://use.fontawesome.com/0856ab4841.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/0856ab4841.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600" />
+    <style type="text/css">
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* border box fix */
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Titillium Web", "Open Sans", sans-serif;
+            font-size: 62.5%;
+            letter-spacing: 1.5px;
+            margin: 0;
+        }
+
+        a:link {
+            color: #29f;
+            font-size: 2em;
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:active,
+        a:visited {
+            color: #29f;
+            text-decoration: underline;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        /* Headings */
+        h1,
+        h2,
+        h3 {
+            font-size: 3em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0;
+            word-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 4em;
+        }
+
+        h2 {
+            margin-top: 1.5em;
+            text-align: center;
+        }
+
+        h2:after {
+            content: "\A71C";
+            display: block;
+            padding-top: 0.5em;
+        }
+
+        /* Header */
+        .main-header {
+            width: 100%;
+        }
+
+        .header-inner {
+            padding: 2em;
+        }
+
+        .logo {
+            width: 8em;
+        }
+
+        .profession-snippet {
+            color: #666;
+            font-size: 1.8em;
+            font-style: italic;
+        }
+
+        .name {
+            -webkit-animation: 1.5s moveInRight ease-out;
+            animation: 1.5s moveInRight ease-out;
+            margin-right: 2em;
+        }
+
+        @-webkit-keyframes moveInRight {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateX(10em);
+                transform: translateX(10em);
+            }
+
+            80% {
+                -webkit-transform: translateX(-1em);
+                transform: translateX(-1em);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translate(0);
+                transform: translate(0);
+            }
+        }
+
+        @keyframes moveInRight {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateX(10em);
+                transform: translateX(10em);
+            }
+
+            80% {
+                -webkit-transform: translateX(-1em);
+                transform: translateX(-1em);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translate(0);
+                transform: translate(0);
+            }
+        }
+
+        .header-img {
+            background: url('https://github.com/FoxyStoat/portfolio/blob/master/assets/images/tony-webster-97532-unsplash-1x.jpg?raw=true') no-repeat fixed;
+            background-size: cover;
+            background-position: bottom center;
+            height: 70vh;
+            width: 100%;
+        }
+
+        hr {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            border: 0;
+            height: 3px;
+            margin: 2em;
+        }
+
+        /* Section-Projects */
+        .section-projects {
+            margin-bottom: 6em;
+            width: 100%;
+        }
+
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .project-article {
+            border: 2px solid #666;
+            box-shadow: 5px 5px 5px #ddd;
+            margin: 3em;
+            padding: 10px 20px;
+        }
+
+        .figure-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .article-heading {
+            color: #666;
+            font-weight: 600;
+            font-size: 2em;
+            padding: 0.5em;
+        }
+
+        .thumbnail-img {
+            width: 30em;
+        }
+
+        .portrait-img {
+            height: 30em;
+        }
+
+        .grow {
+            transition: all .2s ease-in-out;
+        }
+
+        .grow:hover {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        figcaption>a:link {
+            display: block;
+        }
+
+        .project-description {
+            max-width: 30em;
+            font-size: 1.5em;
+            line-height: 1.6em;
+            margin: 1em 0;
+        }
+
+        .highlight {
+            background-image: linear-gradient(120deg, #279af1 0%, #84fab0 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.2em;
+            background-position: 0 88%;
+            transition: background-size 0.30s ease-in;
+            padding: 0.1em;
+        }
+
+        .highlight:hover {
+            background-size: 100% 88%;
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+            background: #111;
+            color: #fff;
+            padding: 1em;
+        }
+
+        .footer>a {
+            display: inline-block;
+            margin: 0.2em;
+            padding: 0.5em;
+        }
+
+        .footer>p {
+            font-size: 1.4em;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 340px) {
+            .thumbnail-img {
+                width: 25em;
+            }
+        }
+
+        /* Tablets */
+        @media screen and (min-width: 600px) {
+            .header-inner {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 4em;
+            }
+
+            .logo {
+                width: 12em;
+                margin-right: 2em;
+            }
+
+            h1 {
+                font-size: 4.5em;
+            }
+
+            .profession-snippet {
+                font-size: 2em;
+                margin: 0;
+            }
+
+            .thumbnail-img {
+                width: 35em;
+            }
+
+            .project-description {
+                font-size: 1.6em;
+            }
+        }
+
+        /* Desktops */
+        @media screen and (min-width: 950px) {
+            h1 {
+                font-size: 5.5em;
+                font-weight: 400;
+            }
+
+            h2,
+            h3 {
+                font-size: 3.5em;
+            }
+
+            .profession-snippet {
+                font-size: 3em;
+            }
+
+            .thumbnail-img {
+                width: 40em;
+            }
+
+            .project-description {
+                font-size: 1.7em;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header id="home" class="main-header">
+        <div class="header-inner">
+            <img src="https://res.cloudinary.com/dbucjbi8a/image/upload/v1508166188/waxing-cresent_zidti5.svg" class="logo" title="waxing cresent moon logo" alt="waxing cresent moon logo" />
+            <div class="name">
+                <h1>Carol Hodgson</h1>
+                <p class="profession-snippet">Front-End Web Developer</p>
+            </div>
+        </div>
+        <hr>
+        <div class="header-img"></div>
+    </header>
+    <main class="main-content">
+        <section id="projects" class="section-projects">
+            <h2>Projects</h2>
+            <div class="project-container">
+                <article class="project-article grow">
+                    <header class="article-header">
+                        <h4 class="article-heading center">Hodgson Joinery</h4>
+                    </header>
+                    <figure class="figure-container">
+                        <img src="https://github.com/FoxyStoat/hodgsonjoinery/blob/master/screenshot-home.png?raw=true" class="portrait-img" alt="image of project Hodgson Joinery project" title="image of project Hodgson Joinery project" />
+                        <figcaption class="center">
+                            <p class="project-description">Currently being built mobile first with pure <span class="highlight"><em>HTML</em></span>, <span class="highlight"><em>CSS</em></span>, &amp; <span class="highlight"><em>JavaScript</em></span> for a fully responsive &amp; accessible webiste for my dad's joinery and locksmith bussiness.</p>
+                            <a href="https://hodgsonjoinery.com" target="blank">View Project</a>
+                            <a href="https://github.com/FoxyStoat/hodgsonjoinery" target="blank">View Source Code</a>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article class="project-article grow">
+                    <header class="article-header">
+                        <h4 class="article-heading center">Crafty Hermit</h4>
+                    </header>
+                    <figure class="figure-container">
+                        <img src="https://github.com/FoxyStoat/craft-blog/blob/master/assets/images/craftyhermitblogscreenshot.jpg?raw=true" class="thumbnail-img" alt="image of project crafty hermit blog" title="image of project crafty hermit blog" />
+                        <figcaption class="center">
+                            <p class="project-description">My first blog! I'm a huge fan of crafting, wanted a blog and also wanted to learn <span class="highlight"><em>WordPress</em></span> so I built this. I write and maintain my blog for my personal hobby.</p>
+                            <a href="https://craftyhermit.com/" target="blank">View Project</a>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article class="project-article grow">
+                    <header class="article-header">
+                        <h4 class="article-heading center">My Reads App</h4>
+                    </header>
+                    <figure class="figure-container">
+                        <img src="https://github.com/FoxyStoat/my-reads/blob/master/screenshot-my-reads.png?raw=true" class="thumbnail-img" alt="image of my reads app project" title="image of my reads app project" />
+                        <figcaption class="center">
+                            <p class="project-description">Leveraged <span class="highlight"><em>React </em></span> to support a dynamic user interface that interacts with an API server and client library resulting in a responsive book tracking app that allows users to select and categorise books into a virtual bookshelf.</p>
+                            <a href="https://github.com/FoxyStoat/my-reads" target="blank">View Source Code</a>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article class="project-article grow">
+                    <header class="article-header">
+                        <h4 class="article-heading center">Natours</h4>
+                    </header>
+                    <figure class="figure-container">
+                        <img src="https://github.com/FoxyStoat/natours/blob/master/screenshot-hero.png?raw=true" class="thumbnail-img" alt="image of natours project" title="image of natours project" />
+                        <figcaption class="center">
+                            <p class="project-description">Created a modern, fully responsive website that has a stunning design using <span class="highlight"><em>HTML5</em></span>, advanced <span class="highlight"><em>CSS</em></span> techniques and <span class="highlight"><em>Sass</em></span>. The CSS architecture uses the 7 - 1 rule, component-based design &amp; uses <span class="highlight"><em>BEM</em></span> methodology for a reusable, maintainable and scalable code. A credit to Jonas Schmedtmann for the design - Udemy online course</p>
+                            <a href="https://foxystoat.github.io/natours/" target="blank">View Project</a>
+                            <a href="https://github.com/FoxyStoat/natours" target="blank">View Source Code</a>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article class="project-article grow">
+                    <header class="article-header">
+                        <h4 class="article-heading center">Classic Arcade Game</h4>
+                    </header>
+                    <figure class="figure-container">
+                        <img src="https://github.com/FoxyStoat/classic-arcade-game/blob/master/images/screenshot-finished-game.png?raw=true" class="thumbnail-img" alt="image of project classic arcade game project" title="image of project classic arcade game project" />
+                        <figcaption class="center">
+                            <p class="project-description">Built a classic frogger-like Arcade game powered by <span class="highlight"><em> HTML5 Canvas </em></span>, and developed using the best practices in <span class="highlight"><em>Object-Oriented JavaScript </em></span>.</p>
+                            <a href="https://foxystoat.github.io/classic-arcade-game/" target="blank">Play The Game</a>
+                            <a href="https://github.com/FoxyStoat/classic-arcade-game" target="blank">View Source Code</a>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article class="project-article grow">
+                    <header class="article-header">
+                        <h4 class="article-heading center">Memory Game</h4>
+                    </header>
+                    <figure class="figure-container">
+                        <img src="https://github.com/FoxyStoat/memory-game/blob/master/screenshot-memory-game.png?raw=true" class="thumbnail-img" alt="image of memory game project" title="image of memory game project" />
+                        <figcaption class="center">
+                            <p class="project-description">Created a browser-based card matching game that shuffles cards randomly thanks to the Fisher-Yates shuffle algorithm, it helps boost the player's memory &amp; built with pure <span class="highlight"><em>HTML</em></span>, <span class="highlight"><em>CSS</em></span>, &amp; <span class="highlight"><em>JavaScript</em></span> to manipulate the DOM.</p>
+                            <a href="https://foxystoat.github.io/memory-game/" target="blank">Play The Game</a>
+                            <a href="https://github.com/FoxyStoat/memory-game" target="blank">View Source Code</a>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article class="project-article grow">
+                    <header class="article-header">
+                        <h4 class="article-heading center">Restaurant Reviews App</h4>
+                    </header>
+                    <figure class="figure-container">
+                        <img src="https://github.com/FoxyStoat/restaurant-reviews-app/blob/master/screenshot-restaurant-reviews.png?raw=true" class="thumbnail-img" alt="image of restaurant reviews app" title="image of restaurant reviews app" />
+                        <figcaption class="center">
+                            <p class="project-description">Converted a static webpage that had a lot of issues to a mobile-ready web application resulting in a <span class="highlight"> <em>responsive design</em></span> that is UI compatible with a range of display sizes, <span class="highlight"> <em>offline first</em></span> &amp; highly <span class="highlight"> <em>accessible</em></span>.</p>
+                            <a href="https://github.com/FoxyStoat/restaurant-reviews-app" target="blank">View Source Code</a>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article class="project-article grow">
+                    <header class="article-header">
+                        <h4 class="article-heading center">Neighbourhood Map</h4>
+                    </header>
+                    <figure class="figure-container">
+                        <img src="https://github.com/FoxyStoat/neighbourhood-map/blob/master/screenshot-map-app.png?raw=true" class="thumbnail-img" alt="image of neighbourhood map app" title="image of neighbourhood map app" />
+                        <figcaption class="center">
+                            <p class="project-description">Developed a responsive, accessible one-page app using <span class="highlight"><em>React</em></span> that successfully fetches <span class="highlight"><em>asynchronous API requests</em></span> from Flickr API &amp; uses Google Maps JavaScript API to help the user find amazing locations in my hometown.</p>
+                            <a href="https://github.com/FoxyStoat/neighbourhood-map" target="blank">View Source Code</a>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article class="project-article grow">
+                    <header class="article-header">
+                        <h4 class="article-heading center">Unit Testing Using Jasmine</h4>
+                    </header>
+                    <figure class="figure-container">
+                        <img src="https://github.com/FoxyStoat/feed-reader-testing/blob/master/img/unit-tests-screenshot.png?raw=true" class="thumbnail-img" alt="image of Unit testing Project" title="image of Unit testing Project" />
+                        <figcaption class="center">
+                            <p class="project-description">Wrote a number of comprehensive unit tests using <span class="highlight"><em>Jasmine</em></span> testing framework for an RSS Feed Reader application that uses Google's RSS API.</p>
+                            <a href="https://foxystoat.github.io/feed-reader-testing/" target="blank">View Project</a>
+                            <a href="https://github.com/FoxyStoat/feed-reader-testing" target="blank">View Source Code</a>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article class="project-article grow">
+                    <header class="article-header">
+                        <h4 class="article-heading center">Pixel Art Maker</h4>
+                    </header>
+                    <figure class="figure-container">
+                        <img src="https://github.com/FoxyStoat/Lab-Pixel-Art-Maker/raw/master/screenshot.png" class="thumbnail-img" alt="image of project pixel art maker" title="image of project pixel art maker" />
+                        <figcaption class="center">
+                            <p class="project-description">Coded a pixel art editor using <span class="highlight"><em>HTML5</em></span>, <span class="highlight"><em>CSS</em></span>, <span class="highlight"><em>JavaScript</em></span>, and <span class="highlight"><em>jQuery</em></span> to help the user make pixel art easily. The user can create a grid, can modify the grid colours and be able to design small pixel artwork. This project was for the part of the Grow with Google developer challenge.</p>
+                            <a href="https://foxystoat.github.io/Lab-Pixel-Art-Maker/" target="blank">View Project</a>
+                            <a href="https://github.com/FoxyStoat/Lab-Pixel-Art-Maker" target="blank">View Source Code</a>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer id="contact" class="footer center">
+        <h3>Let's Keep in Touch!</h3>
+        <a href="mailto:email@example.com"><i class="fa fa-envelope" aria-hidden="true"></i><span class="sr-only">email@example.com</span></a>
+        <a href="https://www.linkedin.com/in/carol-hodgson" target="_blank"><i class="fa fa-linkedin" aria-hidden="true" title="Visit LinkedIn Profile"></i><span class="sr-only">Visit Linkedin Profile</span></a>
+        <a href="https://github.com/FoxyStoat" target="_blank"><i class="fa fa-github" aria-hidden="true" title="Visit Github"></i><span class="sr-only">Visit Github</span></a>
+        <a href="https://www.freecodecamp.org/foxystoat" target="_blank"><i class="fa Example of free-code-camp fa-free-code-camp" aria-hidden="true" title="Visit FCC Profile"></i><span class="sr-only">Visit Free Code Camp Profile</span></a>
+        <p>Copyright © 2018</p>
+        <p>Writen &amp; coded by Carol Hodgson</p>
+    </footer>
+</body>
+
+</html>

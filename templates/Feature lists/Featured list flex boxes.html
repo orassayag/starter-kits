@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Featured list flex boxes</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Circular Book', sans-serif;
+            text-adjust-size: 100%;
+        }
+
+        h4 {
+            margin-top: 0px;
+            margin-bottom: 12px;
+            font-size: 1.375em;
+            line-height: 1.2em;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+        }
+
+        h3 {
+            margin-top: 0px;
+            margin-bottom: 12px;
+            font-family: 'Circular Medium', sans-serif;
+            font-size: 2em;
+            line-height: 1.3em;
+            font-weight: 500;
+            text-align: center;
+            letter-spacing: -0.03em;
+        }
+
+        img {
+            max-width: 100%;
+            vertical-align: middle;
+            display: inline-block;
+            border: 0;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            margin: 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 102px;
+            padding: 0 32px;
+            min-height: 300px;
+        }
+
+        .section-body-wrapper {
+            background-color: rgb(232, 245, 233);
+            padding-right: 32px;
+            padding-bottom: 32px;
+            padding-left: 32px;
+            font-size: 16px;
+            line-height: 22.4px;
+            text-size-adjust: 100%;
+        }
+
+        .container.medium.shifted {
+            margin-top: -102px;
+        }
+
+        .container.medium {
+            max-width: 872px;
+        }
+
+        .container {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            align-self: center;
+        }
+
+        .example-body.green {
+            background-color: #47b04b;
+            color: #fff;
+        }
+
+        .example-body {
+            box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.1), 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            margin-bottom: 64px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: stretch;
+        }
+
+        /* example 1 columns - feature item in flex row */
+        .example-feature-rows {
+            display: flex;
+            padding: 32px 16px;
+        }
+
+        .example-feature-row {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            border-radius: 4px;
+            padding-right: 16px;
+            padding-bottom: 12px;
+            padding-left: 16px;
+        }
+
+        .example-feature-row.sibling {
+            border-left: 1px solid rgb(99, 188, 102);
+        }
+
+        .example-feature-figure {
+            flex: 0 0 auto;
+            background-color: #a4d7a5;
+            width: 60px;
+            height: 60px;
+            border-radius: 999px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .example-feature-text {
+            flex: 1;
+            padding-left: 16px;
+        }
+
+        .example-feature-title {
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        .example-feature-subtitle {
+            margin-bottom: 0px;
+        }
+
+        /* example 2 column - feature item in flex column */
+        .example-feature-columns {
+            display: flex;
+            padding: 32px 16px;
+            align-items: stretch;
+            justify-content: flex-start;
+        }
+
+        .example-feature-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-right: 16px;
+            padding-bottom: 12px;
+            padding-left: 16px;
+        }
+
+        .example-feature-column.sibling {
+            border-left: 1px solid rgb(99, 188, 102);
+        }
+
+        .example-feature-column-figure {
+            background-color: #a4d7a5;
+            width: 100px;
+            height: 100px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .example-feature-title.centered {
+            text-align: center;
+        }
+
+        .example-feature-subtitle.centered {
+            text-align: center;
+        }
+
+        /* example 3 Staggered Rows - feature item in flex column */
+        .example-feature-staggered {
+            display: flex;
+            flex-direction: column;
+            padding: 0 40px;
+        }
+
+        .example-feature-staggered-row {
+            padding-top: 32px;
+            padding-bottom: 32px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 1.25em;
+            line-height: 1.4em;
+        }
+
+        .example-feature-staggered-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .example-feature-staggered-row.sibling {
+            border-top: 1px solid #63bc66;
+        }
+
+        .example-feature-staggered-figure {
+            flex: 0 0 auto;
+            background-color: #a4d7a5;
+            width: 160px;
+            height: 160px;
+            border-radius: 999px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .example-feature-staggered-text {
+            padding-right: 24px;
+            padding-left: 24px;
+        }
+
+        .example-feature-title.reversed {
+            text-align: right;
+        }
+
+        .example-feature-subtitle.reversed {
+            text-align: right;
+        }
+
+        /* extra space at end of the page */
+        .after {
+            padding: 40px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section>
+        <div class="section-header">
+            <div class="small-container">
+                <h3>Feature Lists</h3>
+                <p>Common design pattern feature list</p>
+            </div>
+        </div>
+        <div class="section-body-wrapper">
+            <div class="container medium shifted">
+                <div class="example-body green">
+                    <div class="example-feature-rows">
+                        <div class="example-feature-row">
+                            <div class="example-feature-figure">
+                                <img src="https://daks2k3a4ib2z.cloudfront.net/56cd68220565856c6df62081/56d9dfacbd7a602b67d172b7_icon-misc-1.svg" alt="" title="" />
+                            </div>
+                            <div class="example-feature-text">
+                                <h4 class="example-feature-title">Social Proof</h4>
+                                <p class="example-feature-subtitle">Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+                            </div>
+                        </div>
+                        <div class="example-feature-row sibling">
+                            <div class="example-feature-figure">
+                                <img src="https://daks2k3a4ib2z.cloudfront.net/56cd68220565856c6df62081/56d9dfb8f3739cec1fbd8714_Artboard.svg" alt="" title="" />
+                            </div>
+                            <div class="example-feature-text">
+                                <h4 class="example-feature-title">NO YOU ARE!</h4>
+                                <p class="example-feature-subtitle">this is a feature</p>
+                            </div>
+                        </div>
+                        <div class="example-feature-row sibling">
+                            <div class="example-feature-figure">
+                                <img src="https://daks2k3a4ib2z.cloudfront.net/56cd68220565856c6df62081/56d9dfc6bd7a602b67d1732b_Artboard.svg" alt="" title="" />
+                            </div>
+                            <div class="example-feature-text">
+                                <h4 class="example-feature-title">YOU'RE HIGH</h4>
+                                <p class="example-feature-subtitle">this is a feature</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-body green">
+                    <div class="example-feature-columns">
+                        <div class="example-feature-column">
+                            <div class="example-feature-column-figure">
+                                <img src="https://daks2k3a4ib2z.cloudfront.net/56cd68220565856c6df62081/56d9dfacbd7a602b67d172b7_icon-misc-1.svg" alt="" title="" />
+                            </div>
+                            <h4 class="example-feature-title centered">Social Proof</h4>
+                            <p class="example-feature-subtitle centered">Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+                        </div>
+                        <div class="example-feature-column sibling">
+                            <div class="example-feature-column-figure">
+                                <img src="https://daks2k3a4ib2z.cloudfront.net/56cd68220565856c6df62081/56d9dfc6bd7a602b67d1732b_Artboard.svg" alt="" title="" />
+                            </div>
+                            <h4 class="example-feature-title centered">Virality stealth</h4>
+                            <p class="example-feature-subtitle centered">Virality startup equity validation interaction design accelerator crowdsource infrastructure backing traction.</p>
+                        </div>
+                        <div class="example-feature-column sibling">
+                            <div class="example-feature-column-figure">
+                                <img src="https://daks2k3a4ib2z.cloudfront.net/56cd68220565856c6df62081/56d9dfb8f3739cec1fbd8714_Artboard.svg" alt="" title="" />
+                            </div>
+                            <h4 class="example-feature-title centered">Freemium shift</h4>
+                            <p class="example-feature-subtitle centered">Mass market influencer return on investment founders responsive web design customer creative business plan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-body green">
+                    <div class="example-feature-staggered">
+                        <div class="example-feature-staggered-row">
+                            <div class="example-feature-staggered-figure">
+                                <img src="https://daks2k3a4ib2z.cloudfront.net/56cd68220565856c6df62081/56d9dfacbd7a602b67d172b7_icon-misc-1.svg" width="46px" alt="" title="" />
+                            </div>
+                            <div class="example-feature-staggered-text">
+                                <h3 class="example-feature-title">Special Feature 1</h3>
+                                <p class="example-feature-subtitle">Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+                            </div>
+                        </div>
+                        <div class="example-feature-staggered-row sibling reverse">
+                            <div class="example-feature-staggered-figure">
+                                <img src="https://daks2k3a4ib2z.cloudfront.net/56cd68220565856c6df62081/56d9dfb8f3739cec1fbd8714_Artboard.svg" width="60px" alt="" title="" />
+                            </div>
+                            <div class="example-feature-staggered-text">
+                                <h3 class="example-feature-title reversed">Special Feature 2</h3>
+                                <p class="example-feature-subtitle reversed">Mass market influencer return on investment founders responsive web design customer creative business plan.</p>
+                            </div>
+                        </div>
+                        <div class="example-feature-staggered-row sibling">
+                            <div class="example-feature-staggered-figure">
+                                <img src="https://daks2k3a4ib2z.cloudfront.net/56cd68220565856c6df62081/56d9dfc6bd7a602b67d1732b_Artboard.svg" width="46px" alt="" title="" />
+                            </div>
+                            <div class="example-feature-staggered-text">
+                                <h3 class="example-feature-title">Virality stealth</h3>
+                                <p class="example-feature-subtitle">Virality startup equity validation interaction design accelerator crowdsource infrastructure backing traction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="after">
+    </div>
+</body>
+
+</html>

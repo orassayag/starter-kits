@@ -1,0 +1,23 @@
+.production-companies {
+    text-align: left;
+    width: 420px;
+
+    .production-companies-list {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1155px) {
+    .details-area {
+        .details-content {
+            .extra-features {
+                .production-companies {
+                    width: 50rem;
+                    margin-left: 5vw;
+                    margin-top: 3%;
+                }
+            }
+        }
+    }
+}

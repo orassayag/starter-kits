@@ -1,0 +1,2 @@
+import SearchPanel from './SearchPanel/SearchPanel';
+export { SearchPanel };

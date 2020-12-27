@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Wren Responsive Conversion Example</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* From VC238 Reset.css file */
+        *,
+        *:before,
+        *:after {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        @media screen and (max-width: 520px) {}
+
+        body {
+            background-color: white;
+        }
+
+        img,
+        embed,
+        object,
+        video {
+            max-width: 100%;
+        }
+
+        /* LAYOUT */
+        .innerwrap {
+            width: 1100px;
+            margin: 0 auto;
+            max-width: 68.75em;
+            width: 92%;
+        }
+
+        header {
+            background-color: white;
+            margin: 0;
+            padding: 2em 0 1em 0;
+        }
+
+        /* Navigation */
+        nav nav.mobile {
+            display: none;
+            background-color: #555;
+        }
+
+        nav nav.mobile ul {
+            display: flex;
+            justify-content: space-between;
+            align-content: flex-end;
+        }
+
+        nav nav.mobile ul li {
+            display: flex;
+            align-content: flex-end;
+        }
+
+        nav nav.mobile ul li:last-child a {
+            color: white;
+            font-size: 2em;
+        }
+
+        header nav ul {
+            display: flex;
+        }
+
+        header nav ul {
+            margin: 0;
+        }
+
+        header nav ul li {
+            line-height: 1em;
+        }
+
+        header nav ul li a {
+            display: block;
+            color: #444;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: .1em;
+            padding: 1em;
+            margin: 0 .2em;
+            transition: all .2s ease-in;
+        }
+
+        header nav ul li a:hover {
+            background-color: #dfdfdf;
+        }
+
+        header nav img.logo {
+            width: 1.7em;
+            height: 1.7em;
+            opacity: .81;
+            margin: .6em .6em -.3em 1em;
+            transition: all .5s ease-out;
+        }
+
+        img#mobilemainnav {
+            width: 1.7em;
+            height: 1.7em;
+        }
+
+        header nav img.logo:hover {
+            transform: rotate(360deg);
+        }
+
+        @media screen and (max-width: 520px) {
+            nav nav.mobile {
+                display: block;
+            }
+
+            nav ul#primary {
+                display: none;
+            }
+
+            header nav ul#primary li {
+                border-bottom: 1px solid #ccc;
+            }
+
+            header nav ul#primary li a {
+                text-align: center;
+                font-size: 1.15em;
+            }
+
+            header nav ul#primary li:first-child {
+                display: none;
+            }
+        }
+
+        .hero {
+            background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/228208/lab_hero_image.jpg');
+            height: 25em;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+            margin: 0 0 1em 0;
+        }
+
+        @media screen and (max-width: 720px) {
+            .hero {
+                height: 12.5em;
+            }
+        }
+
+        section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        section div.colone {
+            margin-bottom: 2em;
+            flex: 0 0 70%;
+        }
+
+        section div.coltwo {
+            flex: 0 0 27.272727%;
+        }
+
+        @media screen and (max-width: 720px) {
+            section {
+                display: block;
+            }
+
+            section div.colone article {
+                padding-left: 1.5em;
+                padding-right: 1.5em;
+            }
+        }
+
+        section div.coltwo aside {
+            padding: 1.5em 1.5em 1em 1.5em;
+        }
+
+        section div.coltwo aside.dark {
+            background: #606060 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/228208/st_paul_engraving_fade.png') 50% -60px no-repeat;
+            background-size: contain;
+            padding-top: 8.2em;
+        }
+
+        section div article {
+            background-color: #dfdfdf;
+            padding: 1em 3em 7em 3em;
+        }
+
+        article img.fr {
+            float: right;
+            xwidth: 250px;
+            width: 47%;
+            margin-left: 3%;
+            padding: 2px;
+            border: 1px solid white;
+        }
+
+        @media screen and (max-width: 550px) {
+            article img.fr {
+                float: none;
+                width: 100%;
+                display: block;
+                margin-bottom: 1em;
+                margin-left: 0;
+            }
+        }
+
+        aside.social ul {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        aside.social ul li {
+            flex: 1 1 25%;
+        }
+
+        aside.social ul li a {
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/228208/facebook_sprite.png') center bottom no-repeat;
+            background-size: cover;
+            display: block;
+            width: 52px;
+            height: 52px;
+            width: 3.25em;
+            height: 3.25em;
+        }
+
+        @media screen and (max-width: 720px) {
+            aside.social ul li a {
+                width: 4em;
+                height: 4em;
+            }
+        }
+
+        aside.social ul li a.instagram {
+            background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/228208/instagram_sprite.png');
+        }
+
+        aside.social ul li a.twitter {
+            background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/228208/twitter_sprite.png');
+        }
+
+        aside.social ul li a.linkedin {
+            background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/228208/linkedin_sprite.png');
+        }
+
+        aside.social ul li a:hover {
+            background-position: center top;
+        }
+
+        aside.social ul li a span {
+            display: none;
+        }
+
+        footer {
+            clear: both;
+            background-color: #b7b7b7;
+            padding: 2.5em;
+            padding-bottom: 15em;
+            margin: 10px;
+        }
+
+        /* TYPOGRAPHY */
+        ul li,
+        h1,
+        aside h3,
+        aside p,
+        footer p {
+            font-family: "Proxima Nova", Avenier, Helvetica, Arial, sans-serif;
+        }
+
+        h2,
+        p {
+            font-family: Georgia, Times, "Times New Roman", serif;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            font-weight: 200;
+            letter-spacing: .12em;
+            padding: .2em 0;
+            margin: 1em 0 .6em 0;
+            border: 1px solid white;
+            border-width: 1px 0;
+        }
+
+        h2 {
+            font-size: 1.4em;
+            font-weight: bold;
+            padding-top: .5em;
+        }
+
+        h3 {
+            font-size: 1.15em;
+            font-weight: bold;
+            padding-top: .5em;
+        }
+
+        p {
+            margin-bottom: .8em;
+            font-size: 1.1em;
+            line-height: 1.6em;
+            color: #333;
+        }
+
+        h1+p {
+            font-size: 1.5em;
+        }
+
+        aside p {
+            line-height: 1.2em;
+            font-size: .9em;
+        }
+
+        aside p span {
+            text-transform: uppercase;
+            font-size: .8em;
+        }
+
+        aside.dark h3,
+        aside.dark p,
+        aside.dark p a {
+            color: white;
+        }
+
+        footer p {
+            font-size: .8em;
+        }
+
+        form {
+            margin: 0;
+            padding: 0;
+            display: inline;
+        }
+
+        input {
+            outline: none;
+            font-size: 1em;
+            padding: .5em;
+            margin: 0;
+            color: #999;
+            border: 1px solid #ccc;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="outerwrap">
+        <div class="innerwrap">
+            <header>
+                <nav>
+                    <nav class="mobile">
+                        <ul>
+                            <li><a href="/"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/228208/rwd_icon_rev.png" class="logo" alt="rwd_icon" title="rwd_icon" /></a></li>
+                            <li><a id="mobilenav">☰</a></li>
+                        </ul>
+                    </nav>
+                    <ul id="primary">
+                        <li><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/228208/rwd_icon.png" class="logo" alt="rwd_icon" title="rwd_icon" /></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/">About</a></li>
+                        <li><a href="/">Design</a></li>
+                        <li><a href="/">Code</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+    </div>
+    <div class="outerwrap hero"></div>
+    <div class="outerwrap">
+        <div class="innerwrap">
+            <section>
+                <div class="colone">
+                    <article>
+                        <h1>Responsive Web Design</h1>
+                        <p>The English architect Christopher Wren once quipped that his chosen field “aims for Eternity,” and there’s something appealing about that formula: Unlike the web, which often feels like aiming for next week, architecture is a discipline very much defined by its permanence.</p>
+                        <p><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/228208/st_paul_engraving.png" class="fr" alt="st_paul_engraving">A building’s foundation defines its footprint, which defines its frame, which shapes the facade. Each phase of the architectural process is more immutable, more unchanging than the last. Creative decisions quite literally shape a physical space, defining the way in which people move through its confines for decades or even centuries.</p>
+                        <p>Working on the web, however, is a wholly different matter. Our work is defined by its transience, often refined or replaced within a year or two. Inconsistent window widths, screen resolutions, user preferences, and our users’ installed fonts are but a few of the intangibles we negotiate when we publish our work, and over the years, we’ve become incredibly adept at doing so.</p>
+                        <p>But the landscape is shifting, perhaps more quickly than we might like. Mobile browsing is expected to outpace desktop-based access within three to five years. Two of the three dominant video game consoles have web browsers (and one of them is quite excellent). We’re designing for mice and keyboards, for T9 keypads, for handheld game controllers, for touch interfaces. In short, we’re faced with a greater number of devices, input modes, and browsers than ever before.</p>
+                        <p>In recent years, I’ve been meeting with more companies that request “an iPhone website” as part of their project. It’s an interesting phrase: At face value, of course, it speaks to mobile WebKit’s quality as a browser, as well as a powerful business case for thinking beyond the desktop. But as designers, I think we often take comfort in such explicit requirements, as they allow us to compartmentalize the problems before us. We can quarantine the mobile experience on separate subdomains, spaces distinct and separate from “the non-iPhone website.” But what’s next? An iPad website? An N90 website? Can we really continue to commit to supporting each new user agent with its own bespoke experience? At some point, this starts to feel like a zero sum game. But how can we—and our designs—adapt?</p>
+                        <h2>A flexible foundation</h2>
+                        <p>Let’s consider an example design. I’ve built a simple page for a hypothetical magazine; it’s a straightforward two-column layout built on a fluid grid, with not a few flexible images peppered throughout. As a long-time proponent of non-fixed layouts, I’ve long felt they were more “future proof” simply because they were layout agnostic. And to a certain extent, that’s true: flexible designs make no assumptions about a browser window’s width, and adapt beautifully to devices that have portrait and landscape modes.</p>
+                    </article>
+                </div>
+                <div class="coltwo">
+                    <aside class="dark">
+                        <h3>Who is Christopher Wren?</h3>
+                        <p>Sir Christopher Michael Wren (20 October 1632 – 25 February 1723) is one of the most highly acclaimed English architects in history. He was accorded responsibility for rebuilding 52 churches in the City of London after the Great Fire in 1666, including his masterpiece, St. Paul's Cathedral, on Ludgate Hill, completed in 1710.</p>
+                        <p>The principal creative responsibility for a number of the churches is now more commonly attributed to others in his office, especially Nicholas Hawksmoor. Other notable buildings by Wren include the Royal Naval College, Greenwich, and the south front of Hampton Court Palace. The Wren Building, the main building at the College of William and Mary, is attributed to Wren. It is the oldest academic building in continuous use in the United States.</p>
+                        <p>Educated in Latin and Aristotelian physics at the University of Oxford, Wren was a notable anatomist, astronomer, geometer, and mathematician-physicist, as well as an architect. He was a founder of the Royal Society (president 1680–82), and his scientific work was highly regarded by Isaac Newton and Blaise Pascal.</p>
+                        <p class="ref"><span>Source:</span> <a href="https://en.wikipedia.org/wiki/Christopher_Wren">Wikipedia.org</a></p>
+                    </aside>
+                    <aside class="social">
+                        <h3>Social Stuff</h3>
+                        <ul>
+                            <li><a href="http://facebook.com" class="facebook"><span>Facebook</span></a></li>
+                            <li><a href="http://instagram.com" class="instagram"><span>Instagram</span></a></li>
+                            <li><a href="http://twitter.com" class="twitter"><span>Twitter</span></a></li>
+                            <li><a href="http://linkedin.com" class="linkedin"><span>LinkedIn</span></a></li>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer class="outerwrap">
+        <div class="innerwrap">
+            <p>© 2009–2018 Chemeketa Community College • All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Modal Popup</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+        label {
+            color: #00f;
+            text-decoration: underline;
+            cursor: pointer
+        }
+
+        .modal,
+        .modal * {
+            box-sizing: border-box;
+            -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out
+        }
+
+        .modal:checked+.modal,
+        .modal:target {
+            opacity: 1;
+            pointer-events: all
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 500;
+            padding: 15px;
+            overflow-y: scroll;
+            opacity: 0;
+            pointer-events: none
+        }
+
+        .modal article {
+            background: #fff;
+            width: 100%;
+            padding: 50px;
+            position: relative;
+            z-index: 700
+        }
+
+        .modal .close:before {
+            content: '×';
+            display: block;
+            padding: 20px 30px;
+            font-size: 200%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 800;
+            cursor: pointer
+        }
+
+        .modal .close:hover:before {
+            color: #c00
+        }
+
+        .modal .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5);
+            z-index: 600;
+            cursor: pointer
+        }
+    </style>
+</head>
+
+<body translate="no" class="blank">
+    <label for="modal1">OPEN</label>
+    <input type="checkbox" class="modal" id="modal1" />
+    <div class="modal" id="modal-1">
+        <article>
+            <p>Modal content here!</p>
+        </article>
+        <label for="modal1" class="close"></label>
+        <label for="modal1" class="overlay"></label>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function($, window, undefined) {
+            '$:nomunge';
+
+            var str_hashchange = 'hashchange',
+                doc = document,
+                fake_onhashchange,
+                special = $.event.special,
+                doc_mode = doc.documentMode,
+                supports_onhashchange = 'on' + str_hashchange in window && (doc_mode === undefined || doc_mode > 7);
+
+
+            function get_fragment(url) {
+                url = url || location.href;
+                return '#' + url.replace(/^[^#]*#?(.*)$/, '$1');
+            };
+
+            $.fn[str_hashchange] = function(fn) {
+                return fn ? this.bind(str_hashchange, fn) : this.trigger(str_hashchange);
+            };
+
+            $.fn[str_hashchange].delay = 50;
+
+            special[str_hashchange] = $.extend(special[str_hashchange], {
+                setup: function() {
+                    if (supports_onhashchange) { return false; }
+                    $(fake_onhashchange.start);
+                },
+                teardown: function() {
+                    if (supports_onhashchange) { return false; }
+                    $(fake_onhashchange.stop);
+                }
+            });
+
+            fake_onhashchange = function() {
+                var self = {},
+                    timeout_id,
+                    last_hash = get_fragment(),
+                    fn_retval = function(val) { return val; },
+                    history_set = fn_retval,
+                    history_get = fn_retval;
+
+                self.start = function() {
+                    timeout_id || poll();
+                };
+
+                self.stop = function() {
+                    timeout_id && clearTimeout(timeout_id);
+                    timeout_id = undefined;
+                };
+
+                function poll() {
+                    var hash = get_fragment(),
+                        history_hash = history_get(last_hash);
+                    if (hash !== last_hash) {
+                        history_set(last_hash = hash, history_hash);
+                        $(window).trigger(str_hashchange);
+                    } else if (history_hash !== last_hash) {
+                        location.href = location.href.replace(/#.*/, '') + history_hash;
+                    }
+                    timeout_id = setTimeout(poll, $.fn[str_hashchange].delay);
+                };
+                return self;
+            }();
+        })(jQuery, this);
+
+        $(function() {
+            $(window).hashchange(function() {
+                var hash = location.hash;
+                $('body').addClass(' ' + (hash.replace(/^#/, '') || 'blank'));
+            });
+            $(window).hashchange();
+        });
+    </script>
+</body>
+
+</html>

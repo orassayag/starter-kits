@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flex Dashboard</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style type="text/css">
+        ::-webkit-input-placeholder {
+            color: grey;
+        }
+
+        ::-moz- placeholder {
+            color: grey;
+        }
+
+        :-moz-placeholder {
+            color: grey;
+        }
+
+        :-ms-input-placeholder {
+            color: grey;
+        }
+
+        :focus::-webkit-input-placeholder {
+            transform: scale(0);
+            transition: 0.51s;
+        }
+
+        :focus::-moz- placeholder {
+            transform: scale(0);
+            transition: 0.51s;
+        }
+
+        :focus:-moz-placeholder {
+            transform: scale(0);
+            transition: 0.51s;
+        }
+
+        :focus:-ms-input-placeholder {
+            transform: scale(0);
+            transition: 0.51s;
+        }
+
+        body {
+            font-size: 16px;
+            min-width: 320px;
+            position: relative;
+            line-height: 1.6;
+            font-family: "RobotoRegular", sans-serif;
+            overflow-x: hidden;
+            margin: 0;
+            background-color: #edf0f2;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        button {
+            outline: 0;
+        }
+
+        .dashboard-left {
+            width: 280px;
+            height: 100vh;
+            background-color: #1f222d;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: -210px;
+            top: 0;
+            transition: all ease 1s;
+            z-index: 10000000000000;
+        }
+
+        .dashboard-left__head {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: center;
+            background-color: #304ffe;
+            align-items: flex-start;
+            min-height: 50px;
+            flex-wrap: wrap;
+            color: #fff;
+        }
+
+        .dashboard-left__head h3 {
+            padding: 0 10px;
+        }
+
+        .dashboard-left__head a {
+            font-size: 25px;
+            align-self: center;
+            padding-right: 25px;
+            transition: 0.52s;
+        }
+
+        .dashboard-left__head a:hover {
+            color: #000;
+            transition: 0.52s;
+        }
+
+        .dashboard-left__user {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            padding: 20px;
+        }
+
+        .dashboard-left__user img {
+            border-radius: 50%;
+        }
+
+        .dashboard-left__user ul,
+        .dashboard-left__user li {
+            list-style-type: none;
+            color: #fff;
+            align-items: flex-start;
+            align-self: center;
+            margin: 0 5px;
+            padding: 0;
+            flex-direction: column;
+            font-size: 19px;
+        }
+
+        .dashboard-left__user a {
+            font-size: 12px;
+            text-decoration: uppercase;
+            color: #a5a7ab;
+            padding-left: 5px;
+            transition: 0.52s;
+        }
+
+        .dashboard-left__user a:hover {
+            text-decoration: underline;
+            transition: 0.52s;
+        }
+
+        .dashboard-left__widgets {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dashboard-left__widgets .widgets-item {
+            background-color: #1f222d;
+            border: none;
+            height: 52px;
+            color: #fff;
+            width: 100%;
+            align-items: flex-start;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: space-between;
+            transition: 0.52s;
+            border-bottom: 1px solid #353a4d;
+        }
+
+        .dashboard-left__widgets .widgets-item:hover,
+        .dashboard-left__widgets .widgets-item:focus {
+            background-color: #2e3242;
+            transition: 0.52s;
+        }
+
+        .dashboard-left__widgets .widgets-item i {
+            margin: 0 10px;
+            transition: 0.52s;
+        }
+
+        .dashboard-left__widgets .widgets-item:hover i,
+        .dashboard-left__widgets .widgets-item:focus i {
+            color: #304ffe;
+            transition: 0.52s;
+        }
+
+        .dashboard-left__widgets .widgets-item .widget-update {
+            background-color: #8aaa28;
+            border-radius: 15px;
+            width: 120px;
+        }
+
+        .dashboard-left__widgets .widgets-item .widget-notify {
+            font-size: 12px;
+            background-color: #ff5252;
+            border-radius: 15px;
+            width: 30px;
+            align-self: center;
+        }
+
+        .dashboard-left .exit {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: row;
+            padding: 15px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .dashboard-left .exit i {
+            color: #fff;
+            align-self: center;
+            margin-right: 10px;
+        }
+
+        .dashboard-left .exit a {
+            color: #a5a7ab;
+            transition: 0.52s;
+        }
+
+        .dashboard-left .exit a:hover {
+            text-decoration: underline;
+            transition: 0.52s;
+        }
+
+        header {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: row;
+            background-color: #fff;
+            color: #000;
+            width: 100%;
+            min-height: 50px;
+        }
+
+        header .main-head {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        header .main-head i {
+            font-size: 24px;
+            padding-right: 20px;
+        }
+
+        header .main-head__form {
+            padding: 0 80px;
+            transition: 1s;
+        }
+
+        header .main-head__form input {
+            width: 500px;
+            border-radius: 20px;
+            border: none;
+            height: 40px;
+            align-self: center;
+            background-color: #edf0f2;
+            text-indent: 10px;
+            outline: 0;
+        }
+
+        header .main-head__search {
+            background-color: transparent;
+            border: none;
+            font-size: 25px;
+            align-self: center;
+        }
+
+        header .main-head__search:focus .main-head__form {
+            width: 400px;
+            transform: scale(1);
+        }
+
+        header .main-head__user {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+        }
+
+        header .main-head__user img {
+            border-radius: 50%;
+        }
+
+        header .main-head__user span {
+            background-color: #ff5252;
+            border-radius: 50%;
+            padding: 3px 5px;
+            color: #fff;
+            font-size: 12px;
+            margin: 0 10px;
+        }
+
+        header .main-head__user h4 {
+            padding: 0 20px;
+        }
+
+        header .main-head__user i {
+            font-size: 24px;
+            padding-left: 55px;
+            transition: 1s;
+            order: 1;
+        }
+
+        .main_container {
+            margin: 0 90px;
+        }
+
+        .main_container .info-user {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            background-color: #fff;
+            margin: 40px 0;
+            min-width: 90%;
+            padding: 20px 0;
+        }
+
+        .main_container .info-user__widgets {
+            text-align: center;
+        }
+
+        .main_container .info-user__widgets i {
+            font-size: 50px;
+            transition: 1s;
+        }
+
+        .main_container .info-user__widgets:hover i {
+            transform: translateY(-15px);
+            transition: 1s;
+        }
+
+        .main_container .info-user__widgets h4 {
+            font-size: 20px;
+            line-height: 0;
+        }
+
+        .main_container .info-user__widgets span {
+            font-weight: bold;
+            line-height: 0;
+        }
+
+        .main_container .info-user__widgets .fa-pencil {
+            color: #f8cb00;
+        }
+
+        .main_container .info-user__widgets .fa-eye {
+            color: #57d696;
+        }
+
+        .main_container .info-user__widgets .fa-hourglass-end {
+            color: #ea5a5a;
+        }
+
+        .main_container .info-user__widgets .fa-handshake-o {
+            color: #5a9efa;
+        }
+
+        .statics-user {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .statics-user__block_1 {
+            background-color: #28bd8b;
+            width: 100%;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            color: #fff;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding: 20px;
+            margin-right: 20px;
+        }
+
+        .statics-user__block_1__info {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .statics-user__block_1__info ul,
+        .statics-user__block_1__info li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+        }
+
+        .statics-user__block_1__lines {
+            width: 100%;
+            background-color: #000;
+            height: 5px;
+            margin-right: 0 20px;
+            margin-top: 20px;
+            transition: 2s;
+        }
+
+        .statics-user__block_1:hover .statics-user__block_1__lines {
+            box-shadow: inset 250px 0 2px #fff;
+            transition: 2s;
+        }
+
+        .statics-user__block_1 h4 {
+            font-size: 15px;
+        }
+
+        .statics-user__block_1 h4 span {
+            color: #000;
+        }
+
+        .statics-user__block_2 {
+            background-color: #5a9efa;
+            width: 100%;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            color: #fff;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .statics-user__block_2__info {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .statics-user__block_2__info ul,
+        .statics-user__block_2__info li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+        }
+
+        .statics-user__block_2__lines {
+            width: 100%;
+            background-color: #000;
+            height: 5px;
+            margin-right: 0 20px;
+            margin-top: 20px;
+            transition: 2s;
+        }
+
+        .statics-user__block_2:hover .statics-user__block_2__lines {
+            box-shadow: inset 150px 0 2px #fff;
+            transition: 2s;
+        }
+
+        .statics-user__block_2 h4 {
+            font-size: 15px;
+        }
+
+        .statics-user__block_2 h4 span {
+            color: #000;
+        }
+
+        .main-blog {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .main-blog__post {
+            overflow: hidden;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .main-blog__post .descr {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            height: 100%;
+            width: 100%;
+            color: #fff;
+            padding: 80px 20px;
+            transition: 0.52s;
+            border-radius: 10px;
+        }
+
+        .main-blog__post .descr:hover {
+            transition: 0.52s;
+            background-color: rgba(0, 0, 0, 0.2);
+            opacity: 1;
+            border-radius: 10px;
+        }
+
+        .main-blog__post img {
+            width: 300px;
+            height: 150px;
+            border-radius: 10px;
+        }
+
+        .blog {
+            background-color: #fff;
+            margin-top: 20px;
+        }
+
+        .blog h2 {
+            font-size: 20px;
+            padding: 20px 0 0 50px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="dashboard-left" style="left: -210px; background-color: transparent;">
+        <div class="dashboard-left__head">
+            <h3>Администратор</h3>
+            <a href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="#" class="toggle_menu"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        </div>
+        <div class="dashboard-left__user" style="border-bottom: none;">
+            <img src="https://semantic-ui.com/images/avatar2/large/matthew.png" width="60px" height="60px" alt="user" title="user" />
+            <ul>
+                <li>Констатин</li>
+                <li>Константинов</li>
+                <a href="#">Профиль</a>
+            </ul>
+        </div>
+        <div class="dashboard-left__widgets" style="opacity: 0; transition: all 1s ease 0s;">
+            <button class="widgets-item"><span><i class="fa fa-home" aria-hidden="true"></i>Консоль</span></button>
+            <button class="widgets-item"><span><i class="fa fa-desktop" aria-hidden="true"></i>Виджеты</span> <span class="widget-update">Обновления</span></button>
+            <button class="widgets-item"><span><i class="fa fa-envelope" aria-hidden="true"></i>Входящие звонки</span><span class="widget-notify">117</span></button>
+            <button class="widgets-item"><span><i class="fa fa-sliders" aria-hidden="true"></i>Оформление</span></button>
+        </div>
+        <div class="exit"><i class="fa fa-power-off" aria-hidden="true"></i><a href="№">Выйти из профиля</a></div>
+    </div>
+    <header>
+        <div class="main-head">
+            <div class="main-head__form">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+                <input type="text" placeholder="Поиск по панели управления" />
+            </div>
+            <div class="main-head__user">
+                <span>12</span>
+                <h4>Констатин Константинов</h4>
+                <img src="https://semantic-ui.com/images/avatar2/large/matthew.png" width="30px" height="30px" alt="" title="" />
+                <i class="fa fa-cog" aria-hidden="true"></i>
+            </div>
+        </div>
+    </header>
+    <div class="main_container">
+        <section class="info-user">
+            <div class="info-user__widgets">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+                <h4>1500</h4>
+                <span>Просмотров</span>
+            </div>
+            <div class="info-user__widgets">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <h4>314</h4>
+                <span>Заявок</span>
+            </div>
+            <div class="info-user__widgets">
+                <i class="fa fa-hourglass-end" aria-hidden="true"></i>
+                <h4>394</h4>
+                <span>Мана</span>
+            </div>
+            <div class="info-user__widgets">
+                <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                <h4>109</h4>
+                <span>Клиентов</span>
+            </div>
+        </section>
+        <section class="statics-user">
+            <div class="statics-user__block_1">
+                <h3>Посещения</h3>
+                <div class="statics-user__block_1__info">
+                    <ul>
+                        <li>За все время:</li>
+                        <li>4 316</li>
+                    </ul>
+                    <ul>
+                        <li>За весь месяц:</li>
+                        <li>1 302</li>
+                    </ul>
+                    <ul>
+                        <li>Сегодня:</li>
+                        <li>217</li>
+                    </ul>
+                </div>
+                <div class="statics-user__block_1__lines"></div>
+                <h4>На 10% процентов выше <span>прошлого месяца</span></h4>
+            </div>
+            <div class="statics-user__block_2">
+                <h3>Посещения</h3>
+                <div class="statics-user__block_2__info">
+                    <ul>
+                        <li>За все время:</li>
+                        <li>4 316</li>
+                    </ul>
+                    <ul>
+                        <li>За весь месяц:</li>
+                        <li>1 302</li>
+                    </ul>
+                    <ul>
+                        <li>Сегодня:</li>
+                        <li>217</li>
+                    </ul>
+                </div>
+                <div class="statics-user__block_2__lines"></div>
+                <h4>На 10% процентов выше <span>прошлого месяца</span></h4>
+            </div>
+        </section>
+        <section class="blog">
+            <h2>Последние посты</h2>
+            <div class="main-blog">
+                <div class="main-blog__post">
+                    <div class="descr">
+                        <h4>Подводный мир</h4>
+                    </div>
+                    <img src="https://hi-news.ru/wp-content/uploads/2017/01/asteroid-650x387.jpg" alt="" title="" />
+                </div>
+                <div class="main-blog__post">
+                    <div class="descr">
+                        <h4>Подводный мир</h4>
+                    </div>
+                    <img src="https://hi-news.ru/wp-content/uploads/2017/01/asteroid-650x387.jpg" alt="" title="" />
+                </div>
+                <div class="main-blog__post">
+                    <div class="descr">
+                        <h4>Подводный мир</h4>
+                    </div>
+                    <img src="https://hi-news.ru/wp-content/uploads/2017/01/asteroid-650x387.jpg" alt="" title="" />
+                </div>
+                <div class="main-blog__post">
+                    <div class="descr">
+                        <h4>Подводный мир</h4>
+                    </div>
+                    <img src="https://hi-news.ru/wp-content/uploads/2017/01/asteroid-650x387.jpg" alt="" title="" />
+                </div>
+                <div class="main-blog__post">
+                    <div class="descr">
+                        <h4>Подводный мир</h4>
+                    </div>
+                    <img src="https://hi-news.ru/wp-content/uploads/2017/01/asteroid-650x387.jpg" alt="" title="" />
+                </div>
+                <div class="main-blog__post">
+                    <div class="descr">
+                        <h4>Подводный мир</h4>
+                    </div>
+                    <img src="https://hi-news.ru/wp-content/uploads/2017/01/asteroid-650x387.jpg" alt="" title="" />
+                </div>
+                <div class="main-blog__post">
+                    <div class="descr">
+                        <h4>Подводный мир</h4>
+                    </div>
+                    <img src="https://hi-news.ru/wp-content/uploads/2017/01/asteroid-650x387.jpg" alt="" title="" />
+                </div>
+                <div class="main-blog__post">
+                    <div class="descr">
+                        <h4>Подводный мир</h4>
+                    </div>
+                    <img src="https://hi-news.ru/wp-content/uploads/2017/01/asteroid-650x387.jpg" alt="" title="" />
+                </div>
+                <div class="main-blog__post">
+                    <div class="descr">
+                        <h4>Подводный мир</h4>
+                    </div>
+                    <img src="https://hi-news.ru/wp-content/uploads/2017/01/asteroid-650x387.jpg" alt="" title="" />
+                </div>
+            </div>
+        </section>
+    </div>
+    <script type="text/javascript" id="rendered-js">
+        console.clear();
+        window.onload = function() {
+            var leftMenu = document.querySelector('.dashboard-left'),
+                menuWidgets = document.querySelector('.dashboard-left__widgets'),
+                toggleMenu = document.querySelector('.toggle_menu'),
+                leftUser = document.querySelector('.dashboard-left__user');
+            menuHide();
+
+            leftMenu.onmouseover = menuShow;
+            leftMenu.onmouseout = menuHide;
+
+            function menuShow() {
+                leftMenu.style.left = 0;
+                menuWidgets.style.opacity = 1;
+                toggleMenu.innerHTML = '<i class="fa fa-envelope" aria-hidden="true"></i>';
+                menuWidgets.style.transition = '1s';
+                leftMenu.style.backgroundColor = 'rgb(31, 34, 45)';
+                leftUser.style.borderBottom = '1px solid rgb(53, 58, 77)';
+
+            }
+
+            function menuHide() {
+                leftMenu.style.left = '-210px';
+                menuWidgets.style.opacity = 0;
+                leftMenu.style.backgroundColor = 'transparent';
+                toggleMenu.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i>';
+                leftUser.style.borderBottom = 'none';
+            }
+        };
+
+        var divs = document.getElementsByTagName('div');
+        for (var i = 0; i < divs.length; i++) {
+            if (window.CP.shouldStopExecution(0)) break;
+            console.log(divs.length);
+        }
+        window.CP.exitedLoop(0);
+    </script>
+</body>
+
+</html>

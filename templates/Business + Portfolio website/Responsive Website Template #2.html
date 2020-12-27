@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Website Template #2</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <style type="text/css">
+        /* GENERAL STYLING */
+        ul {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .h-p-group {
+            width: 100%;
+            margin-bottom: 87px;
+        }
+
+        .h-p-group h2,
+        .h-p-group p {
+            font-family: 'Source Sans Pro', sans-serif;
+            text-align: center;
+        }
+
+        .h-p-group h2 {
+            margin: 0;
+            padding-top: 50px;
+            font-weight: 700;
+            font-size: 32px;
+        }
+
+        .h-p-group p {
+            margin: 15px 0 0 0;
+            font-weight: 400;
+            font-size: 20px;
+            color: #adadad;
+        }
+
+        address {
+            font-style: normal;
+        }
+
+        /* #HEAD */
+        .head {
+            height: 862px;
+            background-image: url('https://static.pexels.com/photos/5836/yellow-metal-design-decoration-large.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .head-container {
+            height: 862px;
+            width: 940px;
+            margin: 0 auto;
+        }
+
+        header {
+            height: 62px;
+            width: 100%;
+            padding-top: 52px;
+        }
+
+        /* #logo */
+        .logo {
+            float: left;
+            display: inline-block;
+            margin-left: 400px;
+        }
+
+        .logo a {
+            display: inline-block;
+            float: left;
+            margin: 10px 10px 0 0;
+        }
+
+        .logo p {
+            display: inline-block;
+            float: right;
+            margin: 10px 0 0 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        /* #socials */
+        .socials {
+            display: inline-block;
+            float: right;
+            margin-top: 30px;
+        }
+
+        .socials ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .socials ul li {
+            display: inline-block;
+            margin-right: 19px;
+        }
+
+        .socials ul li a {
+            color: #000000;
+        }
+
+        .socials ul li a:hover {
+            color: #898989;
+        }
+
+        /* #hero */
+        .hero {
+            height: 748px;
+            width: 940px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            padding-top: 242px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .hero p {
+            margin: 30px 0 0 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .hero button {
+            display: block;
+            margin: 40px auto 176px auto;
+            padding: 16px 72px;
+            border: 1px solid #000000;
+            outline: none;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: uppercase;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: #898989;
+        }
+
+        .hero a {
+            display: block;
+            width: 20px;
+            margin: 0 auto;
+            padding-bottom: 52px;
+            color: #000000;
+        }
+
+        /* #SERVICES SECTION */
+        .services-container {
+            width: 940px;
+            margin: 0 auto;
+        }
+
+        .services-block {
+            width: 100%;
+        }
+
+        .services-block-box {
+            display: inline-block;
+            width: 32%;
+        }
+
+        .marg-top {
+            margin-top: 72px;
+        }
+
+        .services-block-box h3 {
+            display: inline-block;
+            margin: 0 0 15px 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .services-block-box .fa {
+            display: block;
+            float: left;
+        }
+
+        .services-block-box .fa-tablet,
+        .services-block-box .fa-lemon-o {
+            margin-right: 30px;
+        }
+
+        .services-block-box .fa-folder-o {
+            margin-right: 25px;
+        }
+
+        .services-block-box .fa-code {
+            margin-right: 5px;
+        }
+
+        .services-block-box .fa-envelope-o {
+            margin-right: 20px;
+        }
+
+        .services-block-box .fa-bookmark-o {
+            margin-right: 25px;
+        }
+
+        .services-block-box p {
+            display: inline-block;
+            margin: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #adadad;
+        }
+
+        /* #PRICING SECTION */
+        .pricing-container {
+            width: 940px;
+            margin: 0 auto;
+        }
+
+        .price-block {
+            display: inline-block;
+            width: 32%;
+            margin-bottom: 70px;
+        }
+
+        .price-block h3 {
+            margin: 25px 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .price-block p:nth-child(3) {
+            margin: 0 0 30px 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #adadad;
+            text-align: center;
+        }
+
+        .price-block button {
+            display: block;
+            height: 47px;
+            width: 141px;
+            margin: 30px auto 0 auto;
+            border: 2px solid #000000;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            background-color: transparent;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .price-block button:hover {
+            color: #fc8200;
+        }
+
+        .price-block img {
+            display: block;
+            margin: 10px auto;
+        }
+
+        .left-block p:nth-child(4) {
+            margin: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .center-block p:nth-child(4),
+        .right-block p:nth-child(4) {
+            margin: 0 auto;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .left-block p:nth-child(6) {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #adadad;
+            text-align: center;
+        }
+
+        .center-block p:nth-child(6),
+        .right-block p:nth-child(6) {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #adadad;
+            text-align: center;
+        }
+
+        p.fa-usd {
+            margin-left: 55px;
+        }
+
+        p.fa-usd {
+            margin-left: 45px;
+        }
+
+        /* #PORTFOLIO SECTION */
+        .portfolio-container {
+            width: 940px;
+            margin: 0 auto;
+        }
+
+        .positioning-container {
+            display: inline-block;
+            height: 350px;
+            width: 24%;
+            overflow: hidden;
+        }
+
+        .img-icon-container {
+            position: relative;
+            height: 220px;
+            width: 220px;
+            margin: 0 auto 0 auto;
+        }
+
+        .row-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .row-1icon {
+            display: inline-block;
+            position: absolute;
+            top: 88%;
+            margin-right: 85%;
+            margin-left: 10%;
+        }
+
+        .row-2icon {
+            display: inline-block;
+            position: absolute;
+            top: 88%;
+            margin-right: 10%;
+            margin-left: 85%;
+        }
+
+        .fa-eye {
+            color: #ffffff;
+        }
+
+        .fa-clock-o {
+            color: #ffffff;
+        }
+
+        .positioning-container h3,
+        .positioning-container p {
+            font-family: 'Source Sans Pro', sans-serif;
+            text-align: center;
+        }
+
+        .positioning-container h3 {
+            margin: 20px 0 12px 0;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .positioning-container p {
+            margin: 0 0 50px 0;
+            font-size: 16px;
+            font-weight: 400;
+            color: #adadad;
+        }
+
+        /* #TEAM SECTION */
+        .team-block-container {
+            width: 940px;
+            margin: 0 auto;
+        }
+
+        .team-block {
+            display: inline-block;
+            width: 24%;
+            margin-bottom: 80px;
+        }
+
+        .team-block img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .team-block h4,
+        .team-block h5,
+        .team-block p {
+            font-family: 'Source Sans Pro', sans-serif;
+            text-align: center;
+        }
+
+        .team-block h5,
+        .team-block p {
+            font-weight: 400;
+        }
+
+        .team-block h4 {
+            font-size: 22px;
+            font-weight: 400;
+            margin: 40px 0 10px 0;
+        }
+
+        .team-block h5 {
+            margin: 0;
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            color: #adadad;
+        }
+
+        .team-block p {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+        }
+
+        .team-block ul {
+            display: block;
+            padding: 0;
+            text-align: center;
+        }
+
+        .team-block ul li {
+            display: inline-block;
+        }
+
+        .team-block a {
+            margin-right: 12px;
+            color: #000000;
+        }
+
+        .team-block .fa-facebook:hover {
+            color: #3b5998;
+        }
+
+        .team-block .fa-twitter:hover {
+            color: #00aced;
+        }
+
+        .fa-linkedin:hover {
+            color: #007bb6;
+        }
+
+        /* #DATA (STATS & TESTIMONIALS) SECTION */
+        .data-container {
+            width: 940px;
+            margin: 0 auto;
+        }
+
+        /* #stats */
+        .stats-container {
+            width: 70%;
+            margin: 0 auto 75px auto;
+        }
+
+        .stats-block {
+            display: inline-block;
+            width: 24%;
+            text-align: center;
+        }
+
+        .stats-block .fa-puzzle-piece {
+            display: block;
+            margin-left: 10%;
+        }
+
+        .stats-block .fa-cloud-download {
+            display: block;
+        }
+
+        .stats-block .fa-users {
+            display: block;
+        }
+
+        .stats-block .fa-thumbs-up {
+            display: block;
+        }
+
+        .stats-block h4,
+        .stats-block h5 {
+            font-family: 'Source Sans Pro', sans-serif;
+            text-align: center;
+        }
+
+        .stats-block h4 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .stats-block h5 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 400;
+            color: #adadad;
+        }
+
+        /* #testimonials */
+        .customer-info {
+            height: 190px;
+            width: 100%;
+        }
+
+        .customer-info img {
+            display: block;
+            margin: 0 auto 18px auto;
+        }
+
+        .customer-info h4,
+        .customer-info h5 {
+            text-align: center;
+        }
+
+        .customer-info h4 {
+            margin: 0 0 12px 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .customer-info h5 {
+            margin: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #adadad;
+        }
+
+        .customer-quote {
+            position: relative;
+            height: 180px;
+            width: 60%;
+            margin: 25px auto 0 auto;
+        }
+
+        .fa-quote-left,
+        .fa-quote-right {
+            color: #898989;
+        }
+
+        .fa-quote-right {
+            position: absolute;
+            bottom: 60%;
+            left: 95%;
+        }
+
+        .fa-quote-left {
+            position: absolute;
+            top: 10%;
+        }
+
+        blockquote {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: #adadad;
+            text-align: center;
+        }
+
+        /* #FEEDBACK SECTION */
+        .feedback-container {
+            width: 940px;
+            margin: 0 auto;
+        }
+
+        /* #contacts */
+        .contacts-container {
+            width: 70%;
+            margin: 0 auto 42px auto;
+        }
+
+        .contacts-block h4,
+        .contacts-block a,
+        .contacts-block address,
+        .contact-form input,
+        .textarea-positioning textarea {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .contacts-block {
+            display: inline-block;
+            height: 140px;
+            width: 32%;
+            vertical-align: top;
+        }
+
+        .contacts-block h4 {
+            margin: 21px 0 0 0;
+            font-size: 24px;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .contacts-block a {
+            display: block;
+        }
+
+        .contacts-block a:hover {
+            color: #fcdb00;
+        }
+
+        .contacts-block address,
+        .contacts-block a {
+            font-size: 14px;
+            font-weight: 400;
+            color: #adadad;
+            text-align: center;
+        }
+
+        .fa.fa-map-marker {
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+        }
+
+        .fa.fa-envelope {
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+        }
+
+        .fa.fa-phone-square {
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+        }
+
+        /* #contact form */
+        .contact-form {
+            padding-bottom: 50px;
+            width: 100%;
+        }
+
+        .contact-form form {
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .textarea-positioning textarea {
+            display: block;
+            outline: none;
+        }
+
+        .textarea-positioning {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .contact-form input[type=text],
+        .contact-form input[type=email],
+        .textarea-positioning textarea {
+            border: 2px solid #000000;
+        }
+
+        .textarea-positioning textarea {
+            height: 179px;
+            width: 100%;
+            padding-top: 20px;
+            padding-left: 20px;
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        .contact-form input[type=email],
+        .contact-form input[type=text] {
+            height: 51px;
+            width: 50%;
+            margin: 0 auto 24px auto;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        .contact-form input[type=submit] {
+            height: 53px;
+            width: 20%;
+            margin: 26px auto 0 auto;
+            border: transparent;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            background-color: #000000;
+            cursor: pointer;
+        }
+
+        .contact-form input[type=submit]:hover {
+            background-color: #696969;
+        }
+
+        /* #FOOTER */
+        footer {
+            background-color: #010101;
+        }
+
+        .footer-container {
+            width: 940px;
+            margin: 0 auto;
+        }
+
+        /* #footer form */
+        .footer-form {
+            padding-bottom: 40px;
+            margin-bottom: 103px;
+        }
+
+        .footer-form h2,
+        .footer-form p,
+        .footer-form input[type=email],
+        .footer-form input[type=submit] {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .footer-form h2 {
+            margin: 0;
+            padding-top: 92px;
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .footer-form p {
+            margin: 16px 0 38px 0;
+            font-size: 20px;
+            font-weight: 400;
+            text-align: center;
+            color: #898989;
+        }
+
+        .footer-form form {
+            height: 52px;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .footer-form input[type=email],
+        .footer-form input[type=submit] {
+            outline: none;
+        }
+
+        .footer-form input[type=email] {
+            float: left;
+            height: 52px;
+            width: 597px;
+            padding-left: 22px;
+            border: transparent;
+            box-sizing: border-box;
+        }
+
+        .footer-form input[type=submit] {
+            float: right;
+            height: 52px;
+            width: 140px;
+            border: transparent;
+            text-transform: uppercase;
+            font-weight: 700;
+            background-color: #ffffff;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .footer-form input[type=submit]:hover {
+            border: none;
+            background-color: #696969;
+        }
+
+        .block {
+            width: 100%;
+            height: 250px;
+        }
+
+        /* #footer contacts */
+        .footer-contacts h5,
+        .footer-contacts address,
+        .footer-contacts a,
+        .footer-nav ul li a {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .footer-contacts {
+            float: left;
+            display: inline-block;
+            line-height: 1.2em;
+        }
+
+        .footer-contacts h5 {
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .footer-contacts a {
+            display: block;
+            margin-top: 4px;
+        }
+
+        .footer-contacts a:hover,
+        .footer-nav a:hover {
+            color: #fcdb00;
+        }
+
+        /* #footer navigation */
+        .footer-nav {
+            display: inline-block;
+            float: right;
+            position: relative;
+            width: 570px;
+        }
+
+        .footer-nav ul {
+            display: inline-block;
+            float: left;
+            height: 140px;
+            width: 24%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-nav ul li {
+            text-align: top;
+        }
+
+        /* #Up-Button */
+        #up-btn {
+            position: fixed;
+            bottom: 10%;
+            left: 90%;
+            display: none;
+        }
+
+        #up-btn .fa {
+            color: #FFFF00;
+        }
+
+        #footer:hover+#up-btn {
+            display: block;
+        }
+
+        #up-btn:hover {
+            display: block;
+        }
+
+        /* #MEDIA QUARIES */
+        /* for max-width 348px */
+        @media screen and (max-width: 348px) {
+            .stats-block {
+                display: block;
+                width: 25%;
+                margin: 0 auto 40px auto;
+            }
+
+            .stats-block .fa-thumbs-up {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+        /* for max-width 599px */
+        @media screen and (max-width: 599px) {
+            .head {
+                width: 100%;
+                background-image: url('https://static.pexels.com/photos/5836/yellow-metal-design-decoration-large.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .head-container {
+                width: 100%;
+            }
+
+            .logo {
+                margin: 0 auto 0 25px;
+            }
+
+            .socials {
+                margin-right: 0;
+            }
+
+            .socials ul li {
+                margin-right: 40px;
+            }
+
+            .hero {
+                width: 100%;
+            }
+
+            .hero h1 {
+                color: #000000;
+            }
+
+            .hero a {
+                display: none;
+            }
+
+            .services-container {
+                width: 100%;
+            }
+
+            .services-block-box {
+                width: 60%;
+                margin: 0 auto 70px auto;
+            }
+
+            .services-block-box h3,
+            .serxices-block-box p {
+                display: block;
+            }
+
+            .services-block-box .fa-code {
+                margin-right: 25px;
+            }
+
+            .price-block {
+                margin-bottom: 90px;
+            }
+
+            .positioning-container {
+                margin: 0 auto 40px auto;
+            }
+
+            .team-block {
+                margin: 0 auto 60px auto;
+                border-bottom: 1px solid #696969;
+            }
+
+            .stats-container,
+            .customer-info,
+            .feedback-container,
+            .contacts-container,
+            .contacts-block,
+            .contact-form,
+            footer,
+            .footer-container,
+            .textarea-positioning textarea,
+            .footer-form,
+            .footer-form form,
+            .footer-form form input[type="email"],
+            .footer-contacts,
+            .portfolio-container,
+            .team-block-container,
+            .price-block,
+            .pricing-container,
+            .data-container {
+                width: 100%;
+            }
+
+            .customer-quote,
+            .positioning-container,
+            .team-block {
+                width: 80%;
+            }
+
+            .contact-form input[type="email"],
+            .contact-form input[type="text"],
+            .contact-form input[type="submit"],
+            .textarea-positioning,
+            .contact-form form {
+                width: 85%;
+            }
+
+            .footer-form {
+                margin-bottom: 15px;
+                margin-bottom: 50px;
+            }
+
+            .footer-form form input[type="email"] {
+                margin-bottom: 10px;
+            }
+
+            .footer-form form input[type="email"],
+            .footer-form form input[type="submit"],
+            .contacts-block,
+            .footer-contacts,
+            .footer-nav,
+            .logo,
+            .socials,
+            .services-block-box,
+            .positioning-container,
+            .team-block {
+                display: block;
+            }
+
+            .footer-form form input[type="submit"] {
+                width: 50%;
+                margin: 0 auto;
+                float: none;
+            }
+
+            .footer-contacts {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .footer-nav {
+                width: 96%;
+            }
+
+            .footer-nav ul {
+                width: 24%;
+                float: left;
+                height: auto;
+            }
+
+            .footer-nav ul li {
+                text-align: center;
+            }
+
+            .copyright p:first-child {
+                display: inline-block;
+                margin: 0 0 0 10px;
+            }
+
+            #up-btn {
+                left: 80%;
+                bottom: 40%;
+            }
+        }
+
+        /* for max-width 920px */
+        @media screen and (min-width: 600px) and (max-width: 950px) {
+            .head {
+                width: 100%;
+                background-image: url('https://static.pexels.com/photos/5836/yellow-metal-design-decoration-large.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .head-container {
+                width: 100%;
+            }
+
+            .logo {
+                display: block;
+                margin: 0 auto 0 120px;
+            }
+
+            .socials {
+                display: block;
+                margin-right: 50px;
+            }
+
+            .hero,
+            .services-container {
+                width: 100%;
+            }
+
+            .hero h1 {
+                color: #000000;
+            }
+
+            .services-block-box {
+                width: 48%;
+                display: inline-block;
+                margin: 0 auto 70px auto;
+                padding-left: 80px;
+                box-sizing: border-box;
+            }
+
+            .services-block-box .fa {
+                display: block;
+            }
+
+            .services-block-box h3,
+            .services-block-box p {
+                display: block;
+            }
+
+            .services-block-box .fa-code {
+                margin-right: 25px;
+            }
+
+            .pricing-container,
+            .portfolio-container,
+            .team-block-container,
+            .data-container,
+            .stats-container,
+            .customer-info,
+            .feedback-container,
+            .contacts-container,
+            .contact-form,
+            .textarea-positioning textarea,
+            footer,
+            .footer-container,
+            .footer-form,
+            .footer-form form,
+            .footer-form form input[type="email"],
+            .footer-contacts {
+                width: 100%;
+            }
+
+            .positioning-container,
+            .team-block {
+                width: 48%;
+                display: inline-block;
+            }
+
+            .customer-quote {
+                width: 80%;
+            }
+
+            .contact-form input[type="email"],
+            .contact-form input[type="text"],
+            .contact-form input[type="submit"],
+            .contact-form form,
+            .textarea-positioning {
+                width: 85%;
+            }
+
+            .footer-form {
+                margin-bottom: 15px;
+                margin-bottom: 50px;
+            }
+
+            .footer-form form input[type="email"] {
+                margin-bottom: 10px;
+            }
+
+            .footer-form form input[type="email"],
+            .footer-form form input[type="submit"] {
+                display: block;
+            }
+
+            .footer-form form input[type="submit"] {
+                width: 40%;
+                margin: 0 auto;
+                float: none;
+            }
+
+            .footer-contacts {
+                display: block;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .footer-nav {
+                display: block;
+                width: 55%;
+                margin: 0 auto;
+                float: none;
+            }
+
+            .footer-nav ul {
+                width: 24%;
+                float: left;
+                height: auto;
+            }
+
+            .footer-nav ul li {
+                text-align: center;
+            }
+
+            .copyright p:first-child {
+                display: inline-block;
+                margin: 0 0 0 10px;
+            }
+
+            #up-btn {
+                left: 80%;
+                bottom: 40%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div id="up" class="head">
+        <div class="head-container">
+            <header>
+                <div class="logo">
+                    <a href=""><img src="https://bit.ly/2k0oZTJ" alt="tinyone-logo" title="tinyone-logo" /></a>
+                    <p>tinyone</p>
+                </div>
+                <div class="socials">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </header>
+            <div class="hero">
+                <h1>Best solutions for your business</h1>
+                <p>We are a team of inspired, highly skilled professionals who are ready to undertake tasks of any complexity.<br>We have beencreating best web ideas since 2010.<br>Grow your business with us.</p>
+                <button type="button" href="">get start</button>
+                <a href="#arrow-link"><i class="fa fa-long-arrow-down fa-lg" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <div id="arrow-link" class="services-container">
+        <div class="h-p-group">
+            <h2>Tinyone features</h2>
+            <p>Depending on the needs of your business, we are always ready to offer you the best solution.<br>Our team analyzes the initial data, searches for the new ideas that could be ideally suitable for your business and carries out meticulous tests.</p>
+        </div>
+        <div class="services-block">
+            <div class="services-block-box marg-left">
+                <i class="fa fa-tablet fa-3x" aria-hidden="true"></i>
+                <h3>Fully Responsive</h3>
+                <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br> Praesent vitae eros eget tellus<br> tristique bibendum.</p>
+            </div>
+            <div class="services-block-box">
+                <i class="fa fa-lemon-o fa-3x" aria-hidden="true"></i>
+                <h3>Fully Layered PSD</h3>
+                <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br> Praesent vitae eros eget tellus<br> tristique bibendum.</p>
+            </div>
+            <div class="services-block-box">
+                <i class="fa fa-folder-o fa-3x" aria-hidden="true"></i>
+                <h3>Font Awesome Icons</h3>
+                <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br> Praesent vitae eros eget tellus<br> tristique bibendum.</p>
+            </div>
+            <div class="services-block-box marg-top marg-left">
+                <i class="fa fa-code fa-3x" aria-hidden="true"></i>
+                <h3>HTML3 &amp; CSS3 </h3>
+                <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br> Praesent vitae eros eget tellus<br> tristique bibendum.</p>
+            </div>
+            <div class="services-block-box marg-top">
+                <i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i>
+                <h3>Email Template</h3>
+                <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br> Praesent vitae eros eget tellus<br> tristique bibendum.</p>
+            </div>
+            <div class="services-block-box marg-top">
+                <i class="fa fa-bookmark-o fa-3x" aria-hidden="true"></i>
+                <h3>Free to download</h3>
+                <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.<br> Praesent vitae eros eget tellus<br> tristique bibendum.</p>
+            </div>
+        </div>
+    </div>
+    <div class="pricing-container">
+        <div class="h-p-group">
+            <h2>Pricing And Free Trial</h2>
+            <p>Three plans are available: two with approachable prices and one free plan.<br>Choose the option that suits you best.</p>
+        </div>
+        <div class="price-block left-block">
+            <img src="https://bit.ly/2B6jXjP" alt="tablet.png" title="tablet.png" />
+            <h3>Basic</h3>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit</p>
+            <p>free</p>
+            <img src="https://bit.ly/2uhCRRm" alt="line.png" title="line.png" />
+            <p>free forever</p>
+            <button class="button">get free now</button>
+        </div>
+        <div class="price-block center-block">
+            <img src="https://bit.ly/2AWXV2c" alt="laptop.png" title="laptop.png" />
+            <h3>Standard</h3>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit</p>
+            <p><i class="fa fa-usd" aria-hidden="true"></i>99</p>
+            <img src="https://bit.ly/2uhCRRm" alt="line.png" title="line.png" />
+            <p>month</p>
+            <button class="button">upgrade</button>
+        </div>
+        <div class="price-block right-block">
+            <img src="https://bit.ly/2kozC6R" alt="desktop.png" title="desktop.png" />
+            <h3>Enterprise</h3>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit</p>
+            <p><i class="fa fa-usd" aria-hidden="true"></i>199</p>
+            <img src="https://bit.ly/2uhCRRm" alt="line.png" title="line.png" />
+            <p>month</p>
+            <button class="button">learn more</button>
+        </div>
+    </div>
+    <div class="portfolio-container">
+        <div class="h-p-group">
+            <h2>Our works</h2>
+            <p>Our portfolio is literally YUGE. And it's getting bigger every day.<br>Here is just a small part of it.</p>
+        </div>
+        <div class="portfolio-block">
+            <div class="positioning-container">
+                <div class="img-icon-container">
+                    <div class="row-img">
+                        <a href="#"><img src="https://bit.ly/2tdFu1w" alt="portfolio-image1.png" title="portfolio-image1.png" /></a>
+                    </div>
+                    <div class="row-1icon">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </div>
+                    <div class="row-2icon">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <h3>Fully Responsive</h3>
+                <p>Design / Branding</p>
+            </div>
+            <div class="positioning-container">
+                <div class="img-icon-container">
+                    <div class="row-img">
+                        <a href="#"><img src="https://bit.ly/2sPaa9L" alt="portfolio-image2.png" title="portfolio-image2.png" /></a>
+                    </div>
+                    <div class="row-1icon">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </div>
+                    <div class="row-2icon">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <h3>Font Awesome Icons</h3>
+                <p>Design / Branding</p>
+            </div>
+            <div class="positioning-container">
+                <div class="img-icon-container">
+                    <div class="row-img">
+                        <a href="#"><img src="https://bit.ly/2uPWfSv" alt="portfolio-image3.png" title="portfolio-image3.png" /></a>
+                    </div>
+                    <div class="row-1icon">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </div>
+                    <div class="row-2icon">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <h3>HTML5 &amp; CSS3</h3>
+                <p>App design / development</p>
+            </div>
+            <div class="positioning-container">
+                <div class="img-icon-container">
+                    <div class="row-img">
+                        <a href="#"><img src="https://bit.ly/2sPfcU3" height="220" width="220" alt="portfolio-image4.png" title="portfolio-image4.png" /></a>
+                    </div>
+                    <div class="row-1icon">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </div>
+                    <div class="row-2icon">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <h3>Various Layouts</h3>
+                <p>Branding</p>
+            </div>
+            <div class="positioning-container">
+                <div class="img-icon-container">
+                    <div class="row-img">
+                        <a href="#"><img src="https://bit.ly/2tHl04F" alt="2row-portfolio-image1.png" title="2row-portfolio-image1.png" /></a>
+                    </div>
+                    <div class="row-1icon">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </div>
+                    <div class="row-2icon">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <h3>Fully Responsive</h3>
+                <p>Design / Branding</p>
+            </div>
+            <div class="positioning-container">
+                <div class="img-icon-container">
+                    <div class="row-img">
+                        <a href="#"><img src="https://bit.ly/2tHLSBB" alt="2row-portfolio-image2.png" title="2row-portfolio-image2.png" /></a>
+                    </div>
+                    <div class="row-1icon">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </div>
+                    <div class="row-2icon">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <h3>Font Awesome Icons</h3>
+                <p>Design / Branding</p>
+            </div>
+            <div class="positioning-container">
+                <div class="img-icon-container">
+                    <div class="row-img">
+                        <a href="#"><img src="https://bit.ly/2t33Pfm" alt="2row-portfolio-image3.png" title="2row-portfolio-image3.png" /></a>
+                    </div>
+                    <div class="row-1icon">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </div>
+                    <div class="row-2icon">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <h3>HTML5 &amp; CSS3</h3>
+                <p>App design / development</p>
+            </div>
+            <div class="positioning-container">
+                <div class="img-icon-container">
+                    <div class="row-img">
+                        <a href="#"><img src="https://bit.ly/2t364zg" height="220" width="220" alt="22row-portfolio-image4.png" title="22row-portfolio-image4.png" /></a>
+                    </div>
+                    <div class="row-1icon">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </div>
+                    <div class="row-2icon">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <h3>Various Layouts</h3>
+                <p>Branding</p>
+            </div>
+        </div>
+    </div>
+    <div class="team-block-container">
+        <div class="h-p-group">
+            <h2>Our team</h2>
+            <p>Our team of 20 qualified UI/UX designers, developers, researchers and analysts can turn your wishes<br>into effective tools that will make your business better, bigger and more successful.</p>
+        </div>
+        <div class="team-block">
+            <img src="https://bit.ly/2AAE5rf" alt="pic1-of-team-member.png" title="pic1-of-team-member.png" />
+            <h4>John Doe</h4>
+            <h5>UI Designer</h5>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit</p>
+            <ul>
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <div class="team-block">
+            <img src="https://bit.ly/2AxnyX5" alt="pic2-of-team-member.png" title="pic2-of-team-member.png" />
+            <h4>John Doe</h4>
+            <h5>UI Designer</h5>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit</p>
+            <ul>
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <div class="team-block">
+            <img src="https://bit.ly/2BN92bS" alt="pic3-of-team-member.png" title="pic3-of-team-member.png" />
+            <h4>John Doe</h4>
+            <h5>UI Designer</h5>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit</p>
+            <ul>
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <div class="team-block">
+            <img src="https://bit.ly/2BEkrK3" alt="pic4-of-team-member.png" title="pic4-of-team-member.png" />
+            <h4>John Doe</h4>
+            <h5>UI Designer</h5>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit</p>
+            <ul>
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="data-container">
+        <div class="h-p-group">
+            <h2>Stats &amp; Testimonials</h2>
+            <p>Improving our clients' businesses, we accomplished<br>many goals and reached new heights.</p>
+        </div>
+        <div class="stats-container">
+            <div class="stats-block">
+                <i class="fa fa-puzzle-piece fa-3x" aria-hidden="true"></i>
+                <h4>20</h4>
+                <h5>Products</h5>
+            </div>
+            <div class="stats-block">
+                <i class="fa fa-cloud-download fa-3x" aria-hidden="true"></i>
+                <h4>120,000</h4>
+                <h5>Downloads</h5>
+            </div>
+            <div class="stats-block">
+                <i class="fa fa-users fa-3x" aria-hidden="true"></i>
+                <h4>1200</h4>
+                <h5>Customers</h5>
+            </div>
+            <div class="stats-block">
+                <i class="fa fa-thumbs-up fa-3x" aria-hidden="true"></i>
+                <h4>900</h4>
+                <h5>Like</h5>
+            </div>
+        </div>
+        <div class="testimonials-container">
+            <div class="customer-info">
+                <img src="https://bit.ly/2itYB4l" alt="customer-image.png" title="customer-image.png" />
+                <h4>John Doe</h4>
+                <h5>From Wodpress</h5>
+            </div>
+            <div class="customer-quote">
+                <i class="fa fa-quote-left fa-lg" aria-hidden="true"></i>
+                <blockquote>These guys can do magic! Improved stats, bigger number of customers and overall excitement - this is what you may expect when start working with them.</blockquote>
+                <i class="fa fa-quote-right fa-lg" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    <div class="feedback-container">
+        <div class="h-p-group">
+            <h2>Keep in touch with us</h2>
+            <p>Available 24/7 via email and phone. Come and visit us in our office from Monday till Friday,<br>9 am - 9 pm</p>
+        </div>
+        <div class="contacts-container">
+            <div class="contacts-block left-b">
+                <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+                <h4>Address</h4>
+                <address>66, Dang Van ngu, Dong Da,<br> Ha noi, Vietnam</address>
+            </div>
+            <div class="contacts-block center-b">
+                <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+                <h4>Email</h4>
+                <a href="mailto:contact@halovietnam.com">contact@halovietnam.com</a>
+            </div>
+            <div class="contacts-block right-b">
+                <i class="fa fa-phone-square fa-lg" aria-hidden="true"></i>
+                <h4>Phone</h4>
+                <a href="tel:+844123456789">+844 1234 56789</a>
+            </div>
+        </div>
+        <div class="contact-form">
+            <form>
+                <input type="email" name="mail" placeholder="Email" required="" />
+                <input type="text" name="name" placeholder="Full name" required="" />
+                <div class="textarea-positioning"><textarea name="textarea" rows="10" cols="20" placeholder="Message"></textarea></div>
+                <input type="submit" value="Send Message" />
+            </form>
+        </div>
+    </div>
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-form">
+                <h2>Sign up for our newsletter</h2>
+                <p>We send emails with news, articles and information about our promotions.<br>No junk mail, we promise!</p>
+                <form>
+                    <input type="email" name="mail" placeholder="Enter your email to update" required="" />
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+            <div class="block">
+                <div class="footer-contacts">
+                    <h5>HALOVIETNAM LTD</h5>
+                    <address>66, Dang Van ngu, Dong Da<br> Hanoi, Vietnam</address>
+                    <a href="mailto:contact@halovietnam.com">contact@halovietnam.com</a>
+                    <a href="tel:+844123456789">+844 1234 56789</a>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="#">Examples</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">License</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Download</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Documents</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Media</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="up-btn">
+        <a href="#up"><i class="fa fa-3x fa-chevron-up" aria-hidden="true"></i></a>
+    </div>
+</body>
+
+</html>

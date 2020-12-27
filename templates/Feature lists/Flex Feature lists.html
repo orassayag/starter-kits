@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flex Feature lists</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            margin: 0 auto;
+            max-width: 860px;
+        }
+
+        .list-horizontal {
+            flex-direction: row;
+        }
+
+        .list-horizontal .item {
+            margin: 1em;
+            padding: 1em;
+            background-color: blue;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .list-horizontal.list-large .item {
+            margin: 0;
+            text-align: center;
+            border-radius: 0;
+            border-left: 1px solid lightblue;
+        }
+
+        .list-horizontal.list-large .item:first-child {
+            border-left: 0;
+        }
+
+        .list-vertical {
+            flex-direction: column;
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+
+        .list-vertical .item {
+            background-color: blue;
+            color: white;
+            margin: 2em;
+            padding: 4em;
+        }
+
+        .list-vertical .item img {
+            float: left;
+            margin-right: 1em;
+        }
+
+        .list-vertical .item:nth-child(2n) {
+            text-align: right;
+            float: right;
+            margin-left: 1em;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+
+        img {
+            max-width: 100px;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container list-horizontal">
+        <div class="item">
+            <img src="http://placehold.it/100x100" alt="" title="" />
+            <h3>Social proof</h3>
+            <p>Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+        </div>
+        <div class="item">
+            <img src="http://placehold.it/100x100" alt="" title="" />
+            <h3>Freemium shift</h3>
+            <p>Mass market influencer return on investment founders responsive web design customer creative business plan.</p>
+        </div>
+        <div class="item">
+            <img src="http://placehold.it/100x100" alt="" title="" />
+            <h3>Virality stealth</h3>
+            <p>Virality startup equity validation interaction design accelerator crowdsource infrastructure backing traction.</p>
+        </div>
+    </div>
+    <div class="container list-horizontal list-large">
+        <div class="item">
+            <img src="http://placehold.it/100x100" alt="" title="" />
+            <h3>Social proof</h3>
+            <p>Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+        </div>
+        <div class="item">
+            <img src="http://placehold.it/100x100" alt="" title="" />
+            <h3>Freemium shift</h3>
+            <p>Mass market influencer return on investment founders responsive web design customer creative business plan.</p>
+        </div>
+        <div class="item">
+            <img src="http://placehold.it/100x100" alt="" title="" />
+            <h3>Virality stealth</h3>
+            <p>Virality startup equity validation interaction design accelerator crowdsource infrastructure backing traction.</p>
+        </div>
+    </div>
+    <div class="container list-vertical">
+        <div class="item">
+            <img src="http://placehold.it/100x100" alt="" title="" />
+            <h3>Social proof</h3>
+            <p>Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+        </div>
+        <div class="item">
+            <img src="http://placehold.it/100x100" alt="" title="" />
+            <h3>Freemium shift</h3>
+            <p>Mass market influencer return on investment founders responsive web design customer creative business plan.</p>
+        </div>
+        <div class="item">
+            <img src="http://placehold.it/100x100" alt="" title="" />
+            <h3>Virality stealth</h3>
+            <p>Virality startup equity validation interaction design accelerator crowdsource infrastructure backing traction.</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox - split screen layout 1</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        .parent {
+            display: flex;
+            font-family: arial, sans-serif;
+        }
+
+        .item {
+            width: 50%;
+            padding: 2em;
+            color: #ffffff;
+            background: #eeeeee;
+            min-height: 500px;
+        }
+
+        .last {
+            color: #222;
+            background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+            .parent {
+                flex-direction: column-reverse;
+            }
+
+            .item {
+                width: auto;
+                min-height: 200px;
+            }
+
+            .last {
+                background: #aa0000;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="parent">
+        <div class="item" style="background: url('https://unsplash.it/800/300') center center no-repeat; background-size: cover;"></div>
+        <div class="item last">
+            <h2>Flexbox - Split Screen Layout</h2>
+            <p>Example of a split screen layout that uses flexbox.</p>
+            <p>A media query is used to detect if the virewport is below 600px, if it is then <b>flex-direction</b> is set to column-reverse, so that the image is displayed after the copy, useful on mobile devices!.</p>
+            <p>Reduce the window size to below 600px to see an example.</p>
+        </div>
+    </div>
+</body>
+
+</html>

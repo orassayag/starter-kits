@@ -1,0 +1,114 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+    padding-right: 1em;
+    padding-left: 1em;
+    margin: 0 auto;
+    padding-bottom: 0;
+    min-height: 830px;
+
+    .container {
+        p {
+            margin-top: .5em;
+            margin-bottom: .5em;
+        }
+    }
+
+    .additional-data {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .genres {
+        margin-top: 1em;
+        border: 1px #ffffff solid;
+        transition: border-color .4s ease-in-out;
+
+        .title {
+            margin-bottom: 1em;
+        }
+
+        .genresList {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        &.error {
+            border: 1px red solid;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+
+    .form-footer {
+        text-align: left;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        margin: 0;
+
+        .button-container {
+            text-align: left;
+            justify-content: left;
+            margin-left: 0;
+        }
+
+        .status {
+            color: red;
+            margin-bottom: 1em;
+            height: 2em;
+
+            &.valid {
+                color: green;
+            }
+        }
+    }
+}
+
+@media(min-width: 760px) {
+    .wrapper {
+        width: 80%;
+    }
+}
+
+@media(max-width: 760px) {
+    .wrapper {
+        .main-form {
+            text-align: center;
+        }
+
+        .form-footer,
+        .buttons,
+        .genres,
+        .date-picker,
+        .additional-data {
+            margin-left: 15%;
+        }
+    }
+}
+
+@media(min-width: 1024px) {
+    .wrapper {
+        width: 80%;
+
+        .main-form {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 1em;
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                width: 55%;
+                min-width: 340px;
+                justify-content: space-around;
+            }
+        }
+    }
+}

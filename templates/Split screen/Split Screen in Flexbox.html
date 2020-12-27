@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Split Screen in Flexbox</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        .flex-split {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .flex-split>div {
+            display: flex;
+            flex-direction: column;
+            padding-top: 30px;
+        }
+
+        .flex-split>div img {
+            width: 200px;
+            height: 260px;
+        }
+
+        .flex-split-left {
+            background-color: #f4511e;
+        }
+
+        .flex-split-right {
+            background-color: #8e24aa;
+        }
+
+        a {
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:visited,
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Split screen attivo soltanto sopra i 48em */
+        @media all and (min-width: 48em) {
+            .flex-split {
+                flex-direction: row;
+            }
+
+            .flex-split>div {
+                justify-content: center;
+                text-align: center;
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="flex-split">
+        <div class="flex-split-left">
+            <div class="flex-split-image">
+                <img src="http://codeat.it/images/andrea.jpg" alt="" title="" />
+            </div>
+            <h3>Andrea Barghigiani</h3>
+            <p>Etc etc etc</p>
+            <a href="http://skillsandmore.org">Vieni a trovarci</a>
+        </div>
+        <div class="flex-split-right">
+            <div class="flex-split-image">
+                <img src="http://codeat.it/images/eugenio.jpg" alt="" title="" />
+            </div>
+            <h3>Eugenio Petull&aacute;</h3>
+            <p>Etc etc etc</p>
+            <a href="http://skillsandmore.org">Vieni a trovarci</a>
+        </div>
+    </div>
+</body>
+
+</html>

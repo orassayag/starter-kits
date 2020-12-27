@@ -1,0 +1,36 @@
+.movie {
+    width: 150px;
+    box-shadow: rgb(204, 204, 204) 3px 3px 10px 6px;
+    height: 200px;
+    position: relative;
+    background-size: 100% 100%;
+    cursor: pointer;
+    filter: grayscale(0%);
+    border-radius: 5px;
+    margin: 30px 30px;
+    background-repeat: no-repeat;
+    transition: filter 0.5s ease-in-out 0s;
+    z-index: 1;
+
+    .movie-favorite {
+        width: 100%;
+        color: #ffffff;
+        z-index: 100;
+        cursor: default;
+        display: flex;
+        margin: 5px;
+        position: relative;
+        top: 86%;
+        left: 82%;
+        text-shadow: 0 0 3px #000000;
+
+        i {
+            cursor: pointer;
+
+            &.active,
+            &:hover {
+                color: #ffd700;
+            }
+        }
+    }
+}

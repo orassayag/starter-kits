@@ -1,0 +1,206 @@
+.search {
+    .search-area {
+        margin-top: 10vh;
+        background-color: rgb(40, 44, 52);
+        height: 8.5rem;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        z-index: 3;
+        color: #ffffff;
+        box-shadow: gray 0px 4px 2px -2px;
+        overflow-x: hidden;
+        position: sticky;
+        top: 0px;
+
+        &.active {
+            box-shadow: gray 0px 0px 2px -2px;
+        }
+
+        .search-container {
+            display: flex;
+            height: 8.5rem;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            width: 90%;
+
+            .search-input {
+                display: flex;
+                -webkit-box-pack: justify;
+                -webkit-box-align: center;
+                align-items: center;
+                padding-left: 5px;
+                width: 60%;
+                height: 40px;
+                background: rgb(28, 28, 28);
+                border-width: initial;
+                border-style: none;
+                border-color: initial;
+                border-image: initial;
+                transition: all 0.5s ease 0s;
+                border-radius: 5px;
+                padding-right: 32px;
+                font-size: 1.5rem;
+                padding: 0px 1rem;
+                color: silver;
+            }
+
+            .search-icon {
+                position: relative;
+                z-index: 1;
+                top: 0rem;
+                right: -59%;
+                margin-right: 0.5rem;
+                font-size: 1.5rem;
+                cursor: pointer;
+                background: #1c1c1c;
+                color: #ffffff;
+
+                &:hover {
+                    color: #ffd700;
+                }
+            }
+
+            .button-container {
+                display: flex;
+                flex-basis: auto;
+                margin: 0px;
+                margin-left: 10px;
+
+                .button {
+                    background: #1c1c1c;
+                    width: 100px;
+                    padding: 1em;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    .advance-options {
+        background-color: #434d61;
+        height: 0px;
+        width: 100%;
+        display: none;
+
+        &.active {
+            display: block;
+            height: auto;
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+
+        .panel {
+            height: 0px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            &.active {
+                height: auto;
+            }
+
+            .genres {
+                margin-left: 1%;
+                width: 44%;
+
+                .genresList {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    justify-content: left;
+                }
+            }
+
+            .options {
+                width: 15%;
+
+                label {
+                    display: none;
+                }
+
+                select {
+                    margin-bottom: 1em;
+                    width: 100%;
+                    border: 0px;
+                }
+            }
+        }
+
+        .clear {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            height: 0px;
+
+            &.active {
+                height: auto;
+            }
+
+            .button-container {
+                margin: 0px;
+
+                .button {
+                    width: 80px;
+                    height: 40px;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .search {
+        .advance-options {
+            .panel {
+                .options {
+                    width: 30%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .search {
+        .advance-options {
+            .panel {
+                .options {
+                    width: 30%;
+                }
+
+                .genres {
+                    width: 43%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .search {
+        .search-area {
+            margin-top: 20vh;
+        }
+
+        .advance-options {
+            .panel {
+                .options {
+                    width: 35%;
+                }
+
+                .genres {
+                    width: 44%;
+                }
+            }
+        }
+    }
+}

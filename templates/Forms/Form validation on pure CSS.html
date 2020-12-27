@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Form validation on pure CSS</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Comfortaa:400,700&amp;subset=cyrillic" />
+    <style type="text/css">
+        @charset "UTF-8";
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comfortaa', cursive;
+            font-size: 16px;
+            min-height: 100vh;
+            background: linear-gradient(45grad, #CDBEFF, #fDC7FF);
+        }
+
+        h1 {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        h3 {
+            margin-bottom: 16px;
+            margin-top: 0;
+            font-weight: normal;
+        }
+
+        .caption {
+            opacity: 0.4;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: baseline;
+            align-items: baseline;
+            position: relative;
+            margin-bottom: 0;
+            line-height: 20px;
+        }
+
+        .caption::after {
+            content: '>';
+            margin-left: 4px;
+            position: absolute;
+            left: 100%;
+            top: 1px;
+        }
+
+        .container {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            padding: 64px 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        form {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            -webkit-box-align: center;
+            align-items: center;
+            width: 90%;
+            margin: 16px auto;
+            padding: 32px 24px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+        }
+
+        .form-group {
+            position: relative;
+            margin: 24px auto;
+            width: 90%;
+        }
+
+        .form-group+.form-group {
+            margin-top: -8px;
+        }
+
+        .input-field {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 100%;
+            padding: 10px 16px;
+            font-size: 16px;
+            font-family: 'Comfortaa', cursive;
+            border: 1px solid #DDD;
+            border-radius: 3px;
+            background: #FFF;
+            -webkit-transition: all 0.12s ease-in;
+            transition: all 0.12s ease-in;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #999;
+        }
+
+        .input-field::-webkit-input-placeholder {
+            font-size: inherit;
+            font-family: inherit;
+        }
+
+        .input-field::-moz-placeholder {
+            font-size: inherit;
+            font-family: inherit;
+        }
+
+        .input-field:-ms-input-placeholder {
+            font-size: inherit;
+            font-family: inherit;
+        }
+
+        .input-field::-ms-input-placeholder {
+            font-size: inherit;
+            font-family: inherit;
+        }
+
+        .input-field::placeholder {
+            font-size: inherit;
+            font-family: inherit;
+        }
+
+        .input-label {
+            display: block;
+            padding: 0 0 4px;
+            -webkit-transition: all 0.12s ease-in;
+            transition: all 0.12s ease-in;
+            font-size: 0.9rem;
+        }
+
+        .input-label.dinamic-label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 1;
+            -webkit-transform: translateY(-1rem);
+            transform: translateY(-1rem);
+        }
+
+        .input-field:placeholder-shown~.dinamic-label {
+            opacity: 0;
+            -webkit-transform: translateY(-0.5rem);
+            transform: translateY(-0.5rem);
+            font-size: 1rem;
+        }
+
+        .msg-validation {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.8rem;
+            -webkit-transition: all 0.12s ease-in;
+            transition: all 0.12s ease-in;
+        }
+
+        .input-field:required~.msg-validation::before {
+            content: '*Обязательное';
+        }
+
+        .input-field:invalid:not(:placeholder-shown) {
+            border-color: red;
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+
+        .input-field:invalid:not(:placeholder-shown)~.msg-validation::before {
+            content: 'Заполните это поле';
+            color: red;
+        }
+
+        .input-field:valid {
+            border-color: lightgreen;
+            background-color: rgba(144, 238, 144, 0.1);
+        }
+
+        .input-field:valid~.msg-validation::before {
+            display: none;
+        }
+
+        .input-field:-moz-read-only {
+            background-color: #FEFEFE;
+            -moz-user-select: none;
+            user-select: none;
+            pointer-events: none;
+            color: #555;
+        }
+
+        .input-field:read-only {
+            background-color: #FEFEFE;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            pointer-events: none;
+            color: #555;
+        }
+
+        .input-field:disabled {
+            background-color: #DDD;
+            color: #555;
+            cursor: not-allowed;
+        }
+
+        .checkbox-group {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .check-field {
+            height: 0;
+            width: 0;
+            visibility: hidden;
+        }
+
+        .check-label {
+            margin-left: 32px;
+            cursor: pointer;
+        }
+
+        .check-label::before {
+            content: '';
+            height: 16px;
+            width: 16px;
+            position: absolute;
+            left: 0;
+            background-color: #FAFAFA;
+            background-repeat: no-repeat;
+            background-size: contain;
+            -webkit-transition: all 0.12s ease;
+            transition: all 0.12s ease;
+        }
+
+        .check-field:checked~.check-label::before {
+            background-color: #D4E7FE;
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNDYxLjYsMTA5LjZsLTU0LjktNDMuM2MtMS43LTEuNC0zLjgtMi40LTYuMi0yLjRjLTIuNCwwLTQuNiwxLTYuMywyLjVMMTk0LjUsMzIzYzAsMC03OC41LTc1LjUtODAuNy03Ny43ICBjLTIuMi0yLjItNS4xLTUuOS05LjUtNS45Yy00LjQsMC02LjQsMy4xLTguNyw1LjRjLTEuNywxLjgtMjkuNywzMS4yLTQzLjUsNDUuOGMtMC44LDAuOS0xLjMsMS40LTIsMi4xYy0xLjIsMS43LTIsMy42LTIsNS43ICBjMCwyLjIsMC44LDQsMiw1LjdsMi44LDIuNmMwLDAsMTM5LjMsMTMzLjgsMTQxLjYsMTM2LjFjMi4zLDIuMyw1LjEsNS4yLDkuMiw1LjJjNCwwLDcuMy00LjMsOS4yLTYuMkw0NjIsMTIxLjggIGMxLjItMS43LDItMy42LDItNS44QzQ2NCwxMTMuNSw0NjMsMTExLjQsNDYxLjYsMTA5LjZ6Ii8+PC9zdmc+');
+        }
+
+        .input-field[type="number"]:out-of-range+.msg-validation::before {
+            content: 'Неверное значение';
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <h1>Стилизация форм</h1>
+        <form>
+            <div class="form-group">
+                <input class="input-field" type="email" id="dinamic" placeholder="E-mail" required="" autocomplete="off" />
+                <label for="dinamic" class="input-label dinamic-label">E-mail</label>
+            </div>
+            <div class="form-group">
+                <label for="required" class="input-label">Обязательное поле</label>
+                <input class="input-field" type="email" id="required" placeholder="E-mail" required="" autocomplete="off" />
+                <span class="msg-validation"></span>
+            </div>
+            <div class="form-group">
+                <label for="dis" class="input-label">Имя</label>
+                <input class="input-field" type="email" id="dis" placeholder="E-mail" autocomplete="off" value="Veronika" disabled="" />
+            </div>
+            <div class="form-group">
+                <label for="read" class="input-label">Ваша почта</label>
+                <input class="input-field" type="email" id="read" placeholder="E-mail" autocomplete="off" value="email@mail.com" readonly="" />
+            </div>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" class="check-field" id="first" value="1" />
+                <label class="check-label" for="first">Я хочу получать уведомления на почту</label>
+            </div>
+            <div class="form-group">
+                <label class="input-label" for="in-range">In-range input</label>
+                <input class="input-field" type="number" id="in-range" min="1" max="10" value="8" required="" />
+                <span class="msg-validation range"> ( введите значение между 1 и 10 )</span>
+            </div>
+            <div class="form-group">
+                <label class="input-label" for="out-of-range">Out-of-range input</label>
+                <input class="input-field" type="number" id="out-of-range" min="1" max="10" value="12" required="" />
+                <span class="msg-validation range"> ( введите значение между 1 и 10 )</span>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

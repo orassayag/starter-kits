@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive website design 2</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Oswald&amp;display=swap">
+    <style type="text/css">
+        body {
+            margin: 0;
+            transition: ease;
+            transition-duration: 0.4s;
+            background-color: rgb(0, 204, 255);
+        }
+
+        .container {
+            font-family: "Oswald";
+            background-color: rgb(248, 248, 248);
+            text-align: center;
+            margin: 0;
+            width: 100%;
+            transition: ease;
+            transition-duration: 0.3s;
+        }
+
+        header,
+        footer {
+            background-color: black;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            padding: 0.3em 0.5em 0.5em 0.5em;
+        }
+
+        /* NAV */
+        .burger {
+            padding: 0.85em 0 1em 1em;
+            text-align: left;
+            transition: 0.3s;
+            cursor: pointer;
+            background-color: rgb(0, 204, 255);
+            color: black;
+        }
+
+        .translate {
+            transform: translateX(70%);
+        }
+
+        .hidden {
+            overflow: hidden;
+        }
+
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 60%;
+            transform: translateX(-100%);
+            background-color: rgb(0, 204, 255);
+            padding: 5em 0 0 3em;
+            margin: 0;
+            text-align: left;
+            color: black;
+            font-size: 1.2em;
+            line-height: 2em;
+        }
+
+        nav {
+            background-color: rgb(0, 204, 255);
+        }
+
+        /* NAV */
+        h1 {
+            font-weight: normal;
+        }
+
+        p {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4em;
+            color: rgb(73, 73, 73);
+            text-align: left;
+        }
+
+        span {
+            color: rgb(0, 204, 255);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        main {
+            margin-bottom: 2em;
+        }
+
+        main a {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(0, 204, 255);
+            color: white;
+            padding: 0.7em 2em 0.9em 2em;
+            margin: 1em;
+            border-radius: 3em;
+            transition: 0.5s;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-inline-start: 0%;
+        }
+
+        main article:first-child {
+            background-color: white;
+            margin: none;
+            padding: 1em;
+        }
+
+        main article:first-child section h1 {
+            font-size: 1.4em;
+        }
+
+        main article:first-child section h1:last-child {
+            font-size: 1.7em;
+        }
+
+        picture img {
+            width: 70%;
+        }
+
+        main article:nth-child(2) section {
+            background-color: white;
+            padding: 1em;
+            margin: 1em;
+            -webkit-margin-collapse: separate;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: rgba(0, 0, 0, 0.144) 0 0.3em 0.5em;
+            border-radius: 0.3em;
+        }
+
+        main article:nth-child(2) section:hover a {
+            box-shadow: rgba(0, 0, 0, 0.349) 0 0.2em 0.5em;
+        }
+
+        .card-header {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+
+        .card-header img {
+            width: 20%;
+            height: 20%;
+            margin: 0;
+            max-width: 3.2em;
+        }
+
+        main article:nth-child(2) section h1 {
+            color: rgb(0, 204, 255);
+            margin: 0.7em 10% 0.7em 0em;
+        }
+
+        footer p {
+            font-family: "Oswald";
+            font-size: 0.8em;
+            text-align: center;
+            margin: 0;
+            padding: 2em;
+            border-top: solid 0.5em rgb(0, 204, 255);
+            color: white;
+            text-transform: uppercase;
+        }
+
+        @media (min-width: 600px) {
+            header {
+                padding-top: 1em;
+                border-bottom: solid 0.5em rgb(0, 204, 255);
+            }
+
+            .main-nav {
+                transform: translateX(0);
+                position: relative;
+                display: flex;
+                flex-flow: row;
+                justify-content: space-around;
+                background-color: black;
+                color: rgb(0, 204, 255);
+                padding: 0.5em 0 1.5em 0;
+                width: 100%;
+            }
+
+            .burger {
+                display: none;
+            }
+
+            main article:first-child {
+                display: flex;
+                flex-flow: row;
+                justify-content: center;
+                align-items: flex-end;
+                padding: 1em 10% 0 10%;
+            }
+
+            main article:first-child section {
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+
+            picture img {
+                width: 90%;
+            }
+
+            main article:nth-child(2) section {
+                padding: 1.5em;
+                margin: 1em 10% 1em 10%;
+            }
+
+            .card-header {
+                justify-content: left;
+            }
+
+            main article:nth-child(2) section h1 {
+                margin-left: 30%;
+            }
+
+            main article:nth-child(2) section:last-child h1 {
+                margin-left: 35%;
+            }
+        }
+
+        @media (min-width: 1000px) {
+            header {
+                display: flex;
+                flex-flow: row;
+                align-items: center;
+                justify-content: space-around;
+                padding: 1.5em 0 1.5em 0;
+            }
+
+            nav {
+                display: block;
+            }
+
+            .menu-element {
+                padding: 1.5em;
+            }
+
+            .main-nav {
+                padding: 0;
+                margin-right: 10%;
+                justify-content: space-around;
+            }
+
+            picture img {
+                width: 70%f;
+            }
+
+            main article:nth-child(2) {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5em;
+                margin: 3em 10% 3em 10%;
+            }
+
+            main article:nth-child(2) section {
+                margin: 0;
+            }
+
+            main article:nth-child(2) section img {
+                height: auto;
+            }
+
+            .card-header {
+                flex-flow: column;
+            }
+
+            main article:nth-child(2) section h1 {
+                margin: 1em;
+            }
+
+            main article:nth-child(2) section:last-child h1 {
+                margin: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <header>
+            <h1><a href="#"><span>Ser</span> o no Ser <span>adaptativo</span></a></h1>
+            <nav>
+                <div class="burger" id="burger">☰</div>
+                <ul class="main-menu main-nav">
+                    <a href="#" class="menu-element">
+                     <li>Qué es</li>
+                  </a>
+                    <a href="#" class="menu-element">
+                     <li>Todo en relativo</li>
+                  </a>
+                    <a href="#" class="menu-element">
+                     <li>Herramientas</li>
+                  </a>
+                    <a href="#" class="menu-element">
+                     <li>Media queries</li>
+                  </a>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <article>
+                <picture>
+                    <source media="(min-width: 1000px)" srcset="https://drive.google.com/uc?id=1XIjXXqzCLJmTwZWnOEaJhtKGpbF-YMWy">
+                    <source media="(min-width: 600px)" srcset="https://drive.google.com/uc?id=1BINOmz4zAnYpHOqY6_2KPwRWCODldKbr">
+                    <img src="https://drive.google.com/uc?id=1iqcAlhLet8H_xgE-Xs4ooLLpE-ILZrNH" alt="Responsive Web Design" title="Responsive Web Design" />
+                </picture>
+                <section>
+                    <h1><span>Todo</span> lo que necesitas saber sobre diseño <span>adaptativo</span></h1>
+                    <h1>Construye tus propios <span>diseños</span></h1>
+                    <h1>Con <span>múltiples</span> herramientas</h1>
+                </section>
+            </article>
+            <article>
+                <section>
+                    <div class="card-header">
+                        <img src="https://drive.google.com/uc?id=1VKw0Vp1hgb1p_GotXqi1L65I1Cu4uYZW" alt="Bombilla" title="Bombilla" />
+                        <h1>Lo importante es el contenido</h1>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolore aspernatur sapiente quaerat
+                        quisquam. Consequuntur dolorum sit quisquam repudiandae id temporibus quaerat tenetur quos qui
+                        cumque
+                        harum magnam deserunt iusto mollitia repellendus et, consequatur non quam iure atque dolores
+                        dignissimos
+                        doloremque enim. Alias veniam, odit commodi expedita perferendis nesciunt facere.
+                    </p>
+                    <a href="#">Más info</a>
+                </section>
+                <section>
+                    <div class="card-header">
+                        <img src="https://drive.google.com/uc?id=1HMUjzo_U-pI_PMO1qGsn0Q2SNUcMJwwm" alt="Lupa" title="Lupa" />
+                        <h1>Es, sobre todo, un concepto</h1>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolore aspernatur sapiente quaerat
+                        quisquam. Consequuntur dolorum sit quisquam repudiandae id temporibus quaerat tenetur quos qui
+                        cumque
+                        harum magnam deserunt iusto mollitia repellendus et, consequatur non quam iure atque dolores
+                        dignissimos
+                        doloremque enim. Alias veniam, odit commodi expedita perferendis nesciunt facere.
+                    </p>
+                    <a href="#">Más info</a>
+                </section>
+                <section>
+                    <div class="card-header">
+                        <img src="https://drive.google.com/uc?id=16xDu5gF-FV_tVx8J08ZXwL7qwbmnnYAF" alt="Engranaje" title="Engranaje" />
+                        <h1>Herramientas</h1>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolore aspernatur sapiente quaerat
+                        quisquam. Consequuntur dolorum sit quisquam repudiandae id temporibus quaerat tenetur quos qui
+                        cumque
+                        harum magnam deserunt iusto mollitia repellendus et, consequatur non quam iure atque dolores
+                        dignissimos
+                        doloremque enim. Alias veniam, odit commodi expedita perferendis nesciunt facere.
+                    </p>
+                    <a href="#">Más info</a>
+                </section>
+            </article>
+        </main>
+        <footer>
+            <p>© 2016 · Diseño web adaptativo</p>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        document.getElementById('burger').addEventListener('click', function() {
+            var b = document.body;
+            b.classList.toggle('translate');
+            b.classList.add('hidden');
+            b.addEventListener('transitionend', function(e) {
+                if (!b.classList.contains('translate')) b.removeAttribute('class');
+            });
+        });
+    </script>
+</body>
+
+</html>

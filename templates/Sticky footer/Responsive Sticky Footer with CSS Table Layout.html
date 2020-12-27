@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Sticky Footer with CSS Table Layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: Roboto, sans-serif;
+        }
+
+        .wrapper {
+            height: 100%;
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+        }
+
+        .header,
+        .content,
+        .footer {
+            display: table-row;
+        }
+
+        .header p,
+        .inner-content,
+        .footer p {
+            padding: 2%;
+        }
+
+        .header {
+            background-color: #3b5865;
+        }
+
+        .content {
+            height: 100%;
+            background-color: #eee;
+        }
+
+        h1 {
+            margin-bottom: 1%;
+        }
+
+        p {
+            margin-bottom: 2%;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn {
+            padding: 0.5%;
+        }
+
+        .footer {
+            background-color: #ccd7b8;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wrapper">
+        <header class="header">
+            <p>Header</p>
+        </header>
+        <div class="content">
+            <main class="inner-content">
+                <h1>Content</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eveniet eius quasi excepturi unde magnam sed consequatur rem esse a dicta aperiam minima illum eaque laboriosam, aliquid architecto dolorum vero, praesentium amet fuga, quas tempora earum incidunt. Doloremque et atque, facere alias aliquid sint adipisci earum ipsam officia tenetur numquam?</p>
+                <button type="button" id="add" class="btn">Add content</button>
+            </main>
+        </div>
+        <footer class="footer">
+            <p>Footer</p>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        var add = document.getElementById('add');
+        var content = document.getElementsByClassName('inner-content')[0];
+        add.addEventListener('click', addContent);
+
+        function addContent() {
+            var newContent = document.createElement('p');
+            newContent.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eveniet eius quasi excepturi unde magnam sed consequatur rem esse a dicta aperiam minima illum eaque laboriosam, aliquid architecto dolorum vero, praesentium amet fuga, quas tempora earum incidunt. Doloremque et atque, facere alias aliquid sint adipisci earum ipsam officia tenetur numquam?";
+            content.insertBefore(newContent, add);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Fluid Grid using text-align justify</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+
+        *:not(code):not(samp):not(pre) {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+        }
+
+        code,
+        pre,
+        samp {
+            font-family: Inconsolata, monospace !important;
+        }
+
+        header code {
+            padding: 0.25rem 0.75rem;
+            line-height: 2;
+            background: #efefef;
+            color: mediumslateblue;
+        }
+
+        *,
+        *:before,
+        *:after,
+        *::before,
+        *::after {
+            box-sizing: border-box !important;
+            text-rendering: optimizeLegibility !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+        }
+
+        div,
+        ul,
+        li {
+            margin: 1em 0;
+            padding: 1em 0;
+            list-style-type: none;
+        }
+
+        [role="banner"],
+        [role="contentinfo"],
+        main {
+            padding: 1rem;
+        }
+
+        [role="banner"],
+        [role="contentinfo"] {
+            padding: 2em !important;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 90%;
+        }
+
+        #Grid {
+            margin-bottom: 40px;
+            text-align: justify;
+            font-size: 0.1px;
+        }
+
+        #Grid:after,
+        #Grid::before {
+            content: '';
+            display: inline-block;
+            width: 100%;
+        }
+
+        #Grid li {
+            display: inline-block;
+            background: #eee;
+            width: 23%;
+            margin-bottom: 2.5%;
+        }
+
+        #Grid li img {
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        @media (max-width: 800px) {
+            #Grid li {
+                width: 31%;
+                margin-bottom: 3%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            #Grid li {
+                width: 48%;
+                margin-bottom: 4%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #Grid li {
+                width: 100%;
+                margin-bottom: 5%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header role="banner">
+        <h1>Fluid Grid using <br>
+            <code>text-align: justify</code>
+        </h1>
+    </header>
+    <main role="main">
+        <section>
+            <ul id="Grid">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+    </main>
+    <footer role="contentinfo">
+        <br>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <p>Resize the grid to see how the elements reflow based on the new column-widths defined in the media queries.<br />
+            <strong>There is no need to ever define horizontal margins/floats/or clear-fixes.</strong>
+        </p>
+        <label>Placeholder/gap element*</label>
+        <label>Break element*</label>
+        <p><em>*These elements are visible only for demonstration purposes and should be hidden in production by removing the borders.</em></p>
+        <p>More info here: <a target="_blank" href="http://www.barrelny.com/blog/text-align-justify-and-rwd/">here</a></p>
+    </footer>
+    <script type="text/javascript">
+        'use strict';
+        const gridList = document.getElementById('Grid');
+        for (let i = 0; i < gridList.children.length; i++) {
+            let imgEl = document.createElement('img');
+            imgEl.setAttribute('src', 'http://placehold.it/320x240');
+            let currentListItem = gridList.children[i];
+            currentListItem.appendChild(imgEl);
+        }
+    </script>
+</body>
+
+</html>

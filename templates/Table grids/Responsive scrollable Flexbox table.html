@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive scrollable Flexbox table</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            background: #fefdf9;
+            font-family: arial;
+        }
+
+        .Table {
+            border: 1px solid black;
+            overflow: hidden;
+            display: -webkit-box;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-flow: column nowrap;
+            -moz-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+            -webkit-box-pack: justify;
+            -moz-box-pack: justify;
+            box-pack: justify;
+            -webkit-justify-content: space-between;
+            -moz-justify-content: space-between;
+            -ms-justify-content: space-between;
+            -o-justify-content: space-between;
+            justify-content: space-between;
+            -ms-flex-pack: justify;
+            font-size: 1rem;
+            margin: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .Table-header {
+            display: none;
+        }
+
+        @media (min-width: 500px) {
+            .Table-header {
+                font-weight: 700;
+            }
+        }
+
+        .Table-row {
+            width: 100%;
+        }
+
+        @media (min-width: 500px) {
+            .Table-row {
+                display: -webkit-box;
+                display: -moz-box;
+                display: box;
+                display: -webkit-flex;
+                display: -moz-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex-flow: row nowrap;
+                -moz-flex-flow: row nowrap;
+                flex-flow: row nowrap;
+            }
+        }
+
+        .Table-row-item {
+            border: 1px solid black;
+            display: -webkit-box;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-flow: row nowrap;
+            -moz-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            -webkit-flex-grow: 1;
+            -moz-flex-grow: 1;
+            flex-grow: 1;
+            -ms-flex-positive: 1;
+            -webkit-flex-basis: 0;
+            -moz-flex-basis: 0;
+            flex-basis: 0;
+            -ms-flex-preferred-size: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-all;
+            padding: 0.5em;
+            word-break: break-word;
+        }
+
+        .Table-row .Table-row-item:nth-of-type(1) {
+            flex-grow: 0.08;
+        }
+
+        .Table-row-item:before {
+            content: attr(data-header);
+            width: 30%;
+            font-weight: 700;
+        }
+
+        @media (min-width: 500px) {
+            .Table-row-item {
+                padding: 0.5em;
+            }
+
+            .Table-row-item:before {
+                content: none;
+            }
+        }
+
+        .row-collection {
+            height: 200px;
+            overflow: auto;
+            margin-right: -15px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="Table">
+        <div class="Table-row Table-header">
+            <div class="Table-row-item"><input type="checkbox" /></div>
+            <div class="Table-row-item">Name</div>
+            <div class="Table-row-item">Device</div>
+            <div class="Table-row-item">OS</div>
+            <div class="Table-row-item">Country</div>
+            <div class="Table-row-item">Uploaded on</div>
+            <div class="Table-row-item">Length</div>
+        </div>
+        <div class="row-collection">
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+            <div class="Table-row">
+                <div class="Table-row-item" data-header="Action"><input type="checkbox" /></div>
+                <div class="Table-row-item" data-header="Name">90fe38ee46e87789</div>
+                <div class="Table-row-item" data-header="Device">Nexus 5</div>
+                <div class="Table-row-item" data-header="OS">5.1.1</div>
+                <div class="Table-row-item" data-header="Country">Japan</div>
+                <div class="Table-row-item" data-header="Uploaded on">July 21</div>
+                <div class="Table-row-item" data-header="Length">5s</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

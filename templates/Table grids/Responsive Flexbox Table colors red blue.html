@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Flexbox Table colors red blue</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* Demo Only -- Delete Below */
+        .container {
+            padding-top: 50px;
+        }
+
+        /* Demo Only -- Delete Above */
+        .table {
+            display: flex;
+            flex-flow: column nowrap;
+            color: white;
+        }
+
+        .table .th {
+            display: flex;
+            flex-flow: row wrap;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 0.5em;
+            background: #e74c3c;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .table .th .td {
+            display: flex;
+            width: calc(100% / 4);
+            font-size: 14px;
+        }
+
+        .table .tr {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 0.5em;
+        }
+
+        .table .tr:nth-child(even) {
+            background: #3498db;
+        }
+
+        .table .tr:nth-child(odd) {
+            background: #2980b9;
+        }
+
+        .table .tr .td {
+            display: flex;
+            width: calc(100% / 4);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .table {
+                display: flex;
+                flex-flow: row nowrap;
+                color: white;
+            }
+
+            .table__head {
+                display: flex;
+                flex-flow: column wrap;
+                width: 40%;
+                background: #e74c3c;
+            }
+
+            .table__head .th {
+                display: flex;
+                flex-flow: column wrap;
+                font-weight: 500;
+                font-size: 16px;
+                padding: 0.5em;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .table__head .th .td {
+                display: flex;
+                font-size: 14px;
+                width: 100%;
+            }
+
+            .table__rows {
+                display: flex;
+                flex-flow: column wrap;
+                width: 60%;
+            }
+
+            .table__rows .tr {
+                display: flex;
+                flex-flow: column wrap;
+                padding: 0.5em;
+            }
+
+            .table__rows .tr:nth-child(even) {
+                background: #3498db;
+            }
+
+            .table__rows .tr:nth-child(odd) {
+                background: #2980b9;
+            }
+
+            .table__rows .tr .td {
+                display: flex;
+                font-size: 14px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <div class="table">
+            <div class="table__head">
+                <div class="th">
+                    <div class="td">First Name</div>
+                    <div class="td">Last Name</div>
+                    <div class="td">E-Mail</div>
+                    <div class="td">Phone Number</div>
+                </div>
+            </div>
+            <div class="table__rows">
+                <div class="tr">
+                    <div class="td">Adam</div>
+                    <div class="td">Lowenthal</div>
+                    <div class="td">adam@google.com</div>
+                    <div class="td">516-555-8973</div>
+                </div>
+                <div class="tr">
+                    <div class="td">Jesse</div>
+                    <div class="td">Gleisman</div>
+                    <div class="td">jesse@yahoo.com</div>
+                    <div class="td">516-555-4685</div>
+                </div>
+                <div class="tr">
+                    <div class="td">Adam</div>
+                    <div class="td">Lowenthal</div>
+                    <div class="td">adam@google.com</div>
+                    <div class="td">516-555-8973</div>
+                </div>
+                <div class="tr">
+                    <div class="td">Jesse</div>
+                    <div class="td">Gleisman</div>
+                    <div class="td">jesse@yahoo.com</div>
+                    <div class="td">516-555-4685</div>
+                </div>
+                <div class="tr">
+                    <div class="td">Adam</div>
+                    <div class="td">Lowenthal</div>
+                    <div class="td">adam@google.com</div>
+                    <div class="td">516-555-8973</div>
+                </div>
+                <div class="tr">
+                    <div class="td">Jesse</div>
+                    <div class="td">Gleisman</div>
+                    <div class="td">jesse@yahoo.com</div>
+                    <div class="td">516-555-4685</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

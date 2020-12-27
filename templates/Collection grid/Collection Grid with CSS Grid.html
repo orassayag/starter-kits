@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Collection Grid with CSS Grid</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 100%;
+            min-height: 100vh;
+            padding: 10px;
+            background: mintcream;
+        }
+
+        .gridflex-container {
+            width: 80%;
+            height: 90vh;
+            color: darkorchid;
+        }
+
+        .square {
+            background: rgb(139, 0, 139);
+            color: aliceblue;
+            padding: 10px;
+            box-shadow: 1px 4px 3px 2px rgb(0, 0, 139, 0.2);
+        }
+
+        .header,
+        .footer {
+            font-size: 1.4em;
+            font-weight: 400;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 10px;
+            background: lightsteelblue;
+        }
+
+        .intro {
+            font-size: 1.2em;
+            font-weight: 200;
+            line-height: 1.2em;
+            padding: 10px;
+        }
+
+        /* Grid */
+        /* main container is a flexbox */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* apply grid property to div */
+        .gridflex-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 40px repeat(3, 1fr) 40px;
+            grid-gap: 20px;
+            grid-template-areas: "header header header header""intro intro intro intro""lg lg sm-1 sm-2""lg lg sm-3 sm-4""footer footer footer footer";
+        }
+
+        /* assign areas to items */
+        .header {
+            grid-area: header;
+        }
+
+        .footer {
+            grid-area: footer;
+        }
+
+        .intro {
+            grid-area: intro;
+        }
+
+        .lg {
+            grid-area: lg;
+        }
+
+        @media screen and (max-width: 35em) {
+            .gridflex-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .square {
+                margin-bottom: 1.4em;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <div class="gridflex-container">
+            <header class="header">My header</header>
+            <div class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium itaque perspiciatis rem dolores fuga, cum soluta beatae sapiente quod libero voluptatibus quo sed sunt, praesentium porro sequi neque impedit harum repellat! Fuga, culpa
+                velit cum incidunt praesentium tempore debitis rerum!
+            </div>
+            <div class="square lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ad, veritatis velit quaerat minus delectus dignissimos ipsa illum? Eius, laboriosam!</div>
+            <div class="square sm-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, incidunt!</div>
+            <div class="square sm-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, incidunt!</div>
+            <div class="square sm-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, incidunt!</div>
+            <div class="square sm-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, incidunt!</div>
+            <footer class="footer">My footer</footer>
+        </div>
+    </div>
+</body>
+
+</html>

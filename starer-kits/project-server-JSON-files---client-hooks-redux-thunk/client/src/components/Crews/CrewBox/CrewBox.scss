@@ -1,0 +1,47 @@
+.additional-data {
+    .container {
+        width: 15%;
+        min-width: 240px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        margin-right: 20px;
+        margin-top: 1em;
+        min-height: 450px;
+
+        p {
+            margin-top: .5em;
+            margin-bottom: .5em;
+        }
+
+        .title {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .delete {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+
+            i {
+                position: absolute;
+                left: 95%;
+                font-size: 1.1em;
+            }
+        }
+
+        &.error-container {
+            border: 2px red solid;
+        }
+    }
+}
+
+@media(max-width: 760px) {
+    .additional-data {
+        .container {
+            width: 81%;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Holy Grail Layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        .app {
+            font-family: Montserrat;
+            background-color: beige;
+            color: cornflowerblue;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .HolyGrail,
+        .HolyGrail-body {
+            display: flex;
+            flex-direction: column;
+            min-height: 80vh;
+        }
+
+        .HolyGrail-left {
+            order: -1;
+        }
+
+        header,
+        footer {
+            flex: 0 0 5em;
+            background-color: cornflowerblue;
+            color: beige;
+            display: flex;
+            justify-content: center;
+            flex-flow: column;
+        }
+
+        @media (min-width: 768px) {
+            .HolyGrail-body {
+                flex-direction: row;
+                flex: 1;
+            }
+
+            .HolyGrail-content {
+                flex: 1;
+            }
+
+            aside {
+                flex: 0 0 12em;
+            }
+
+            .HolyGrail-left {
+                border-right: solid 1px;
+            }
+
+            .HolyGrail-right {
+                border-left: solid 1px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="app HolyGrail">
+        <header>
+            <h1>header</h1>
+        </header>
+        <div class="HolyGrail-body">
+            <main class="HolyGrail-content">
+                <h2>Content Area</h2>
+            </main>
+            <aside class="HolyGrail-left">
+                <h3>sidebar</h3>
+            </aside>
+            <aside class="HolyGrail-right">
+                <h3>sidebar</h3>
+            </aside>
+        </div>
+        <footer>
+            <h3>footer</h3>
+        </footer>
+    </div>
+</body>
+
+</html>

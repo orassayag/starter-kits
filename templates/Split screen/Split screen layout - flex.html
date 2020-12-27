@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Split screen layout - flex</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f7f7;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            padding: 40px 5%;
+            min-height: 100vh;
+
+            @media screen and (max-width: 600px) {
+                & {
+                    flex-wrap: wrap;
+                }
+            }
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        figure {
+            img {
+                border-radius: 50%;
+                border: 5px solid rgba(0, 0, 0, .2);
+            }
+
+            figcaption {
+                font-size: 20px;
+                line-height: 30px;
+                margin: 20px 0;
+            }
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 20px;
+            max-width: 80%;
+            margin: 20px auto;
+        }
+
+        a {
+            color: currentColor;
+        }
+
+        #finn {
+            background: #fff;
+            color: #7b5a9e
+        }
+
+        #jake {
+            background: #7b5a9e;
+            color: #fff
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <article class="flex-container">
+        <section class="flex" id="finn">
+            <div>
+                <figure>
+                    <img src="http://chriswrightdesign.com/experiments/img/adventure1.png" alt="Finn the human" title="Finn the human" />
+                    <figcaption>Finn the human</figcaption>
+                </figure>
+                <p>Finn (full title: Finn the Human, or Finn Mertens, and formerly known as Pen in the original short), is the main protagonist of the series Adventure Time.</p>
+                <a href="http://adventuretime.wikia.com/wiki/Finn">Learn more</a>
+            </div>
+        </section>
+        <section class="flex" id="jake">
+            <div>
+                <figure>
+                    <img src="http://chriswrightdesign.com/experiments/img/adventure2.png" alt="Jake the dog" title="Jake the dog" />
+                    <figcaption>Jake the dog</figcaption>
+                </figure>
+                <p>Jake (full title: Jake the Dog), the deuteragonist of Adventure Time, is a magical dog and Finn's constant companion, best friend, and adoptive brother.</p>
+                <a href="http://adventuretime.wikia.com/wiki/Jake">Learn more</a>
+            </div>
+        </section>
+    </article>
+</body>
+
+</html>

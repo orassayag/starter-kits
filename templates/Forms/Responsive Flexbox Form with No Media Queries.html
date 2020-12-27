@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Flexbox Form with No Media Queries</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <style type="text/css">
+        .wrapper {
+            position: relative;
+            width: 90%;
+            padding: 2em;
+        }
+
+        .center-block {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .flex-container-row {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-flow: row nowrap;
+            flex-flow: row wrap;
+        }
+
+        form {
+            position: relative;
+            width: 100%;
+            max-width: 85rem;
+            font-size: 1.8em;
+            font-weight: normal;
+            line-height: 1.2222em;
+        }
+
+        form>div:last-child {
+            justify-content: space-around;
+        }
+
+        input,
+        textarea {
+            flex-grow: 1;
+            margin: 1rem 2%;
+            padding: 1.1rem 1.5rem;
+            border: 2px solid rgba(0, 0, 0, .6854);
+            border-radius: 3px;
+            -webkit-transition: background .2s;
+            transition: background .2s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            background-color: rgba(96, 125, 139, 0.2);
+        }
+
+        input[type="submit"] {
+            flex-grow: 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+            background-color: #FF6E40;
+            border: 3px solid #FF6E40;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+        }
+
+        input[type="submit"]:focus,
+        input[type="submit"]:hover {
+            cursor: pointer;
+            flex-grow: 1;
+            color: #FF3D00;
+            background-color: #fff;
+            border: 3px solid #FF3D00;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wrapper">
+        <form action="" method="" class="center-block">
+            <div class="flex-container-row">
+                <input type="text" name="first-name" placeholder="First Name" />
+                <input type="text" name="last-name" placeholder="Last Name" />
+            </div>
+            <div class="flex-container-row">
+                <input type="email" name="email" placeholder="Email" />
+                <input type="tel" name="phone" placeholder="Phone" />
+                <input type="number" name="group-size" placeholder="Group Size" />
+            </div>
+            <div class="flex-container-row">
+                <textarea name="message" cols="40" rows="10" placeholder="Comments or Questions"></textarea>
+            </div>
+            <div class="flex-container-row">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

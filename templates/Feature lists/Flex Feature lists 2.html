@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flex Feature lists 2</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        .wap {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            margin: 0 0 5px 0;
+        }
+
+        h4 {
+            margin-bottom: 0;
+        }
+
+        .subtitle {
+            margin: 10px 0 0 0;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .figure {
+            width: 60px;
+            height: 60px;
+        }
+
+        .item-rows {
+            background: #ebebeb;
+            padding: 15px;
+            margin: 0 auto;
+            max-width: 980px;
+            margin-bottom: 15px;
+            display: flex;
+            border: 1px solid #e1e1e1;
+        }
+
+        .item-rows .item-row {
+            display: flex;
+            flex: 1;
+            align-items: center;
+        }
+
+        .item-rows .figure {
+            display: flex;
+            flex: 0 0 auto;
+        }
+
+        .item-rows .figure.item-1 {
+            align-self: flex-end;
+        }
+
+        .item-rows .text {
+            flex: 1;
+        }
+
+        .item-columns {
+            background: #ebebeb;
+            padding: 15px;
+            margin: 0 auto;
+            max-width: 980px;
+            margin-bottom: 15px;
+            display: flex;
+            border: 1px solid #e1e1e1;
+        }
+
+        .item-columns .item-column {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 0 10px;
+            align-items: center;
+        }
+
+        .item-columns .figure {
+            display: flex;
+            flex: 0 0 auto;
+        }
+
+        .item-columns .text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .item-staggered {
+            background: #ebebeb;
+            padding: 15px;
+            margin: 0 auto;
+            max-width: 980px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e1e1e1;
+        }
+
+        .item-staggered .item-row {
+            display: flex;
+            flex: 1;
+            align-items: center;
+        }
+
+        .item-staggered .item-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .item-staggered .item-row.reverse .text {
+            text-align: right;
+        }
+
+        .item-staggered .figure {
+            display: flex;
+            flex: 0 0 auto;
+        }
+
+        .item-staggered .figure.item-1 {
+            align-self: flex-end;
+        }
+
+        .item-staggered .text {
+            flex: 0 0 auto;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wap">
+        <h3>Feature lists row:</h3>
+        <div class="item-rows">
+            <div class="item-row">
+                <div class="figure item-1">
+                    <img src="https://image.flaticon.com/icons/svg/346/346182.svg" alt="" title="" />
+                </div>
+                <div class="text">
+                    <h4 class="title">
+                        Social proof
+                    </h4>
+                    <p class="subtitle">Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+                </div>
+            </div>
+            <div class="item-row">
+                <div class="figure">
+                    <img src="https://image.flaticon.com/icons/svg/346/346183.svg" alt="" title="" />
+                </div>
+                <div class="text">
+                    <h4 class="title">
+                        Social proof
+                    </h4>
+                    <p class="subtitle">Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+                </div>
+            </div>
+            <div class="item-row">
+                <div class="figure">
+                    <img src="https://image.flaticon.com/icons/svg/346/346196.svg" alt="" title="" />
+                </div>
+                <div class="text">
+                    <h4 class="title">
+                        Social proof
+                    </h4>
+                    <p class="subtitle">Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+                </div>
+            </div>
+        </div>
+        <h3>Feature lists columns:</h3>
+        <div class="item-columns">
+            <div class="item-column">
+                <div class="figure item-1">
+                    <img src="https://image.flaticon.com/icons/svg/346/346182.svg" alt="" title="" />
+                </div>
+                <div class="text">
+                    <h4 class="title">
+                        Social proof
+                    </h4>
+                    <p class="subtitle">Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+                </div>
+            </div>
+            <div class="item-column">
+                <div class="figure">
+                    <img src="https://image.flaticon.com/icons/svg/346/346183.svg" alt="" title="" />
+                </div>
+                <div class="text">
+                    <h4 class="title">
+                        Social proof
+                    </h4>
+                    <p class="subtitle">Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+                </div>
+            </div>
+            <div class="item-column">
+                <div class="figure">
+                    <img src="https://image.flaticon.com/icons/svg/346/346196.svg" alt="" title="" />
+                </div>
+                <div class="text">
+                    <h4 class="title">
+                        Social proof
+                    </h4>
+                    <p class="subtitle">Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+                </div>
+            </div>
+        </div>
+        <h3>Feature lists staggered:</h3>
+        <div class="item-staggered">
+            <div class="item-row">
+                <div class="figure item-1">
+                    <img src="https://image.flaticon.com/icons/svg/346/346182.svg" alt="" title="" />
+                </div>
+                <div class="text">
+                    <h4 class="title">
+                        Social proof
+                    </h4>
+                    <p class="subtitle">Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+                </div>
+            </div>
+            <div class="item-row reverse">
+                <div class="figure">
+                    <img src="https://image.flaticon.com/icons/svg/346/346183.svg" alt="" title="" />
+                </div>
+                <div class="text">
+                    <h4 class="title">
+                        Social proof
+                    </h4>
+                    <p class="subtitle">Responsive web design user experience business model canvas advisor direct mailing success strategy termsheet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

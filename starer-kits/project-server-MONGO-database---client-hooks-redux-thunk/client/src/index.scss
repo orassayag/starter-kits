@@ -1,0 +1,57 @@
+@font-face {
+    font-family: poppins;
+    src: url('./assert/fonts/Poppins-Regular.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: poppins-bold;
+    src: url('./assert/fonts/Poppins-Bold.ttf');
+    font-weight: 700;
+    font-style: bold;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    font-weight: 300;
+    font-size: 1em;
+    font-family: poppins;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+textarea,
+select,
+input,
+button {
+    border: 0;
+    outline: none;
+}
+
+ul,
+nav {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}

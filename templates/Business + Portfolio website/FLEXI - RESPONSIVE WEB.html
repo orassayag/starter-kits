@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>FLEXI - RESPONSIVE WEB</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="https://i.imgur.com/oUUhZS4.png">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Exo+2:400,500,600,700" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <style type="text/css">
+        /* Start General Rules */
+        *,
+        *:after,
+        *:before {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        /* Small devices (tablets, 768px and up) */
+        @media (min-width: 768px) {
+            .container {
+                width: 750px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                width: 970px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                width: 1170px;
+            }
+        }
+
+        .clear-fix,
+        .clear-fix:after,
+        .clear-fix:before {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .f-left {
+            float: left;
+        }
+
+        .f-right {
+            float: right;
+        }
+
+        .active a {
+            color: #007BFF;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        h2 {
+            font-size: 36px;
+        }
+
+        h3 {
+            font-size: 28px;
+        }
+
+        h4 {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 12px;
+            color: #4b4b4b;
+            line-height: 26px;
+            letter-spacing: 1px;
+        }
+
+        .no-gutter {
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+        }
+
+        .rotate {
+            transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+        }
+
+        /* Sections Generic */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-transform: uppercase;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            margin: 30px 0;
+        }
+
+        .section-cover {
+            background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, .8)), to(rgba(0, 0, 0, .7))), url('https://i.imgur.com/WST2rE3.jpg');
+            background-image: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .7)), url('https://i.imgur.com/WST2rE3.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center right;
+        }
+
+        .white-smoke-color {
+            background-color: #f7f7f7;
+        }
+
+        .nav-white-bg {
+            background-color: #fff;
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .5)
+        }
+
+        .nav-dark-bg {
+            background-color: #333;
+        }
+
+        .icon {
+            font-size: 36px;
+        }
+
+        .icon-blue {
+            color: #007BFF;
+        }
+
+        /* Buttons Generic */
+        .btn {
+            text-transform: uppercase;
+            padding: 10px 20px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: transparent;
+            transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -ms-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            transform: scaleX(0);
+            -webkit-transform: scaleX(0);
+            -moz-transform: scaleX(0);
+            -ms-transform: scaleX(0);
+            -o-transform: scaleX(0);
+            z-index: -1;
+        }
+
+        .btn-rounded {
+            border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            -o-border-radius: 30px;
+        }
+
+        .btn-blue {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        .btn-blue:hover {
+            color: #007BFF;
+        }
+
+        .btn-blue:hover:before {
+            background-color: #fff;
+        }
+
+        .btn-white {
+            background-color: #ffffff;
+            color: #222222;
+        }
+
+        .btn-white:hover {
+            color: #fff;
+            border: 1px solid #007BFF;
+        }
+
+        .btn-white:hover:before {
+            background-color: #007BFF;
+        }
+
+        .btn-white:hover:before,
+        .btn-blue:hover:before {
+            transform: scaleX(1);
+            -webkit-transform: scaleX(1);
+            -moz-transform: scaleX(1);
+            -ms-transform: scaleX(1);
+            -o-transform: scaleX(1);
+        }
+
+        .btn-blue,
+        button[type="submit"] {
+            border: 1px solid #007BFF;
+        }
+
+        /* End General Rules */
+        /* Start Preloader */
+        .loader-box {
+            position: fixed;
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+        }
+
+        .loader-in {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            transform: translate(-50%, -50%) rotate(180deg);
+            -webkit-transform: translate(-50%, -50%) rotate(180deg);
+            -moz-transform: translate(-50%, -50%) rotate(180deg);
+            -ms-transform: translate(-50%, -50%) rotate(180deg);
+            -o-transform: translate(-50%, -50%) rotate(180deg);
+        }
+
+        .loader {
+            width: 10px;
+            height: 60px;
+            background-color: #f2545b;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            margin-left: 5px;
+        }
+
+        @-webkit-keyframes loading-1 {
+            0% {
+                height: 15px
+            }
+
+            100% {
+                height: 60px;
+            }
+        }
+
+        @keyframes loading-1 {
+            0% {
+                height: 15px
+            }
+
+            100% {
+                height: 60px;
+            }
+        }
+
+        .loader-1 {
+            animation: loading-1 .2s linear infinite alternate;
+            -webkit-animation: loading-1 .2s linear infinite alternate;
+        }
+
+        .loader-2 {
+            animation: loading-1 .4s linear infinite alternate;
+            -webkit-animation: loading-1 .4s linear infinite alternate;
+        }
+
+        .loader-3 {
+            animation: loading-1 .6s linear infinite alternate;
+            -webkit-animation: loading-1 .6s linear infinite alternate;
+        }
+
+        .loader-4 {
+            animation: loading-1 .8s linear infinite alternate;
+            -webkit-animation: loading-1 .8s linear infinite alternate;
+        }
+
+        /* Start Navigation */
+        #top-nav {
+            position: fixed;
+            z-index: 999;
+            width: 100%;
+            transition: .5s;
+            -webkit-transition: .5s;
+            -moz-transition: .5s;
+            -ms-transition: .5s;
+            -o-transition: .5s;
+        }
+
+        #top-nav .logo-wrapper {
+            height: 50px;
+            line-height: 50px;
+        }
+
+        #top-nav .flexi-logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        #top-nav .menu-toggle {
+            color: #fff;
+            font-size: 24px;
+            line-height: 50px;
+            cursor: pointer;
+            display: none;
+            transition: .4s;
+            -webkit-transition: .4s;
+            -moz-transition: .4s;
+            -ms-transition: .4s;
+            -o-transition: .4s;
+        }
+
+        @media (max-width: 991px) {
+            #top-nav .menu-toggle {
+                display: block;
+            }
+
+            #top-nav .navbar-wrapper {
+                position: absolute;
+                top: 50px;
+                left: -100%;
+                width: 100%;
+                height: auto;
+                background-color: #333;
+                z-index: 1;
+                transition: .5s;
+                -webkit-transition: .5s;
+                -moz-transition: .5s;
+                -ms-transition: .5s;
+                -o-transition: .5s;
+            }
+
+            #top-nav .navbar-wrapper.active {
+                left: 0;
+            }
+
+            #top-nav .navbar-wrapper .navbar-list {
+                display: block;
+                text-align: center;
+            }
+
+            #top-nav .navbar-wrapper .navbar-list li {
+                display: block;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        #top-nav .navbar-wrapper li .link-item {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 20px;
+        }
+
+        #top-nav.nav-white-bg .navbar-wrapper li .link-item,
+        #top-nav.nav-white-bg .flexi-logo {
+            color: #888;
+        }
+
+        #top-nav.nav-white-bg .navbar-wrapper li.active .link-item,
+        #top-nav .navbar-wrapper li:hover .link-item {
+            color: #007BFF;
+        }
+
+        /* End Navigation */
+        /* Start Hero */
+        #hero-area {
+            position: relative;
+        }
+
+        #hero-area #hero-cover {
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.5))), url('https://i.imgur.com/yTQV0i4.jpg');
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/yTQV0i4.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center center;
+            height: 90vh;
+        }
+
+        #hero-area #hero-content-box {
+            position: absolute;
+            top: 40%;
+            left: 0;
+            right: 0;
+            text-align: center;
+            transform: translateY(-40%);
+            -webkit-transform: translateY(-40%);
+            -moz-transform: translateY(-40%);
+            -ms-transform: translateY(-40%);
+            -o-transform: translateY(-40%);
+            color: #fff;
+        }
+
+        #hero-area #hero-content-box .hello {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        #hero-area #hero-content-box .post {
+            margin: 20px 0 20px 0;
+        }
+
+        #hero-area #hero-content-box .hero-desc {
+            color: #fff;
+            margin-bottom: 60px;
+        }
+
+        #hero-area #hero-content-box .hero-btns .btn {
+            margin-right: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #hero-area #hero-content-box .hero-btns .btn:before {
+            border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            -o-border-radius: 30px;
+        }
+
+        #hero-area .btn-mouse-wrapper {
+            position: absolute;
+            display: inline-block;
+            left: 50%;
+            bottom: 5%;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        #hero-area .btn-mouse-wrapper .btn-mouse {
+            border: 2px solid #c6c5c7;
+            padding: 20px 15px;
+            border-radius: 10%;
+            -webkit-border-radius: 10%;
+            -moz-border-radius: 10%;
+            -ms-border-radius: 10%;
+            -o-border-radius: 10%;
+        }
+
+        #hero-area .btn-mouse-wrapper .btn-mouse .btn-wheel {
+            width: 3px;
+            height: 10px;
+            padding: 0;
+            background-color: #c6c5c7;
+            transform: translateY(-10px);
+            -webkit-transform: translateY(-10px);
+            -moz-transform: translateY(-10px);
+            -ms-transform: translateY(-10px);
+            -o-transform: translateY(-10px);
+            animation: updown 2s ease .1s infinite both;
+            -webkit-animation: updown 2s ease .1s infinite both;
+        }
+
+        @-webkit-keyframes updown {
+            0% {
+                transform: translateY(-10px);
+                -webkit-transform: translateY(-10px);
+                -moz-transform: translateY(-10px);
+                -ms-transform: translateY(-10px);
+                -o-transform: translateY(-10px);
+            }
+
+            30% {
+                transform: translateY(-5px);
+                -webkit-transform: translateY(-5px);
+                -moz-transform: translateY(-5px);
+                -ms-transform: translateY(-5px);
+                -o-transform: translateY(-5px);
+            }
+
+            50% {
+                transform: translateY(0px);
+                -webkit-transform: translateY(0px);
+                -moz-transform: translateY(0px);
+                -ms-transform: translateY(0px);
+                -o-transform: translateY(0px);
+            }
+
+            80% {
+                transform: translateY(10px);
+                -webkit-transform: translateY(10px);
+                -moz-transform: translateY(10px);
+                -ms-transform: translateY(10px);
+                -o-transform: translateY(10px);
+            }
+
+            100% {
+                transform: translateY(20px);
+                -webkit-transform: translateY(20px);
+                -moz-transform: translateY(20px);
+                -ms-transform: translateY(20px);
+                -o-transform: translateY(20px);
+                opacity: .1;
+            }
+        }
+
+        @keyframes updown {
+            0% {
+                transform: translateY(-10px);
+                -webkit-transform: translateY(-10px);
+                -moz-transform: translateY(-10px);
+                -ms-transform: translateY(-10px);
+                -o-transform: translateY(-10px);
+            }
+
+            30% {
+                transform: translateY(-5px);
+                -webkit-transform: translateY(-5px);
+                -moz-transform: translateY(-5px);
+                -ms-transform: translateY(-5px);
+                -o-transform: translateY(-5px);
+            }
+
+            50% {
+                transform: translateY(0px);
+                -webkit-transform: translateY(0px);
+                -moz-transform: translateY(0px);
+                -ms-transform: translateY(0px);
+                -o-transform: translateY(0px);
+            }
+
+            80% {
+                transform: translateY(10px);
+                -webkit-transform: translateY(10px);
+                -moz-transform: translateY(10px);
+                -ms-transform: translateY(10px);
+                -o-transform: translateY(10px);
+            }
+
+            100% {
+                transform: translateY(20px);
+                -webkit-transform: translateY(20px);
+                -moz-transform: translateY(20px);
+                -ms-transform: translateY(20px);
+                -o-transform: translateY(20px);
+                opacity: .1;
+            }
+        }
+
+        /* End Hero */
+        /* Start About */
+        #about .about-pic {
+            width: 35%;
+            padding: 5px;
+            border: 1px solid #c6c5c7;
+            margin-right: 30px;
+        }
+
+        #about .about-pic img {
+            display: block;
+            max-width: 100%;
+        }
+
+        #about .about-content {
+            width: 60%;
+        }
+
+        #about .about-content .about-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            margin: 20px 0 0 0;
+        }
+
+        #about .about-content .about-desc {
+            margin: 30px 0;
+        }
+
+        #about .about-content .about-desc .desc-top {
+            margin-bottom: 20px;
+        }
+
+        #about .about-content .about-details {
+            border-top: 1px solid #f0f0f0;
+            margin: 0 0 30px 0;
+        }
+
+        #about .about-content .about-details-left,
+        #about .about-content .about-details-right {
+            padding: 30px 0 0 0;
+            width: 50%;
+        }
+
+        #about .about-content .about-details-left .name,
+        #about .about-content .about-details-left .age,
+        #about .about-content .about-details-right .email,
+        #about .about-content .about-details-right .location {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        #about .about-content .about-details-right .email .mail-blue {
+            color: #007BFF;
+        }
+
+        #about .about-btns {
+            margin: 40px 0 20px 0;
+        }
+
+        #about .about-btns .btn-white {
+            border: 1px solid #007BFF;
+        }
+
+        #about .about-btns .btn-blue {
+            margin: 0 20px 0 0;
+        }
+
+        /* End About */
+        /* Start Services */
+        #services .section-heading .section-title {
+            font-size: 36px;
+        }
+
+        #services .services-wrapper {
+            margin: 40px 0 0 0;
+        }
+
+        #services .services-item {
+            float: left;
+            width: calc(100% / 3 - 20px);
+            padding: 40px 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 5px 9px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        #services .services-item .item-title {
+            margin: 20px 0 20px 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* End Services */
+        /* Start Hire me */
+        #hire-me .section-heading {
+            padding: 80px 0;
+            color: #fff;
+        }
+
+        #hire-me .section-heading .section-subtitle {
+            color: #fff;
+            margin: 30px 0;
+        }
+
+        #hire-me .hire-me-btns .btn-white {
+            border: none;
+        }
+
+        /* End Hire me */
+        /* Start Portfolio */
+        #portfolio .section-heading .section-subtitle {
+            margin: 30px 0;
+        }
+
+        #portfolio .portfolio-content .portfolio-filter li {
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        #portfolio .portfolio-content .portfolio-filter li.active {
+            color: #007BFF;
+        }
+
+        #portfolio .portfolio-content .portfolio-items {
+            margin: 30px 0 0 0;
+        }
+
+        #portfolio .portfolio-content .portfolio-items .item {
+            position: relative;
+            display: block;
+            float: left;
+            width: calc(100% / 3 - 20px);
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+
+        #portfolio .portfolio-content .portfolio-items .item:before {
+            content: '';
+            position: absolute;
+            display: block;
+            margin: auto;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 90%;
+            height: 90%;
+            background-color: rgba(0, 123, 255, .7);
+            z-index: 1;
+            opacity: 0;
+            transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -ms-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+        }
+
+        #portfolio .portfolio-content .portfolio-items .item-data {
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%);
+            -webkit-transform: translate(-50%);
+            -moz-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            -o-transform: translate(-50%);
+            transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -ms-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            z-index: 2;
+            opacity: 0;
+        }
+
+        #portfolio .portfolio-content .portfolio-items .item-data .title {
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        #portfolio .portfolio-content .portfolio-items .item-data .subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        #portfolio .portfolio-content .portfolio-items .item:hover:before {
+            opacity: 1;
+        }
+
+        #portfolio .portfolio-content .portfolio-items .item:hover .item-data {
+            top: 50%;
+            opacity: 1;
+        }
+
+        #portfolio .portfolio-content .portfolio-items .item img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* End Portfolio */
+        /* Start Testimonials */
+        #testimonials .section-heading {
+            padding: 80px 0 0 0;
+            color: #fff;
+        }
+
+        #testimonials .testimonials-content {
+            padding: 100px 0 30px 0;
+        }
+
+        #testimonials .testimonials-content .icon {
+            font-size: 44px;
+            color: #007BFF;
+        }
+
+        #testimonials .testimonials-content .testimonial-desc {
+            margin: 20px 0 20px 0;
+            width: 60%;
+            margin: 40px auto;
+            color: #fff;
+        }
+
+        #testimonials .testimonials-content .testimonial-pic {
+            width: 6%;
+            margin: 0 auto 30px auto;
+        }
+
+        #testimonials .testimonials-content .testimonial-pic img {
+            display: block;
+            max-width: 100%;
+            border: 2px solid #999;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+        }
+
+        #testimonials .testimonials-content .testimonial-profile span {
+            display: block;
+            color: #fff;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        #testimonials .testimonials-content .testimonial-profile span.name {
+            font-weight: 700;
+        }
+
+        .owl-theme .owl-nav.disabled+.owl-dots {
+            margin-top: 30px;
+        }
+
+        .owl-theme .owl-dots .owl-dot {
+            outline: none;
+        }
+
+        .owl-theme .owl-dots .owl-dot.active span,
+        .owl-theme .owl-dots .owl-dot:hover span {
+            background-color: #007BFF;
+        }
+
+        /* End Testimonials */
+        /* Start Blog */
+        #blog .blog-wrapper .blog {
+            width: calc(100% / 3 - 20px);
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+
+        #blog .blog-wrapper .blog .blog-img img {
+            display: block;
+            max-width: 100%;
+        }
+
+        #blog .blog-wrapper .blog .blog-content {
+            margin: 20px 0 0 0;
+        }
+
+        #blog .blog-wrapper .blog .blog-content .title {
+            font-size: 16px;
+            color: #333333;
+            margin: 0 0 20px 0;
+        }
+
+        #blog .blog-wrapper .blog .blog-content .desc {
+            margin: 0 0 20px 0;
+        }
+
+        #blog .blog-wrapper .blog .blog-content .blog-author .author-img {
+            width: 12%;
+            margin: 0 20px 0 0;
+        }
+
+        #blog .blog-wrapper .blog .blog-content .blog-author img {
+            display: block;
+            max-width: 100%;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+        }
+
+        #blog .blog-wrapper .blog .blog-content .blog-author .author-text span {
+            display: block;
+        }
+
+        #blog .blog-wrapper .blog .blog-content .blog-author .author-text span.name {
+            font-weight: 600;
+            color: #007BFF;
+            margin: 0 0 5px 0;
+        }
+
+        /* End Blog */
+        /* Start Contact */
+        #contact .contact-content .message,
+        #contact .contact-content .contact-info {
+            width: calc(100% / 2 - 20px);
+        }
+
+        #contact .contact-content .message {
+            margin: 0 20px 40px 0;
+        }
+
+        #contact .contact-content .message .title,
+        #contact .contact-content .contact-info .title {
+            font-size: 18px;
+            text-transform: capitalize;
+            margin: 0 0 20px 0;
+        }
+
+        #contact .contact-content form input {
+            width: 100%;
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            -o-border-radius: 3px;
+        }
+
+        input,
+        textarea {
+            border: none;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+            outline: none;
+            padding: 15px 20px;
+        }
+
+        #contact .contact-content form .input-name,
+        #contact .contact-content form .input-mail {
+            width: calc(100% / 2 - 10px);
+            margin: 0 0 20px 0;
+        }
+
+        #contact .contact-content form .input-name {
+            margin-right: 20px;
+        }
+
+        #contact .contact-content form .input-textarea {
+            margin: 20px 0 30px 0;
+            width: 100%;
+        }
+
+        #contact .contact-content form .input-textarea textarea {
+            width: 100%;
+            height: 150%;
+            min-height: 150px;
+            max-height: 150px;
+        }
+
+        #contact .contact-content form [type="submit"] {
+            cursor: pointer;
+            width: 150px;
+        }
+
+        #contact .contact-info ul.contact-details {
+            margin: 20px 0 20px 0;
+        }
+
+        #contact .contact-info ul.contact-details li {
+            display: block;
+            margin: 20px 0 20px 0;
+        }
+
+        #contact .contact-info ul.contact-details .contact-icon {
+            margin: 0 20px 0 0;
+            width: 60px;
+            height: 60px;
+            line-height: 75px;
+            text-align: center;
+            position: relative;
+        }
+
+        #contact .contact-info ul.contact-details .contact-text {
+            width: 200px;
+            padding: 10px 0;
+        }
+
+        #contact .contact-info ul.contact-details .contact-icon:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 2px;
+            height: 60px;
+            background-color: #e6e6e6;
+        }
+
+        /* End Contact*/
+        /* Start Footer*/
+        #footer {
+            background-color: #222222;
+            padding: 100px 0 0 0;
+            position: relative;
+        }
+
+        #footer .footer-top ul {
+            width: calc(100% / 4);
+            margin: 0 0 20px 0;
+        }
+
+        #footer .footer-top ul li:first-of-type {
+            margin-bottom: 20px;
+        }
+
+        #footer .footer-top ul li {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #footer ul .link-title {
+            font-weight: 700;
+            color: #fff;
+        }
+
+        #footer ul li a {
+            color: #919191;
+        }
+
+        #footer ul .link-title-big {
+            font-size: 36px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        #footer ul .flexi-desc {
+            color: #b1b1b1;
+        }
+
+        #footer .footer-bottom {
+            margin: 20px 0 0 0;
+            border-top: 4px solid #292929;
+            padding: 30px 0 30px 0;
+        }
+
+        #footer .footer-bottom .copyright {
+            color: #fff;
+            text-transform: capitalize;
+            font-size: 14px;
+            margin: 10px 0 20px 0;
+            line-height: 26px;
+        }
+
+        #footer .footer-bottom .footer-social li {
+            margin: 0 10px 0 0;
+        }
+
+        #footer .footer-bottom .footer-social li a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            color: #fff;
+        }
+
+        #footer .footer-bottom .footer-social li a.twitter {
+            background-color: #1da1f2;
+        }
+
+        #footer .footer-bottom .footer-social li a.instagram {
+            background-color: #c32361;
+        }
+
+        #footer .footer-bottom .footer-social li a.linkedin {
+            background-color: #0077b5;
+        }
+
+        #footer .footer-bottom .footer-social li a.youtube {
+            background-color: #c33a38;
+        }
+
+        #footer .footer-bottom .footer-social li a.facebook {
+            background-color: #3b5998;
+        }
+
+        #footer .back-to-top {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            background-color: #fff;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            position: fixed;
+            right: -55%;
+            bottom: 10%;
+            box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.3);
+            transition: .5s;
+            -webkit-transition: .5s;
+            -moz-transition: .5s;
+            -ms-transition: .5s;
+            -o-transition: .5s;
+            z-index: 333;
+        }
+
+        #footer .back-to-top a {
+            display: block;
+        }
+
+        /* RESPONSIVE */
+        /* Large devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) {
+            /* Ok */
+        }
+
+        /* Medium devices (desktops, 992px and up) */
+        @media (min-width: 992px) and (max-width: 1199px) {
+            #hero-area .btn-mouse-wrapper .btn-mouse {
+                display: none;
+            }
+        }
+
+        /* Small devices (tablets, 768px and up) */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            #hero-area .btn-mouse-wrapper .btn-mouse {
+                display: none;
+            }
+
+            #about .about-pic,
+            #about .about-content,
+            #contact .contact-content .message,
+            #contact .contact-content .contact-info,
+            #footer .footer-bottom .copyright,
+            #footer .footer-bottom .footer-social {
+                float: none;
+            }
+
+            #about .about-pic {
+                width: 50%;
+                margin: 0 auto 30px auto;
+            }
+
+            #about .about-content {
+                width: 100%;
+                text-align: center;
+            }
+
+            #services .services-item,
+            #portfolio .portfolio-content .portfolio-items .item,
+            #blog .blog-wrapper .blog {
+                width: calc(100% / 2 - 20px);
+            }
+
+            #testimonials .testimonials-content .testimonial-desc,
+            #contact .contact-content .message,
+            #contact .contact-content .contact-info {
+                width: 100%;
+            }
+
+            #footer .footer-top ul li:first-of-type {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            #footer .footer-top ul li {
+                font-size: 12px;
+            }
+
+            #footer .footer-bottom .copyright {
+                display: block;
+                text-align: center;
+            }
+
+            #footer .footer-bottom .footer-social {
+                text-align: center;
+            }
+        }
+
+        /* Extra small devices (phones, less than 768px) */
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 45px;
+            }
+
+            #hero-area .btn-mouse-wrapper .btn-mouse {
+                display: none;
+            }
+
+            #about .about-pic,
+            #about .about-content,
+            #contact .contact-content .message,
+            #contact .contact-content .contact-info,
+            #footer .footer-bottom .copyright,
+            #footer .footer-bottom .footer-social {
+                float: none;
+            }
+
+            #hero-area .btn-mouse-wrapper .btn-mouse {
+                padding: 15px 10px;
+            }
+
+            #about .about-pic {
+                width: 50%;
+                margin: 0 auto 30px auto;
+            }
+
+            #about .about-content {
+                width: 100%;
+                text-align: center;
+            }
+
+            #services .services-item,
+            #portfolio .portfolio-content .portfolio-items .item,
+            #blog .blog-wrapper .blog {
+                width: calc(100% / 2 - 20px);
+            }
+
+            #testimonials .testimonials-content .testimonial-desc,
+            #contact .contact-content .message,
+            #contact .contact-content .contact-info {
+                width: 100%;
+            }
+
+            #footer .footer-top ul li:first-of-type {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            #footer .footer-top ul li {
+                font-size: 12px;
+            }
+
+            #footer .footer-bottom .copyright {
+                display: block;
+                text-align: center;
+            }
+
+            #footer .footer-bottom .footer-social {
+                text-align: center;
+            }
+        }
+
+        /* Extra small devices (phones, less than 480px) */
+        @media (max-width: 655px) {
+            #hero-area #hero-content-box .hello {
+                font-size: 16px;
+            }
+
+            #hero-area #hero-content-box .post {
+                font-size: 36px;
+            }
+
+            #hero-area #hero-content-box .hero-desc {
+                padding: 0 50px;
+            }
+
+            #services .services-item,
+            #blog .blog-wrapper .blog,
+            #portfolio .portfolio-content .portfolio-items .item {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            #services .services-item,
+            #portfolio .portfolio-content .portfolio-items .item,
+            #blog .blog-wrapper .blog,
+            #about .about-content .about-details-left,
+            #about .about-content .about-details-right,
+            #contact .contact-content form .input-name,
+            #contact .contact-content form .input-mail {
+                width: 100%;
+            }
+
+            #testimonials .testimonials-content .testimonial-pic {
+                width: 10%;
+            }
+
+            #blog .blog-wrapper .blog .blog-img img,
+            #portfolio .portfolio-content .portfolio-items .item img {
+                min-width: 100%;
+            }
+
+            #contact .contact-content form .input-name,
+            #contact .contact-content form .input-mail {
+                float: none;
+            }
+
+            #footer .footer-top ul {
+                width: calc(100% / 2);
+            }
+        }
+
+        /* Extra small devices (phones, less than 480px) */
+        @media (max-width: 480px) {}
+
+        /* Extra small devices (phones, less than 393px) */
+        @media (max-width: 393px) {
+            #about .about-btns .btn-blue {
+                margin: 0 0 20px 0;
+            }
+        }
+
+        /* Extra small devices (phones, less than 275px) */
+        @media (max-width: 375px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            #testimonials .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="loader-box" style="display: none;">
+        <div class="loader-in" style="display: none;">
+            <div class="loader loader-1 f-left"></div>
+            <div class="loader loader-2 f-left"></div>
+            <div class="loader loader-3 f-left"></div>
+            <div class="loader loader-4 f-left"></div>
+        </div>
+        <div class="clear-fix"></div>
+    </div>
+    <header>
+        <nav id="top-nav" class="nav-white-bg">
+            <div class="container">
+                <div class="logo-wrapper f-left">
+                    <a href="#" class="flexi-logo">Flexi</a>
+                </div>
+                <div class="menu-toggle btn-rounded f-right" data-target="#flexi-nav">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div id="flexi-nav" class="navbar-wrapper f-right">
+                    <ul class="navbar-list">
+                        <li class="active"><a class="link-item smooth-scroll" href="#hero-area">Home</a></li>
+                        <li><a class="link-item smooth-scroll" href="#about">About</a></li>
+                        <li><a class="link-item smooth-scroll" href="#services">Services</a></li>
+                        <li><a class="link-item smooth-scroll" href="#portfolio">Portfolio</a></li>
+                        <li><a class="link-item smooth-scroll" href="#testimonials">Clients</a></li>
+                        <li><a class="link-item smooth-scroll" href="#blog">Blog</a></li>
+                        <li><a class="link-item smooth-scroll" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="clear-fix"></div>
+            </div>
+        </nav>
+    </header>
+    <section id="hero-area">
+        <div id="hero-cover">
+            <div id="hero-content-box" class="text-center">
+                <h4 class="hello">Hello, my name is Alaa Ibrahim</h4>
+                <h1 class="post">I'm a Developer</h1>
+                <p class="hero-desc">
+                    I'm a web developer with extensive experience for over 3 years. My expertise is to create <br>
+                    and design websites, Apps, Mockups and many more...
+                </p>
+                <div class="hero-btns">
+                    <a href="#" class="btn btn-white btn-rounded">My work</a>
+                    <a href="#" class="btn btn-blue btn-rounded">Hire me</a>
+                </div>
+            </div>
+            <a class="btn btn-mouse-wrapper" href="#about">
+               <div class="btn btn-mouse">
+                  <div class="btn btn-wheel"></div>
+               </div>
+            </a>
+        </div>
+    </section>
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-pic f-left">
+                <img src="https://i.imgur.com/Rk08C8R.jpg" alt="Profile Picture" title="Portfolio" />
+            </div>
+            <div class="about-content f-right">
+                <h4 class="section-title">About me</h4>
+                <h4 class="about-subtitle">I am a full stack developer</h4>
+                <div class="about-desc desc">
+                    <p class="desc-top">
+                        My name is <strong>Alaa ibrahim.</strong> I am a freelancer based in Egypt and i have been
+                        building
+                        noteworthy websites for years. For this time i've done all types of projects.
+                    </p>
+                    <p class="desc-bottom">
+                        I help convert a vision and idea into meaningful and useful products. Having a sharp eye for
+                        product evolution helps me prioritize tasks, iterate fast and deliver faster. if you're
+                        intersted
+                        in working with me, don't hesitate to hire me.
+                    </p>
+                </div>
+                <div class="about-details">
+                    <div class="about-details-left f-left">
+                        <span class="name"><strong>Name:</strong> Alaa Ibrahim</span>
+                        <span class="age"><strong>Age:</strong> 36</span>
+                    </div>
+                    <div class="about-details-right f-right">
+                        <span class="email"><strong>E-mail:</strong><span class="mail-blue"> Alaa4eg@outlook.com</span></span>
+                        <span class="location"><strong>From:</strong> Cairo</span>
+                    </div>
+                </div>
+                <div class="clear-fix"></div>
+                <div class="about-btns">
+                    <a href="#" class="btn btn-blue">Download cv</a>
+                    <a href="#" class="btn btn-white">More details</a>
+                </div>
+            </div>
+            <div class="clear-fix"></div>
+        </div>
+    </section>
+    <div class="section text-center white-smoke-color" id="services">
+        <div class="container">
+            <div class="section-heading">
+                <h4 class="section-title">Services</h4>
+                <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, eum!</p>
+            </div>
+            <div class="services-wrapper">
+                <div class="services-item">
+                    <i class="fas fa-rocket icon icon-blue"></i>
+                    <h4 class="item-title">Branding</h4>
+                    <p class="item-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat sequi
+                        delectus commodi natus facilis molestiae.
+                    </p>
+                </div>
+                <div class="services-item">
+                    <i class="fas fa-heartbeat icon icon-blue"></i>
+                    <h4 class="item-title">Customer support</h4>
+                    <p class="item-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat sequi
+                        delectus commodi natus facilis molestiae.
+                    </p>
+                </div>
+                <div class="services-item">
+                    <i class="far fa-images icon icon-blue"></i>
+                    <h4 class="item-title">Psd design</h4>
+                    <p class="item-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat sequi
+                        delectus commodi natus facilis molestiae.
+                    </p>
+                </div>
+                <div class="services-item">
+                    <i class="fas fa-palette icon icon-blue"></i>
+                    <h4 class="item-title">Unique deisgn</h4>
+                    <p class="item-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat sequi
+                        delectus commodi natus facilis molestiae.
+                    </p>
+                </div>
+                <div class="services-item">
+                    <i class="fab fa-wordpress icon icon-blue"></i>
+                    <h4 class="item-title">Web development</h4>
+                    <p class="item-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat sequi
+                        delectus commodi natus facilis molestiae.
+                    </p>
+                </div>
+                <div class="services-item">
+                    <i class="fas fa-arrows-alt icon icon-blue"></i>
+                    <h4 class="item-title">Fully responsive</h4>
+                    <p class="item-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat sequi
+                        delectus commodi natus facilis molestiae.
+                    </p>
+                </div>
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+    </div>
+    <section class="text-center" id="hire-me">
+        <div class="section-cover">
+            <div class="container">
+                <div class="section-heading">
+                    <h4 class="section-title">Let's work together</h4>
+                    <p class="section-subtitle">I'm available for freelancer projects.Hire me and get your project
+                        done.
+                    </p>
+                    <div class="hire-me-btns">
+                        <a href="#" class="btn btn-white">Hire me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section text-center" id="portfolio">
+        <div class="container">
+            <div class="section-heading">
+                <h4 class="section-title">Portfolio</h4>
+                <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, eum!</p>
+            </div>
+            <div class="portfolio-content">
+                <ul class="portfolio-filter">
+                    <li class="active" data-value="all">All</li>
+                    <li data-value="brand">Brand</li>
+                    <li data-value="design">Design</li>
+                    <li data-value="photos">Photos</li>
+                </ul>
+                <div class="portfolio-items">
+                    <a href="#" class="item animated zoomIn brand">
+                     <img src="https://i.imgur.com/kPO2m5T.jpg" alt="Portfolio" title="Portfolio" />
+                     <div class="item-data">
+                        <h4 class="title">Project 1</h4>
+                        <p class="subtitle">Brand</p>
+                     </div>
+                  </a>
+                    <a href="#" class="item animated zoomIn design">
+                     <img src="https://i.imgur.com/z83W7Yl.jpg" alt="Portfolio" title="Portfolio" />
+                     <div class="item-data">
+                        <h4 class="title">Project 2</h4>
+                        <p class="subtitle">Design</p>
+                     </div>
+                  </a>
+                    <a href="#" class="item animated zoomIn photos">
+                     <img src="https://i.imgur.com/63nBCF4.jpg" alt="Portfolio" title="Portfolio" />
+                     <div class="item-data">
+                        <h4 class="title">Project 3</h4>
+                        <p class="subtitle">Photos</p>
+                     </div>
+                  </a>
+                    <a href="#" class="item animated zoomIn brand">
+                     <img src="https://i.imgur.com/n9hk6NY.jpg" alt="Portfolio" title="Portfolio" />
+                     <div class="item-data">
+                        <h4 class="title">Project 4</h4>
+                        <p class="subtitle">Brand</p>
+                     </div>
+                  </a>
+                    <a href="#" class="item animated zoomIn photos">
+                     <img src="https://i.imgur.com/RIa8TBi.jpg" alt="Portfolio" title="Portfolio" />
+                     <div class="item-data">
+                        <h4 class="title">Project 5</h4>
+                        <p class="subtitle">Photos</p>
+                     </div>
+                  </a>
+                    <a href="#" class="item animated zoomIn design">
+                     <img src="https://i.imgur.com/kzx1nz9.jpg" alt="Portfolio" title="Portfolio" />
+                     <div class="item-data">
+                        <h4 class="title">Project 6</h4>
+                        <p class="subtitle">Design</p>
+                     </div>
+                  </a>
+                    <div class="clear-fix"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials">
+        <div class="section-cover">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <h4 class="section-title">Testimonials</h4>
+                </div>
+                <div class="testimonials-content owl-carousel owl-theme text-center owl-loaded owl-drag">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage" style="transform: translate3d(-4560px, 0px, 0px); transition: all 0.25s ease 0s; width: 7980px;">
+                            <div class="owl-item cloned" style="width: 1140px;">
+                                <div class="testimonial">
+                                    <i class="fas fa-quote-right icon"></i>
+                                    <p class="testimonial-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Laudantium iure temporibus sed et placeat inventore architecto corporis! Tempora, tenetur
+                                        natus?
+                                    </p>
+                                    <div class="testimonial-pic">
+                                        <img src="https://i.imgur.com/HvnYkpG.jpg" alt="tesimonial client" title="tesimonial client" />
+                                    </div>
+                                    <div class="testimonial-profile">
+                                        <span class="name">Julia jac</span>
+                                        <span class="post">Envato customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item cloned" style="width: 1140px;">
+                                <div class="testimonial">
+                                    <i class="fas fa-quote-right icon"></i>
+                                    <p class="testimonial-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Laudantium iure temporibus sed et placeat inventore architecto corporis! Tempora, tenetur
+                                        natus?
+                                    </p>
+                                    <div class="testimonial-pic">
+                                        <img src="https://i.imgur.com/EuCJEuR.jpg" alt="tesimonial client" title="tesimonial client" />
+                                    </div>
+                                    <div class="testimonial-profile">
+                                        <span class="name">Julia jac</span>
+                                        <span class="post">Envato customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 1140px;">
+                                <div class="testimonial">
+                                    <i class="fas fa-quote-right icon"></i>
+                                    <p class="testimonial-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Laudantium iure temporibus sed et placeat inventore architecto corporis! Tempora, tenetur
+                                        natus?
+                                    </p>
+                                    <div class="testimonial-pic">
+                                        <img src="https://i.imgur.com/D8ZntwR.jpg" alt="tesimonial client" title="tesimonial client" />
+                                    </div>
+                                    <div class="testimonial-profile">
+                                        <span class="name">Julia jac</span>
+                                        <span class="post">Envato customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 1140px;">
+                                <div class="testimonial">
+                                    <i class="fas fa-quote-right icon"></i>
+                                    <p class="testimonial-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Laudantium iure temporibus sed et placeat inventore architecto corporis! Tempora, tenetur
+                                        natus?
+                                    </p>
+                                    <div class="testimonial-pic">
+                                        <img src="https://i.imgur.com/HvnYkpG.jpg" alt="tesimonial client" title="tesimonial client" />
+                                    </div>
+                                    <div class="testimonial-profile">
+                                        <span class="name">Julia jac</span>
+                                        <span class="post">Envato customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item active" style="width: 1140px;">
+                                <div class="testimonial">
+                                    <i class="fas fa-quote-right icon"></i>
+                                    <p class="testimonial-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Laudantium iure temporibus sed et placeat inventore architecto corporis! Tempora, tenetur
+                                        natus?
+                                    </p>
+                                    <div class="testimonial-pic">
+                                        <img src="https://i.imgur.com/EuCJEuR.jpg" alt="tesimonial client" title="tesimonial client" />
+                                    </div>
+                                    <div class="testimonial-profile">
+                                        <span class="name">Julia jac</span>
+                                        <span class="post">Envato customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item cloned" style="width: 1140px;">
+                                <div class="testimonial">
+                                    <i class="fas fa-quote-right icon"></i>
+                                    <p class="testimonial-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Laudantium iure temporibus sed et placeat inventore architecto corporis! Tempora, tenetur
+                                        natus?
+                                    </p>
+                                    <div class="testimonial-pic">
+                                        <img src="https://i.imgur.com/D8ZntwR.jpg" alt="tesimonial client" title="tesimonial client" />
+                                    </div>
+                                    <div class="testimonial-profile">
+                                        <span class="name">Julia jac</span>
+                                        <span class="post">Envato customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item cloned" style="width: 1140px;">
+                                <div class="testimonial">
+                                    <i class="fas fa-quote-right icon"></i>
+                                    <p class="testimonial-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Laudantium iure temporibus sed et placeat inventore architecto corporis! Tempora, tenetur
+                                        natus?
+                                    </p>
+                                    <div class="testimonial-pic">
+                                        <img src="https://i.imgur.com/HvnYkpG.jpg" alt="tesimonial client" title="tesimonial client" />
+                                    </div>
+                                    <div class="testimonial-profile">
+                                        <span class="name">Julia jac</span>
+                                        <span class="post">Envato customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div>
+                    <div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="blog" class="section">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h4 class="section-title">My blog</h4>
+                <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, eum!</p>
+            </div>
+            <div class="blog-wrapper">
+                <div class="blog f-left">
+                    <div class="blog-img">
+                        <img src="https://i.imgur.com/fHeU6NH.jpg" alt="Post Here" title="" />
+                    </div>
+                    <div class="blog-content">
+                        <h4 class="title">5 tips for photographers</h4>
+                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sapiente, beatae
+                            laudantium eaque unde dolorum ad suscipit sit
+                        </p>
+                        <div class="blog-author">
+                            <div class="author-img f-left">
+                                <img src="https://i.imgur.com/EuCJEuR.jpg" alt="author" title="" />
+                            </div>
+                            <div class="author-text f-left">
+                                <span class="name">Daniel smith</span>
+                                <span class="date">15 Aug 18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog f-left">
+                    <div class="blog-img">
+                        <img src="https://i.imgur.com/ZONgZbd.jpg" alt="Post Here" title="" />
+                    </div>
+                    <div class="blog-content">
+                        <h4 class="title">Take a tour of my office</h4>
+                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sapiente, beatae
+                            laudantium eaque unde dolorum ad suscipit sit
+                        </p>
+                        <div class="blog-author">
+                            <div class="author-img f-left">
+                                <img src="https://i.imgur.com/HvnYkpG.jpg" alt="author" title="" />
+                            </div>
+                            <div class="author-text f-left">
+                                <span class="name">Daniel smith</span>
+                                <span class="date">15 Aug 18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog f-left">
+                    <div class="blog-img">
+                        <img src="https://i.imgur.com/6hgwD9n.jpg" alt="Post Here" title="" />
+                    </div>
+                    <div class="blog-content">
+                        <h4 class="title">How I become a web designer</h4>
+                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sapiente, beatae
+                            laudantium eaque unde dolorum ad suscipit sit
+                        </p>
+                        <div class="blog-author">
+                            <div class="author-img f-left">
+                                <img src="https://i.imgur.com/D8ZntwR.jpg" alt="author" title="" />
+                            </div>
+                            <div class="author-text f-left">
+                                <span class="name">Daniel smith</span>
+                                <span class="date">15 Aug 18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section white-smoke-color">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h4 class="section-title">Get in touch</h4>
+                <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, eum!</p>
+            </div>
+            <div class="contact-content">
+                <div class="message f-left">
+                    <h4 class="title">Message me</h4>
+                    <form action="post">
+                        <div class="input-name f-left">
+                            <input type="text" placeholder="Name" />
+                        </div>
+                        <div class="input-mail f-left">
+                            <input type="email" placeholder="E-mail" />
+                        </div>
+                        <div class="clear-fix"></div>
+                        <div class="input-subject">
+                            <input type="text" placeholder="Subject" />
+                        </div>
+                        <div class="input-textarea">
+                            <textarea name="Message" cols="30" rows="10"></textarea>
+                        </div>
+                        <button type="submit" name="submit" class="btn btn-blue">Submit</button>
+                    </form>
+                </div>
+                <div class="contact-info f-left">
+                    <h4 class="title">Contact info</h4>
+                    <p class="contact-desc">Always available for freelancer work if the right project comesalong. feel
+                        free
+                        to contact me !
+                    </p>
+                    <ul class="contact-details">
+                        <li>
+                        <div class="contact-icon f-left">
+                           <i class="fas fa-map-marked-alt icon icon-blue"></i>
+                        </div>
+                        <div class="contact-text f-left">
+                           <h4 class="sub-title">Location</h4>
+                           <p class="desc">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                        <div class="clear-fix"></div>
+                     </li>
+                        <li>
+                        <div class="contact-icon f-left">
+                           <i class="fas fa-mobile-alt icon icon-blue"></i>
+                        </div>
+                        <div class="contact-text f-left">
+                           <h4 class="sub-title">Call me</h4>
+                           <p class="desc">440101569</p>
+                        </div>
+                        <div class="clear-fix"></div>
+                     </li>
+                        <li>
+                        <div class="contact-icon f-left">
+                           <i class="fas fa-envelope icon icon-blue"></i>
+                        </div>
+                        <div class="contact-text f-left">
+                           <h4 class="sub-title">E-mail</h4>
+                           <p class="desc">Alaa4eg@outlook.com</p>
+                        </div>
+                        <div class="clear-fix"></div>
+                     </li>
+                    </ul>
+                </div>
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <ul class="about f-left">
+                    <li><a href="#" class="about-link link-title">About</a></li>
+                    <li><a href="#" class="about-link">Home</a></li>
+                    <li><a href="#" class="about-link">Our services</a></li>
+                    <li><a href="#" class="about-link">Portfolio</a></li>
+                    <li><a href="#" class="about-link">My blog</a></li>
+                </ul>
+                <ul class="information f-left">
+                    <li><a href="#" class="about-link link-title">Information</a></li>
+                    <li><a href="#" class="about-link">Terms &amp; condition</a></li>
+                    <li><a href="#" class="about-link">Privacy policy</a></li>
+                    <li><a href="#" class="about-link">Jobs</a></li>
+                    <li><a href="#" class="about-link">Partner</a></li>
+                </ul>
+                <ul class="support f-left">
+                    <li><a href="#" class="about-link link-title">Support</a></li>
+                    <li><a href="#" class="about-link">Contact us</a></li>
+                    <li><a href="#" class="about-link">Faqs</a></li>
+                    <li><a href="#" class="about-link">Report an issue</a></li>
+                </ul>
+                <ul class="flexi f-left">
+                    <li><a href="#" class="about-link link-title-big">Flexi</a></li>
+                    <li>
+                     <p class="flexi-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro reiciendis
+                        modi voluptatibus.
+                     </p>
+                  </li>
+                </ul>
+                <div class="clear-fix"></div>
+            </div>
+            <div class="footer-bottom">
+                <span class="copyright f-left">Copyright © 2018 flexi, all right reserved Developed by exill -
+                    Recoded by
+                    alaa
+                    ibrahim </span>
+                <ul class="footer-social f-right">
+                    <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" class="instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="#" class="youtube"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="#" class="facebook"><i class="fab fa-facebook"></i></a></li>
+                </ul>
+                <div class="clear-fix"></div>
+            </div>
+            <div class="back-to-top" style="right: -40%;">
+                <a href="#hero-area">
+               <i class="fas fa-arrow-up"></i>
+               </a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/css-animations.js/0.1.0/css-animations.min.js"></script>
+    <script type="text/javascript" id="rendered-js">
+        var $,
+            window,
+            scroll = $(window).scrollTop();
+
+        /* Start Preloader */
+
+        $(window).on("load", function() {
+            'use strict';
+            $(".loader-box .loader-in").fadeOut(5000);
+            $(".loader-box").fadeOut(4000);
+        });
+
+        /* End Preloader */
+        /* Start Navigation */
+
+        $(function() {
+            /* SHOW / HIDE MENU BAR */
+            'use strict';
+            $(".menu-toggle").on("click", function() {
+                $("#top-nav .navbar-wrapper").toggleClass("active");
+                $(this).toggleClass("rotate");
+            });
+
+            /* Add class to change navbar bg color when scroll */
+            $(window).on("scroll", function() {
+                var scroll = $(window).scrollTop();
+                if (scroll >= 50) {
+                    $("#top-nav").addClass("nav-white-bg");
+                } else {
+                    $("#top-nav").removeClass("nav-white-bg");
+                }
+            });
+
+            /* Add class to change navbar bg color when resize*/
+
+            $(window).on("resize", function() {
+                if ($(this).width() < 992 - 18) {
+                    $("#top-nav").addClass("nav-dark-bg").removeClass("nav-white-bg");
+                } else {
+                    $("#top-nav").removeClass("nav-dark-bg").addClass("nav-white-bg");
+                    $("#top-nav .navbar-wrapper").removeClass("active");
+                }
+
+                /* Remove Class Nav-white-bg when scroll top 0 && window.width > 991 */
+
+                if ($(this).width() > 973 && $(scroll) === 0) {
+                    $("#top-nav").removeClass("nav-white-bg");
+                }
+            });
+            /* To keep navbar class active on refresh */
+
+            var scroll = $(window).scrollTop();
+            if (scroll >= 50) {
+                $("#top-nav").addClass("nav-white-bg");
+            } else {
+                $("#top-nav").removeClass("nav-white-bg");
+            }
+
+            /* Remove Class Nav-white-bg when scroll top 0 && window.width > 991 */
+
+            if ($(window).width() > 973 && $(scroll) === 0) {
+                $("#top-nav").removeClass("nav-white-bg");
+            }
+
+            /* To keep navbar class active on when screen resized and refreshed */
+
+            if ($(window).width() < 992 - 18) {
+                $("#top-nav").addClass("nav-dark-bg");
+            }
+
+            var scroll = $(window).scrollTop();
+            if (scroll >= 50) {
+                $("#top-nav").addClass("nav-white-bg");
+            }
+
+            /* Go to section */
+
+            $("#top-nav .navbar-wrapper li .link-item,#hero-area .btn-mouse-wrapper").on("click", function(e) {
+                e.preventDefault();
+                var linkVal = $(this).attr("href");
+                $("html, body").animate({
+                        scrollTop: $(linkVal).offset().top - 50
+                    },
+                    1200);
+
+                /* To Hide Menu on Mobile Screen When Click Link Items */
+
+                $("#top-nav .navbar-wrapper").toggleClass("active");
+                $(".menu-toggle").removeClass("rotate");
+            });
+            /* Add Active Class To Nav-List Items */
+
+            $("#top-nav .navbar-wrapper li").on("click", function() {
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+        });
+
+        /* End Navigation */
+        /* Start Portfolio */
+
+        // Portfolio filter
+        $(function() {
+            'use strict';
+            $('#portfolio ul.portfolio-filter li').on('click', function() {
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+        });
+
+        $(function() {
+            'use strict';
+            $('#portfolio ul.portfolio-filter li:first-of-type').on('click', function() {
+                $('#portfolio .portfolio-items .item').hide(0).fadeIn(0);
+            });
+        });
+
+        $(function() {
+            'use strict';
+            $('#portfolio ul.portfolio-filter li:not(:first-of-type)').on('click', function() {
+                $('#portfolio .portfolio-items .item').hide(0);
+                $('.' + $(this).data('value')).show(0);
+            });
+        });
+
+        /* End Portfolio */
+        /* Start Testimonilas */
+
+        $(function() {
+            'use strict';
+            $(".owl-carousel").owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: true
+            });
+        });
+
+        /* End Testimonilas */
+        /* Start Footer */
+
+        $(function() {
+            'use strict';
+            $(window).on("scroll", function() {
+                /* Show / Hide BACK bTN */
+                var scroll = $(window).scrollTop();
+                if (scroll > 50) {
+                    $(".back-to-top").css("right", "5%", "opacity", "1");
+                } else {
+                    $(".back-to-top").css("right", "-40%", "opacity", "0");
+                }
+            });
+
+            /* Go To Top */
+            $(".back-to-top a").on("click", function(e) {
+                e.preventDefault();
+                var linkVal = $(this).attr("href");
+                $("html, body").animate({
+                        scrollTop: $(linkVal).offset().top - 50
+                    },
+                    1500);
+            });
+        });
+        /* End Footer */
+    </script>
+</body>
+
+</html>

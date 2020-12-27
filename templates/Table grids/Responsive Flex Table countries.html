@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Flex Table countries</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        div {
+            box-sizing: border-box;
+        }
+
+        .table-container {
+            display: block;
+            margin: 2em auto;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .flag-icon {
+            margin-right: 0.1em;
+        }
+
+        .flex-table {
+            display: flex;
+            flex-flow: row wrap;
+            border-left: solid 1px #d9d9d9;
+            transition: 0.5s;
+        }
+
+        .flex-table:first-of-type {
+            border-top: solid 1px #1565c0;
+            border-left: solid 1px #1565c0;
+        }
+
+        .flex-table:first-of-type .flex-row {
+            background: #1976d2;
+            color: white;
+            border-color: #1565c0;
+        }
+
+        .flex-table.row:nth-child(odd) .flex-row {
+            background: #f4f2f1;
+        }
+
+        .flex-table:hover {
+            background: #f5f5f5;
+            transition: 500ms;
+        }
+
+        .flex-row {
+            width: calc(100% / 4);
+            text-align: center;
+            padding: 0.5em 0.5em;
+            border-right: solid 1px #d9d9d9;
+            border-bottom: solid 1px #d9d9d9;
+        }
+
+        .rowspan {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .column {
+            display: flex;
+            flex-flow: column wrap;
+            width: 75%;
+            padding: 0;
+        }
+
+        .column .flex-row {
+            display: flex;
+            flex-flow: row wrap;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            border-bottom: solid 1px #d9d9d9;
+        }
+
+        .column .flex-row:hover {
+            background: #f5f5f5;
+            transition: 500ms;
+        }
+
+        .flex-cell {
+            width: calc(100% / 3);
+            text-align: center;
+            padding: 0.5em 0.5em;
+            border-right: solid 1px #d9d9d9;
+        }
+
+        @media all and (max-width: 767px) {
+            .flex-row {
+                width: calc(100% / 3);
+            }
+
+            .flex-row.first {
+                width: 100%;
+            }
+
+            .column {
+                width: 100%;
+            }
+        }
+
+        @media all and (max-width: 430px) {
+            .flex-table .flex-row {
+                border-bottom: 0;
+            }
+
+            .flex-table .flex-row:last-of-type {
+                border-bottom: solid 1px #d9d9d9;
+            }
+
+            .header .flex-row {
+                border-bottom: solid 1px;
+            }
+
+            .flex-row {
+                width: 100%;
+            }
+
+            .flex-row.first {
+                width: 100%;
+                border-bottom: solid 1px #d9d9d9;
+            }
+
+            .column {
+                width: 100%;
+            }
+
+            .column .flex-row {
+                border-bottom: solid 1px #d9d9d9;
+            }
+
+            .flex-cell {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="table-container" role="table" aria-label="Destinations">
+        <div class="flex-table header" role="rowgroup">
+            <div class="flex-row first" role="columnheader">Country</div>
+            <div class="flex-row" role="columnheader">Events</div>
+            <div class="flex-row" role="columnheader">Time</div>
+            <div class="flex-row" role="columnheader">Fees</div>
+        </div>
+        <div class="flex-table row" role="rowgroup">
+            <div class="flex-row first" role="cell"><span class="flag-icon flag-icon-gb"></span> United Kingdom</div>
+            <div class="flex-row" role="cell">Stonehenge, Windsor and Bath with Pub Lunch </div>
+            <div class="flex-row" role="cell">19 Sep, 1p.m.</div>
+            <div class="flex-row" role="cell">US$500</div>
+        </div>
+        <div class="flex-table row" role="rowgroup">
+            <div class="flex-row first" role="cell"><span class="flag-icon flag-icon-ca"></span> Canada</div>
+            <div class="flex-row" role="cell">Vancouver to Victoria and Butchart Gardens Tour </div>
+            <div class="flex-row" role="cell">23 Sep, 1:30p.m.</div>
+            <div class="flex-row" role="cell">US$387</div>
+        </div>
+        <div class="flex-table row" role="rowgroup">
+            <div class="flex-row rowspan first"><span class="flag-icon flag-icon-us"></span> United States</div>
+            <div class="column">
+                <div class="flex-row">
+                    <div class="flex-cell" role="cell">Napa and Sonoma Wine Country Tour</div>
+                    <div class="flex-cell" role="cell">5 Sep, 9p.m.</div>
+                    <div class="flex-cell" role="cell">US$600</div>
+                </div>
+                <div class="flex-row" role="rowgroup">
+                    <div class="flex-cell" role="cell">Day Trip to Martha's Vineyard</div>
+                    <div class="flex-cell" role="cell">12 Sep, 5p.m.</div>
+                    <div class="flex-cell" role="cell">US$600</div>
+                </div>
+                <div class="flex-row" role="rowgroup">
+                    <div class="flex-cell" role="cell">Grand Canyon West Rim and Hoover Dam Tour</div>
+                    <div class="flex-cell" role="cell">5 Sep, 2p.m.</div>
+                    <div class="flex-cell" role="cell">US$550</div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-table row" role="rowgroup">
+            <div class="flex-row first" role="cell"><span class="flag-icon flag-icon-au"></span> Australia</div>
+            <div class="flex-row" role="cell">Blue Mountains Tours</div>
+            <div class="flex-row" role="cell">9 Sep, 2p.m.</div>
+            <div class="flex-row" role="cell">US$400</div>
+        </div>
+        <div class="flex-table row" role="rowgroup">
+            <div class="flex-row first" role="cell"><span class="flag-icon flag-icon-nz"></span> New Zealand</div>
+            <div class="flex-row" role="cell">Milford Sound Coach & Cruise</div>
+            <div class="flex-row" role="cell">12 Sep, 2p.m.</div>
+            <div class="flex-row" role="cell">US$400</div>
+        </div>
+    </div>
+</body>
+
+</html>

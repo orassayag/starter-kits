@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox equal height</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        .card-item {
+            display: flex;
+            padding-right: 20px;
+            width: 25%;
+            border: 1px solid red;
+        }
+
+        @media screen and (max-width: 960px) {
+            .card-item {
+                width: 33.3333%;
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            .card-item {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .card-item {
+                width: 100%;
+            }
+        }
+
+        .card-item .card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-item .card .card-image img {
+            width: 100%;
+        }
+
+        .card-item .card .card-content {
+            display: flex;
+            flex: 1 0 auto;
+            flex-direction: column;
+            background: green;
+        }
+
+        .card-item .card .card-content p {
+            flex: 1 0 auto;
+        }
+
+        .card-btn {
+            display: inline-block;
+            padding: 0.8em 1em 0.6em;
+            font-weight: 700;
+            line-height: 1;
+            text-decoration: none;
+            background-color: #aaa;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <div class="card-item">
+            <div class="card">
+                <div class="card-image">
+                    <img src="http://source.unsplash.com/B1amIgaNkwA/480x320/" alt="" title="" />
+                </div>
+                <div class="card-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur perspiciatis vitae quam eos quae quaerat tempore placeat commodi hic ut itaque, alias, dolorum repellat, magnam maiores aliquam reiciendis magni. Ipsa. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, eum nisi. Tempora eos cum itaque? Neque vitae consequatur saepe debitis, cupiditate illo, voluptatibus voluptates qui provident quos at fugit aliquid.loremlorem Tempora eos cum itaque? Neque vitae consequatur saepe debitis, cupiditate illo, voluptatibus voluptates qui provident quos at fugit aliquid.loremlorem</p>
+                    <a href="#" class="card-btn">Button</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-item">
+            <div class="card">
+                <div class="card-image">
+                    <img src="http://via.placeholder.com/350x150" alt="" title="" />
+                </div>
+                <div class="card-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur perspiciatis vitae quam eos quae quaerat tempore placeat commodi hic ut itaque, alias, dolorum repellat, magnam maiores aliquam reiciendis magni. Ipsa. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <a href="#" class="card-btn">Button</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-item">
+            <div class="card">
+                <div class="card-image">
+                    <img src="http://source.unsplash.com/B1amIgaNkwA/480x320/" alt="" title="" />
+                </div>
+                <div class="card-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur perspiciatis vitae quam eos quae quaerat tempore placeat commodi hic ut itaque, alias, dolorum repellat, magnam maiores aliquam reiciendis magni. Ipsa. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <a href="#" class="card-btn">Button</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-item">
+            <div class="card">
+                <div class="card-image">
+                    <img src="http://source.unsplash.com/B1amIgaNkwA/480x320/" alt="" title="" />
+                </div>
+                <div class="card-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur perspiciatis vitae quam eos quae quaerat tempore placeat commodi hic ut itaque, alias, dolorum repellat, magnam maiores aliquam reiciendis magni. Ipsa. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <a href="#" class="card-btn">Button</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-item">
+            <div class="card">
+                <div class="card-image">
+                    <img src="http://source.unsplash.com/B1amIgaNkwA/480x320/" alt="" title="" />
+                </div>
+                <div class="card-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur perspiciatis vitae quam eos quae quaerat tempore placeat commodi hic ut itaque, alias, dolorum repellat, magnam maiores aliquam reiciendis magni. Ipsa. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <a href="#" class="card-btn">Button</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-item">
+            <div class="card">
+                <div class="card-image">
+                    <img src="http://source.unsplash.com/B1amIgaNkwA/480x320/" alt="" title="" />
+                </div>
+                <div class="card-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur perspiciatis vitae quam eos quae quaerat tempore placeat commodi hic ut itaque, alias, dolorum repellat, magnam maiores aliquam reiciendis magni. Ipsa. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <a href="#" class="card-btn">Button</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-item">
+            <div class="card">
+                <div class="card-image">
+                    <img src="http://source.unsplash.com/B1amIgaNkwA/480x320/" alt="" title="" />
+                </div>
+                <div class="card-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur perspiciatis vitae quam eos quae quaerat tempore placeat commodi hic ut itaque, alias, dolorum repellat, magnam maiores aliquam reiciendis magni. Ipsa. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <a href="#" class="card-btn">Button</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>A Responsive Modal With Flexbox and No Media Queries</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <style type="text/css">
+        .simple-modal {
+            --gutter: 14px;
+            --modal-color: #800000;
+            --soft-color: #fafafa;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 2000;
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding-top: 2%;
+        }
+
+        .simple-modal__content {
+            width: 95vw;
+            height: 90vh;
+            max-height: 700px;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+        }
+
+        .simple-modal__content header {
+            min-height: 60px;
+            height: 60px;
+            color: #ffffff;
+            background-color: var(--modal-color);
+            display: grid;
+            padding-left: var(--gutter);
+            -webkit-box-align: center;
+            align-items: center;
+            grid-template-columns: auto 60px;
+        }
+
+        .simple-modal__content header h4 {
+            margin: 0;
+            text-align: left;
+        }
+
+        .simple-modal__content header span {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            font-size: 20px;
+            opacity: .8;
+            cursor: pointer;
+        }
+
+        .simple-modal__content header span:hover {
+            opacity: 1;
+        }
+
+        .simple-modal__content .modal-main {
+            -webkit-box-flex: 1;
+            flex: 1;
+            text-align: left;
+            overflow: auto;
+            padding: var(--gutter);
+        }
+
+        .simple-modal__content footer {
+            height: auto;
+            text-align: right;
+            border-top: solid 1px #cccccc;
+            padding: var(--gutter);
+            background-color: #ffffff;
+            background-color: var(--soft-color);
+        }
+
+        .simple-modal__content footer button,
+        .simple-modal__content footer input {
+            margin: 0;
+        }
+
+        .simple-modal__content footer button:not(:last-child),
+        .simple-modal__content footer input:not(:last-child) {
+            margin-right: var(--gutter);
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url('http://picsum.photos/2000');
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <div class="simple-modal" tabindex="0">
+            <div class="simple-modal__content">
+                <header>
+                    <h4>Title</h4>
+                    <span>close</span>
+                </header>
+                <div class="modal-main">
+                    <h4>This is a pure CSS responsive modal (style only) using flexbox and no media queries. This is style only, no JS behavior added.</h4>
+                    <p>
+                        Bacon ipsum dolor amet prosciutto spare ribs pork loin leberkas short loin. Ham hock picanha pork chop flank ribeye porchetta cow tri-tip turkey sausage chuck drumstick turducken. Bacon pancetta ham hock tri-tip burgdoggen brisket chicken meatball. Ground round spare ribs ham fatback pastrami tri-tip ham hock, corned beef pork belly ball tip short ribs hamburger meatloaf beef.
+                        Prosciutto beef ribs alcatra, hamburger picanha chicken capicola shankle swine bresaola turducken. Brisket bresaola pig leberkas fatback tri-tip chuck pork drumstick turducken ham hock ground round. Shankle bacon pancetta salami. T-bone jowl beef sausage biltong, short loin fatback landjaeger tri-tip shoulder hamburger. Andouille pancetta sirloin, pork chop strip steak boudin hamburger leberkas sausage bacon.
+                        Filet mignon cow cupim pig buffalo ham turducken biltong boudin bacon ribeye swine sausage. Hamburger bacon beef meatball pork chop, alcatra jerky tongue ribeye bresaola ball tip kielbasa turkey. Short loin tri-tip picanha andouille alcatra spare ribs kevin landjaeger corned beef tail pancetta pork chop. Pork chop flank hamburger picanha capicola ground round ball tip, chicken andouille porchetta corned beef cupim bacon. Beef ribs leberkas ribeye shankle corned beef rump.
+                        Jerky tongue capicola pork belly, cow cupim boudin. Drumstick pork boudin kielbasa pork loin, chuck rump shankle. Frankfurter ham bacon tongue cow. Chicken turducken capicola leberkas, tenderloin tri-tip ball tip. Capicola burgdoggen tenderloin turducken, salami ribeye ham hock porchetta pork sausage.
+                        Capicola kielbasa shank ham hock, ground round ham cupim chuck brisket short ribs andouille hamburger turkey. Bacon tongue fatback turducken shankle, beef jowl short loin tail picanha sirloin pig strip steak meatloaf tenderloin. Beef alcatra tongue, buffalo hamburger pancetta prosciutto biltong boudin spare ribs brisket ground round corned beef kevin short ribs. Spare ribs pork belly tenderloin boudin leberkas bresaola brisket strip steak swine meatball tri-tip.
+                    </p>
+                </div>
+                <footer>
+                    <button>Button</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
