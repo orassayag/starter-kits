@@ -1,9 +1,9 @@
 import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { mainActions } from '../../store/actions/actions';
-import movieService from '../../services/movie.service';
 import './Main.scss';
-import { SearchPanel, MoviesList, Modal } from '../../components';
+import { Modal, MoviesList, SearchPanel } from '../../components';
+import movieService from '../../services/movie.service';
 
 const propTypes = {};
 const defaultProps = {};

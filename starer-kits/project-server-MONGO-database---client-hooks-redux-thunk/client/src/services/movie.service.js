@@ -24,7 +24,6 @@ class MovieService {
 		const queryURL = 'getMovies';
 		let { searchType, searchText, genres, year, status, production_country,
 			original_language, pageNumber, itemsPerPage } = postRequest;
-
 		const request = {
 			searchType: searchType,
 			searchText: searchText,
@@ -36,7 +35,6 @@ class MovieService {
 			pageNumber: pageNumber,
 			itemsPerPage: itemsPerPage
 		};
-
 		const response = await apiService.postRequest(queryURL, request);
 		if (!response || response.error || !response.response || !response.response.data) {
 			return [];
@@ -82,7 +80,6 @@ class MovieService {
 			results.errorMessage = 'Empty response from server';
 			return results;
 		}
-
 		if (response.error) {
 			if (response.error.response) {
 				results.errorMessage = response.error.response.data;
@@ -110,7 +107,6 @@ class MovieService {
 			results.errorMessage = 'Empty response from server';
 			return results;
 		}
-
 		if (response.error) {
 			if (response.error.response) {
 				results.errorMessage = response.error.response.data;
@@ -138,7 +134,6 @@ class MovieService {
 			results.errorMessage = 'Empty response from server';
 			return results;
 		}
-
 		if (response.error) {
 			if (response.error.response) {
 				results.errorMessage = response.error.response.data;

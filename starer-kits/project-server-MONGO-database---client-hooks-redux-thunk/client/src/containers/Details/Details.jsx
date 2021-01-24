@@ -1,13 +1,13 @@
 import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailsActions, mainActions } from '../../store/actions/actions';
-import movieService from '../../services/movie.service';
-import movieUtils from '../../utils/movie.utils';
 import './Details.scss';
 import {
-	ActorsList, CrewsList, Rating, Trailer, FeaturesList, ProductionsList,
-	ButtonClick, Modal, PageLoader, PageTitle
+	ActorsList, ButtonClick, CrewsList, FeaturesList, Modal, PageLoader,
+	PageTitle, ProductionsList, Rating, Trailer
 } from '../../components';
+import movieService from '../../services/movie.service';
+import movieUtils from '../../utils/movie.utils';
 
 const propTypes = {};
 const defaultProps = {};

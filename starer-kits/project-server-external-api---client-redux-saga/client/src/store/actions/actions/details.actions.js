@@ -7,7 +7,7 @@ export const setMovieDetails = (request) => {
     };
 };
 
-// SAGAS
+// SAGAS.
 export const loadDetails = (movieId) => {
     return {
         type: detailsTypes.DETAILS_LOAD_MOVIE_DETAILS,

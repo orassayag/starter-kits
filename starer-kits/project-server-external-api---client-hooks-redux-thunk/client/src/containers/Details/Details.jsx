@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailsActions, mainActions } from '../../store/actions/actions';
+import './Details.scss';
+import { ActorsList, ButtonClick, CrewsList, FeaturesList, PageTitle, ProductionsList, Rating, Trailer } from '../../components';
 import movieService from '../../services/movie.service';
 import movieUtils from '../../utils/movie.utils';
-import './Details.scss';
-import { ActorsList, CrewsList, Rating, Trailer, FeaturesList, ProductionsList, ButtonClick, PageTitle } from '../../components';
 
 const propTypes = {};
 const defaultProps = {};

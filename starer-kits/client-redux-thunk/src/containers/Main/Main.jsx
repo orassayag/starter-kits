@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { mainActions } from '../../store/actions/actions';
-import movieUtils from '../../utils/movie.utils';
-import movieService from '../../services/movie.service';
 import './Main.scss';
-import { SearchPanel, MoviesList } from '../../components';
+import { MoviesList, SearchPanel } from '../../components';
+import movieService from '../../services/movie.service';
+import movieUtils from '../../utils/movie.utils';
 
 const propTypes = {};
 const defaultProps = {};

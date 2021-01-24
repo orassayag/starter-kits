@@ -15,6 +15,22 @@ build/
 /build
 build
 
+# Dist directories.
+dist/
+/dist
+dist
+
+# Misc.
+todo_tasks.txt
+complete_tasks.txt
+misc/documents/todo_tasks.txt
+misc/documents/complete_tasks.txt
+/misc/documents/todo_tasks.txt
+/misc/documents/complete_tasks.txt
+misc/backup/
+/misc/backup/
+misc/backup
+
 # Logs.
 /logs
 

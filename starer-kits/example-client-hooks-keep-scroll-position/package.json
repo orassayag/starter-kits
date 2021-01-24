@@ -2,6 +2,31 @@
   "name": "example-client-hooks-keep-scroll-position",
   "version": "0.1.0",
   "private": true,
+  "description": "",
+  "keywords": [
+    "react"
+  ],
+  "license": "UNLICENSED",
+  "author": "Or Assayag <orassayag@gmail.com>",
+  "contributors": [
+    {
+      "name": "Or Assayag",
+      "email": "orassayag@gmail.com",
+      "url": "https://github.com/orassayag"
+    }
+  ],
+  "main": "src/index.jsx",
+  "files": [
+    "src",
+    ".eslintignore",
+    ".eslintrc",
+    ".gitignore",
+    ".jsbeautifyrc",
+    ".npmignore",
+    "package-lock.json",
+    "package.json",
+    "README.md"
+  ],
   "dependencies": {
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.2",

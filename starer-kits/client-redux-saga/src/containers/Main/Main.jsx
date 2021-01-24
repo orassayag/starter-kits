@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { mainActions } from '../../store/actions/actions';
 import './Main.scss';
-import { SearchPanel, MoviesList } from '../../components';
+import { MoviesList, SearchPanel } from '../../components';
 
 const propTypes = {};
 const defaultProps = {};

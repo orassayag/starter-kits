@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import './MoviesList.scss';
-import { Movie, ButtonClick, PageLoader } from '../../';
+import { ButtonClick, Movie, PageLoader } from '../../';
 
 const MoviesList = memo((props) => {
 	const { pageName, moviesList, isLoading, isPager, onLoadMoreClick, onMovieClick, onFavoriteMovieClick, onUpdateMovieClick, onRemoveMovieClick } = props;

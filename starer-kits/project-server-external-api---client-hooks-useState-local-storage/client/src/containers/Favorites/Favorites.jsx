@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Favorites.scss';
 import localStorageService from '../../services/localStorage.service';
-import { MoviesList, PageTitle, ButtonClick } from '../../components';
+import { ButtonClick, MoviesList, PageTitle } from '../../components';
 
 const propTypes = {};
 const defaultProps = {};

@@ -2,6 +2,31 @@
     "name": "server",
     "version": "0.1.0",
     "private": true,
+    "description": "",
+    "keywords": [
+        "node"
+    ],
+    "license": "UNLICENSED",
+    "author": "Or Assayag <orassayag@gmail.com>",
+    "contributors": [
+        {
+            "name": "Or Assayag",
+            "email": "orassayag@gmail.com",
+            "url": "https://github.com/orassayag"
+        }
+    ],
+    "main": "server.js",
+    "files": [
+        "src",
+        ".eslintignore",
+        ".eslintrc",
+        ".gitignore",
+        ".jsbeautifyrc",
+        ".npmignore",
+        "package-lock.json",
+        "package.json",
+        "README.md"
+    ],
     "scripts": {
         "start": "node server.js",
         "stop": "taskkill -f -im node.exe",
@@ -10,6 +35,6 @@
     "dependencies": {
         "babel-eslint": "^10.1.0",
         "death": "^1.1.0",
-        "eslint": "^7.16.0"
+        "eslint": "^7.18.0"
     }
 }

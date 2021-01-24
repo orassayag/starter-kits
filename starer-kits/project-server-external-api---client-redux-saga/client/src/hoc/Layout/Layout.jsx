@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './Layout.scss';
 import PropTypes from 'prop-types';
+import './Layout.scss';
 import { Footer, Header } from '../../components';
 
 const propTypes = {

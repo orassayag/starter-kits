@@ -39,7 +39,6 @@ class Server {
             }
             throw (error);
         });
-
         this.httpServer.on('listening', () => {
             this.log(`The server is now listening to port ${SERVER_PORT}. The server is now running on ${NODE_ENV} environment.`);
         });

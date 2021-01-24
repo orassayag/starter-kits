@@ -28,7 +28,7 @@ export const updateFavoriteMoviesSuccess = (request) => {
     };
 };
 
-// SAGAS
+// SAGAS.
 export const loadMovies = (request) => {
     return {
         type: mainTypes.MAIN_LOAD_MOVIES,

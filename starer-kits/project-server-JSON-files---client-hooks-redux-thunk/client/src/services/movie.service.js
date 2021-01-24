@@ -52,7 +52,6 @@ class MovieService {
 			results.errorMessage = 'Empty response from server';
 			return results;
 		}
-
 		if (response.error) {
 			if (response.error.response) {
 				results.errorMessage = response.error.response.data;
@@ -80,7 +79,6 @@ class MovieService {
 			results.errorMessage = 'Empty response from server';
 			return results;
 		}
-
 		if (response.error) {
 			if (response.error.response) {
 				results.errorMessage = response.error.response.data;

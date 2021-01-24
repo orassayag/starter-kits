@@ -2,8 +2,8 @@ const express = require('express');
 const Actor = require('../models/Actor.model');
 const Crew = require('../models/Crew.model');
 const Genre = require('../models/Genre.model');
-const Movie = require('../models/Movie.model');
 const ProductionCompany = require('../models/ProductionCompany.model');
+const Movie = require('../models/Movie.model');
 const MovieActor = require('../models/MovieActor.model');
 const MovieCrew = require('../models/MovieCrew.model');
 const MovieProductionCompany = require('../models/MovieProductionCompany.model');
@@ -618,7 +618,7 @@ const updateMovie = async (body) => {
 		productionsDataList = relationsResults[0].productionsDataList;
 	}
 
-	// === DELETE START ===
+	// ===DELETE START=== //
 	if (isDeleteActors || isDeleteCrews || isDeleteProductions) {
 		// Logic for delete - Same as for the delete movie.
 
@@ -728,9 +728,9 @@ const updateMovie = async (body) => {
 			}
 		}
 	}
-	// === DELETE END ===
+	// ===DELETE END=== //
 
-	// === UPDATE START ===
+	// ===UPDATE START=== //
 	if (isUpdateActors || isUpdateCrews || isUpdateProductions) {
 		// Logic for update -
 		// 1. Compare names of all actors.
@@ -914,9 +914,9 @@ const updateMovie = async (body) => {
 			}
 		}
 	}
-	// === UPDATE END ===
+	// ===UPDATE END=== //
 
-	// === ADD START ===
+	// ===ADD START=== //
 	if (isAddActors || isAddCrews || isAddProductions) {
 		// Logic for add -
 		// 1. Get all the actors by theire names.
@@ -1096,7 +1096,7 @@ const updateMovie = async (body) => {
 			await MovieProductionCompany.insertMany(movieProductionsList);
 		}
 
-		// === ADD END ===
+		// ===ADD END=== //
 	}
 
 	// Update Movie.

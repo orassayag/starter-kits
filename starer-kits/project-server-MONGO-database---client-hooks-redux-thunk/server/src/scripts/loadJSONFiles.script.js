@@ -23,7 +23,6 @@ class LoadJSONFilesScript {
 		files = files.filter(file => {
 			return this.isTypeFile({ fileName: file, fileExtension: 'json' });
 		});
-
 		for (let i = 0, length = files.length; i < length; i++) {
 			const jsonMovie = await fs.readFile(`${this.distPath}${files[i]}`, 'utf-8');
 			const movie = JSON.parse(jsonMovie);

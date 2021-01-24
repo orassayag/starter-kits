@@ -1,9 +1,9 @@
 import React, { useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import cultureService from '../../../services/culture.service';
+import { useDispatch, useSelector } from 'react-redux'
+import { searchActions } from '../../../store/actions/actions';
 import './SearchPanel.scss';
 import { ButtonClick, Check, Dropdown } from '../../';
-import { searchActions } from '../../../store/actions/actions';
+import cultureService from '../../../services/culture.service';
 
 const years = () => {
 	let currentYear = new Date().getFullYear(), years = [];

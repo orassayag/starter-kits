@@ -1,4 +1,4 @@
-import { languages, countries } from 'countries-list';
+import { countries, languages } from 'countries-list';
 
 class CultureService {
 

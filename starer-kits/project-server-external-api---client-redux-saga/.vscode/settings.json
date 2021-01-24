@@ -8,12 +8,14 @@
 		"devtool",
 		"fnames",
 		"hrefs",
+		"jsbeautifyrc",
 		"minification",
 		"onstatechange",
 		"onupdatefound",
 		"orassayag",
 		"sockjs",
 		"svgr",
-		"todos"
+		"todos",
+		"vmin"
 	]
 }

@@ -1,6 +1,6 @@
 import { put } from 'redux-saga/effects';
-import movieService from '../../services/movie.service';
 import { detailsActions } from '../actions/actions';
+import movieService from '../../services/movie.service';
 
 export function* loadDetailsSaga(action) {
 	const { movieId } = action;

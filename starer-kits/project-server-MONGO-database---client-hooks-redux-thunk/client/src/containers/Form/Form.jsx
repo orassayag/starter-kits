@@ -2,12 +2,12 @@ import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { formActions, mainActions } from '../../store/actions/actions';
 import './Form.scss';
+import {
+	ActorBox, Boolean, ButtonClick, Check, CrewBox, DatePick, Dropdown,
+	Field, LongText, MiniButton, PageLoader, PageTitle, ProductionBox
+} from '../../components';
 import cultureService from '../../services/culture.service';
 import movieService from '../../services/movie.service';
-import {
-	ActorBox, CrewBox, ProductionBox, PageLoader, PageTitle, MiniButton,
-	ButtonClick, Boolean, Check, DatePick, Dropdown, Field, LongText
-} from '../../components';
 
 const propTypes = {};
 const defaultProps = {};
@@ -507,9 +507,7 @@ const Form = (props) => {
 			onSetFormStatus('crewsList', '* At least one Crew is required');
 			return;
 		}
-
 		let boxDataErrorMessage = '';
-
 		// Validate Actors.
 		for (let i = 0, length = actorsList.length; i < length; i++) {
 			const actor = actorsList[i];
@@ -548,7 +546,6 @@ const Form = (props) => {
 		else {
 			clearErrorActors();
 		}
-
 		// Validate Crews.
 		for (let i = 0, length = crewsList.length; i < length; i++) {
 			const crew = crewsList[i];
@@ -583,7 +580,6 @@ const Form = (props) => {
 		else {
 			clearErrorCrews();
 		}
-
 		// Validate Productions.
 		for (let i = 0, length = production_companies.length; i < length; i++) {
 			const productionCompany = production_companies[i];
@@ -607,7 +603,6 @@ const Form = (props) => {
 		else {
 			clearErrorProductions();
 		}
-
 		let result = null;
 		if (isCreateMode) {
 			result = await movieService.createMovie({

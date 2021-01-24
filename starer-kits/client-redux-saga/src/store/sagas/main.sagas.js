@@ -1,7 +1,7 @@
 import { put, call } from 'redux-saga/effects';
-import movieUtils from '../../utils/movie.utils';
-import movieService from '../../services/movie.service';
 import { mainActions } from '../actions/actions';
+import movieService from '../../services/movie.service';
+import movieUtils from '../../utils/movie.utils';
 
 const filterMovies = (moviesList, favoriteMoviesList) => {
 	if (!moviesList) {

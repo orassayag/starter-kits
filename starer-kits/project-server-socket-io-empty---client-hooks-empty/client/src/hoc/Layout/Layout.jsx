@@ -1,6 +1,6 @@
 import React from 'react';
-import './Layout.scss';
 import PropTypes from 'prop-types';
+import './Layout.scss';
 
 const propTypes = {
     children: PropTypes.node

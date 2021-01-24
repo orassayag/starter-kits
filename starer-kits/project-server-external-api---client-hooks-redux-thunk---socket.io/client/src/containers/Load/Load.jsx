@@ -2,9 +2,9 @@ import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import socketIOClient from 'socket.io-client';
 import { loadActions, mainActions } from '../../store/actions/actions';
-import movieService from '../../services/movie.service';
 import './Load.scss';
-import { MoviesList, PageTitle, ButtonClick } from '../../components';
+import { ButtonClick, MoviesList, PageTitle } from '../../components';
+import movieService from '../../services/movie.service';
 
 const propTypes = {};
 const defaultProps = {};

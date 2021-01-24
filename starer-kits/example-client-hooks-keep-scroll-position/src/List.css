@@ -2,7 +2,7 @@
     position: sticky;
     top: 0;
     padding: 10px;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 .list {
@@ -16,7 +16,7 @@
 }
 
 .list-item {
-    border: 1px solid #eee;
+    border: 1px solid #eeeeee;
     padding: 10px;
 }
 

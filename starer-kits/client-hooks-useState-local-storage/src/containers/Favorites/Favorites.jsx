@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Favorites.scss';
+import { ButtonClick, MoviesList, PageTitle } from '../../components';
 import localStorageService from '../../services/localStorage.service';
-import { MoviesList, PageTitle, ButtonClick } from '../../components';
 
 const propTypes = {};
 const defaultProps = {};
@@ -27,7 +27,6 @@ const Favorites = (props) => {
       tempIsInitiateMoviesList = true;
       setFavoriteMoviesList(tempFavoriteMoviesList);
     }
-    const totalCount = tempFavoriteMoviesList.length;
     tempPageNumber++;
     tempFavoriteMoviesList = tempFavoriteMoviesList.slice(0, tempPageNumber * itemsPerPage);
     setPageNumber(tempPageNumber);

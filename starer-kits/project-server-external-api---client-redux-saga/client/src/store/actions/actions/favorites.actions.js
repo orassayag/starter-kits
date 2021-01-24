@@ -7,7 +7,7 @@ export const setFavoriteMoviesSuccess = (pageNumber) => {
     };
 };
 
-// SAGAS
+// SAGAS.
 export const loadFavoritesMovies = (pageNumber) => {
     return {
         type: favoritesTypes.FAVORITES_LOAD_FAVORITE_MOVIES,

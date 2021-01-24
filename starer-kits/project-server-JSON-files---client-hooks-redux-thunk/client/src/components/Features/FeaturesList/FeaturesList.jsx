@@ -1,6 +1,6 @@
 import React from 'react';
 import './FeaturesList.scss';
-import { Feature, FavoriteButton, LinksList, UpdateButton } from '../../';
+import { FavoriteButton, Feature, LinksList, UpdateButton } from '../../';
 
 const FeaturesList = (props) => {
 	const { featuresList, linksList, isFavorite, onFavoriteMovieClick, onUpdateMovieClick } = props;

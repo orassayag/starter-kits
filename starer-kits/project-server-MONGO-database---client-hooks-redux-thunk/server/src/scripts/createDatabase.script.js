@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const Actor = require('../models/Actor.model');
 const Crew = require('../models/Crew.model');
 const Genre = require('../models/Genre.model');
-const Movie = require('../models/Movie.model');
 const ProductionCompany = require('../models/ProductionCompany.model');
+const Movie = require('../models/Movie.model');
 const MovieActor = require('../models/MovieActor.model');
 const MovieCrew = require('../models/MovieCrew.model');
 const MovieProductionCompany = require('../models/MovieProductionCompany.model');
@@ -63,33 +63,28 @@ class CreateDatabaseScript {
 		for (let i = 0; i < genresDistinct.length; i++) {
 			await new Genre(genresDistinct[i]).save();
 		}
-
 		// Production Companies.
 		const productionCompaniesItems = [].concat.apply([], this.moviesList.map(movie => movie.production_companies));
 		const productionCompaniesDistinct = this.removeDuplicates(productionCompaniesItems, 'id');
 		for (let i = 0; i < productionCompaniesDistinct.length; i++) {
 			await new ProductionCompany(productionCompaniesDistinct[i]).save();
 		}
-
 		// Actors.
 		const actorsListItems = [].concat.apply([], this.moviesList.map(movie => movie.actorsList));
 		const actorsDistinct = this.removeDuplicates(actorsListItems, 'id');
 		for (let i = 0; i < actorsDistinct.length; i++) {
 			await new Actor(actorsDistinct[i]).save();
 		}
-
 		// Crews.
 		const crewsListItems = [].concat.apply([], this.moviesList.map(movie => movie.crewsList));
 		const crewsDistinct = this.removeDuplicates(crewsListItems, 'id');
 		for (let i = 0; i < crewsDistinct.length; i++) {
 			await new Crew(crewsDistinct[i]).save();
 		}
-
 		// Relations Collections & Movie.
 		for (let i = 0; i < this.moviesList.length; i++) {
 			const movie = this.moviesList[i];
 			const { id, genres, production_companies, actorsList, crewsList, production_countries, spoken_languages } = movie;
-
 			// Movie Production Company.
 			for (let y = 0; y < production_companies.length; y++) {
 				await new MovieProductionCompany({
@@ -97,7 +92,6 @@ class CreateDatabaseScript {
 					movieId: id
 				}).save();
 			}
-
 			// Movie Actor.
 			for (let y = 0; y < actorsList.length; y++) {
 				const actor = actorsList[y];
@@ -108,7 +102,6 @@ class CreateDatabaseScript {
 					order: actor.order
 				}).save();
 			}
-
 			// Movie Crew.
 			for (let y = 0; y < crewsList.length; y++) {
 				const crew = crewsList[y];
@@ -119,7 +112,6 @@ class CreateDatabaseScript {
 					department: crew.department
 				}).save();
 			}
-
 			// Movie.
 			await new Movie({
 				...movie,
@@ -137,7 +129,6 @@ class CreateDatabaseScript {
 		files = files.filter(file => {
 			return this.isTypeFile({ fileName: file, fileExtension: 'json' });
 		});
-
 		for (let i = 0, length = files.length; i < length; i++) {
 			const jsonMovie = await fs.readFile(`${this.distPath}${files[i]}`, 'utf-8');
 			const movie = JSON.parse(jsonMovie);

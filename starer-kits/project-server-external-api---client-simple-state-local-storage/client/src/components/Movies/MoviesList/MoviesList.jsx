@@ -1,6 +1,6 @@
 import React from 'react';
 import './MoviesList.scss';
-import { Movie, ButtonClick } from '../../';
+import { ButtonClick, Movie } from '../../';
 
 const MoviesList = (props) => {
 	const { pageName, moviesList, isLoadingMoreMovies, isPager, onLoadMoreClick, onMovieClick, onFavoriteMovieClick } = props;

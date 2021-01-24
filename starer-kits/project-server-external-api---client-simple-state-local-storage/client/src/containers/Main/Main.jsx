@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import movieService from '../../services/movie.service';
-import localStorageService from '../../services/localStorage.service';
-import movieUtils from '../../utils/movie.utils';
 import './Main.scss';
-import { SearchPanel, MoviesList } from '../../components';
+import { MoviesList, SearchPanel } from '../../components';
+import localStorageService from '../../services/localStorage.service';
+import movieService from '../../services/movie.service';
+import movieUtils from '../../utils/movie.utils';
 
 const propTypes = {};
 const defaultProps = {};

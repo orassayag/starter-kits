@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import './Main.scss';
+import { SearchPanel, MoviesList } from '../../components';
 import movieService from '../../services/movie.service';
 import localStorageService from '../../services/localStorage.service';
 import movieUtils from '../../utils/movie.utils';
-import './Main.scss';
-import { SearchPanel, MoviesList } from '../../components';
 
 const propTypes = {};
 const defaultProps = {};

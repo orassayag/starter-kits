@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { detailsActions, mainActions } from '../../store/actions/actions';
-import movieUtils from '../../utils/movie.utils';
 import './Details.scss';
-import { ActorsList, CrewsList, Rating, Trailer, FeaturesList, ProductionsList, ButtonClick, PageTitle } from '../../components';
+import { ActorsList, ButtonClick, CrewsList, FeaturesList, PageTitle, ProductionsList, Rating, Trailer } from '../../components';
+import movieUtils from '../../utils/movie.utils';
 
 const propTypes = {};
 const defaultProps = {};

@@ -1,6 +1,6 @@
 import React from 'react';
-import './ButtonClick.scss';
 import PropTypes from 'prop-types';
+import './ButtonClick.scss';
 
 const propTypes = {
 	buttonText: PropTypes.string.isRequired,

@@ -2,7 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { favoritesActions, mainActions } from '../../store/actions/actions';
 import './Favorites.scss';
-import { MoviesList, PageTitle, ButtonClick } from '../../components';
+import { ButtonClick, MoviesList, PageTitle } from '../../components';
 
 const propTypes = {};
 const defaultProps = {};

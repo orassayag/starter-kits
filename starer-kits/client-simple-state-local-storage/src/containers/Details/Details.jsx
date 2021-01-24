@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import movieService from '../../services/movie.service';
-import localStorageService from '../../services/localStorage.service';
-import movieUtils from '../../utils/movie.utils';
 import './Details.scss';
-import { ActorsList, CrewsList, Rating, Trailer, FeaturesList, ProductionsList, ButtonClick, PageTitle } from '../../components';
+import { ActorsList, ButtonClick, CrewsList, FeaturesList, PageTitle, ProductionsList, Rating, Trailer } from '../../components';
+import localStorageService from '../../services/localStorage.service';
+import movieService from '../../services/movie.service';
+import movieUtils from '../../utils/movie.utils';
 
 const propTypes = {};
 const defaultProps = {};

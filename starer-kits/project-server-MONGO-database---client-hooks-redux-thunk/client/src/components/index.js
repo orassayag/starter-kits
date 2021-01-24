@@ -9,10 +9,10 @@ import { Movie, MoviesList } from './Movies';
 import { Footer, Header, NavigationItemLink } from './Navigation';
 import { Production, ProductionBox, ProductionsList } from './Productions';
 import { ButtonClick, MiniButton, Modal, PageLoader, PageTitle } from './UI';
+
 export {
-	Actor, ActorBox, ActorsList, Crew, CrewBox, CrewsList, FavoriteButton, Rating, RemoveButton,
-	Trailer, UpdateButton, Feature, FeaturesList, Boolean, Check, DatePick, Dropdown, Field,
-	Gender, LongText, Link, LinksList, SearchPanel, Movie, MoviesList, Footer, Header,
-	NavigationItemLink, Production, ProductionBox, ProductionsList, ButtonClick, MiniButton, Modal,
-	PageLoader, PageTitle
+	Actor, ActorBox, ActorsList, Boolean, ButtonClick, Check, Crew, CrewBox, CrewsList, DatePick, Dropdown, FavoriteButton,
+	Feature, FeaturesList, Field, Footer, Gender, Header, Link, LinksList, LongText, MiniButton, Modal, Movie, MoviesList,
+	NavigationItemLink, PageLoader, PageTitle, Production, ProductionBox, ProductionsList, Rating, RemoveButton,
+	SearchPanel, Trailer, UpdateButton
 };

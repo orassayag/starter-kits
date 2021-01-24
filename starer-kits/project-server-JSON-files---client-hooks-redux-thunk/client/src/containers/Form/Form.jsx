@@ -2,22 +2,28 @@ import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { formActions } from '../../store/actions/actions';
 import './Form.scss';
+import {
+	ActorBox, Boolean, ButtonClick, Check, CrewBox, DatePick, Dropdown,
+	Field, LongText, MiniButton, PageTitle, ProductionBox
+} from '../../components';
 import cultureService from '../../services/culture.service';
 import movieService from '../../services/movie.service';
-import { ActorBox, CrewBox, ProductionBox, PageTitle, MiniButton, ButtonClick, Boolean, Check, DatePick, Dropdown, Field, LongText } from '../../components';
 
 const propTypes = {};
 const defaultProps = {};
+
 const generateId = () => {
 	const min = 1;
 	const max = 34359738368;
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
 const statuses = ['Announced', 'Completed', 'Development', 'Filming', 'Optioned Property', 'Post-production',
 	'Pre-production', 'Released', 'Script', 'Treatment/Outline', 'Turnaround'].map(status => { return { value: status, title: status }; });
 const genresArray = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama',
 	'Family', 'Fantasy', 'Film Noir', 'Game Show', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News', 'Reality TV',
 	'Romance', 'Sci-Fi', 'Short Film', 'Sport', 'Sports', 'Superhero', 'Talk Show', 'Thriller', 'War', 'Western'];
+
 const validURL = (url) => {
 	const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol.
 		'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name.
@@ -27,6 +33,7 @@ const validURL = (url) => {
 		'(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator.
 	return !!pattern.test(url);
 };
+
 // Validates that the input string is a valid date formatted as "mm/dd/yyyy".
 const isValidDate = (date) => {
 	date = ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear();
@@ -395,9 +402,7 @@ const Form = (props) => {
 			onSetFormStatus('crewsList', '* At least one Crew is required');
 			return;
 		}
-
 		let boxDataErrorMessage = '';
-
 		// Validate Productions.
 		for (let i = 0, length = production_companies.length; i < length; i++) {
 			const productionCompany = production_companies[i];
@@ -421,7 +426,6 @@ const Form = (props) => {
 		else {
 			clearErrorProductions();
 		}
-
 		// Validate Actors.
 		for (let i = 0, length = actorsList.length; i < length; i++) {
 			const actor = actorsList[i];
@@ -450,7 +454,6 @@ const Form = (props) => {
 		else {
 			clearErrorActors();
 		}
-
 		// Validate Crews.
 		for (let i = 0, length = crewsList.length; i < length; i++) {
 			const crew = crewsList[i];
@@ -485,7 +488,6 @@ const Form = (props) => {
 		else {
 			clearErrorCrews();
 		}
-
 		let result = null;
 		if (isCreateMode) {
 			result = await movieService.createMovie({
