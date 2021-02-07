@@ -16,10 +16,17 @@ build/
 /build
 build
 
+# Misc.
+**/misc/backup/
+/misc/backup
+misc/backup/
+/misc/backup/
+misc/backup
+
 # Logs.
 /logs
 
-# Testing
+# Testing.
 /coverage
 test
 coverage

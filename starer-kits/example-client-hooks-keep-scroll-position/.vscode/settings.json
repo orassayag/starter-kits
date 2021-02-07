@@ -1,15 +1,28 @@
 {
-    "cSpell.words": [
-        "Plug'n'Play",
-        "avif",
-        "fnames",
-        "hrefs",
-        "jsbeautifyrc",
-        "orassayag",
-        "pmmmwh",
-        "sockjs",
-        "svgr",
-        "todos",
-        "uncompiled"
-    ]
+	"cSpell.words": [
+		"Assayag",
+		"IMDB",
+		"Inlines",
+		"Plug'n'Play",
+		"TTFB",
+		"avif",
+		"axios",
+		"devtool",
+		"dont",
+		"fnames",
+		"hrefs",
+		"jsbeautifyrc",
+		"minification",
+		"onstatechange",
+		"onupdatefound",
+		"orassayag",
+		"pmmmwh",
+		"sockjs",
+		"stylelintrc",
+		"svgr",
+		"todos",
+		"uncompiled"
+	],
+	"files.removeFinalNewlines": true,
+	"formatFiles.excludePattern": "**/node_modules,**/.vscode,**/dist/**,**/.chrome,**/misc"
 }

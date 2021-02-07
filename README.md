@@ -1,4 +1,4 @@
-# What is that?
+# What is this?
 
 A React/Node starter kits for any purpose, basic kits, and more advances ones, including most powerful packages such as react, node, redux, redux-thunk, redux-saga, hooks, local-storage, socket-io, scss, express, mongoose, and more. Great as boilers for job interviews.
 Built in May 2020.

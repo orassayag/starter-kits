@@ -10,23 +10,15 @@ node_modules
 
 # Temporary directories for any environment mode.
 # Compiled binary addons.
+# Production.
 # (http://nodejs.org/api/addons.html)
 build/
 /build
 build
 
-# Dist directories.
-dist/
-/dist
-dist
-
 # Misc.
-todo_tasks.txt
-complete_tasks.txt
-misc/documents/todo_tasks.txt
-misc/documents/complete_tasks.txt
-/misc/documents/todo_tasks.txt
-/misc/documents/complete_tasks.txt
+**/misc/backup/
+/misc/backup
 misc/backup/
 /misc/backup/
 misc/backup
@@ -34,7 +26,7 @@ misc/backup
 # Logs.
 /logs
 
-# Testing
+# Testing.
 /coverage
 test
 coverage

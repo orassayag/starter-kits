@@ -4,8 +4,11 @@
 		"IMDB",
 		"Inlines",
 		"Plug'n'Play",
+		"TTFB",
+		"avif",
 		"axios",
 		"devtool",
+		"dont",
 		"fnames",
 		"hrefs",
 		"jsbeautifyrc",
@@ -13,13 +16,12 @@
 		"onstatechange",
 		"onupdatefound",
 		"orassayag",
+		"pmmmwh",
 		"sockjs",
+		"stylelintrc",
 		"svgr",
-		"todos"
-	],
-	"search.exclude": {
-		"dist": true,
-		"**src/dist/": true,
-		"src/dist/": true
-    }
+		"todos",
+		"uncompiled",
+		"vmin"
+	]
 }
