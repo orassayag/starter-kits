@@ -1,0 +1,15 @@
+{
+	"eslint.validate": [
+		"javascript"
+	],
+	"search.exclude": {
+		"**src/misc/": true,
+		"misc": true,
+		"src/misc/": true
+	},
+	"formatFiles.excludePattern": "**/node_modules,**/.vscode,**/dist/**,**/.chrome,**/misc",
+	"cSpell.words": [
+		"jsbeautifyrc",
+		"orassayag"
+	]
+}

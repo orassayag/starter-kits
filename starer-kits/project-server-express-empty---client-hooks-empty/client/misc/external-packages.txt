@@ -1,3 +1,0 @@
-node-sass
-react-router-dom
-socket.io-client

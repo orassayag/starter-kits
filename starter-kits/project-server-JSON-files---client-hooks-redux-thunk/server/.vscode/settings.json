@@ -1,0 +1,19 @@
+{
+	"cSpell.words": [
+		"imdb",
+		"jsbeautifyrc",
+		"orassayag"
+	],
+	"eslint.validate": [
+		"javascript"
+	],
+	"search.exclude": {
+		"**src/misc/": true,
+		"misc": true,
+		"src/misc/": true,
+		"**src/dist/": true,
+		"src/dist": true,
+		"/src/dist/": true
+	},
+	"formatFiles.excludePattern": "**/node_modules,**/.vscode,**/dist/**,**/.chrome,**/misc"
+}
