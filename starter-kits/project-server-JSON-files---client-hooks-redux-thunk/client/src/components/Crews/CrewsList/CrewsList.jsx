@@ -1,4 +1,3 @@
-import React from 'react';
 import './CrewsList.scss';
 import { Crew } from '../../';
 

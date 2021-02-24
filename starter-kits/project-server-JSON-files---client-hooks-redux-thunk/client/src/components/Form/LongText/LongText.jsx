@@ -1,4 +1,3 @@
-import React from 'react';
 import './LongText.scss';
 
 const LongText = (props) => {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { connect } from 'react-redux';
 import { favoritesActions, mainActions } from '../../store/actions/actions';
 import './Favorites.scss';

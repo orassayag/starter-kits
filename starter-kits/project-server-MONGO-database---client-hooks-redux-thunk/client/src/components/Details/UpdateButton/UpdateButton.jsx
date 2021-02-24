@@ -1,4 +1,3 @@
-import React from 'react';
 import './UpdateButton.scss';
 
 const UpdateButton = (props) => {

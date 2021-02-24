@@ -1,4 +1,3 @@
-import React from 'react';
 import './MiniButton.scss';
 
 const MiniButton = (props) => {

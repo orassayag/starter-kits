@@ -1,4 +1,3 @@
-import React from 'react';
 import './FavoriteButton.scss';
 
 const FavoriteButton = (props) => {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import './Favorites.scss';
 import localStorageService from '../../services/localStorage.service';
 import { ButtonClick, MoviesList, PageTitle } from '../../components';

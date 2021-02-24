@@ -1,4 +1,3 @@
-import React from 'react';
 import './SearchPanel.scss';
 
 const SearchPanel = (props) => {

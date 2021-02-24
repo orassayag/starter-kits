@@ -1,4 +1,3 @@
-import React from 'react';
 import './FeaturesList.scss';
 import { FavoriteButton, Feature, LinksList, UpdateButton } from '../../';
 

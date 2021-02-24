@@ -1,4 +1,3 @@
-import React from 'react';
 import './ProductionBox.scss';
 import { Field, Dropdown } from '../../';
 

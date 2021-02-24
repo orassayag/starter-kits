@@ -1,4 +1,3 @@
-import React from 'react';
 import './ActorsList.scss';
 import { Actor } from '../../';
 

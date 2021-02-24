@@ -1,4 +1,3 @@
-import React from 'react';
 import './Actor.scss';
 
 const Actor = (props) => {

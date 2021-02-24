@@ -1,4 +1,3 @@
-import React from 'react';
 import './Modal.scss';
 import { MiniButton } from '../../';
 

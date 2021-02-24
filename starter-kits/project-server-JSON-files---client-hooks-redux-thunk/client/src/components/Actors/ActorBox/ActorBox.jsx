@@ -1,4 +1,3 @@
-import React from 'react';
 import './ActorBox.scss';
 import { Field, Gender } from '../../';
 

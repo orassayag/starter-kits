@@ -1,4 +1,3 @@
-import React from 'react';
 import './Field.scss';
 
 const Field = (props) => {

@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useLayoutEffect } from 'react';
+import { useRef, useMemo, useLayoutEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import classNames from 'classnames';
 import './List.css';

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import List from './List';
 import Container from 'react-bootstrap/Container';
 import data from './data';

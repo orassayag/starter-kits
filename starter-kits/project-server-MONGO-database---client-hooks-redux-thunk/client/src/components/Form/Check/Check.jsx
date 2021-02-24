@@ -1,4 +1,3 @@
-import React from 'react';
 import './Check.scss';
 
 const Check = (props) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import './Boolean.scss';
 
 const Boolean = (props) => {

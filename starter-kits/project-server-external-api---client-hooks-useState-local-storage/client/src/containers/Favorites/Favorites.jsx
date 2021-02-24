@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './Favorites.scss';
 import localStorageService from '../../services/localStorage.service';
 import { ButtonClick, MoviesList, PageTitle } from '../../components';

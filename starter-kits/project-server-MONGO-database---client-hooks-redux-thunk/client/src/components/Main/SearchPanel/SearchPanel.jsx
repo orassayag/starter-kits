@@ -1,5 +1,5 @@
-import React, { useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { searchActions } from '../../../store/actions/actions';
 import './SearchPanel.scss';
 import { ButtonClick, Check, Dropdown } from '../../';

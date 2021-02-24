@@ -1,4 +1,3 @@
-import React from 'react';
 import './CrewBox.scss';
 import { Field, Gender } from '../../';
 

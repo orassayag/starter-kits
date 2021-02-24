@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 const listItem = memo(({ name, id, onClick }) => {
 	console.log('render');

@@ -1,4 +1,3 @@
-import React from 'react';
 import './RemoveButton.scss';
 
 const RemoveButton = (props) => {

@@ -1,9 +1,7 @@
 # Server
 
-Start to be built in May 2020.
-The client application's role is to contain the server to server data to the client.
+Built in May 2020. The client application's role is to contain the server to server data to the client.
 
----
 ## Requirements
 
 For development, you will only need Node.js and a node global package, Yarn, installed in your environnement.
@@ -41,8 +39,6 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
   After installing node, this project will need yarn too, so just run the following command.
 
       $ npm install -g yarn
-
----
 
 ## Running the project
 

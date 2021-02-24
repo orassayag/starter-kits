@@ -1,11 +1,8 @@
 # Client
 
-Start to be built in May 2020.
-The client application's role is to contain the UI and display it to the user.
-The client built in React, and always updated with the latest version of create-react-up
-(https://github.com/facebook/create-react-app).
+Built in May 2020. The client application's role is to contain the UI and display it to the user. The client built in React.js, and always updated with the latest version of create-react-app (currently 4.0.3) (https://github.com/facebook/create-react-app).
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

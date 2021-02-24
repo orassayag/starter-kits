@@ -1,4 +1,3 @@
-import React from 'react';
 import './LinksList.scss';
 import { Link } from '../../';
 

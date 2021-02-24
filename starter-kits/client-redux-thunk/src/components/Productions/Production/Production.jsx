@@ -1,4 +1,3 @@
-import React from 'react';
 import './Production.scss';
 
 const Production = (props) => {

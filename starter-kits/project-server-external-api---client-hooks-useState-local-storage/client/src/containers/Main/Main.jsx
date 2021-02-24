@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './Main.scss';
 import { MoviesList, SearchPanel } from '../../components';
 import localStorageService from '../../services/localStorage.service';

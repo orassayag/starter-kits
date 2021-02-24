@@ -1,4 +1,3 @@
-import React from 'react';
 import './Gender.scss';
 
 const Gender = (props) => {
