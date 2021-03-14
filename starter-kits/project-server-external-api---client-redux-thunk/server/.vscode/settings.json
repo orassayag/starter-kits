@@ -7,9 +7,9 @@
 		"misc": true,
 		"src/misc/": true
 	},
-	"formatFiles.excludePattern": "**/node_modules,**/.vscode,**/dist/**,**/.chrome,**/misc",
 	"cSpell.words": [
 		"jsbeautifyrc",
 		"orassayag"
-	]
+	],
+	"formatFiles.excludePattern": "**/node_modules,**/.vscode,**/dist,**/dist/**,**/.chrome,**/misc,**/misc/**,**/sources,**/sources/**"
 }

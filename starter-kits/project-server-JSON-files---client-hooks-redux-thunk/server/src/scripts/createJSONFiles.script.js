@@ -42,7 +42,7 @@ class CreateJSONFilesScript {
 	}
 
 	async run() {
-		// Initate.
+		// Initiate.
 		this.setProcess();
 		// Load all JSON files existing ids.
 		await this.loadExistingIds();

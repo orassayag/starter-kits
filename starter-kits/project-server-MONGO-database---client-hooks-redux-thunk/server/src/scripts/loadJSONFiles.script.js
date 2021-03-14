@@ -11,7 +11,7 @@ class LoadJSONFilesScript {
 	}
 
 	async run() {
-		// Initate.
+		// Initiate.
 		this.setProcess();
 		// Load all JSON files into memory.
 		await this.loadJSONFiles();

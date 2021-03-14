@@ -24,6 +24,7 @@
     ".jsbeautifyrc",
     ".npmignore",
     ".stylelintrc",
+    "INSTRUCTIONS.md",
     "package-lock.json",
     "package.json",
     "README.md"

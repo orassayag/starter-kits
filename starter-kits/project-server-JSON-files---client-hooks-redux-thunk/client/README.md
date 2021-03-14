@@ -83,4 +83,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## License
 
-This application has UNLICENSED License.
+This application has an UNLICENSED License.

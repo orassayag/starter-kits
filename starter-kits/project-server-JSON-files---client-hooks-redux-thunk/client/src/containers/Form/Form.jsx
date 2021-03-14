@@ -25,12 +25,12 @@ const genresArray = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 
 	'Romance', 'Sci-Fi', 'Short Film', 'Sport', 'Sports', 'Superhero', 'Talk Show', 'Thriller', 'War', 'Western'];
 
 const validURL = (url) => {
-	const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol.
-		'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name.
+	const pattern = new RegExp('^(https?:\\/\\/)?' + // Protocol.
+		'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // Domain name.
 		'((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address.
-		'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path.
-		'(\\?[;&a-z\\d%_.~+=-]*)?' + // query string.
-		'(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator.
+		'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // Port and path.
+		'(\\?[;&a-z\\d%_.~+=-]*)?' + // Query string.
+		'(\\#[-a-z\\d_]*)?$', 'i'); // Fragment locator.
 	return !!pattern.test(url);
 };
 
@@ -323,7 +323,7 @@ const Form = (props) => {
 			return;
 		}
 		if (!genres || genres.length <= 0) {
-			onSetFormStatus('genres', '* At least one genere is required');
+			onSetFormStatus('genres', '* At least one genre is required');
 			return;
 		}
 		if (isCreateMode) {
@@ -513,13 +513,13 @@ const Form = (props) => {
 		onSetFormStatus('', 'OK');
 	};
 
-	const genresList = genresArray.map(genere => {
+	const genresList = genresArray.map(genre => {
 		return (
 			<Check
-				key={genere}
-				labelTitle={genere}
-				checkName={genere}
-				value={genres.findIndex(g => g === genere) > -1}
+				key={genre}
+				labelTitle={genre}
+				checkName={genre}
+				value={genres.findIndex(g => g === genre) > -1}
 				onCheckChange={handleOnCheckChange}
 			/>
 		);

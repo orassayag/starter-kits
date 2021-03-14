@@ -5,16 +5,16 @@ const loadJSONFilesScript = require('../scripts/loadJSONFiles.script');
 const distPath = './src/dist/';
 
 const validURL = (url) => {
-	const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-		'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-		'((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-		'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-		'(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-		'(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+	const pattern = new RegExp('^(https?:\\/\\/)?' + // Protocol.
+		'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // Domain name.
+		'((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address.
+		'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // Port and path.
+		'(\\?[;&a-z\\d%_.~+=-]*)?' + // Query string.
+		'(\\#[-a-z\\d_]*)?$', 'i'); // Fragment locator.
 	return !!pattern.test(url);
 };
 
-// Validates that the input string is a valid date formatted as "mm/dd/yyyy"
+// Validates that the input string is a valid date formatted as "mm/dd/yyyy".
 const isValidDate = (date) => {
 	date = new Date(date);
 	date = ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear();
@@ -22,21 +22,21 @@ const isValidDate = (date) => {
 	if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(date)) {
 		return false;
 	}
-	// Parse the date parts to integers
+	// Parse the date parts to integers.
 	const parts = date.split('/');
 	const day = parseInt(parts[1], 10);
 	const month = parseInt(parts[0], 10);
 	const year = parseInt(parts[2], 10);
-	// Check the ranges of month and year
+	// Check the ranges of month and year.
 	if (year < 1000 || year > 3000 || month == 0 || month > 12) {
 		return false;
 	}
 	const monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-	// Adjust for leap years
+	// Adjust for leap years.
 	if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
 		monthLength[1] = 29;
 	}
-	// Check the range of the day
+	// Check the range of the day.
 	return day > 0 && day <= monthLength[month - 1];
 };
 

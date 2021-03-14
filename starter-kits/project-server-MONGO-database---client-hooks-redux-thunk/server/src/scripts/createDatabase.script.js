@@ -36,7 +36,7 @@ class CreateDatabaseScript {
 
 	async validateDatabase() {
 		// Check if the database contains any data. If not, load all the database from JSON files
-		// and inject into the mongo database. If exists, don't do anything except initiate the database.
+		// and inject into the mongo database. If it exists, don't do anything except initiate the database.
 		await this.createConnection();
 		const moviesCount = await mongoose.connection.collection('movies').countDocuments();
 		if (moviesCount === 0) {

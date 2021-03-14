@@ -13,7 +13,7 @@ export default function List({ items, currentView, onToggleCurrentView }) {
       element => element.getBoundingClientRect().y >= 85 // nav height offset.
     );
 
-  // Ref to the container with elements
+  // Ref to the container with elements.
   const containerRef = useRef(null);
 
   const scrollTo = useMemo(() => {

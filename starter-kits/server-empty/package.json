@@ -23,6 +23,7 @@
         ".gitignore",
         ".jsbeautifyrc",
         ".npmignore",
+        "INSTRUCTIONS.md",
         "package-lock.json",
         "package.json",
         "README.md"
@@ -35,6 +36,6 @@
     "dependencies": {
         "babel-eslint": "^10.1.0",
         "death": "^1.1.0",
-        "eslint": "^7.20.0"
+        "eslint": "^7.22.0"
     }
 }

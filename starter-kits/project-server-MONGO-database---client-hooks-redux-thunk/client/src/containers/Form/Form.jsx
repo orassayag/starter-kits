@@ -22,12 +22,12 @@ const statuses = ['Announced', 'Completed', 'Development', 'Filming', 'Optioned 
 	'Pre-production', 'Released', 'Script', 'Treatment/Outline', 'Turnaround'].map(status => { return { value: status, title: status }; });
 
 const validURL = (url) => {
-	const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol.
-		'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name.
+	const pattern = new RegExp('^(https?:\\/\\/)?' + // Protocol.
+		'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // Domain name.
 		'((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address.
-		'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path.
-		'(\\?[;&a-z\\d%_.~+=-]*)?' + // query string.
-		'(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator.
+		'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // Port and path.
+		'(\\?[;&a-z\\d%_.~+=-]*)?' + // Query string.
+		'(\\#[-a-z\\d_]*)?$', 'i'); // Fragment locator.
 	return !!pattern.test(url);
 };
 

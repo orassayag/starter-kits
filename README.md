@@ -18,9 +18,9 @@ client-redux-thunk - A client project (simulate movies library) with React.js ba
 
 client-simple-state-local-storage - A client project (simulate movies library) with React.js basic syntax and with local storage (Database: themoviedb API).
 
-example-client-hooks-render-once-example - A client project example that demonstrate how to use useMemo and useCallback in the right way.
+example-client-hooks-render-once-example - A client project example that demonstrates how to use useMemo and useCallback in the right way.
 
-example-client-hooks-render-once - A client project example that demonstrate how to use useState, useEffect, useCallback hooks, without re-rendering the entire document.
+example-client-hooks-render-once - A client project example that demonstrates how to use useState, useEffect, useCallback hooks, without re-rendering the entire document.
 
 project-server-express-empty---client-hooks-empty - A full project:
 On the client - Project of an empty React.js hooks.
@@ -64,7 +64,7 @@ On the server - Project of a Node.js server with socket.io.
 
 server-empty - An empty Node.js server project.
 
-All the client React.js project built with create-react-app
+All the client React.js projects are built with create-react-app
 [Create React App](https://github.com/facebook/create-react-app).
 
 Movies library data provided by [themoviedb](https://www.themoviedb.org/).
@@ -79,8 +79,8 @@ for the following projects:
 project-server-MONGO-database---client-hooks-redux-thunk
 project-server-JSON-files---client-hooks-redux-thunk
 
-You will need a local JSON files. They can be found in the Sources directory.
-Inside of theses projects, drop this "dist" directory into server/src directory.
+You will need a local JSON file. They can be found in the Sources directory.
+Inside of these projects, drop this "dist" directory into the server/src directory.
 
 ## Author
 
@@ -92,4 +92,4 @@ Inside of theses projects, drop this "dist" directory into server/src directory.
 
 ## License
 
-This application has UNLICENSED License.
+This application has an UNLICENSED License.
