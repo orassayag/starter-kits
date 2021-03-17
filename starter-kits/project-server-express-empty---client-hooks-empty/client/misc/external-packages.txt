@@ -1,0 +1,3 @@
+axios
+node-sass
+react-router-dom

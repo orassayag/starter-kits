@@ -1,0 +1,630 @@
+Completed + canceled tasks:
+===========================
+-In all the maintenance projects: *
+-Update packages + re-create package.json files. *
+01. Update the 'REMEMBER' section of this document. *
+02. ' all the outcome of the crawling will be created' comment should be updated. *
+03. Add to package.json file the 'INSTRUCTIONS.md' key in the files section (if it exists in the project). *
+04. In the initiate.service - const { Mode, ScriptType } = require('../../core/enums/files/system.enum'); - Need to change to ../../core/enums. *
+05. Check if async copyDirectory( is not with line break. *
+06. Fix createDirectory - No need for await in createSessionDirectory method. *
+07. 'Validate internet connection works.' => 'Validate that the internet connection works.' *
+08. '...sending emails processes.' in udemy-courses project. *
+09. Rename the function 'getFileData' to 'getJsonFileData'. *
+10. Copy the logic of 'this.updateStatus' to all change statuses in the main script file. *
+11. On udemy-courses project, change the 'validate' and 'compare' functions to 'validateFields' and 'compareCourses'. *
+12. On udemy-courses project, change 'isExpectedFilled' to 'isFilledExpected'. *
+13. Change all functions names that return true/false to 'isValidXXX' in validationUtils. *
+14. In all places change to use isExists instead of .length > 0 or .length <= 0. *
+15. Copy the logic of retry on check internet connection in all relevant projects (like in the udemy courses project). *
+16. Add to 'INSTRUCTIONS.md' how the console log should be (take the specific sentence from another project). *
+17. Accounts re-organization: *
+a. Place the "Accounts" directory inside 'C:\Users\Or\Dropbox'. *
+b. Refer all the projects to this location. *
+c. Make sure that after each path change the project still works. *
+18. Place this in all "ToDo" documents of all the projects. *
+19. Copy the 'updateCount' function (if exists) from 'sender' project. *
+18. Place this in all "ToDo" documents of all the projects. *
+16. Add 'INSTRUCTIONS.md' file if it does not exist (add it to files in package.json). *
+17. Add to 'INSTRUCTIONS.md' how the console log should be (take the specific sentence from another project) + *
+ /* cSpell:disable */ before the console log status example. *
+19. Copy the 'updateCount' function (if exists) from 'sender' project. *
+20. Update settings.json: *
+"formatFiles.excludePattern": "**/node_modules,**/.vscode,**/dist,**/dist/**,**/.chrome,**/misc,**/misc/**,**/sources,**/sources/**" *
+21. Add to .eslintignore, .gitignore, .npmignore files: *
+# Sources. *
+sources/ *
+/sources *
+sources *
+-Bring back production to true in settings.js. *
+-Remove all comments. *
+-Re-format error numbers + last_index.txt file. *
+-Fix all spell mistakes via Gmail. *
+-Format all files. *
+-Upload to GitHub. *
+-Backup iOmega. *
+-Clear complete tasks. *
+-Update packages. *
+-Remove all "import React" from all places. *
+-For starter-kits and world-covid-19-data: Update create-react-app. *
+-Change all ect => etc - In all projects. *
+-Verify package.json project name. *
+-Change all README.md files to the title of the project as first line (Only one #). *
+-Change from 'Start to be built' to 'Built in', and remove space lines, and the "-Goal:", and remove the 'This project was bootstrapped with [Create React App] *(https://github.com/facebook/create-react-app).' line under to the description with line space,  all fixes in README.md. *
+-Fix all README.me + package.json from 'create-react-up' to 'create-react-app'. *
+-Projects: *
+client-hooks-empty *
+client-hooks-redux-thunk *
+client-hooks-useState-local-storage *
+client-redux-saga *
+client-redux-thunk *
+client-simple-state-local-storage *
+example-client-hooks-keep-scroll-position *
+example-client-hooks-render-once *
+project-server-express-empty---client-hooks-empty *
+project-server-external-api---client-hooks-redux-thunk *
+project-server-external-api---client-hooks-redux-thunk---socket.io *
+project-server-external-api---client-hooks-useState-local-storage *
+project-server-external-api---client-redux-saga *
+project-server-external-api---client-redux-thunk *
+project-server-external-api---client-simple-state-local-storage *
+project-server-JSON-files---client-hooks-redux-thunk *
+project-server-MONGO-database---client-hooks-redux-thunk *
+project-server-socket-io-empty---client-hooks-empty *
+server-empty *
+-Fix the console bug in some of the projects while navigating from page to page in some of the projects. *
+-Asked question in StackOverFlow to try to fix the issue. *
+-Fix the in index.js this (support development in all browsers): *
+-Update on project-server-MONGO-database---client-hooks-redux-thunk - on server side: *
+-Add statuses of the Injecting data start and end. *
+const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose; * 
+client-hooks-redux-thunk *
+client-redux-saga *
+client-redux-thunk *
+project-server-external-api---client-hooks-redux-thunk *
+project-server-external-api---client-hooks-redux-thunk---socket.io *
+project-server-external-api---client-redux-saga *
+project-server-external-api---client-redux-thunk *
+project-server-JSON-files---client-hooks-redux-thunk *
+project-server-MONGO-database---client-hooks-redux-thunk *
+-Delete movies database from mongo. *
+============== *
+-Add for each .vscode directory in each project the lines of: *
+	"search.exclude": { *
+		"**src/misc/": true, *
+		"misc": true, *
+		"src/misc/": true *
+	}, *
+ 	"formatFiles.excludePattern": "**/node_modules,**/.vscode,**/dist/**,**/.chrome,**/misc" *
+-Open each project separately and add words to settings.js + format documents. *
+client-hooks-empty *
+client-hooks-redux-thunk *
+client-hooks-useState-local-storage *
+client-redux-saga *
+client-redux-thunk *
+client-simple-state-local-storage *
+example-client-hooks-keep-scroll-position *
+example-client-hooks-render-once *
+project-server-express-empty---client-hooks-empty *
+project-server-external-api---client-hooks-redux-thunk *
+project-server-external-api---client-hooks-redux-thunk---socket.io *
+project-server-external-api---client-hooks-useState-local-storage *
+project-server-external-api---client-redux-saga *
+project-server-external-api---client-redux-thunk *
+project-server-external-api---client-simple-state-local-storage *
+project-server-JSON-files---client-hooks-redux-thunk *
+project-server-MONGO-database---client-hooks-redux-thunk *
+project-server-socket-io-empty---client-hooks-empty *
+server-empty *
+On MONGO/JSON projects, add the dist to search.exclude on settings.js *
+-Format + Upload to GitHub + iOmega. *
+-All the clients - Upgrade to CRA 4+. *
+-All servers - update packages. *
+client-hooks-empty *
+client-hooks-redux-thunk *
+client-hooks-useState-local-storage *
+client-redux-saga *
+client-redux-thunk *
+client-simple-state-local-storage *
+example-client-hooks-keep-scroll-position *
+example-client-hooks-render-once *
+project-server-express-empty---client-hooks-empty *
+project-server-external-api---client-hooks-redux-thunk *
+project-server-external-api---client-hooks-redux-thunk---socket.io *
+project-server-external-api---client-hooks-useState-local-storage *
+project-server-external-api---client-redux-saga *
+project-server-external-api---client-redux-thunk *
+project-server-external-api---client-simple-state-local-storage *
+project-server-JSON-files---client-hooks-redux-thunk *
+project-server-MONGO-database---client-hooks-redux-thunk *
+project-server-socket-io-empty---client-hooks-empty *
+server-empty *
+-Change in .eslintrc to React 17.0.1. *
+-Format package.json + package-lock.json. *
+-Change all gitignore + npmignore 'Misc' section. *
+-Verify that all projects have package-lock.json file + verify remove node_modules. *
+-Change README.MD + gitignore + npmignore on the root. *
+-Fix spell mistakes in all TXT files. *
+-Update on GitHub. *
+-Move all completed tasks to complete_tasks.txt file. *
+-Delete the work directory. *
+-Delete the dist unzip directory. *
+-Delete the movies database on MongoDB. *
+-Update .eslintrc file to fit react (take from 'world-covid' project). *
+-Take updated 'Misc' section from 'crawler' project for npmignore and gitignore files. *
+-Add REMEMBER message to here. *
+-Update all clients - Update the .eslintrc file from 'world-covid' project and make sure all works + Format all files. *
+-Fix description in package.json + README.MD + re-create package.json-lock file. *
+-Update packages. *
+-Make sure spaces in all files between bottom, need to fix cases like this: *
+export { *
+} *
+} *
+module.exports *
+} *
+export default *
+-Update packages npm outdated --depth 9999. *
+-Re-check all imports in the entire project (check for duplicate imports paths). *
+-Sort alphabetically all imports: external packages, settings, (containers, components, store, assert) data, models, enums, services, utils. *
+-Sort alphabetically by https://alphabetizer.flap.tv/. *
+-Replace all 'let' to 'const' and where no bugs - change it. *
+-Add 'Misc.' section to gitignore and npmignore files (include tasks txt files + backups directory). *
+-Fix TXT files spell mistakes. *
+-Fix all spell mistakes in all TXT files. *
+-Fix spell mistakes in all txt files. *
+-Remove all unused files, functions, and variables. *
+-Rewrite error numbers. *
+-Remove all debugger. *
+-Make sure all comments end with . *
+-Format all files. *
+-Upload to GitHub. *
+-Move all complete tasks from here to complete_tasks.txt. *
+=====================
+client-hooks-empty *
+client-hooks-redux-thunk *
+client-hooks-useState-local-storage *
+client-redux-saga *
+client-redux-thunk *
+client-simple-state-local-storage *
+example-client-hooks-keep-scroll-position *
+example-client-hooks-render-once *
+project-server-express-empty---client-hooks-empty *
+project-server-external-api---client-hooks-redux-thunk *
+project-server-external-api---client-hooks-redux-thunk---socket.io *
+project-server-external-api---client-hooks-useState-local-storage *
+project-server-external-api---client-redux-saga *
+project-server-external-api---client-redux-thunk *
+project-server-external-api---client-simple-state-local-storage *
+project-server-JSON-files---client-hooks-redux-thunk *
+project-server-MONGO-database---client-hooks-redux-thunk *
+project-server-socket-io-empty---client-hooks-empty *
+server-empty *
+-Change the project name to starter-kits. *
+-LowerCase all directories of the project. *
+-Update packages. *
+-Refactor all one instance class to module.export = new Class(); *
+-Change all databaseService to mongoDataBaseService. *
+-Add catch to all return promises. *
+-Merge between pause and sleep function if it exists. *
+-Add LinkedIn, GitHub, StackOverFlow to all README.MD files. *
+-Re-create package-lock.json. *
+-Re-upload to GitHub, and Re-add to StackOverFlow. *
+-Update all kits to React 17 (CRA4+) - Canceled. *
+-Add to hooks on details page: *
+		return () => { *
+			onMovieDetailsLoadSuccess({ *
+				movie: null, *
+				youtubeKey: null, *
+				actorsList: null, *
+				crewsList: null *
+			}); *
+		}; *
+-Change Button and NavigationButton to other names: ButtonClick, NavigationButtonLink / NavigationItemLink *
+-Each server re-install eslint. *
+-Format all projects. *
+-Add default constructors to all classes. *
+client-hooks-empty * -F
+client-hooks-redux-thunk * -F
+client-hooks-useState-local-storage * -F
+client-redux-saga * -F
+client-redux-thunk * -F
+client-simple-state-local-storage * -F
+example-client-hooks-keep-scroll-position * -F
+example-client-hooks-render-once * -F
+project-server-express-empty---client-hooks-empty * -F
+project-server-external-api---client-hooks-redux-thunk * -F
+project-server-external-api---client-hooks-redux-thunk---socket.io * -F
+project-server-external-api---client-hooks-useState-local-storage * -F
+project-server-external-api---client-redux-saga * -F
+project-server-external-api---client-redux-thunk * -F
+project-server-external-api---client-simple-state-local-storage * -F
+project-server-JSON-files---client-hooks-redux-thunk * -F
+project-server-MONGO-database---client-hooks-redux-thunk * -F
+project-server-socket-io-empty---client-hooks-empty * -F
+server-empty * -F
+
+## Author
+
+* **Or Assayag** - *Initial work* - [orassayag](https://github.com/orassayag)
+* Or Assayag <orassayag@gmail.com>
+* GitHub: https://github.com/orassayag
+* StackOverFlow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+* LinkedIn: https://il.linkedin.com/in/orassayag
+
+## License
+
+This application has an UNLICENSED License.
+-Find template that fits the needs for the starter kits. *
+-Keep a copy of the original template. *
+-Remove from the original all unneeded stuff. *
+-On home change the background color of the search input. *
+-On the websocket version with the third page - Add the same logic. *
+3. After finishing the hooks kit version - Need to fix in all kits - On search key, go to the server each 0.5 second if the search key changed (use ref) - Make sure only 1 call each 0.5 since the last change. *
+Backups: *
+-Convert all backups to a zip file to save space. *
+-Do this for all backups directories. *
+-Update all iomega / diskonkey. *
+-Finish left tasks of the Crawler and make sure it works OK. *
+-Make sure you have backup on Dropbox. *
+-Also upload the Crawler to GitHub. *
+-Also upload the EmailsManager to GitHub. *
+-When doing that - Write a guide how to upload a project to GitHub + With instructions on how to change creation date time. *
+-Put the guide in 'OrLife\Programing' in a TXT file. *
+-Check in the 'EventsDates' document for more tasks that need to be here and write them here. *
+-Couple of days to cool-off, re-arrange tasks out of the programming world. *
+-Create a new directory for this project: StarerKits. *
+-Move this document to the misc directory inside the starter kit. *
+-Create inside the directory: Backups, Kits, Template. *
+-According to the tutorial: https://www.youtube.com/watch?v=-drcStMYOcM *
+-Build a simple template - An original version. *
+-Do a copy and do the custom fixes needed for the movies library - Take parts of the design from: https://messing-movie-box.netlify.app/#/ *
+-Plan the Starter Kits:
+Client: Movies Library Template Design: *
+-Instead of using local json files, use this API: *
+https://developers.themoviedb.org/3/getting-started/introduction *
+List of Movies. Header + Footer. Responsive. Side Menu between 3 pages (Main + Movie Favorites Page + Load New Movies page (In case of websocket version)) https://www.imdb.com/chart/top/?ref_=nv_mv_250. *
+-Main page: List of all the movies by random + Pager (Load more button - If needed) - Each Movie - Movie image | Title (Year) <br> Genre <br> Short Storyline + Add to favorites button (If not on favorites list). *
+-Main page: A button that opens a panel on the top to add a movie with all the details. Loader + Once the movie is added the panel changes to a success message. On client - Update state. On server - Update local JSON files / Mongo. *
+-Main Page: Search panel - Can search a movie (will reset the genre filter). *
+-Main Page: Can filter by genre within a dropbox. *
+-Main Page: Click on the movie box, will redirect to movie details page. *
+-Movie Details Page: Like IMDB https://www.imdb.com/title/tt2948372/?ref_=hm_hp_cap_pri_1 *
+-Movie Details Page: Title (Year) <br> Genres <br> Big image <br> Full Storyline <br> Cast list <br> *
+-Movie Favorites Page: List of movies with name and year and button to remove from favorite page. *
+-Lode Movies Page: Click on a single button to start loading each 5 seconds of new movies from the server by websocket. *
+-Add on movie details icon of a big start to check/uncheck favorite. *
+-Fix bug with static height on details page. *
+-Fix menu on mobile. *
+-Add on the movie details a button back home. *
+-Do backup. *
+-Plan all the components. *
+-Add instructions how to update create-react-app (all packages, all places to add/change, all things to do). *
+-Write a default document with a list of things to do when updating the create-react-app. *
+For Each client Kit Plan: *
+-Client and server start - Take the server from VisualizationTool. *
+-Use Create-React-App for the client. *
+-Build the hole structure of the project, including all eslint from VisualizationTool. *
+-Plan all the components: *
+-Header, Footer, Movies (Movies page), Details (Details page), Favorites (Favorites page), Load (LoadMovies page). *
+-Header: Logo, Link. *
+-PageTitle. *
+-Movies: SearchPanel, MoviesList. *
+-MoviesList: Movie, Button (With loader inside). *
+-Details: MovieDetails, ActorsList. *
+-ActorsList: Actor. *
+-Header: On the current page bold the page name. *
+-Do all the "ToDo" points. *
+-Do all '*Fix all projects' points. *
+-Format all documents in the end. *
+-Make sure all names of components are the same as the file name. *
+-Each finished kit: *
+1. Format all documents in the end. *
+2. Make a list of all external packages. *
+3. Make a Misc directory. *
+4. Inside it, Make a list of none related packages to the default packages of create-react-app, so you can update the version of all the kits easly. *
+5. Move to StarterKits directory. *
+-Hooks: *
+-Before hooks: *
+-React course: Download the updated react course: https://www.udemy.com/course/react-the-complete-guide-incl-redux/ *
+-See the relevant course on hooks. *
+-Hooks reference: https://github.com/messking/MovieBox/tree/master/src *
+-After finish hooks course - Hooks kits: *
+1. Take a simple state copy. *
+2. Convert all components to function components + Change components to lower case and camel case. *
+3. React.memo on single movie when favorite/unfavorite + Check not re-rendering. *
+After finish all kits: *
+-Go to each kit to the App.jsx, Header, NavigationItem, and convert the routes to be one liners. *
+-Add default props to all containers. *
+-Check that if the favorite movie doesn't disappear, try fix it by ".findIndex(movie => movie.id === id);". *
+-In Favorites page - Change the logic to not use displayMoviesList. *
+-Change from AppRoute to Route. *
+-In moviesList change the size of the image to w342 from original. *
+-In actorsList and crews list change the size of the image to w185 from original. *
+-In Movies/MoviesList convert to 'memo' instead of 'React.memo'. *
+-format all kits. *
+Update List: *
+client-hooks-redux-thunk *
+client-hooks-useState-local-storage *
+client-redux-saga *
+client-redux-thunk *
+client-simple-state-local-storage *
+-Fix all client kits buttons. *
+-For each kit, separated directory (client and related server, or just client): *
+Client: Movies Library Starter Kits: *
+-React | Simple State + Local Storage | Database: themoviedb API *
+-React | Redux: Thunk | Database: themoviedb API *
+-React | Redux: Saga | Database: themoviedb API *
+-React | Hooks - Simple useState | Database: themoviedb API *
+-React | Hooks - Redux Thunk + Redux Hooks | Database: themoviedb API *
+-React | Hooks - Optimization example: https://codesandbox.io/s/50mnw605mn *
+-React | Simple State  + Local Storage | Database: Node server: themoviedb API *
+-React | Redux: Thunk | Database: Node server: themoviedb API *
+-React | Redux: Saga | Database: Node server: themoviedb API *
+-React | Hooks - Simple useState | Database: Node server: themoviedb API *
+-React | Hooks - Redux Thunk + Redux Hooks | Database: Node server: themoviedb API *
+-React | Hooks - Redux Thunk + Redux Hooks | Database: Node server: themoviedb API + Websocket *
+Server: Movies Library Starter Kits: *
+-Node | Database: themoviedb API *
+-Node | Database: themoviedb API + WebSocket *
+WebSocket: Use socket io to load an amount of movies each 10 seconds on a certain page (Load New Movies page - Available only for this single version). *
+-After finish the websocket - Fix in all client + server projects the pageNumber - Currently not active. *
+-In all clients kits - Make sure header links are one liners. *
+-Add to all server debug scripts. *
+-Bug detected on client: When mark favorite on details page, and it's single movie, and move to favorites page, can't unfavorite it. Do parseInt in all places - Make sure fixed in all kits.
+project-server-external-api---client-simple-state-local-storage *
+project-server-external-api---client-redux-thunk *
+project-server-external-api---client-redux-saga *
+project-server-external-api---client-hooks-useState-local-storage *
+project-server-external-api---client-hooks-redux-thunk---websocket *
+project-server-external-api---client-hooks-redux-thunk *
+client-simple-state-local-storage *
+client-redux-thunk *
+client-redux-saga *
+client-hooks-useState-local-storage *
+client-hooks-redux-thunk *
+Empty Kits: *
+Client / Server: Kits - Empty projects - To start fast. *
+Hooks example + Express (CRUD ready): *
+Client & Server Kit - Empty projects - To start fast. *
+Hooks example + SocketIO: *
+Client & Server Kit - Empty projects - To start fast. *
+Fix current bugs in all clients: *
+1. All places - Where the poster is null, don't display. *
+2. In search text + pager - Don't work: *
+On getMovies: searchText: isSearchChange ? updatedSearchText : searchText, *
+-Fix bug of 'hand' request with websocket. *
+3. Fix details page h2: font-size: 1.3em; *
+-Add to all client's kits in the misc directory: react-router-dom (3 place). *
+-In all servers - Change StreamRoute to MoviesRoute. *
+-In all servers - Add default constructors. *
+-In all servers - Remove spaces in headers middleware. *
+-In all servers - One line: this.httpServer.on. *
+-All empty server - Remove key from settings. *
+-MovieUtils - Add default constructor. *
+-Clients - Check headers. *
+-Rename all "main.jsx" to "index.jsx". *
+-Format all kits again. *
+-Check kit is working (remove package-lock.json before). *
+-Check that search + pager works fine. *
+kits: *
+server-empty *
+project-server-socket-io-empty---client-hooks-empty *
+project-server-external-api---client-simple-state-local-storage *
+project-server-external-api---client-redux-thunk *
+project-server-external-api---client-redux-saga *
+project-server-external-api---client-hooks-useState-local-storage *
+project-server-external-api---client-hooks-redux-thunk---socket.io *
+project-server-external-api---client-hooks-redux-thunk *
+project-server-express-empty---client-hooks-empty *
+client-simple-state-local-storage *
+client-redux-thunk *
+client-redux-saga *
+client-hooks-useState-local-storage *
+client-hooks-redux-thunk *
+client-hooks-empty *
+-Item in the center of the screen. *
+-Add the original first version. *
+-Add the original before components. *
+-Header + Footer + SideMenu. *
+-Items Boxes / Cards. *
+-Grids. *
+-Remove all comments. *
+Templates - A Directory of all possible HTML template - Steps: *
+-For each design pattern - 10 examples. *
+-For each layout example - 5 examples. *
+-20 Examples form each of the following: *
+-Dashboards. *
+-Forms (responsive, center, sides). *
+-Floating Modal. *
+-Business + Portfolio website. *
+-Verify no codepen.io links. *
+-Add to style tag - To who is missing. *
+-Make sure all css links tags have link rel="stylesheet. *
+-All css links - Add type="text/css". *
+-Close all img tags. *
+-Make sure all images have both alt and title. *
+-Make sure in the image that class is after src. *
+-Add to script type="text/javascript" and to links css type="text/css". *
+-Add to body 'translate="no"'. *
+-Close all meta tags. *
+-Search for " (space) or for  ". *
+-Rename all "INLINE_PEN_JS_ID" to normal script. *
+-Remove empty "INLINE_PEN_JS_ID". *
+-Remove empty "INLINE_PEN_STYLESHEET_ID". *
+-Rename all "INLINE_PEN_STYLESHEET_ID" to type="text/css". *
+-Add <!DOCTYPE html> in the beginning of each template. *
+-Remove favicon + Change title to the name of the file. *
+-Make sure all template files are with capital letters. *
+-Remove all //# sourceURL=pen.js *
+-Add closing tags to all missing. *
+-Keep the same order of tags in all documents (and same type of case sensitive). *
+-Verify AGAIN no codepen. *
+-All url make sure to have ' *
+-Check that all titles are as the name of the file. *
+-Format all documents. *
+-Format each one manually. *
+-Remove duplicate empty lines. *
+-Remove all comments. *
+-Fix all compilation errors. *
+-Search for all /* (or //) - Remove comments of css and others. *
+-Check that imports in css to local files can be removed - Check that still working. *
+-In tags on the start of the body - Move to head. For each - Check that it is still working. *
+-Check all working + Check each console and remove errors. *
+-Add space after "*/" and "/* and <!-- *
+-Change content: "" to content: '' *
+-Check all css files and remove local files. *
+-Close all link tags. *
+-Final check on all files. *
+-Limit to 20 boxes of additional data (production, actor, crew). *
+BACKUP CURRENT KIT *
+-Register with all gmail users to themoviedb. *
+-Get a copy of client + hooks (Hooks - Redux Thunk + Redux Hooks) and node.js server. *
+-Add to the server: build a script that pulls out a large number of movies JSON files from the themoviedb (include all the details about each movie, youtubekey, crws and actors, only the relevant fields). *
+-In the script write down all the keys of the themoviedb. *
+-On the script: Read all JSON files and insert all the file names to the dictionary. If it exists - Don't fetch again. *
+-On the script: If not found 100 times in a row - Stop the script. *
+-Load all the JSON files. *
+-Convert all functions to be based on the local JSON files (search function - use simple index of). *
+-Client: Find a form template that fits to needs. *
+-Do both validation on client and on server. *
+-On Create - Make sure the movie is not already by title toLowerCase. *
+-In the client, add a page for each kit to add / edit / remove a movie, based on the JSON files + add validation if movies already exist. *
+-Sort all dropdowns by alphabetical order. *
+-Check in form which functions can convert to useCallback. *
+-Fix bug of changing production country. *
+-Change all functions from 'Handler' to 'handle' in the beginning. *
+-In details page add icon for edit page + favorites page. *
+-Remove the html file from the misc directory. *
+-Remove the JSON example in comment in both client and server. *
+-In both CRUD versions - In the form page, implement the loops of items directly in the code, not in parameters first. *
+-Make a copy of the JSON CRUD version. *
+-Check if the ids of actors, ect.. are unique. *
+-Client side changes: *
+1. Add a dropdown panel to: *
+a. Select movies search type: by movie name, by actor name, by crew name, by production company name. *
+b. Search options: select genre, year of creation, by status, by original or spoken language, by production country. *
+c. Add the Id of the movie to the details page. *
+d. When finished all - Implement useCallback and test it. *
+2. Add option to delete movie - A pop up for approval (add it in the movie in all pages component and in the details container - In the favorites page - Don't display remove option). *
+-Plan the database for many to many. Build tables for genre to movie, actor to movie, crew to movie, production company to movie. Make the languages (original) to be single value in the database.
+-Movie: All fields today (No generes, actors, crews, productions) *
+-Actor: All fields today *
+-Crew: All fields today *
+-ProductionCompany: All fields today *
+-Genere: All fields today *
+-MovieActor: ActorId, MovieId, Character *
+-MovieCrew: CrewId, MovieId, Job, Department *
+-MovieProductionCompany: ProductionId, MovieId *
+-MovieGenere: GenereId, MovieId*
+-Re-arrange the scripts - Check if mongo is empty - Load JSONS and create the mongoDB. *
+-If exists - Just initiate mongoDB. *
+-Re-arrange all to one script.  *
+-Build another project, with the same functionality, based on mongodb (if the database is empty, load json files to the database). *
+-If the database is empty or tables do not exist, load the database from JSON files. *
+-When exit the node server - Close the database to avoid 3001 used errors. *
+-Load to database from the JSON files and separate it to models: movie, actor, crew, production, genre, and so on. *
+-Add vote count query + Test it on fiddler. *
+-On the client - After first time work - Add loader. *
+-On the client - Need to load genres from the database, and the value should be the genreId. *
+-On the client - Add vote_average to the dropdown select. *
+-On the client - Add search also by character name and all movies that average vote is higher than a number. *
+-On the client - Change the search logic to search when clicking on a new button called "search". When clicking on "search" if the panel is open close it. *
+-Fix field "order" of actor in the database. *
+-On the client - Add the Id of the movie to the title of the movie component. *
+-On the client - On Details page - Add loader. *
+-On server - Check why server crashes after some time. *
+-On Add movie:
+-Client - Add the order number of the actor. *
+-Client - Change the generes to be loaded from the server - Change to send ids instead of names. *
+-Client - On form's page - Add option to edit the order number. *
+-On the server - On the delete - Delete also from all relation collections, and check if needed to delete in actors, crews, and production companies, same for add, and for update operations. *
+-Handle all cases on update movies.
+-On Client - Fix order number 0.
+-In the end - On server - Remove all unused scripts + test.txt from models + Clean all comments. *
+-Change the API in the server side accordingly, no effect on the client side. *
+-Check that all other functions in all pages still work. *
+-In the end - Convert in all places, where in the reducer has one change in one field - Convert it to one function. *
+-On CRUD versions client - Field component: const inputValue = inputType === 'number' ? (value === undefined ||  value === null ? '' : value) : (value || ''); *
+and in the input value: *
+value={inputValue} *
+-In both CRUD versions - Add the Id of the movie to the details page. *
+-In both CRUD versions - Remove the last 'Success' word for all the actions. *
+-In all client versions - On the search input - spellCheck="false", change to the following: *
+<input type="text" className="search-input" onChange={handleSearchTextChange} placeholder="Search" value={searchText || ''} spellcheck="false" /> *
+-In all versions of client - On details page - Change css to (and check it after): *
+                    &.short {
+                        font-size: 13px;
+                        height: 20px;
+                        overflow: hidden;
+                    }
+
+                    &.full {
+                        display: block;
+                        overflow: hidden;
+                        height: 120px;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                    }
+-In all versions of client - Add title to the icons in the movie (both on movie icon and details page). *
+-In all versions of client - Change all the "icons" click events to the format: 'handleOnButtonClick'. *
+-In all versions of client - In details page - Add hover effects on icons. *
+-Fix JSON CRUD version - Use async await on each api call on the server. *
+-In JSON CRUD versions of the client - Change the gender in the form: *
+				<option value={2}>Male</option> *
+				<option value={1}>Female</option> *
+-In the version of JSON CRUD - On reducer - setLeaveForm - Remove unused 'action' parameter. *
+Almost Finish Kits Tasks: *
+-Fix all the server projects - Where console line - Use status method (with ===): *
+    log(text) {
+        console.log(`===${text}===`);
+    }
+-All servers - Update all packages. *
+-All clients - Check specific packages. *
+-In all versions of client hooks - On details page, move handleBackClick to top *
+-In all server projects - Add: *
+        process.on('SIGTERM', () => {
+            console.log('SIGTERM');
+            if (!this.isProcessExit) {
+                this.isProcessExit = true;
+                this.close();
+            }
+        });
+        ON_DEATH((signal, error) => {
+            console.log('ON_DEATH');
+            console.log(signal);
+            console.log(error);
+            if (signal || error) { }
+            if (!this.isProcessExit) {
+                this.isProcessExit = true;
+                this.close();
+            }
+        });
+-Fix in all clients: Capital letter in all components. *
+Projects: *
+server-empty *
+project-server-socket-io-empty---client-hooks-empty *
+project-server-MONGO-database---client-hooks-redux-thunk *
+project-server-JSON-files---client-hooks-redux-thunk *
+project-server-external-api---client-simple-state-local-storage *
+project-server-external-api---client-redux-thunk *
+project-server-external-api---client-redux-saga *
+project-server-external-api---client-hooks-useState-local-storage *
+project-server-external-api---client-hooks-redux-thunk---socket.io *
+project-server-external-api---client-hooks-redux-thunk *
+project-server-express-empty---client-hooks-empty *
+client-simple-state-local-storage *
+client-redux-thunk *
+client-redux-saga *
+client-hooks-useState-local-storage *
+client-hooks-redux-thunk *
+client-hooks-empty *
+Finish Kits Tasks: *
+-Make sure all kits are working, check each one of them. *
+-Zip all JSONS and put it in a new directory - Sources + README.txt file that explains which projects. *
+-Remove the Current directory. *
+-Upload the starter kits to GitHub, * iomega, * diskonkey * (On Github version - Without Templates and Backups Directories). *
+-When finish all StarterKits - Update DiskOnKey + iomega + Github (README.txt outside). *
+-Upload to GitHub: All the directories and README.md file outside. *
+-Send links to friends. *
+-Drop all databases in mongo db compass. *
+-Move this document to the covid19 directory. *

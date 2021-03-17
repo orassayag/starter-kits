@@ -1,0 +1,46 @@
+======
+CLIENT
+======
+Since the projects built with create-react-app, it needs to be updated only when the create-react-app NPM package is updated.
+Here are the steps to create a full update of the client:
+01. On terminal check if there is an update of create-react-app by writing 'npm global -g' on the terminal.
+02. If you find an update - update the package by writing 'npm i create-react-app@<version-number> -g' on the terminal.
+03. After it finishes to update, do a backup to the client you want to update.
+04. On VSCode, Create a new create-react-app app, on a temporary place.
+05. After it finishes to create, exit the VSCode.
+06. Enter it back again in the root of the project.
+07. Eject the project by writing 'npm run eject' on the terminal.
+09. Make sure that the project is working well by writing 'npm start' on the terminal.
+10. Once it finishes - Go to the project and delete the .git directory.
+11. Add all the eslint/README.md/gitignore files to the root of the project.
+12. Restart the VSCode project.
+13. Test that you see warnings on the 'problems' tab when going to see files on the path: scripts/build.js.
+14. Copy the .vscode directory from the previous client to the new one.
+15. Remove all warnings + duplicate empty lines + final empty lines on the following files:
+-All files in script directory.
+-All files in config directory.
+-In 'config/modules.js' change to single quote.
+16. From public directory - Remove all logo png.
+17. Replace index.html from the previous client.
+18. Go to src directory.
+19. Remove all warnings + duplicate empty lines + final empty lines on the following files:
+serviceWorker.js
+setupTests.js
+20. On src/index.js - Check if the basic has been changed.
+21. If yes - Copy the file and put it on the side. If no - Don't do anything.
+22. Copy the src directory from the previous client and replace the current one.
+23. Copy the misc directory on the root of the previous client into the root of the new project.
+24. On the misc directory, open the 'external-packages.txt' and install all the packages listed there, one after the other.
+25. On the package.json file:
+-Change the name to 'client'
+26. On the config/paths.js file change:
+  appIndexJs: resolveModule(resolveApp, 'src/index'), to
+  appIndexJs: resolveModule(resolveApp, 'src/main')
+27. Check that the project works by writing 'npm start' on the terminal.
+
+======
+SERVER
+======
+01. On terminal check if there is an update of create-react-app by writing 'npm global' on the terminal.
+02. If updates exist, update them one by one.
+03. Check that all functionality works by writing 'npm start' on the terminal.
