@@ -2,7 +2,7 @@ import './ProductionBox.scss';
 import { Field, Dropdown } from '../../';
 
 const ProductionBox = (props) => {
-	const { production, contries, onProductionBoxValueChange, onProductionBoxRemoveClick } = props;
+	const { production, countries, onProductionBoxValueChange, onProductionBoxRemoveClick } = props;
 	const { id, name, logo_path, origin_country, errorField } = production;
 	return (
 		<div className={`container${errorField ? ' error-container' : ''}`}>
@@ -24,7 +24,7 @@ const ProductionBox = (props) => {
 				dropName="origin_country"
 				dataId={id}
 				value={origin_country}
-				dropOptions={contries}
+				dropOptions={countries}
 				onDropChange={onProductionBoxValueChange}
 			/>
 			<Field

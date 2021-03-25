@@ -5,8 +5,8 @@ FAST & BASIC START.
 ===================
 1. On the server project, unzip the 'dist.rar' and place it on the 'src/dist' directory (Note: not to be src/dist/dist).
 2. Open the project in IDE (Current to 14/03/2021 I'm using VSCode).
-3. On terminal: npm i
-4. Once done, on terminal: npm start
+3. On the terminal: npm i
+4. Once done, on the terminal: npm start
 
 ## Author
 

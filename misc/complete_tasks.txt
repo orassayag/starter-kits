@@ -1,5 +1,25 @@
 Completed + canceled tasks:
 ===========================
+projects list: *
+client-hooks-empty *
+client-hooks-redux-thunk *
+client-hooks-useState-local-storage *
+client-redux-saga *
+client-redux-thunk *
+client-simple-state-local-storage *
+example-client-hooks-keep-scroll-position *
+example-client-hooks-render-once *
+project-server-express-empty---client-hooks-empty *
+project-server-external-api---client-hooks-redux-thunk *
+project-server-external-api---client-hooks-redux-thunk---socket.io *
+project-server-external-api---client-hooks-useState-local-storage *
+project-server-external-api---client-redux-saga *
+project-server-external-api---client-redux-thunk *
+project-server-external-api---client-simple-state-local-storage *
+project-server-JSON-files---client-hooks-redux-thunk *
+project-server-MONGO-database---client-hooks-redux-thunk *
+project-server-socket-io-empty---client-hooks-empty *
+server-empty *
 -In all the maintenance projects: *
 -Update packages + re-create package.json files. *
 01. Update the 'REMEMBER' section of this document. *

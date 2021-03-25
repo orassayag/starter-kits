@@ -12,7 +12,7 @@ class LoadJSONFilesScript {
 	async run() {
 		// Initiate.
 		this.setProcess();
-		// Load all JSON files into memory.
+		// Load all JSON files into the memory.
 		await this.loadJSONFiles();
 	}
 
@@ -52,7 +52,7 @@ class LoadJSONFilesScript {
 		const { fileName, fileExtension } = data;
 		const extension = path.extname(fileName);
 		if (!extension) {
-			throw new Error(`extension not received: ${extension} (1000034)`);
+			throw new Error(`Extension not received: ${extension} (1000034)`);
 		}
 		return extension.toLowerCase() === `.${fileExtension.toLowerCase()}`;
 	}

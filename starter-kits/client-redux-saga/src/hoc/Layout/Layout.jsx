@@ -14,7 +14,7 @@ const defaultProps = {
 class Layout extends Component {
     render() {
         return (
-            <div className='main-container'>
+            <div className="main-container">
                 <Header />
                 {this.props.children}
                 <Footer />

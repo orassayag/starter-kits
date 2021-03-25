@@ -11,7 +11,7 @@ const defaultProps = {
 
 const Layout = (props) => {
     return (
-        <div className='main-container'>
+        <div className="main-container">
             {props.children}
         </div>
     );

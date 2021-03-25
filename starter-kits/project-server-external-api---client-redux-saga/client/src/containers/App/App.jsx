@@ -8,10 +8,10 @@ class App extends Component {
     return (
       <Layout>
         <Switch>
-          <Route path={'/'} exact={true} component={Main} />
-          <Route path={'/favorites'} exact={true} component={Favorites} />
-          <Route path={'/details/:id'} exact={true} component={Details} />
-          <Redirect to={'/'} />
+          <Route path="/" exact={true} component={Main} />
+          <Route path="/favorites" exact={true} component={Favorites} />
+          <Route path="/details/:id" exact={true} component={Details} />
+          <Redirect to="/" />
         </Switch>
       </Layout>
     );

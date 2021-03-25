@@ -205,8 +205,8 @@ const Details = (props) => {
 			{!isLoading && movie && <div>
 				<section className="details-area">
 					<PageTitle
-						pageName='details'
-						pageTitle='Details'
+						pageName="details"
+						pageTitle="Details"
 					/>
 					<ul className="details-content">
 						<li className="details-left" style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original${poster_path}')` }}></li>
@@ -250,8 +250,8 @@ const Details = (props) => {
 				</section>
 				{actorsList && actorsList.length > 0 && <section className="actors-area">
 					<PageTitle
-						pageName='actors'
-						pageTitle='Cast'
+						pageName="actors"
+						pageTitle="Cast"
 					/>
 					<ActorsList
 						actorsList={actorsList}
@@ -259,16 +259,16 @@ const Details = (props) => {
 				</section>}
 				{crewsList && crewsList.length > 0 && <section className="crew-area">
 					<PageTitle
-						pageName='crew'
-						pageTitle='Crew'
+						pageName="crew"
+						pageTitle="Crew"
 					/>
 					<CrewsList
 						crewsList={crewsList}
 					/>
 				</section>}
 				<ButtonClick
-					buttonText={'Back'}
-					buttonTitle={'Back'}
+					buttonText="Back"
+					buttonTitle="Back"
 					isLoading={false}
 					onClick={handleBackClick}
 				/>

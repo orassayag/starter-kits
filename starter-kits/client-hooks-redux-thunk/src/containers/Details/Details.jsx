@@ -104,8 +104,8 @@ const Details = (props) => {
 		<div>
 			<section className="details-area">
 				<PageTitle
-					pageName='details'
-					pageTitle='Details'
+					pageName="details"
+					pageTitle="Details"
 				/>
 				<ul className="details-content">
 					<li className="details-left" style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original${poster_path}')` }}></li>
@@ -145,8 +145,8 @@ const Details = (props) => {
 			</section>
 			<section className="actors-area">
 				<PageTitle
-					pageName='actors'
-					pageTitle='Cast'
+					pageName="actors"
+					pageTitle="Cast"
 				/>
 				<ActorsList
 					actorsList={actorsList}
@@ -154,16 +154,16 @@ const Details = (props) => {
 			</section>
 			<section className="crew-area">
 				<PageTitle
-					pageName='crew'
-					pageTitle='Crew'
+					pageName="crew"
+					pageTitle="Crew"
 				/>
 				<CrewsList
 					crewsList={crewsList}
 				/>
 			</section>
 			<ButtonClick
-				buttonText={'Back'}
-				buttonTitle={'Back'}
+				buttonText="Back"
+				buttonTitle="Back"
 				isLoading={false}
 				onClick={handleBackClick}
 			/>

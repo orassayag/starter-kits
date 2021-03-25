@@ -33,8 +33,8 @@ const MoviesList = memo((props) => {
 			<div className="movies-area">
 				{moviesComponents}
 				{!isLoading && isPager && moviesList.length > 0 && <ButtonClick
-					buttonText={'Load More'}
-					buttonTitle={'Load More'}
+					buttonText="Load More"
+					buttonTitle="Load More"
 					isLoading={false}
 					onClick={onLoadMoreClick}
 				/>}

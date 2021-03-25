@@ -76,7 +76,7 @@ class Main extends Component {
           onSearchTextChange={this.handleSearchTextChange}
         />
         <MoviesList
-          pageName='movies'
+          pageName="movies"
           moviesList={moviesList}
           isLoadingMoreMovies={isLoadingMoreMovies}
           isPager={isPager}

@@ -81,8 +81,8 @@ const SearchPanel = (props) => {
 					</button>
 					<input type="text" className="search-input" onChange={handleSearchTextChange} onKeyDown={handleKeyDown} placeholder="Search" value={searchText || ''} spellCheck="false" />
 					<ButtonClick
-						buttonText={'Options'}
-						buttonTitle={'Options'}
+						buttonText="Options"
+						buttonTitle="Options"
 						isLoading={false}
 						onClick={onOptionsButtonClick}
 					/>
@@ -145,8 +145,8 @@ const SearchPanel = (props) => {
 				</div>
 				<div className={`clear${advancePanelClass}`}>
 					<ButtonClick
-						buttonText={'Reset'}
-						buttonTitle={'Reset'}
+						buttonText="Reset"
+						buttonTitle="Reset"
 						isLoading={false}
 						onClick={handleResetButtonClick}
 					/>

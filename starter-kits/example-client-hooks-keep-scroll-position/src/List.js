@@ -6,18 +6,18 @@ import './List.css';
 export default function List({ items, currentView, onToggleCurrentView }) {
   const isDetailedView = currentView === 'grid';
 
-  // Helper function that allows finding first element in the view port.
+  // Helper function that allows finding the first element in the viewport.
   const findFirstElementInViewPort = elements =>
     Array.prototype.find.call(
       elements,
-      element => element.getBoundingClientRect().y >= 85 // nav height offset.
+      element => element.getBoundingClientRect().y >= 85 // Nav height offset.
     );
 
   // Ref to the container with elements.
   const containerRef = useRef(null);
 
   const scrollTo = useMemo(() => {
-    // Find all elements in container which will be checked if are in view or not.
+    // Find all elements in the container which will be checked if they are in view or not.
     const nodeElements = containerRef.current?.querySelectorAll('[data-item]');
     if (nodeElements) {
       return findFirstElementInViewPort(nodeElements);
@@ -28,7 +28,7 @@ export default function List({ items, currentView, onToggleCurrentView }) {
 
   useLayoutEffect(() => {
     if (scrollTo) {
-      // Scroll to element with should be in view after rendering.
+      // Scroll to the element which should be in view after rendering.
       scrollTo.scrollIntoView();
       // Scroll by height of nav.
       window.scrollBy(0, -85);
@@ -37,14 +37,14 @@ export default function List({ items, currentView, onToggleCurrentView }) {
 
   return (
     <div>
-      <div className='fixed-nav'>
+      <div className="fixed-nav">
         <h3>Showing items as a {currentView}</h3>
         <Form.Check
           checked={isDetailedView}
           onChange={onToggleCurrentView}
-          type='switch'
-          id='show-details'
-          label='Show details'
+          type="switch"
+          id="show-details"
+          label="Show details"
         />
       </div>
 
@@ -53,17 +53,17 @@ export default function List({ items, currentView, onToggleCurrentView }) {
         ref={containerRef}
       >
         {items.map(item => (
-          <div className='list-item' data-item='true' key={item.title}>
+          <div className="list-item" data-item="true" key={item.title}>
             {isDetailedView && (
               <img
                 src={item.img}
                 alt={item.title}
-                className='list-item-image'
+                className="list-item-image"
               />
             )}
             <h3>{item.title}</h3>
             {isDetailedView && (
-              <p className='list-item-description'>{item.description}</p>
+              <p className="list-item-description">{item.description}</p>
             )}
           </div>
         ))}

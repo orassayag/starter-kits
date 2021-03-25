@@ -46,17 +46,17 @@ const Load = () => {
   return (
     <div className="main-area load">
       <PageTitle
-        pageName='load'
-        pageTitle='Load'
+        pageName="load"
+        pageTitle="Load"
       />
       {isDisplayLoadButton && <ButtonClick
-        buttonText={'Load!'}
-        buttonTitle={'Load!'}
+        buttonText="Load!"
+        buttonTitle="Load!"
         isLoading={false}
         onClick={handleLoadClick}
       />}
       <MoviesList
-        pageName='load'
+        pageName="load"
         moviesList={moviesList}
         isLoadingMoreMovies={false}
         isPager={false}

@@ -169,7 +169,7 @@ const Main = (props) => {
         onSearchButtonClick={handleOnSearchButtonClick}
       />
       <MoviesList
-        pageName='movies'
+        pageName="movies"
         moviesList={moviesList}
         isLoading={isLoading}
         isPager={isPager}

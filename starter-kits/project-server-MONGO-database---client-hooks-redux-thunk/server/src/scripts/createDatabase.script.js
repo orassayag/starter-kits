@@ -130,7 +130,7 @@ class CreateDatabaseScript {
 	}
 
 	async loadJSONFiles() {
-		this.logStatus('Start load JSON files');
+		this.logStatus('Start load JSON files.');
 		let files = await fs.readdir(this.distPath);
 		files = files.filter(file => {
 			return this.isTypeFile({ fileName: file, fileExtension: 'json' });
@@ -144,7 +144,7 @@ class CreateDatabaseScript {
 				this.lastId = movieId;
 			}
 		}
-		this.logStatus('Finish load JSON files');
+		this.logStatus('Finish load JSON files.');
 	}
 
 	logStatus(text) {
@@ -170,7 +170,7 @@ class CreateDatabaseScript {
 		const { fileName, fileExtension } = data;
 		const extension = path.extname(fileName);
 		if (!extension) {
-			throw new Error(`extension not received: ${extension} (1000034)`);
+			throw new Error(`Extension not received: ${extension} (1000034)`);
 		}
 		return extension.toLowerCase() === `.${fileExtension.toLowerCase()}`;
 	}

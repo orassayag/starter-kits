@@ -27,14 +27,14 @@ const getFormattedDate = (date) => {
 const validURL = (url) => {
 	const pattern = new RegExp('^(https?:\\/\\/)?' + // Protocol.
 		'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // Domain name.
-		'((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address.
+		'((\\d{1,3}\\.){3}\\d{1,3}))' + // Or IP (v4) address.
 		'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // Port and path.
 		'(\\?[;&a-z\\d%_.~+=-]*)?' + // Query string.
 		'(\\#[-a-z\\d_]*)?$', 'i'); // Fragment locator.
 	return !!pattern.test(url);
 };
 
-// Validates that the input string is a valid date formatted as "mm/dd/yyyy".
+// Validates that the input string is a valid date formatted as 'mm/dd/yyyy'.
 const isValidDate = (date) => {
 	date = new Date(date);
 	date = ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear();

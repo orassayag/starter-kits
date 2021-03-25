@@ -88,11 +88,11 @@ class Favorites extends Component {
     return (
       <div className="main-area favorites">
         <PageTitle
-          pageName='favorites'
-          pageTitle='Favorites'
+          pageName="favorites"
+          pageTitle="Favorites"
         />
         <MoviesList
-          pageName='favorites'
+          pageName="favorites"
           moviesList={displayFavoriteMoviesList}
           isLoadingMoreMovies={false}
           isPager={displayFavoriteMoviesList.length < favoriteMoviesList.length}
@@ -101,8 +101,8 @@ class Favorites extends Component {
           onFavoriteMovieClick={this.handleFavoriteMovieClick}
         />
         <ButtonClick
-          buttonText={'Back'}
-          buttonTitle={'Back'}
+          buttonText="Back"
+          buttonTitle="Back"
           isLoading={false}
           onClick={this.handleBackClick}
         />

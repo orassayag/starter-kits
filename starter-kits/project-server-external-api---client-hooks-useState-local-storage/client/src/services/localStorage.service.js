@@ -35,7 +35,6 @@ class LocalStorageService {
 		const items = [];
 		const keys = Object.keys(localStorage);
 		let i = keys.length;
-
 		while (i--) {
 			items.push(this.getItem(keys[i]));
 		}

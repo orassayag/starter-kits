@@ -15,13 +15,13 @@ const Modal = (props) => {
 				</div>
 				<div className="buttons">
 					<MiniButton
-						buttonText={'Remove'}
-						buttonTitle={'Remove'}
+						buttonText="Remove"
+						buttonTitle="Remove"
 						onClick={onRemoveButtonClick}
 					/>
 					<MiniButton
-						buttonText={'Cancel'}
-						buttonTitle={'Cancel'}
+						buttonText="Cancel"
+						buttonTitle="Cancel"
 						onClick={onCloseModalButtonClick}
 					/>
 				</div>

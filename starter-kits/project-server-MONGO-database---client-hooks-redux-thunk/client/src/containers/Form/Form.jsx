@@ -24,17 +24,17 @@ const statuses = ['Announced', 'Completed', 'Development', 'Filming', 'Optioned 
 const validURL = (url) => {
 	const pattern = new RegExp('^(https?:\\/\\/)?' + // Protocol.
 		'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // Domain name.
-		'((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address.
+		'((\\d{1,3}\\.){3}\\d{1,3}))' + // Or IP (v4) address.
 		'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // Port and path.
 		'(\\?[;&a-z\\d%_.~+=-]*)?' + // Query string.
 		'(\\#[-a-z\\d_]*)?$', 'i'); // Fragment locator.
 	return !!pattern.test(url);
 };
 
-// Validates that the input string is a valid date formatted as "mm/dd/yyyy".
+// Validates that the input string is a valid date formatted as 'mm/dd/yyyy'.
 const isValidDate = (date) => {
 	date = ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear();
-	// First check for the pattern
+	// First check for the pattern.
 	if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(date)) {
 		return false;
 	}
@@ -225,7 +225,6 @@ const Form = (props) => {
 	const handleOnRemoveActorBoxButtonClick = useCallback((e) => {
 		updateActorsList(false, e.currentTarget.dataset.id);
 	}, [actorsList]);
-
 
 	const handleOnAddActorBoxButtonClick = useCallback(() => {
 		updateActorsList(true, null);
@@ -672,7 +671,7 @@ const Form = (props) => {
 			<ProductionBox
 				key={production.id}
 				production={production}
-				contries={cultureService.getDropCountriesCode()}
+				countries={cultureService.getDropCountriesCode()}
 				onProductionBoxValueChange={handleOnProductionBoxValueChange}
 				onProductionBoxRemoveClick={handleOnRemoveProductionBoxButtonClick}
 			/>
@@ -684,8 +683,8 @@ const Form = (props) => {
 			{isLoading && <PageLoader />}
 			{!isLoading && <div>
 				<PageTitle
-					pageName='form'
-					pageTitle='Add Movie'
+					pageName="form"
+					pageTitle="Add Movie"
 				/>
 				<div className="main-form">
 					<div className="container">
@@ -860,18 +859,18 @@ const Form = (props) => {
 				</div>
 				<div className="buttons">
 					<MiniButton
-						buttonText={'Add Production'}
-						buttonTitle={'Add Production'}
+						buttonText="Add Production"
+						buttonTitle="Add Production"
 						onClick={handleOnAddProductionBoxButtonClick}
 					/>
 					<MiniButton
-						buttonText={'Add Actor'}
-						buttonTitle={'Add Actor'}
+						buttonText="Add Actor"
+						buttonTitle="Add Actor"
 						onClick={handleOnAddActorBoxButtonClick}
 					/>
 					<MiniButton
-						buttonText={'Add Crew'}
-						buttonTitle={'Add Crew'}
+						buttonText="Add Crew"
+						buttonTitle="Add Crew"
 						onClick={handleOnAddCrewBoxButtonClick}
 					/>
 				</div>
@@ -882,8 +881,8 @@ const Form = (props) => {
 				</div>
 				<div className="form-footer">
 					<ButtonClick
-						buttonText={'Add'}
-						buttonTitle={'Add'}
+						buttonText="Add"
+						buttonTitle="Add"
 						isLoading={false}
 						onClick={submitForm}
 					/>

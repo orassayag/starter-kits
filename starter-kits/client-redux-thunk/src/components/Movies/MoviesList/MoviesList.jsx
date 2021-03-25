@@ -29,8 +29,8 @@ const MoviesList = (props) => {
 		<div className="movies-area">
 			{moviesComponents}
 			{isPager && <ButtonClick
-				buttonText={'Load More'}
-				buttonTitle={'Load More'}
+				buttonText="Load More"
+				buttonTitle="Load More"
 				isLoading={isLoadingMoreMovies}
 				onClick={onLoadMoreClick}
 			/>}
