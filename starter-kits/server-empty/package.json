@@ -36,6 +36,6 @@
     "dependencies": {
         "babel-eslint": "^10.1.0",
         "death": "^1.1.0",
-        "eslint": "^7.23.0"
+        "eslint": "^7.24.0"
     }
 }
