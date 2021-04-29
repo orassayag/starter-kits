@@ -4,8 +4,8 @@
 FAST & BASIC START.
 ===================
 1. Open the project in IDE (Current to 14/03/2021 I'm using VSCode).
-2. On the terminal: npm i
-3. Once done, on the terminal: npm start
+2. In the terminal: npm i
+3. Once done, in the terminal: npm start
 
 ## Author
 

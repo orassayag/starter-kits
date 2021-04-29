@@ -2,7 +2,7 @@
 REMEMBER!
 =========
 Each time you change the logic / update NPM package version, do the following steps:
-1. Perform a backup before any change has been made, by running on terminal 'npm run backup' or manually to the backups directory.
+1. Perform a backup before any change has been made, by running in the terminal 'npm run backup' or manually to the backups directory.
 2. After the change, check that everything works OK.
 3. Keep the maintenance - Every change you do - Make sure to update in this document if needed.
 4. Do commit + push on Git project repository.
@@ -11,6 +11,22 @@ Each time you change the logic / update NPM package version, do the following st
 
 ToDo tasks:
 ===========
+-Update packages + Recreate package-lock.json.
+-Make sure all switch-case have curly braces.
+-Change to 'misc/documents' directory in all projects.
+-Search for 'async ' and create a list of functions/methods, and make sure that all calls have await.
+-Scan all files for spell mistakes with the 'files-spell-checker' project.
+-Copy the '.eslintignore' file from the 'udemy-courses' project.
+-In the 'package.json' file change to 'private: false'.
+-Remove the duplicate empty lines: \n\s*\n\s*\n
+-Remove the first empty line: ^(?<![\s])\n
+-Remove the last empty line: \n\s*$(?!\n)
+-Detect all comments without a dot at the end: ^// .*(?<!\.)$
+-Add to the 'package.json' file (below the 'description' field) the 'repository' field:
+"repository": {
+  "type": "git",
+  "url": "git://github.com/username/repository.git"
+}
 
 Completed + canceled tasks:
 ===========================

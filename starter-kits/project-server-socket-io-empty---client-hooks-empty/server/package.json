@@ -1,8 +1,12 @@
 {
     "name": "server",
     "version": "0.1.0",
-    "private": true,
+    "private": false,
     "description": "",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/orassayag/starter-kits.git"
+    },
     "keywords": [
         "node"
     ],
@@ -37,7 +41,7 @@
         "babel-eslint": "^10.1.0",
         "death": "^1.1.0",
         "errorhandler": "^1.5.1",
-        "eslint": "^7.24.0",
-        "socket.io": "^4.0.0"
+        "eslint": "^7.25.0",
+        "socket.io": "^4.0.1"
     }
 }
