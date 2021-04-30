@@ -26,12 +26,12 @@ const setLeaveSearch = (state) => {
 
 const searchReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case searchTypes.SEARCH_SET_SEARCH_VALUE:
+		case searchTypes.SEARCH_SET_SEARCH_VALUE: {
 			return setSearchValue(state, action);
-		case searchTypes.SEARCH_SET_LEAVE_SEARCH:
+		}
+		case searchTypes.SEARCH_SET_LEAVE_SEARCH: {
 			return setLeaveSearch(state, action);
-		default:
-			break;
+		}
 	}
 	return state;
 };

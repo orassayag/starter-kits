@@ -18,10 +18,9 @@ const setLoadMoviesSuccess = (state, action) => {
 
 const loadReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case loadTypes.LOAD_LOAD_MOVIES_SUCCESS:
+		case loadTypes.LOAD_LOAD_MOVIES_SUCCESS: {
 			return setLoadMoviesSuccess(state, action);
-		default:
-			break;
+		}
 	}
 	return state;
 };

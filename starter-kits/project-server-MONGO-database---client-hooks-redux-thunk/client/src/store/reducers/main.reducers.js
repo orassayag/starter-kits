@@ -80,20 +80,24 @@ const setGenresList = (state, action) => {
 
 const mainReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case mainTypes.MAIN_UPDATE_MOVIES_LOADER:
+		case mainTypes.MAIN_UPDATE_MOVIES_LOADER: {
 			return updateMoviesLoader(state, action);
-		case mainTypes.MAIN_LOAD_MOVIES_SUCCESS:
+		}
+		case mainTypes.MAIN_LOAD_MOVIES_SUCCESS: {
 			return setMoviesSuccess(state, action);
-		case mainTypes.MAIN_UPDATE_FAVORITE_MOVIES_SUCCESS:
+		}
+		case mainTypes.MAIN_UPDATE_FAVORITE_MOVIES_SUCCESS: {
 			return updateFavoriteMoviesSuccess(state, action);
-		case mainTypes.MAIN_UPDATE_OPTIONS_PANEL_DISPLAY:
+		}
+		case mainTypes.MAIN_UPDATE_OPTIONS_PANEL_DISPLAY: {
 			return updateOptionsPanelDisplay(state, action);
-		case mainTypes.MAIN_UPDATE_MODAL_DATA:
+		}
+		case mainTypes.MAIN_UPDATE_MODAL_DATA: {
 			return updateModalData(state, action);
-		case mainTypes.MAIN_SET_GENRES_LIST:
+		}
+		case mainTypes.MAIN_SET_GENRES_LIST: {
 			return setGenresList(state, action);
-		default:
-			break;
+		}
 	}
 	return state;
 };

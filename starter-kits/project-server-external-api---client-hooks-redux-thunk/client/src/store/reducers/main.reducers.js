@@ -58,16 +58,18 @@ const updateFavoriteMoviesSuccess = (state, action) => {
 
 const mainReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case mainTypes.MAIN_SEARCH_TEXT_CHANGE_SUCCESS:
+		case mainTypes.MAIN_SEARCH_TEXT_CHANGE_SUCCESS: {
 			return setSearchText(state, action);
-		case mainTypes.MAIN_LOAD_MOVIES_START:
+		}
+		case mainTypes.MAIN_LOAD_MOVIES_START: {
 			return setMoviesStart(state, action);
-		case mainTypes.MAIN_LOAD_MOVIES_SUCCESS:
+		}
+		case mainTypes.MAIN_LOAD_MOVIES_SUCCESS: {
 			return setMoviesSuccess(state, action);
-		case mainTypes.MAIN_UPDATE_FAVORITE_MOVIES_SUCCESS:
+		}
+		case mainTypes.MAIN_UPDATE_FAVORITE_MOVIES_SUCCESS: {
 			return updateFavoriteMoviesSuccess(state, action);
-		default:
-			break;
+		}
 	}
 	return state;
 };

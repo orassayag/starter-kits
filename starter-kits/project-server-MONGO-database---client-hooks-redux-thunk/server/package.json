@@ -47,6 +47,6 @@
     "eslint": "^7.25.0",
     "express": "^4.17.1",
     "fs-extra": "^9.1.0",
-    "mongoose": "^5.12.6"
+    "mongoose": "^5.12.7"
   }
 }

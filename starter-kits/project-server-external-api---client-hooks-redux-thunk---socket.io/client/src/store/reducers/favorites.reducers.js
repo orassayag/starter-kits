@@ -15,10 +15,9 @@ const setFavoriteMoviesSuccess = (state, action) => {
 
 const favoritesReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case favoritesTypes.FAVORITES_LOAD_MOVIES_SUCCESS:
+		case favoritesTypes.FAVORITES_LOAD_MOVIES_SUCCESS: {
 			return setFavoriteMoviesSuccess(state, action);
-		default:
-			break;
+		}
 	}
 	return state;
 };

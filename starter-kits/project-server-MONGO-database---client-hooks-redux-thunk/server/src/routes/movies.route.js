@@ -1223,24 +1223,27 @@ class MoviesRoute {
 				else {
 					let searchCollection, relationCollection, idField, textFieldName = null;
 					switch (searchType) {
-						case 'actor':
+						case 'actor': {
 							searchCollection = 'Actor';
 							relationCollection = 'MovieActor';
 							idField = 'actorId';
 							textFieldName = 'name';
 							break;
-						case 'crew':
+						}
+						case 'crew': {
 							searchCollection = 'Crew';
 							relationCollection = 'MovieCrew';
 							idField = 'crewId';
 							textFieldName = 'name';
 							break;
-						case 'production':
+						}
+						case 'production': {
 							searchCollection = 'ProductionCompany';
 							relationCollection = 'MovieProductionCompany';
 							idField = 'productionCompanyId';
 							textFieldName = 'name';
 							break;
+						}
 					}
 					const itemIdList = await eval(searchCollection).find({ [textFieldName]: new RegExp(`^${searchText}$`, 'i') }, null, { limit: 1 });
 					if (itemIdList && itemIdList.length > 0) {

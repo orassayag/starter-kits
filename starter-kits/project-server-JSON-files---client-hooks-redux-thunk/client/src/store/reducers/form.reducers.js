@@ -99,16 +99,18 @@ const setInitExistsForm = (state, action) => {
 
 const formReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case formTypes.FORM_SET_FORM_SUCCESS:
+		case formTypes.FORM_SET_FORM_SUCCESS: {
 			return setForm(state, action);
-		case formTypes.FORM_SET_FORM_STATUS_SUCCESS:
+		}
+		case formTypes.FORM_SET_FORM_STATUS_SUCCESS: {
 			return setFormStatus(state, action);
-		case formTypes.FORM_SET_FORM_LEAVE_SUCCESS:
+		}
+		case formTypes.FORM_SET_FORM_LEAVE_SUCCESS: {
 			return setLeaveForm(state);
-		case formTypes.FORM_INIT_EXISTS_FORM_SUCCESS:
+		}
+		case formTypes.FORM_INIT_EXISTS_FORM_SUCCESS: {
 			return setInitExistsForm(state, action);
-		default:
-			break;
+		}
 	}
 	return state;
 };

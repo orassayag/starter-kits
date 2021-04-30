@@ -21,10 +21,9 @@ const setMovieDetails = (state, action) => {
 
 const detailsReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case detailsTypes.DETAILS_MOVIE_DETAILS_LOAD_SUCCESS:
+		case detailsTypes.DETAILS_MOVIE_DETAILS_LOAD_SUCCESS: {
 			return setMovieDetails(state, action);
-		default:
-			break;
+		}
 	}
 	return state;
 };

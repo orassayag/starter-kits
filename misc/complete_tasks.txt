@@ -1,5 +1,60 @@
 Completed + canceled tasks:
 ===========================
+-Update packages + Recreate package-lock.json. *
+-Make sure all switch-case have curly braces. *
+-Search for 'async ' and create a list of functions/methods, and make sure that all calls have await. *
+-Remove the duplicate empty lines: \n\s*\n\s*\n *
+-Remove the first empty line: ^(?<![\s])\n *
+-Remove the last empty line: \n\s*$(?!\n) *
+-Detect all comments without a dot at the end: ^// .*(?<!\.)$ *
+-In the end, clear the todolist document. *
+===starter-kits - client-hooks-empty 00/02=== *
+===starter-kits - client-hooks-redux-thunk 00/05=== *
+===starter-kits - client-hooks-useState-local-storage 00/02=== *
+===starter-kits - client-redux-saga 00/06=== *
+===starter-kits - client-redux-thunk 00/05=== *
+===starter-kits - client-simple-state-local-storage 00/02=== *
+===starter-kits - example-client-hooks-keep-scroll-position 00/04=== *
+===starter-kits - example-client-hooks-render-once 00/02=== *
+===starter-kits - project-server-express-empty---client-hooks-empty - client 00/02=== *
+===starter-kits - project-server-express-empty---client-hooks-empty - server 00/07=== *
+===starter-kits - project-server-external-api---client-hooks-redux-thunk - client 00/05=== *
+===starter-kits - project-server-external-api---client-hooks-redux-thunk - server 01/08=== *
+eslint: ^7.24.0 => ^7.25.0 *
+===starter-kits - project-server-external-api---client-hooks-redux-thunk---socket.io - client 00/06=== *
+===starter-kits - project-server-external-api---client-hooks-redux-thunk---socket.io - server 00/09=== *
+===starter-kits - project-server-external-api---client-hooks-useState-local-storage - client 00/02=== *
+===starter-kits - project-server-external-api---client-hooks-useState-local-storage - server 00/08=== *
+===starter-kits - project-server-external-api---client-redux-saga - client 00/06=== *
+===starter-kits - project-server-external-api---client-redux-saga - server 00/08=== *
+===starter-kits - project-server-external-api---client-redux-thunk - client 00/05=== *
+===starter-kits - project-server-external-api---client-redux-thunk - server 00/08=== *
+===starter-kits - project-server-external-api---client-simple-state-local-storage - client 00/02=== *
+===starter-kits - project-server-external-api---client-simple-state-local-storage - server 00/08=== *
+===starter-kits - project-server-JSON-files---client-hooks-redux-thunk - client 00/07=== *
+===starter-kits - project-server-JSON-files---client-hooks-redux-thunk - server 00/09=== *
+===starter-kits - project-server-MONGO-database---client-hooks-redux-thunk - client 00/07=== *
+===starter-kits - project-server-MONGO-database---client-hooks-redux-thunk - server 01/10=== *
+mongoose: ^5.12.6 => ^5.12.7 *
+===starter-kits - project-server-socket-io-empty---client-hooks-empty - client 00/03=== *
+===starter-kits - project-server-socket-io-empty---client-hooks-empty - server 00/05=== *
+===starter-kits - server-empty 00/03=== *
+-Update packages + Recreate package-lock.json. *
+-Make sure all switch-case have curly braces. *
+-Search for 'async ' and create a list of functions/methods, and make sure that all calls have await. *
+-Remove the duplicate empty lines: \n\s*\n\s*\n *
+-Remove the first empty line: ^(?<![\s])\n *
+-Remove the last empty line: \n\s*$(?!\n) *
+-Detect all comments without a dot at the end: ^// .*(?<!\.)$ *
+-Scan all files for spell mistakes with the 'files-spell-checker' project. *
+-Change to 'misc/documents' directory in all projects. *
+-Copy the '.eslintignore' file from the 'udemy-courses' project. *
+-In the 'package.json' file change to 'private: false'. *
+-Add to the 'package.json' file (below the 'description' field) the 'repository' field: *
+"repository": { *
+  "type": "git", *
+  "url": "git://github.com/username/repository.git" *
+} *
 projects list: *
 client-hooks-empty *
 client-hooks-redux-thunk *
@@ -34,7 +89,7 @@ server-empty *
 10. Copy the logic of 'this.updateStatus' to all change statuses in the main script file. *
 11. On udemy-courses project, change the 'validate' and 'compare' functions to 'validateFields' and 'compareCourses'. *
 12. On udemy-courses project, change 'isExpectedFilled' to 'isFilledExpected'. *
-13. Change all functions names that return true/false to 'isValidXXX' in validationUtils. *
+13. Change all function names that return true/false to 'isValidXXX' in validationUtils. *
 14. In all places change to use isExists instead of .length > 0 or .length <= 0. *
 15. Copy the logic of retry on check internet connection in all relevant projects (like in the udemy courses project). *
 16. Add to 'INSTRUCTIONS.md' how the console log should be (take the specific sentence from another project). *
@@ -194,7 +249,7 @@ export default *
 -Fix spell mistakes in all txt files. *
 -Remove all unused files, functions, and variables. *
 -Rewrite error numbers. *
--Remove all debugger. *
+-Remove all the 'debugger' keywords. *
 -Make sure all comments end with . *
 -Format all files. *
 -Upload to GitHub. *
@@ -341,7 +396,7 @@ For Each client Kit Plan: *
 1. Format all documents in the end. *
 2. Make a list of all external packages. *
 3. Make a Misc directory. *
-4. Inside it, Make a list of none related packages to the default packages of create-react-app, so you can update the version of all the kits easly. *
+4. Inside it, Make a list of none related packages to the default packages of create-react-app, so you can update the version of all the kits easily. *
 5. Move to StarterKits directory. *
 -Hooks: *
 -Before hooks: *
@@ -390,7 +445,7 @@ WebSocket: Use socket io to load an amount of movies each 10 seconds on a certai
 -After finish the websocket - Fix in all client + server projects the pageNumber - Currently not active. *
 -In all clients kits - Make sure header links are one liners. *
 -Add to all server debug scripts. *
--Bug detected on client: When mark favorite on details page, and it's single movie, and move to favorites page, can't unfavorite it. Do parseInt in all places - Make sure fixed in all kits.
+-Bug detected on client: When mark favorite on details page, and it's single movie, and move to favorites page, can't unfavorite it. Do parseInt in all places - Make sure it is fixed in all kits.
 project-server-external-api---client-simple-state-local-storage *
 project-server-external-api---client-redux-thunk *
 project-server-external-api---client-redux-saga *
@@ -505,7 +560,7 @@ BACKUP CURRENT KIT *
 -On the script: If not found 100 times in a row - Stop the script. *
 -Load all the JSON files. *
 -Convert all functions to be based on the local JSON files (search function - use simple index of). *
--Client: Find a form template that fits to needs. *
+-Client: Find a form template that fits your needs. *
 -Do both validation on client and on server. *
 -On Create - Make sure the movie is not already by title toLowerCase. *
 -In the client, add a page for each kit to add / edit / remove a movie, based on the JSON files + add validation if movies already exist. *
@@ -531,7 +586,7 @@ d. When finished all - Implement useCallback and test it. *
 -Actor: All fields today *
 -Crew: All fields today *
 -ProductionCompany: All fields today *
--Genere: All fields today *
+-Genre: All fields today *
 -MovieActor: ActorId, MovieId, Character *
 -MovieCrew: CrewId, MovieId, Job, Department *
 -MovieProductionCompany: ProductionId, MovieId *
