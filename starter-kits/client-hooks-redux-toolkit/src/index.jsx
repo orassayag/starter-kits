@@ -5,8 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store';
 import App from './pages/App/App';
-import './index.scss';
 import './assert/css/font-awesome.min.css';
+import './index.scss';
 
 const app = (
   <StrictMode>

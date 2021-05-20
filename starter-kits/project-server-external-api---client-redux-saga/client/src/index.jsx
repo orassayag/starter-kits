@@ -1,15 +1,15 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import App from './containers/App/App';
-import './assert/css/font-awesome.min.css';
-import './index.scss';
 import { detailsReducer, favoritesReducer, mainReducer } from './store/reducers';
 import { watchDetails, watchFavorites, watchMain } from './store/sagas';
+import App from './pages/App/App';
+import './assert/css/font-awesome.min.css';
+import './index.scss';
 
 const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
 const rootReducer = combineReducers({
@@ -23,13 +23,13 @@ sagaMiddleware.run(watchDetails);
 sagaMiddleware.run(watchFavorites);
 sagaMiddleware.run(watchMain);
 const app = (
-  <React.StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+  </StrictMode>
 );
 ReactDOM.render(app, document.getElementById('root'));
 // If you want to start measuring performance in your app, pass a function
