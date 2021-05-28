@@ -1,15 +1,47 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orassayag/starter-kits.git"
+  },
+  "keywords": [
+    "react",
+    "next.js"
+  ],
+  "license": "UNLICENSED",
+  "author": "Or Assayag <orassayag@gmail.com>",
+  "contributors": [
+    {
+      "name": "Or Assayag",
+      "email": "orassayag@gmail.com",
+      "url": "https://github.com/orassayag"
+    }
+  ],
+  "main": "pages/index.js",
+  "files": [
+    "src",
+    ".eslintignore",
+    ".eslintrc",
+    ".gitignore",
+    ".jsbeautifyrc",
+    ".npmignore",
+    ".stylelintrc",
+    "INSTRUCTIONS.md",
+    "package-lock.json",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "mongodb": "^3.6.7",
-    "next": "10.2.2",
+    "mongodb": "^3.6.9",
+    "next": "10.2.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   }
