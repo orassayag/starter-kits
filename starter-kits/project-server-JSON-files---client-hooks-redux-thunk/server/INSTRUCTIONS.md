@@ -5,8 +5,8 @@ FAST & BASIC START.
 ===================
 1. Unzip the 'dist.rar' file and place it on the 'src/dist' directory (Note: not to be 'src/dist/dist').
 2. Open the project in IDE (Current to 14/03/2021 I'm using VSCode).
-3. In the terminal: 'npm i'.
-4. Once done, in the terminal: 'npm start'.
+3. In the terminal run: 'npm i'.
+4. Once done, in the terminal run: 'npm start'.
 
 ## Author
 

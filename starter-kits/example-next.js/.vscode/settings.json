@@ -2,58 +2,6 @@
     "cSpell.words": [
         "Assayag",
         "Vercel",
-        "efrzw",
-        "jsbeautifyrc",
-        "mongodb",
-        "orassayag",
-        "stylelintrc",
-        "vmin"
-    ],
-    "files.removeFinalNewlines": true,
-    "cSpell.ignorePaths": [
-        "**/.git",
-        ".git/**",
-        "**/.git/**",
-        "**/node_modules",
-        "node_modules/**",
-        "**/node_modules/**",
-        "**/dist",
-        "dist/**",
-        "**/dist/**",
-        "**/sources",
-        "sources/**",
-        "**/sources/**",
-        "**/misc",
-        "misc/**",
-        "**/misc/**",
-        "package-lock.json",
-        "**/.next",
-        ".next/**",
-        "**/.next/**"
-    ],
-    "search.exclude": {
-        "**/.git": true,
-        ".git/**": true,
-        "**/.git/**": true,
-        "**/.vscode": true,
-        "**/dist": true,
-        "**/misc": true,
-        "**/misc/documents": true,
-        "**/misc/": true,
-        "/misc/": true,
-        "misc/**": true,
-        "**/misc/**": true,
-        "**/misc/documents/**": true,
-        "**/node_modules": true,
-        "node_modules/**": true,
-        "**/node_modules/**": true,
-        "**/sources": true,
-        "sources/**": true,
-        "**/sources/**": true,
-        "**/.next": true,
-        ".next/**": true,
-        "**/.next/**": true
-
-    },
-    "formatFiles.excludePattern": "**.git/,**/.git/**,**/node_modules,**/node_modules/**,**/.vscode,**/.vscode/**,**/dist,**/dist/**,**/.chrome,**/misc,**/misc/**,**/sources,**/sources/**,**/.next,**/.next/**"
+        "orassayag"
+    ]
 }

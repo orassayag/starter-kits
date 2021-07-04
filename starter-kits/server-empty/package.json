@@ -38,8 +38,11 @@
         "debug": "node --inspect-brk server.js"
     },
     "dependencies": {
+        "death": "^1.1.0"
+    },
+    "devDependencies": {
         "babel-eslint": "^10.1.0",
-        "death": "^1.1.0",
-        "eslint": "^7.27.0"
+        "eslint": "^7.30.0",
+        "@types/node": "^16.0.0"
     }
 }

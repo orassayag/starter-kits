@@ -1,6 +1,6 @@
 # Client
 
-Built in May 2021. The client application's role is to contain the UI and display it to the user. The client built in React.js, and always updated with the latest version of Next.js (10.2.3)
+Built in May 2021. The client application's role is to contain the UI and display it to the user. The client built in React.js, and always updated with the latest version of Next.js (11.0.1)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
