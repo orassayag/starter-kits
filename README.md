@@ -81,11 +81,11 @@ server-empty - An empty Node.js server project.
 All the client React.js projects are built with create-react-app
 [Create React App](https://github.com/facebook/create-react-app).
 
-Movies library data provided by [themoviedb](https://www.themoviedb.org/).
+Movies library data provided by [themoviedb](https://www.themoviedb.org).
 
 ## Templates
 
-In the templates directory you can find great and basic examples for HTML and CSS snippets from [codepen](https://codepen.io/).
+In the templates directory you can find great and basic examples for HTML and CSS snippets from [codepen](https://codepen.io).
 
 ## Sources
 
@@ -106,4 +106,4 @@ Inside of these projects, drop this "dist" directory into the server/src directo
 
 ## License
 
-This application has an UNLICENSED License.
+This application has an UNLICENSED license.
