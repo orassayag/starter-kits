@@ -45,11 +45,11 @@
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "fs-extra": "^10.0.0",
-    "mongoose": "^5.13.1"
+    "mongoose": "^5.13.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.30.0",
-    "@types/node": "^16.0.0"
+    "@types/node": "^16.3.3"
   }
 }
