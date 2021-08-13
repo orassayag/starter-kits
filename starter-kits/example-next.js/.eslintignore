@@ -1,0 +1,39 @@
+# Git.
+.git/
+/.git
+.git
+
+# Node modules.
+node_modules/
+/node_modules
+node_modules
+
+# Next.js.
+.next/
+/.next
+.next
+out/
+/out
+out
+
+# Build.
+build/
+/build
+build
+
+# Dist directories.
+dist/
+/dist
+dist
+
+# Sources.
+sources/
+/sources
+sources
+
+# Misc.
+**/misc/backups/
+/misc/backups
+misc/backups/
+/misc/backups/
+misc/backups

@@ -1,0 +1,22 @@
+{
+  "ignoreFiles": [
+    "**/*.js",
+    "**/*.jsx"
+  ],
+  "rules": {
+    "block-no-empty": null,
+    "color-named": "never",
+    "color-no-invalid-hex": true,
+    "declaration-colon-space-after": "always",
+    "max-empty-lines": 1,
+    "unit-whitelist": ["em", "rem", "vh", "vw", "%", "s", "px", "ms", "deg", "dpi", "cm", "fr", "vmin"],
+    "declaration-block-trailing-semicolon": "always",
+    "unit-case": "lower",
+    "color-hex-length": "long",
+    "color-hex-case": "lower",
+    "no-duplicate-selectors": true,
+     "declaration-block-no-duplicate-properties": [true, {
+      "ignore" : ["consecutive-duplicates-with-different-values"]
+    }]
+  }
+}
