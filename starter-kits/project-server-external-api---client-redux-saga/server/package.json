@@ -45,7 +45,7 @@
         "express": "^4.17.1"
     },
     "devDependencies": {
-        "@babel/eslint-parser": "^7.15.8",
+        "@babel/eslint-parser": "^7.16.0",
         "eslint": "^8.1.0",
         "@types/node": "^16.11.6"
     }
