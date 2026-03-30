@@ -1,0 +1,65 @@
+{
+  "name": "starter-kits",
+  "version": "1.0.0",
+  "description": "A comprehensive collection of React.js and Node.js starter kits and boilerplates for rapid application development, featuring Redux, Redux-Thunk, Redux-Saga, Redux-Toolkit, React Hooks, Socket.io, Express.js, and MongoDB.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orassayag/starter-kits.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "nodejs",
+    "node",
+    "express",
+    "redux",
+    "redux-thunk",
+    "redux-saga",
+    "redux-toolkit",
+    "react-hooks",
+    "hooks",
+    "socket.io",
+    "socketio",
+    "websocket",
+    "mongodb",
+    "mongoose",
+    "boilerplate",
+    "starter-kit",
+    "template",
+    "create-react-app",
+    "cra",
+    "javascript",
+    "jsx",
+    "scss",
+    "frontend",
+    "backend",
+    "fullstack",
+    "full-stack",
+    "state-management",
+    "local-storage",
+    "context-api",
+    "custom-hooks",
+    "next.js",
+    "nextjs"
+  ],
+  "license": "MIT",
+  "author": "Or Assayag <orassayag@gmail.com>",
+  "contributors": [
+    {
+      "name": "Or Assayag",
+      "email": "orassayag@gmail.com",
+      "url": "https://github.com/orassayag"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/orassayag/starter-kits/issues"
+  },
+  "homepage": "https://github.com/orassayag/starter-kits#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "scripts": {
+    "info": "echo 'This is a collection of starter kits. Navigate to individual projects in starter-kits/ directory to use them.'"
+  }
+}

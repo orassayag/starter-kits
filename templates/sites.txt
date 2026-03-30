@@ -1,8 +1,0 @@
-CSS Design patterns:
-https://flexbox.webflow.com/#split-screen
-
-Layouts:
-https://colorlib.com/wp/css-layouts/
-
-Search examples:
-https://codepen.io/
