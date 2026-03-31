@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>React blog</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine" media="all">
+    <style type="text/css">
+        body {
+            margin: 0 auto;
+            font-family: "Rubik", sans-serif;
+        }
+
+        .blog-container {
+            display: grid;
+            grid-template-columns: 330px 1fr;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #22262a;
+            color: white;
+        }
+
+        .blog-header-content {
+            position: fixed;
+            width: 330px;
+        }
+
+        .blog-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .blog-logo-content:after {
+            content: "--- o0o ---";
+            padding-top: 2rem;
+            display: block;
+            font-size: 1.2em;
+        }
+
+        .blog-logo-content p {
+            font-size: 1.2em;
+            font-style: italic;
+            font-weight: 100;
+            margin: 0;
+        }
+
+        .blog-logo-content h1 {
+            margin: .5em 0 .25em;
+        }
+
+        .blog-menu-left {
+            padding: 0 2rem;
+            font-size: 1.2em;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .blog-menu-left li {
+            padding: .5rem;
+        }
+
+        .blog-main-content {
+            display: grid;
+            grid-template-rows: repeat(3, auto);
+        }
+
+        .blog-posts-container {
+            background: #cccccc;
+        }
+
+        .blog-posts-container .blog-post-box {
+            background: white;
+        }
+
+        .blog-post-box img {
+            height: auto;
+            max-width: 100%;
+        }
+
+        .blog-posts-container .blog-post-box.blog-older-post {
+            background: none;
+            border: 1px solid;
+            text-align: right;
+            padding: 1rem;
+            background-image: url('https://www.lowes.co.uk/media/1523/quill-teal.jpg');
+            background-repeat: no-repeat;
+            min-height: 150px;
+            background-position: center center;
+            background-size: cover;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        figure,
+        .blog-post-box h4,
+        .blog-post-box p,
+        .blog-recent-comment-detail p {
+            margin: 0;
+        }
+
+        .blog-posts-container .blog-post-box article {
+            padding: 1rem;
+        }
+
+        .blog-posts-container .blog-post-box article h1 {
+            font-size: 2em;
+        }
+
+        .blog-posts-container,
+        .blog-recent-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: .5rem;
+            padding: .5rem;
+        }
+
+        .blog-recent-post-box,
+        .blog-recent-comment-box {
+            display: flex;
+        }
+
+        .blog-recent-post-box img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .blog-recent-post-box h1 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .blog-recent-post-box p {
+            color: #7D7D7D;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        .blog-recent-post-detail,
+        .blog-recent-comment-detail {
+            margin-left: 1rem;
+        }
+
+        .blog-recent-post {
+            padding: 0 1rem 0 2rem;
+        }
+
+        .blog-recent-post li,
+        .blog-recent-comment li {
+            border-bottom: 1px solid #c3c3c3;
+            padding: 2rem 0;
+        }
+
+        .blog-recent-post li:last-child,
+        .blog-recent-comment li:last-child {
+            border-bottom: none;
+        }
+
+        .blog-recent-comment-box img {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+        }
+
+        .blog-recent-comment-detail q {
+            margin: 1.5rem 0;
+            display: block;
+        }
+
+        .blog-recent-comment-detail .sub {
+            font-style: italic;
+            color: #7D7D7D;
+            font-size: .9em;
+        }
+
+        .blog-search-container input {
+            border: 1px solid #c3c3c3;
+            padding: 1rem;
+            font-size: 1.3em;
+            margin-top: 1.5rem;
+            background: white;
+            width: 100%;
+        }
+
+        .blog-search-input-container {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        .blog-recent-container {
+            background: #f2f2f2;
+        }
+
+        footer {
+            background: #22262a;
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            flex-direction: column;
+            font-size: 1.2em;
+            color: white;
+        }
+
+        footer nav img {
+            width: 30px;
+            height: 30px;
+            margin-left: 2rem;
+        }
+
+        @media only screen and (max-width: 1120px) {
+            .blog-posts-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .blog-recent-container {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, auto);
+                grid-template-areas: "blog-recent-post blog-recent-comment"
+                    "blog-search-container blog-search-container"
+            }
+
+            .blog-recent-post {
+                grid-area: blog-recent-post;
+            }
+
+            .blog-recent-comment {
+                grid-area: blog-recent-comment;
+            }
+
+            .blog-search-container {
+                grid-area: blog-search-container;
+            }
+        }
+
+        @media only screen and (max-width: 960px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-recent-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(3, auto);
+                grid-template-areas: "blog-recent-post"
+                    "blog-recent-comment"
+                    "blog-search-container"
+            }
+
+            .blog-posts-container,
+                {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-header-content {
+                position: relative;
+                width: auto;
+            }
+
+            footer {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="blog-container">
+        <header>
+            <div class="blog-header-content">
+                <div class="blog-logo-container">
+                    <div class="blog-logo-content">
+                        <img src="https://www.isvmagazine.mkm-pi.com/wp-content/uploads/sites/5/2013/02/developer-859x1024.jpg" width="95" height="95" alt="" title="" />
+                        <h1>BLOG</h1>
+                        <p>FE Training</p>
+                    </div>
+                </div>
+                <nav class="blog-menu-left">
+                    <ul>
+                        <li>
+                        <a>Home</a>
+                     </li>
+                        <li>
+                        <a>Popular</a>
+                     </li>
+                        <li>
+                        <a>Latest</a>
+                     </li>
+                        <li>
+                        <a>About</a>
+                     </li>
+                        <li>
+                        <a>Contact</a>
+                     </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="blog-main-content">
+            <div class="blog-posts-container">
+                <div class="blog-post-box">
+                    <figure>
+                        <img src="https://cdn-images-1.medium.com/max/1200/1*y6C4nSvy2Woe0m7bWEn4BA.png" alt="" title="" />
+                    </figure>
+                    <article>
+                        <h4>React is a JavaScript library</h4>
+                        <h2>
+                            <a>#LearnReactJS - Part 1</a>
+                        </h2>
+                        <p>Published <strong>November 13, 2018</strong></p>
+                        <p>In computing, React (also known as React.js or ReactJS) is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.…</p>
+                    </article>
+                </div>
+                <div class="blog-post-box">
+                    <figure>
+                        <img src="https://cdn-images-1.medium.com/max/1200/1*y6C4nSvy2Woe0m7bWEn4BA.png" alt="" title="" />
+                    </figure>
+                    <article>
+                        <h4>React in the real world</h4>
+                        <h2>
+                            <a>#LearnReactJS - Part 2</a>
+                        </h2>
+                        <p>Published <strong>November 15, 2018</strong></p>
+                        <p>React can be used as a base in the development of single-page or mobile applications. Complex React applications usually require the use of additional libraries for state management, routing, and interaction with an API.…</p>
+                    </article>
+                </div>
+                <div class="blog-post-box">
+                    <figure>
+                        <img src="https://cdn-images-1.medium.com/max/1200/1*y6C4nSvy2Woe0m7bWEn4BA.png" alt="" title="" />
+                    </figure>
+                    <article>
+                        <h4>Build and release</h4>
+                        <h2>
+                            <a>#LearnReactJS - Part 3</a>
+                        </h2>
+                        <p>Published <strong>November 17, 2018</strong></p>
+                        <p>Unless you are living in a cave, continuous integration (CI) is all the rage, but it’s not just a practice exclusive to backend guys; front-end developers have no excuse not to use it. This article is written especially for React.js developers.…</p>
+                    </article>
+                </div>
+                <div class="blog-post-box blog-older-post">
+                    <p>Older posts</p>
+                </div>
+            </div>
+            <div class="blog-recent-container">
+                <div class="blog-recent-post">
+                    <h1>Recent Posts</h1>
+                    <ul>
+                        <li>
+                        <div class="blog-recent-post-box">
+                           <figure>
+                              <img src="http://syntaxxx.com/wp-content/uploads/2014/08/html5-logo-600-580x580.jpg" alt="" title="" />
+                           </figure>
+                           <div class="blog-recent-post-detail">
+                              <h1>#LearnHTML</h1>
+                              <p>NOVEMBER 3, 2018</p>
+                           </div>
+                        </div>
+                     </li>
+                        <li>
+                        <div class="blog-recent-post-box">
+                           <figure>
+                              <img src="https://www.logolynx.com/images/logolynx/88/88cc98a65dbab06bce208aa5a7cffb14.png" alt="" title="" />
+                           </figure>
+                           <div class="blog-recent-post-detail">
+                              <h1>#LearnCSS</h1>
+                              <p>NOVEMBER 5, 2018</p>
+                           </div>
+                        </div>
+                     </li>
+                        <li>
+                        <div class="blog-recent-post-box">
+                           <figure>
+                              <img src="https://cdn.auth0.com/blog/jsleaks/logo.png" alt="" title="" />
+                           </figure>
+                           <div class="blog-recent-post-detail">
+                              <h1>#LearnJS</h1>
+                              <p>NOVEMBER 7, 2018</p>
+                           </div>
+                        </div>
+                     </li>
+                    </ul>
+                </div>
+                <div class="blog-recent-comment">
+                    <h1>Recent Comments</h1>
+                    <ul>
+                        <li>
+                        <div class="blog-recent-comment-box">
+                           <figure>
+                              <img src="https://pickaface.net/gallery/avatar/Eminero5439f53ce66cd.png" alt="" title="" />
+                           </figure>
+                           <div class="blog-recent-comment-detail">
+                              <p><strong>Dev</strong></p>
+                              <q>It's not a bug, it's a feature...</q>
+                              <p class="sub">A day without write some line of code is a wasting day</p>
+                           </div>
+                        </div>
+                     </li>
+                        <li>
+                        <div class="blog-recent-comment-box">
+                           <figure>
+                              <img src="https://pickaface.net/gallery/avatar/759767_160825_1500_3fas7.png" alt="" title="" />
+                           </figure>
+                           <div class="blog-recent-comment-detail">
+                              <p><strong>QE</strong></p>
+                              <q>I have a concern about...</q>
+                              <p class="sub">Fix bug is easy. Finding a bug to fix a new problem is hard</p>
+                           </div>
+                        </div>
+                     </li>
+                        <li>
+                        <div class="blog-recent-comment-box">
+                           <figure>
+                              <img src="https://pickaface.net/gallery/avatar/20141025_004121_918_Developer.png" alt="" title="" />
+                           </figure>
+                           <div class="blog-recent-comment-detail">
+                              <p><strong>Designer</strong></p>
+                              <q>LGTM...</q>
+                              <p class="sub">Art is not imitation, but illusion</p>
+                           </div>
+                        </div>
+                     </li>
+                    </ul>
+                </div>
+                <div class="blog-search-container">
+                    <div class="blog-search-input-container">
+                        <input placeholder="Search ..." />
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>
+                    <a>
+                  2018 © All Rights Reserved by Dev
+                  </a>
+                </p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

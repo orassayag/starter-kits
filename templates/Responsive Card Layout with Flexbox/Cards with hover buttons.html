@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Cards with hover buttons</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: whiteSmoke;
+            padding: 5%;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        @media (max-width: 550px) {
+            .cards {
+                flex-direction: column;
+            }
+        }
+
+        .card {
+            position: relative;
+            width: 31.33333%;
+            margin: 1%;
+            background: whiteSmoke;
+            box-shadow: 1px 1px 5px #999;
+        }
+
+        @media (max-width: 815px) {
+            .card {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+        .card__inner {
+            position: relative;
+            background: url('https://unsplash.it/400?random') no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .card__inner h2 {
+            color: white;
+            margin: 0;
+            padding: 30% 0;
+            text-shadow: 1px 1px 3px #000;
+            line-height: 18px;
+            text-transform: uppercase;
+        }
+
+        .card__inner h2 small {
+            font-style: italic;
+            display: inherit;
+        }
+
+        .card__buttons {
+            position: absolute;
+            width: 100%;
+            transform: translateY(0);
+            transition: transform 0.5s ease;
+        }
+
+        .card__buttons a {
+            position: relative;
+            float: left;
+            width: 50%;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .card__buttons a:first-child {
+            background: #fff;
+            border-right: 1px solid #ccc;
+        }
+
+        .card__buttons a:last-child {
+            background: #ffde00;
+        }
+
+        .card__buttons a:hover {
+            color: #ffde00;
+            background: #000;
+        }
+
+        .card:hover .card__buttons {
+            transform: translateY(-38px);
+        }
+
+        .card__tagline {
+            font-size: 1rem;
+            font-weight: 100;
+        }
+
+        .card__icons {
+            margin: 0 0 50px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .card__icons li {
+            display: inline-block;
+            padding: 0 10px 10px;
+        }
+
+        .card__icons .fa {
+            font-size: 0.8rem;
+        }
+
+        .card__icons .fa:before {
+            font-size: 1.2rem;
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .card p {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <ul class="cards">
+        <li class="card">
+            <div class="card__inner">
+               <h2>Defender <small>Series</small></h2>
+               <div class="card__buttons">
+                  <a href="#">Explore</a>
+                  <a href="#">Shop</a>
+               </div>
+            </div>
+            <h3 class="card__tagline">Rugged multi-layer protection</h3>
+            <ul class="card__icons">
+               <li><i class="fa fa-coffee">Coffee</i></li>
+        <li><i class="fa fa-bolt">Bolt</i></li>
+        <li><i class="fa fa-bomb">Bomb</i></li>
+        <li><i class="fa fa-cutlery">Cutlery</i></li>
+        <li><i class="fa fa-bolt">Bolt</i></li>
+    </ul>
+    <p>$39.95 - $49.95</p>
+    </li>
+    <li class="card">
+            <div class="card__inner">
+               <h2>Commuter <small>Series</small></h2>
+               <div class="card__buttons">
+                  <a href="#">Explore</a>
+                  <a href="#">Shop</a>
+               </div>
+            </div>
+            <h3 class="card__tagline">Rugged multi-layer protection</h3>
+            <ul class="card__icons">
+               <li><i class="fa fa-coffee">Coffee</i></li>
+    <li><i class="fa fa-bolt">Bolt</i></li>
+    <li><i class="fa fa-coffee">Coffee</i></li>
+    </ul>
+    <p>$39.95 - $49.95</p>
+    </li>
+    <li class="card">
+            <div class="card__inner">
+               <h2>Commuter <small>Series</small></h2>
+               <div class="card__buttons">
+                  <a href="#">Explore</a>
+                  <a href="#">Shop</a>
+               </div>
+            </div>
+            <h3 class="card__tagline">Rugged multi-layer protection that is radical and does cool things and neat stuff and whatever and stuff</h3>
+            <ul class="card__icons">
+               <li><i class="fa fa-coffee">Coffee</i></li>
+    <li><i class="fa fa-bolt">Bolt</i></li>
+    </ul>
+    <p>$39.95 - $49.95</p>
+    </li>
+    </ul>
+</body>
+
+</html>

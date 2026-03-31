@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Website-Dental Center-2019-LightDark Mode</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <style type="text/css">
+        /* variables */
+        :root {
+            --bg: #fff;
+            --b-w: #000;
+            --primary: #4facfe;
+            --p-text: #606060;
+            --bg-div: #f2f2f2;
+            --h4: #2475bc;
+            --w-b: #fff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background: whitesmoke;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            overflow-x: hidden;
+            margin-top: 44px;
+            scroll-padding-top: 44px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* main scrollbar */
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 15px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        /* main */
+        #main {
+            position: relative;
+            width: 1920px;
+        }
+
+        /* dark-light mode */
+        #toggleMode {
+            display: none;
+        }
+
+        .toggleDark,
+        .toggleLight {
+            cursor: pointer;
+            position: absolute;
+            z-index: 2;
+            top: 20px;
+            right: 10px;
+            transition: all ease-in-out 0.5s;
+            filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+        }
+
+        .toggleDark {
+            display: block;
+            color: var(--primary);
+        }
+
+        .toggleDark:hover {
+            color: #000;
+            filter: none;
+        }
+
+        .toggleLight {
+            display: none;
+            color: var(--primary);
+        }
+
+        .toggleLight:hover {
+            color: #fff;
+            filter: none;
+        }
+
+        #toggleMode:checked~.toggleDark {
+            display: none;
+        }
+
+        #toggleMode:checked~.toggleLight {
+            display: block;
+        }
+
+        #toggleMode:checked~#section-all {
+            --bg: #020202;
+            --b-w: #fff;
+            --p-text: #cecece;
+            --bg-div: #0a0a0a;
+            --w-b: #000;
+            background-color: var(--bg);
+            transition: all ease-in-out 0.5s;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            position: -webkit-fixed;
+            top: 0;
+            width: 1920px;
+            background: var(--bg);
+            z-index: 1000;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        /* Navigation */
+        .nav-container {
+            width: 1280px;
+            margin: auto;
+            padding: 10px 0;
+        }
+
+        .nav-checkbox {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .nav-logo {
+            text-decoration: none;
+            color: var(--primary);
+            display: grid;
+            justify-self: start;
+            margin-left: 20px;
+            padding: 2px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .tab-nav {
+            display: none;
+        }
+
+        .tab-nav-label {
+            color: var(--b-w);
+            display: none;
+        }
+
+        .tab-nav-label .fa-times {
+            display: none;
+        }
+
+        .tab-nav-label .fa-times {
+            display: none;
+        }
+
+        .tab-content {
+            list-style: none;
+            justify-self: end;
+            margin: 0;
+            padding: 0;
+            grid-column: 2/4;
+        }
+
+        .tab-content li {
+            display: inline-block;
+            margin-right: 20px;
+            white-space: nowrap;
+        }
+
+        .tab-content li a {
+            text-decoration: none;
+            color: var(--b-w);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* style on scroll */
+        .header.scroll {
+            background-color: var(--primary);
+        }
+
+        .header.scroll a {
+            color: #fff;
+        }
+
+        /* active navigation */
+        .header.scroll a.active {
+            color: #000;
+            border-bottom: 2px solid #000;
+        }
+
+        .header a.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        /* section all */
+        #section-all {
+            background: var(--bg);
+        }
+
+        /* section */
+        .div-container {
+            width: 1280px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: auto;
+        }
+
+        section h1 {
+            padding: 20px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 32px;
+        }
+
+        section p {
+            color: var(--p-text);
+        }
+
+        /* section home*/
+        #home {
+            width: 100%;
+        }
+
+        .home-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .home-content {
+            padding: 20px;
+            display: grid;
+            align-items: center;
+        }
+
+        .home-content-inner {
+            width: 60%;
+            display: grid;
+            justify-self: end;
+            grid-gap: 20px;
+            text-align: center;
+            transition: all ease-in-out 0.5s;
+        }
+
+        .home-content-inner h1 {
+            color: var(--primary);
+        }
+
+        .home-content-inner p {
+            color: var(--p-text);
+        }
+
+        .home-container img {
+            display: block;
+            width: 100%;
+            height: 50vh;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        #home-btn {
+            cursor: pointer;
+            outline: none;
+            padding: 10px 15px;
+            border: 2px solid var(--b-w);
+            color: var(--b-w);
+            font-weight: 600;
+            background: none;
+            transition: all ease-in-out 0.5s;
+        }
+
+        #home-btn:hover {
+            background-color: var(--primary);
+            color: var(--b-w);
+            border: 2px solid var(--primary);
+        }
+
+        /* section services */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .container-inner {
+            display: grid;
+            grid-gap: 20px;
+            padding: 20px;
+            background-color: var(--bg-div);
+            transition: all ease-in-out 0.5s;
+            border-radius: 5px;
+        }
+
+        .icon .fa-tooth {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 13px;
+            border-radius: 50%;
+        }
+
+        .container-inner h2 {
+            color: var(--b-w);
+        }
+
+        /* section abou us */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .card-inner {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            grid-gap: 20px;
+            padding: 20px;
+            border: 2px solid var(--b-w);
+            transition: all ease-in-out 0.5s;
+            border-radius: 5px;
+        }
+
+        .card-inner img {
+            display: block;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border: 2px solid var(--b-w);
+        }
+
+        .card-inner h2 {
+            color: var(--b-w);
+        }
+
+        .card-inner h4 {
+            color: var(--h4);
+        }
+
+        .social-media a {
+            color: var(--primary);
+            transition: all ease-in-out 0.5s;
+        }
+
+        .social-media a:hover {
+            color: var(--b-w);
+        }
+
+        /* Testimonials */
+        #testimonials {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            padding: 40px 20px;
+        }
+
+        .guests-says-slider-container {
+            width: 1280px;
+            padding: 20px;
+            display: grid;
+            position: relative;
+        }
+
+        .guests-says-slider {
+            display: flex;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .guests-says-slider-iner {
+            flex: none;
+            scroll-snap-align: start;
+            width: 300px;
+            padding: 20px;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            text-align: center;
+            grid-gap: 20px;
+        }
+
+        .guests-says-slider-iner p {
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 5px;
+            position: relative;
+            background-color: var(--primary);
+            color: #000;
+        }
+
+        .guests-says-slider-iner p::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            width: 30px;
+            height: 15px;
+            border-top: solid 15px var(--primary);
+            border-left: solid 15px transparent;
+            border-right: solid 15px transparent;
+        }
+
+        .guests-says-slider-iner img {
+            display: block;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .guests-says-slider-iner h2 {
+            color: var(--b-w);
+        }
+
+        .guests-says-slider-iner h4 {
+            color: var(--p-text);
+        }
+
+        .guests-says-slider-container button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background-color: var(--b-w);
+            color: var(--w-b);
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 50%;
+            outline: none;
+            opacity: 0;
+            transition: all ease-in-out 0.5s;
+        }
+
+        #prev {
+            left: 10px;
+        }
+
+        #next {
+            right: 10px;
+        }
+
+        .guests-says-slider-container:hover button {
+            opacity: 1;
+        }
+
+        /* custom scrollbar */
+        .guests-says-slider::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        .guests-says-slider::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+            visibility: hidden;
+        }
+
+        .guests-says-slider::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .guests-says-slider-container:hover .guests-says-slider::-webkit-scrollbar-thumb {
+            visibility: visible;
+        }
+
+        /* contact-us */
+        .contact-us-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .input-container {
+            display: grid;
+            justify-items: center;
+            padding: 20px;
+        }
+
+        .input-inside {
+            position: relative;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+            display: grid;
+            justify-items: center;
+        }
+
+        .input {
+            display: block;
+            padding: 15px 10px;
+            outline: none;
+            border: none;
+            background: none;
+            border-bottom: 2px solid var(--b-w);
+            width: 100%;
+            font-size: 1rem;
+            box-sizing: border-box;
+            color: var(--b-w);
+            transition: all ease-in-out 0.5s;
+        }
+
+        .input:focus {
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .input-label {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            opacity: 0;
+            padding: 0 2px;
+            font-size: 1rem;
+            -webkit-transition: 0.2s ease-in-out;
+            -o-transition: 0.2s ease-in-out;
+            transition: 0.2s ease-in-out;
+        }
+
+        .input:valid+.input-label {
+            opacity: 1;
+            top: -8px;
+        }
+
+        .input:focus+.input-label {
+            color: var(--primary);
+        }
+
+        #btn-contact-form {
+            cursor: pointer;
+            outline: none;
+            padding: 10px 15px;
+            border: 2px solid var(--b-w);
+            color: var(--b-w);
+            font-weight: 600;
+            background: none;
+            transition: all ease-in-out 0.5s;
+        }
+
+        #btn-contact-form:hover {
+            background-color: var(--primary);
+            color: var(--b-w);
+            border: 2px solid var(--primary);
+        }
+
+        .contact-information {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            color: var(--b-w);
+        }
+
+        .contact-information-inner {
+            display: grid;
+            grid-gap: 20px;
+        }
+
+        .contact-information-inner a {
+            text-decoration: none;
+            color: var(--b-w);
+            font-weight: 600;
+            transition: all ease-in-out 0.5s;
+        }
+
+        .contact-information-inner a:hover {
+            color: var(--primary);
+        }
+
+        /* footer */
+        #footer {
+            display: grid;
+            justify-items: center;
+            background: var(--primary);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer {
+            width: 1280px;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            grid-template-columns: repeat(3, minmax(100px, 1fr));
+            grid-gap: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .footer-a p {
+            color: var(--p-text);
+        }
+
+        .h1-footer {
+            color: var(--b-w);
+        }
+
+        .fooer-b {
+            display: grid;
+            grid-gap: 20px;
+        }
+
+        .footer .social {
+            text-decoration: none;
+            color: var(--b-w);
+            margin-right: 20px;
+            transition: all ease-in-out 0.5s;
+        }
+
+        .footer .social:hover {
+            color: var(--w-b);
+        }
+
+        .footer .back-to-top {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--b-w);
+            transition: all ease-in-out 0.5s;
+        }
+
+        .footer .back-to-top:hover {
+            color: var(--w-b);
+        }
+
+        .p-copyright {
+            color: var(--b-w);
+            padding: 40px 0px;
+        }
+
+        .link-copyright {
+            text-decoration: none;
+            color: var(--b-w);
+            font-weight: 600;
+        }
+
+        .link-copyright:hover {
+            color: var(--w-b);
+        }
+
+        /* media screen */
+        @media screen and (max-width: 1920px) {
+            #main {
+                width: 100%;
+            }
+
+            header {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 1280px) {
+            .nav-container {
+                width: 100%;
+            }
+
+            .div-container {
+                width: 100%;
+            }
+
+            .home-content-inner {
+                width: 100%;
+            }
+
+            .guests-says-slider-container {
+                width: 100%;
+            }
+
+            .footer {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 1240px) {
+            #slider-container {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            .tab-content {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-column: 1/5;
+                text-align: center;
+                max-height: 0;
+                overflow: hidden;
+                justify-self: center;
+                transition: all ease-in-out 0.4s;
+                -o-transition: all ease-in-out 0.4s;
+                -webkit-transition: all ease-in-out 0.4s;
+            }
+
+            .tab-nav-label {
+                display: grid;
+                cursor: pointer;
+                grid-column: 4;
+                padding-right: 20px;
+            }
+
+            .nav-checkbox input:checked~.tab-nav-label .fa-bars {
+                display: none;
+            }
+
+            .nav-checkbox input:checked~.tab-nav-label .fa-times {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+
+            .nav-checkbox input:checked~.tab-content {
+                max-height: 400px;
+            }
+
+            .tab-content li {
+                padding: 10px 0;
+                margin-right: 0;
+            }
+
+            .home-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-us-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-a {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 425px) {
+            .guests-says-slider-iner {
+                width: 100%;
+            }
+
+            .footer-a {
+                width: 100%;
+            }
+
+            .p-copyright {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <main id="main">
+        <input type="checkbox" id="toggleMode" />
+        <label for="toggleMode" class="toggleDark" title="Dark"><i class="fas fa-adjust fa-2x"></i></label>
+        <label for="toggleMode" class="toggleLight" title="Light"><i class="fas fa-adjust fa-2x"></i></label>
+        <section id="section-all">
+            <header class="header">
+                <div class="nav-container">
+                    <nav class="nav-checkbox">
+                        <a href="#" class="nav-logo">Dental Center</a>
+                        <input type="checkbox" id="tab-nav" class="tab-nav" />
+                        <label for="tab-nav" class="tab-nav-label"><i class="fas fa-bars"></i></label>
+                        <label for="tab-nav" class="tab-nav-label"><i class="fas fa-times"></i></label>
+                        <ul class="tab-content">
+                            <li><a class="active" href="#home">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#about-us">About Us</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#contact-us">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <section id="home">
+                <div class="home-container">
+                    <div class="home-content">
+                        <div class="home-content-inner">
+                            <h1>We Care For Your Smile</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum alias ea, unde temporibus assumenda quasi perspiciatis quod recusandae officiis veritatis voluptate nesciunt sint natus esse. Natus sapiente tenetur at, cupiditate.</p>
+                            <a href="#contact-us"><button id="home-btn" type="submit">Contact Us</button></a>
+                        </div>
+                    </div>
+                    <img src="https://source.unsplash.com/1AhGNGKuhR0/1280x450" alt="" title="" />
+                </div>
+            </section>
+            <section id="services">
+                <div class="div-container">
+                    <h1>Our Services</h1>
+                    <div class="container">
+                        <div class="container-inner">
+                            <div class="icon"><i class="fas fa-tooth fa-2x"></i></div>
+                            <h2>General dentistry</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor consequatur aliquam odit distinctio hic itaque, aliquid, est voluptas rem officiis voluptatum, neque. Culpa alias doloremque officiis placeat quam beatae reprehenderit cumque a dolor minima libero laboriosam facere quaerat perferendis provident possimus aperiam voluptatibus, mollitia repudiandae. Ad quos ipsa quas, sunt!</p>
+                        </div>
+                        <div class="container-inner">
+                            <div class="icon"><i class="fas fa-tooth fa-2x"></i></div>
+                            <h2>Prosthetics</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor consequatur aliquam odit distinctio hic itaque, aliquid, est voluptas rem officiis voluptatum, neque. Culpa alias doloremque officiis placeat quam beatae reprehenderit cumque a dolor minima libero laboriosam facere quaerat perferendis provident possimus aperiam voluptatibus, mollitia repudiandae. Ad quos ipsa quas, sunt!</p>
+                        </div>
+                        <div class="container-inner">
+                            <div class="icon"><i class="fas fa-tooth fa-2x"></i></div>
+                            <h2>Oral surgery</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor consequatur aliquam odit distinctio hic itaque, aliquid, est voluptas rem officiis voluptatum, neque. Culpa alias doloremque officiis placeat quam beatae reprehenderit cumque a dolor minima libero laboriosam facere quaerat perferendis provident possimus aperiam voluptatibus, mollitia repudiandae. Ad quos ipsa quas, sunt!</p>
+                        </div>
+                        <div class="container-inner">
+                            <div class="icon"><i class="fas fa-tooth fa-2x"></i></div>
+                            <h2>Laser dentistry</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor consequatur aliquam odit distinctio hic itaque, aliquid, est voluptas rem officiis voluptatum, neque. Culpa alias doloremque officiis placeat quam beatae reprehenderit cumque a dolor minima libero laboriosam facere quaerat perferendis provident possimus aperiam voluptatibus, mollitia repudiandae. Ad quos ipsa quas, sunt!</p>
+                        </div>
+                        <div class="container-inner">
+                            <div class="icon"><i class="fas fa-tooth fa-2x"></i></div>
+                            <h2>Aesthetic and preventive dentistry</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor consequatur aliquam odit distinctio hic itaque, aliquid, est voluptas rem officiis voluptatum, neque. Culpa alias doloremque officiis placeat quam beatae reprehenderit cumque a dolor minima libero laboriosam facere quaerat perferendis provident possimus aperiam voluptatibus, mollitia repudiandae. Ad quos ipsa quas, sunt!</p>
+                        </div>
+                        <div class="container-inner">
+                            <div class="icon"><i class="fas fa-tooth fa-2x"></i></div>
+                            <h2>Orthodontics</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor consequatur aliquam odit distinctio hic itaque, aliquid, est voluptas rem officiis voluptatum, neque. Culpa alias doloremque officiis placeat quam beatae reprehenderit cumque a dolor minima libero laboriosam facere quaerat perferendis provident possimus aperiam voluptatibus, mollitia repudiandae. Ad quos ipsa quas, sunt!</p>
+                        </div>
+                        <div class="container-inner">
+                            <div class="icon"><i class="fas fa-tooth fa-2x"></i></div>
+                            <h2>Implanthology</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor consequatur aliquam odit distinctio hic itaque, aliquid, est voluptas rem officiis voluptatum, neque. Culpa alias doloremque officiis placeat quam beatae reprehenderit cumque a dolor minima libero laboriosam facere quaerat perferendis provident possimus aperiam voluptatibus, mollitia repudiandae. Ad quos ipsa quas, sunt!</p>
+                        </div>
+                        <div class="container-inner">
+                            <div class="icon"><i class="fas fa-tooth fa-2x"></i></div>
+                            <h2>X-ray diagnosis</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor consequatur aliquam odit distinctio hic itaque, aliquid, est voluptas rem officiis voluptatum, neque. Culpa alias doloremque officiis placeat quam beatae reprehenderit cumque a dolor minima libero laboriosam facere quaerat perferendis provident possimus aperiam voluptatibus, mollitia repudiandae. Ad quos ipsa quas, sunt!</p>
+                        </div>
+                        <div class="container-inner">
+                            <div class="icon"><i class="fas fa-tooth fa-2x"></i></div>
+                            <h2>Children Clinic</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor consequatur aliquam odit distinctio hic itaque, aliquid, est voluptas rem officiis voluptatum, neque. Culpa alias doloremque officiis placeat quam beatae reprehenderit cumque a dolor minima libero laboriosam facere quaerat perferendis provident possimus aperiam voluptatibus, mollitia repudiandae. Ad quos ipsa quas, sunt!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="about-us">
+                <div class="div-container">
+                    <p>Expert Doctros</p>
+                    <h1>About Us</h1>
+                    <div class="card-container">
+                        <div class="card-inner">
+                            <img src="https://source.unsplash.com/1AhGNGKuhR0/130x130" alt="" title="" />
+                            <h2>Dr. Jean Smith</h2>
+                            <h4>Owner and manager of the ordination</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit magnam id nobis nisi qui totam molestias, quis incidunt sunt quisquam?</p>
+                            <div class="social-media">
+                                <a href=""><i class="fab fa-facebook fa-2x"></i></a>
+                                <a href=""><i class="fab fa-twitter-square fa-2x"></i></a>
+                                <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-inner">
+                            <img src="https://source.unsplash.com/iFgRcqHznqg/130x130" alt="" title="" />
+                            <h2>Dr. Joseph Gonzalez</h2>
+                            <h4>Doctor for Dental Medicine</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit magnam id nobis nisi qui totam molestias, quis incidunt sunt quisquam?</p>
+                            <div class="social-media">
+                                <a href=""><i class="fab fa-facebook fa-2x"></i></a>
+                                <a href=""><i class="fab fa-twitter-square fa-2x"></i></a>
+                                <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-inner">
+                            <img src="https://source.unsplash.com/LSP9Tpavbms/130x130" alt="" title="" />
+                            <h2>Dr. Emile Guillemot</h2>
+                            <h4>Doctor for General Dentistry</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit magnam id nobis nisi qui totam molestias, quis incidunt sunt quisquam?</p>
+                            <div class="social-media">
+                                <a href=""><i class="fab fa-facebook fa-2x"></i></a>
+                                <a href=""><i class="fab fa-twitter-square fa-2x"></i></a>
+                                <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-inner">
+                            <img src="https://source.unsplash.com/QXevDflbl8A/130x130" alt="" title="" />
+                            <h2>Andrea Lopez</h2>
+                            <h4>Dental Technician</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit magnam id nobis nisi qui totam molestias, quis incidunt sunt quisquam?</p>
+                            <div class="social-media">
+                                <a href=""><i class="fab fa-facebook fa-2x"></i></a>
+                                <a href=""><i class="fab fa-twitter-square fa-2x"></i></a>
+                                <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-inner">
+                            <img src="https://source.unsplash.com/mEZ3PoFGs_k/130x130" alt="" title="" />
+                            <h2>Bonnie Perry</h2>
+                            <h4>Nurse</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit magnam id nobis nisi qui totam molestias, quis incidunt sunt quisquam?</p>
+                            <div class="social-media">
+                                <a href=""><i class="fab fa-facebook fa-2x"></i></a>
+                                <a href=""><i class="fab fa-twitter-square fa-2x"></i></a>
+                                <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-inner">
+                            <img src="https://source.unsplash.com/xDyqR14KyAs/130x130" alt="" title="" />
+                            <h2>Clara Harrison</h2>
+                            <h4>Nurse</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit magnam id nobis nisi qui totam molestias, quis incidunt sunt quisquam?</p>
+                            <div class="social-media">
+                                <a href=""><i class="fab fa-facebook fa-2x"></i></a>
+                                <a href=""><i class="fab fa-twitter-square fa-2x"></i></a>
+                                <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="testimonials">
+                <p>Happy Client Says</p>
+                <h1>Testimonials</h1>
+                <div class="guests-says-slider-container">
+                    <div class="guests-says-slider">
+                        <div class="guests-says-slider-iner">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, vitae dolor. Provident delectus, soluta dolores repudiandae. Maxime odit magni nostrum.</p>
+                            <img src="https://source.unsplash.com/wm4DuvIpLj8/100x100" alt="" title="" />
+                            <h2>Jesica Hart</h2>
+                            <h4>Guests From United States</h4>
+                        </div>
+                        <div class="guests-says-slider-iner">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, vitae dolor. Provident delectus, soluta dolores repudiandae. Maxime odit magni nostrum.</p>
+                            <img src="https://source.unsplash.com/VVEwJJRRHgk/100x100" alt="" title="" />
+                            <h2>Warren Wong</h2>
+                            <h4>Guests From France</h4>
+                        </div>
+                        <div class="guests-says-slider-iner">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, vitae dolor. Provident delectus, soluta dolores repudiandae. Maxime odit magni nostrum.</p>
+                            <img src="https://source.unsplash.com/dnL6ZIpht2s/100x100" alt="" title="" />
+                            <h2>Ivana Cajina</h2>
+                            <h4>Guests From United Kingdom</h4>
+                        </div>
+                        <div class="guests-says-slider-iner">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, vitae dolor. Provident delectus, soluta dolores repudiandae. Maxime odit magni nostrum.</p>
+                            <img src="https://source.unsplash.com/9R-CH7PR150/100x100" alt="" title="" />
+                            <h2>Lucas Sankey</h2>
+                            <h4>Guests From Austria</h4>
+                        </div>
+                        <div class="guests-says-slider-iner">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, vitae dolor. Provident delectus, soluta dolores repudiandae. Maxime odit magni nostrum.</p>
+                            <img src="https://source.unsplash.com/ZOT2Mewzmh8/100x100" alt="" title="" />
+                            <h2>Andrea Harirson</h2>
+                            <h4>Guests From Italy</h4>
+                        </div>
+                        <div class="guests-says-slider-iner">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, vitae dolor. Provident delectus, soluta dolores repudiandae. Maxime odit magni nostrum.</p>
+                            <img src="https://source.unsplash.com/3Y366aqddJ0/100x100" alt="" title="" />
+                            <h2>Mike Baker</h2>
+                            <h4>Guests From Spain</h4>
+                        </div>
+                    </div>
+                    <button id="prev"><i class="fas fa-chevron-left fa-2x"></i></button>
+                    <button id="next"><i class="fas fa-chevron-right fa-2x"></i></button>
+                </div>
+            </section>
+            <section id="contact-us">
+                <div class="div-container">
+                    <p>Get In Touch</p>
+                    <h1>Contact Us</h1>
+                    <div class="contact-us-container">
+                        <form class="input-container">
+                            <div class="input-inside">
+                                <input type="text" class="input" required placeholder="Name" />
+                                <label class="input-label">Name</label>
+                            </div>
+                            <div class="input-inside">
+                                <input type="text" class="input" required placeholder="Email" />
+                                <label class="input-label">Email</label>
+                            </div>
+                            <div class="input-inside">
+                                <textarea type="text" class="input" required placeholder="Message" rows="4"></textarea>
+                                <label class="input-label">Message</label>
+                            </div>
+                            <button type="submit" id="btn-contact-form"><span>Send Message</span></button>
+                        </form>
+                        <div class="contact-information">
+                            <div class="contact-information-inner">
+                                <h4>Address: <span>333 West 21th Street, Suite 721 New York NY 10016</span></h4>
+                                <h4>Phone: <span>+ 1235 3333 33</span></h4>
+                                <a href="">Email: <span>info@yoursite.com</span></a>
+                                <a href="" target="_blank">Website: <span>yoursite.com</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer">
+                <div class="footer">
+                    <div class="footer-a">
+                        <h1 class="h1-footer">Dental Center</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt nobis quidem incidunt nostrum porro dolor, ab fuga similique, at minus.</p>
+                    </div>
+                    <div class="fooer-b">
+                        <h1 class="h1-footer">Opening Hours</h1>
+                        <p>Monday: 08:00 - 17:00</p>
+                        <p>Tuesday: 08:00 - 17:00</p>
+                        <p>Wednesday: 08:00 - 17:00</p>
+                        <p>Thursday: 08:00 - 17:00</p>
+                        <p>Friday: 08:00 - 17:00</p>
+                        <p>Saturday: 08:00 - 17:00</p>
+                    </div>
+                    <div class="footer-c">
+                        <a href="" class="social"><i class="fab fa-twitter-square fa-2x"></i></a>
+                        <a href="" class="social"><i class="fab fa-facebook-square fa-2x"></i></a>
+                        <a href="" class="social"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="back-to-top"><i class="fas fa-chevron-circle-up fa-2x"></i></a>
+                    </div>
+                </div>
+                <p class="p-copyright">Copyright 2019&copy; All rights reserved - Design & Developed by <a href="" class="link-copyright">Gjoko Bulovski</a></p>
+            </footer>
+        </section>
+    </main>
+    <script type="text/javascript">
+        // Change navigation style on scroll
+        window.addEventListener('scroll', event => {
+            event.preventDefault();
+            let nav = document.querySelector('.header');
+
+            (window.scrollY >= 44) ? nav.classList.add('scroll'): nav.classList.remove('scroll');
+        });
+
+        // Active navigation on scroll
+        window.addEventListener('scroll', event => {
+            event.preventDefault();
+            let navigationLinks = document.querySelectorAll('nav ul li a');
+            let fromTop = window.scrollY;
+            navigationLinks.forEach(link => {
+                let section = document.querySelector(link.hash);
+
+                if (
+                    section.offsetTop <= fromTop &&
+                    section.offsetTop + section.offsetHeight > fromTop
+                ) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+
+        // Slider guest says
+        const slider = document.querySelector('.guests-says-slider');
+        const prevSlider = document.getElementById('prev');
+        const nextSLider = document.getElementById('next');
+
+        nextSLider.addEventListener('click', e => {
+            e.preventDefault();
+            slider.scrollBy(300, 0);
+        });
+
+        prevSlider.addEventListener('click', e => {
+            e.preventDefault();
+            slider.scrollBy(-300, 0);
+        });
+    </script>
+</body>
+
+</html>

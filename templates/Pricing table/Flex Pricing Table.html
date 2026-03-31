@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flex Pricing Table</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            font-weight: 300;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: normal;
+        }
+
+        h2 {
+            font-size: 3em;
+            font-weight: 300;
+        }
+
+        h3 {
+            font-size: 2em;
+            font-weight: normal;
+        }
+
+        h4 {
+            font-size: 1.3em;
+            font-weight: normal;
+        }
+
+        sub,
+        sup {
+            font-size: 50%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        sup {
+            top: -.75em;
+        }
+
+        /* TE Container */
+        .container {
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .container:before,
+        .container:after {
+            content: ' ';
+            display: table;
+        }
+
+        /* Create three columns of equal width */
+        /* .columns us unused in TE CSS */
+        .col-pricing {
+            float: left;
+            margin-top: 4.5em;
+            width: 33.3%;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .col-pricing--featured {
+            float: left;
+            width: 33.3%;
+            padding: 8px;
+            text-align: center;
+        }
+
+        /* Style the list */
+        /* .price ok to us */
+        .price {
+            list-style-type: none;
+            border: 1px solid #0193cf;
+            margin: 0;
+            padding: 0;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+        }
+
+        /* Add shadows on hover */
+        .price:hover {
+            box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2)
+        }
+
+        /* Pricing header */
+        /* .header is also ok for use */
+        .color-blue {
+            color: #0193cf;
+        }
+
+        .price .header {
+            text-transform: uppercase;
+            background-color: #0193cf;
+            color: white;
+            font-size: 1.5em;
+            height: 3em;
+        }
+
+        /* List items */
+        .price li {
+            border-bottom: 1px solid #eee;
+            padding: 20px;
+            color: #999;
+        }
+
+        /* The "Sign Up" button */
+        /* will be replaced with TE button style */
+        .button-small {
+            background-color: #0093d1;
+            border-radius: 50px;
+            border: solid 1px silver;
+            color: white;
+            font-size: .75em;
+            padding: 12px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: border-color .5s ease;
+        }
+
+        /* Change the width of the three columns to 100% (to stack horizontally on small screens) */
+        @media only screen and (max-width: 600px) {
+
+            .col-pricing--featured,
+            .col-pricing {
+                width: 100%;
+            }
+        }
+
+        /* NEW CODE */
+        .price span {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <article class="col-pricing">
+            <ul class="price">
+                <h4 class="color-blue">INDIVIDUAL<span><br>1 User</span></h4>
+                <h2><sup>$</sup>0</h2>
+                <a href="#" class="button-small">Schedule Demo</a>
+                <li>
+                  <h3>$0</h3>
+                  <p>One time setup</p>
+               </li>
+                <li><strong>500</strong> Contacts</li>
+                <li><strong>Limited</strong> Lead Consolidation *</li>
+                <li><strong>Limited</strong> Smart Groups</li>
+                <li><strong>1</strong> Pro Action Plan</li>
+                <li><strong>Limited</strong> Marketing Library</li>
+                <li><strong>Standard</strong> Support</li>
+            </ul>
+        </article>
+        <article class="col-pricing--featured">
+            <ul class="price">
+                <li class="header">Most Popular</li>
+                <h4 class="color-blue">PROFESSIONAL<span><br>1 User</span></h4>
+                <h2><sup>$</sup>0</h2>
+                <a href="#" class="button-small">Schedule Demo</a>
+                </li>
+                <li>
+                  <h3>$0</h3>
+                  <p>One time setup</p>
+               </li>
+                <li><strong>500</strong> Contacts</li>
+                <li><strong>Limited</strong> Lead Consolidation *</li>
+                <li><strong>Limited</strong> Smart Groups</li>
+                <li><strong>1</strong> Pro Action Plan</li>
+                <li><strong>Limited</strong> Marketing Library</li>
+                <li><strong>Standard</strong> Support</li>
+            </ul>
+        </article>
+        <article class="col-pricing">
+            <ul class="price">
+                <h4 class="color-blue">PROFESSIONAL
+                    <span><br>1 User</span </h4> <h2>
+                    <sup>$</sup>0
+                    </h2>
+                    <a href="#" class="button-small">Schedule Demo</a>
+                    <li>
+                  <h3>$0</h3>
+                  <p>One time setup</p>
+               </li>
+                    <li><strong>500</strong> Contacts</li>
+                    <li><strong>Limited</strong> Lead Consolidation *</li>
+                    <li><strong>Limited</strong> Smart Groups</li>
+                    <li><strong>1</strong> Pro Action Plan</li>
+                    <li><strong>Limited</strong> Marketing Library</li>
+                    <li><strong>Standard</strong> Support</li>
+            </ul>
+        </article>
+    </div>
+</body>
+
+</html>

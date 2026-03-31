@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Collection Grid pink</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://use.fontawesome.com/releases/v5.7.0/css/all.css');
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            align-items: flex-start;
+            background-color: #ec1561;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        main .heading {
+            max-width: 35rem;
+        }
+
+        .grid {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media screen and (min-width: 600px) {
+            .grid {
+                align-items: stretch;
+                flex-direction: row;
+            }
+        }
+
+        .grid__item {
+            align-items: center;
+            background-color: #f9bad0;
+            border-radius: 4px;
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            margin: 1rem;
+            padding: 2rem 1rem;
+        }
+
+        @media screen and (min-width: 375px) {
+            .grid__item {
+                width: calc(25% - 2rem);
+            }
+        }
+
+        .grid__item-main {
+            width: auto;
+        }
+
+        .grid__item i {
+            color: white;
+            font-size: 60px;
+        }
+
+        .grid .fa-spider {
+            font-size: 124px;
+        }
+
+        .subgrid {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media screen and (min-width: 375px) {
+            .subgrid {
+                flex-flow: row wrap;
+                width: 75%;
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            .subgrid {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <main>
+        <div class="heading">
+            <h1>Low-hanging fruit</h1>
+            <p>
+                Release venture crowdsource burn rate facebook paradigm shift supply chain prototype responsive web design partnership deployment.
+                Innovator crowdsource holy grail advisor.
+            </p>
+        </div>
+        <div class="grid">
+            <div class="grid__item grid__item-main">
+                <i class="fas fa-spider"></i>
+            </div>
+            <div class="subgrid">
+                <div class="grid__item">
+                    <i class="fas fa-cheese"></i>
+                </div>
+                <div class="grid__item">
+                    <i class="fas fa-carrot"></i>
+                </div>
+                <div class="grid__item">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <div class="grid__item">
+                    <i class="fas fa-fish"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

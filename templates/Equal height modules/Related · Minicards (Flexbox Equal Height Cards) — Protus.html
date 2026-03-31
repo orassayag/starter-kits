@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Related · Minicards (Flexbox Equal Height Cards) — Protus</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic|Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic');
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        html,
+        body {
+            font-family: "Open Sans", "Roboto", helvetica, arial, sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            font-size: 62.5%;
+        }
+
+        body {
+            background: #fafafa;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #17d;
+        }
+
+        p,
+        li,
+        time {
+            font-size: 1.8rem;
+            line-height: 3.6rem;
+            margin: 0 0 2.4rem;
+        }
+
+        h2 {
+            font: 400 2.4rem/3.6rem "PT Serif", palatino, times, serif;
+            margin: 0 0 2.4rem;
+        }
+
+        img {
+            border: 0;
+            height: auto;
+            max-width: 100%;
+        }
+
+        img:hover {
+            filter: alpha(opacity=9000);
+            opacity: 0.90;
+            filter: alpha(opacity=90);
+        }
+
+        figure {
+            margin: 0;
+            line-height: 0;
+        }
+
+        article,
+        figure,
+        footer,
+        header,
+        main {
+            display: block;
+        }
+
+        /* Clearings */
+        header:before,
+        header:after,
+        main:before,
+        main:after {
+            content: '';
+            display: table;
+        }
+
+        header:after,
+        main:after {
+            clear: both;
+        }
+
+        main {
+            position: relative;
+            width: 1200px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        /* MAGIC (Auto adjust + Equal Height) */
+        .flexgrid {
+            margin: 0 auto;
+            padding: 0;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .flexgrid li {
+            position: relative;
+            list-style: none;
+            display: -webkit-flex;
+            display: flex;
+            margin: 0;
+            flex: auto;
+            width: 100%;
+        }
+
+        .flexgrid li>a {
+            position: relative;
+            padding: 2.3rem 2.4rem;
+            width: 100%;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+        }
+
+        @media (min-width:768px) {
+            .flexgrid li {
+                width: 33.333%;
+            }
+        }
+
+        .flexgrid li h2,
+        .flexgrid li h3 {
+            margin: 0;
+        }
+
+        /* Mini Cards & Related */
+        .flexgrid.minicard li>a {
+            display: -webkit-flex;
+            display: flex;
+            padding: 0;
+        }
+
+        .flexgrid.minicard li {
+            width: 100%;
+            margin-bottom: 4.8rem;
+        }
+
+        .minicard figure {
+            position: relative;
+            width: 100%;
+            display: block;
+        }
+
+        .minicard header {
+            position: relative;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+            padding: 2.4rem;
+            justify-content: center;
+        }
+
+        .minicard p,
+        .minicard time {
+            margin: 0;
+        }
+
+        .minicard h3 {
+            font: 400 1.8rem/2.4rem "PT Serif", palatino, times, serif;
+        }
+
+        .minicard li header:before {
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+
+        @media (min-width:600px) {
+            .flexgrid.minicard li>a {
+                -webkit-flex-direction: row;
+                flex-direction: row;
+            }
+
+            .minicard figure {
+                width: 40%;
+            }
+
+            .minicard header {
+                width: 60%;
+            }
+
+            .minicard li:nth-child(odd) figure {
+                order: 0
+            }
+
+            .minicard li:nth-child(even) figure {
+                order: 1;
+            }
+
+            .minicard li header:before {
+                top: 50%;
+                margin-top: -12px;
+            }
+
+            .minicard li:nth-child(odd) header:before {
+                left: -12px;
+                border-right: solid 12px #ffffff;
+                border-top: solid 12px transparent;
+                border-bottom: solid 12px transparent;
+            }
+
+            .minicard li:nth-child(even) header:before {
+                right: -12px;
+                border-left: solid 12px #ffffff;
+                border-top: solid 12px transparent;
+                border-bottom: solid 12px transparent;
+            }
+        }
+
+        @media (max-width:599px) {
+            .minicard li header:before {
+                top: -11px;
+                left: 50%;
+                margin-left: -12px;
+                border-bottom: 12px solid #fff;
+                border-left: 12px solid transparent;
+                border-right: 12px solid transparent;
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 1099px) {
+            .minicard figure {
+                vertical-align: middle;
+                text-align: center;
+                min-width: 180px;
+                max-height: 100%;
+            }
+
+            .minicard figure img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
+        }
+
+        @media (min-width:900px) {
+            .flexgrid.minicard {
+                margin: 0 -2%;
+            }
+
+            .flexgrid.minicard li {
+                margin-right: 2%;
+                margin-left: 2%;
+                width: 46%;
+            }
+        }
+
+        /* Minicard Colors */
+        .minicard li {
+            border: 1px solid #eee;
+            background-color: #fff;
+        }
+
+        .minicard li:hover {
+            -webkit-box-shadow: 3px 3px 3px #eee;
+            box-shadow: 3px 3px 3px #eee;
+        }
+
+        .minicard li a {
+            color: inherit;
+        }
+
+        .minicard li p,
+        .minicard li time {
+            color: #bbb;
+        }
+
+        .minicard figure {
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <main role="main">
+        <h2>Related</h2>
+        <ul class="flexgrid minicard">
+            <li>
+               <a href="https://dribbble.com/jlantunez/projects/338916-Protus">
+                  <figure>
+                     <img src="https://source.unsplash.com/8sBmEopmvdw/600x450" alt="Classic cars" title="Classic cars" />
+                  </figure>
+                  <header>
+                     <h3>The Evolution of James Bond Cars From Dr. No to Spectre</h3>
+                     <time datetime="2016-02-22" pubdate="pubdate">Feb 22, 2016</time>
+                  </header>
+               </a>
+            </li>
+            <li>
+               <a href="https://dribbble.com/jlantunez/projects/338916-Protus">
+                  <figure>
+                     <img src="https://source.unsplash.com/Y_7wXiRn_J8/600x450" alt="New York" title="New York" />
+                  </figure>
+                  <header>
+                     <h3>Planning To Travel In 2016? 10 Essential Travel Apps</h3>
+                     <p>Travel apps</p>
+                  </header>
+               </a>
+            </li>
+            <li>
+               <a href="https://dribbble.com/jlantunez/projects/338916-Protus">
+                  <figure>
+                     <img src="https://source.unsplash.com/oMpAz-DN-9I/600x450" alt="iUniverse Screenshot" title="iUniverse Screenshot" />
+                  </figure>
+                  <header>
+                     <h3>iUniverse</h3>
+                     <p>23,486 downloads</p>
+                  </header>
+               </a>
+            </li>
+            <li>
+               <a href="https://dribbble.com/jlantunez/projects/338916-Protus">
+                  <figure>
+                     <img src="https://source.unsplash.com/ivzZRJ0gemk/600x450" alt="A classic chair" title="A classic chair" />
+                  </figure>
+                  <header>
+                     <p>Category</p>
+                     <h3>The Best Chairs Ever Designed</h3>
+                  </header>
+               </a>
+            </li>
+        </ul>
+        <p>Flexbox equal height cards. Text is also center-aligned vertically inside the <em>header</em> element.<br> <a href="https://dribbble.com/jlantunez/projects/338916-Protus">Protus</a> is my simple framework for rapid and efficient prototyping, <a href="https://twitter.com/jlantunez">@jlantunez</a>. Photos: <a href="http://source.unsplash.com">Unsplash</a>.</p>
+    </main>
+</body>
+
+</html>

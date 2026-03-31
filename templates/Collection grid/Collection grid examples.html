@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Collection grid examples</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1684px;
+            margin: 0 auto;
+        }
+
+        .collection-grid {
+            box-shadow: inset 0 0 0 6px red;
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            align-content: stretch;
+            font-size: .65em;
+        }
+
+        .collection-grid--root {
+            font-size: 36px;
+        }
+
+        .collection-grid__item>.collection-grid {
+            width: 100%;
+        }
+
+        .collection-grid>.collection-grid {
+            width: 50%;
+        }
+
+        .collection-grid__item {
+            box-shadow: inset 0 0 0 4px orange;
+            width: 50%;
+            padding: 15px;
+        }
+
+        .card {
+            box-shadow: inset 0 0 0 2px green;
+            position: relative;
+            padding-top: calc(56.25% - 15px);
+            background-color: rgba(255, 0, 0, .2);
+        }
+
+        .card__title {
+            position: absolute;
+            left: 16px;
+            bottom: 16px;
+            right: 16px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <div class="collection-grid collection-grid--root">
+            <div class="collection-grid__item">
+                <div class="card">
+                    <div class="card__title">This is a title</div>
+                </div>
+            </div>
+            <div class="collection-grid">
+                <div class="collection-grid__item">
+                    <div class="card">
+                        <div class="card__title">This is a title</div>
+                    </div>
+                </div>
+                <div class="collection-grid__item">
+                    <div class="card">
+                        <div class="card__title">This is a title</div>
+                    </div>
+                </div>
+                <div class="collection-grid__item">
+                    <div class="card">
+                        <div class="card__title">This is a title</div>
+                    </div>
+                </div>
+                <div class="collection-grid">
+                    <div class="collection-grid__item">
+                        <div class="card">
+                            <div class="card__title">This is a title</div>
+                        </div>
+                    </div>
+                    <div class="collection-grid__item">
+                        <div class="card">
+                            <div class="card__title">This is a title</div>
+                        </div>
+                    </div>
+                    <div class="collection-grid__item">
+                        <div class="card">
+                            <div class="card__title">This is a title</div>
+                        </div>
+                    </div>
+                    <div class="collection-grid__item">
+                        <div class="card">
+                            <div class="card__title">This is a title</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

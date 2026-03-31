@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" class=" -webkit-">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flat UI Kit - Dribbble Rebound</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <style type="text/css" media="" data-href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        button,
+        hr,
+        input {
+            overflow: visible
+        }
+
+        audio,
+        canvas,
+        progress,
+        video {
+            display: inline-block
+        }
+
+        progress,
+        sub,
+        sup {
+            vertical-align: baseline
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%
+        }
+
+        body {
+            margin: 0
+        }
+
+        menu,
+        article,
+        aside,
+        details,
+        footer,
+        header,
+        nav,
+        section {
+            display: block
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: .67em 0
+        }
+
+        figcaption,
+        figure,
+        main {
+            display: block
+        }
+
+        figure {
+            margin: 1em 40px
+        }
+
+        hr {
+            box-sizing: content-box;
+            height: 0
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: monospace, monospace;
+            font-size: 1em
+        }
+
+        a {
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects
+        }
+
+        a:active,
+        a:hover {
+            outline-width: 0
+        }
+
+        abbr[title] {
+            border-bottom: none;
+            text-decoration: underline;
+            text-decoration: underline dotted
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        dfn {
+            font-style: italic
+        }
+
+        mark {
+            background-color: #ff0;
+            color: #000
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        audio:not([controls]) {
+            display: none;
+            height: 0
+        }
+
+        img {
+            border-style: none
+        }
+
+        svg:not(:root) {
+            overflow: hidden
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: sans-serif;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0
+        }
+
+        button,
+        input {}
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        [type=submit],
+        [type=reset],
+        button,
+        html [type=button] {
+            -webkit-appearance: button
+        }
+
+        [type=button]::-moz-focus-inner,
+        [type=reset]::-moz-focus-inner,
+        [type=submit]::-moz-focus-inner,
+        button::-moz-focus-inner {
+            border-style: none;
+            padding: 0
+        }
+
+        [type=button]:-moz-focusring,
+        [type=reset]:-moz-focusring,
+        [type=submit]:-moz-focusring,
+        button:-moz-focusring {
+            outline: ButtonText dotted 1px
+        }
+
+        fieldset {
+            border: 1px solid silver;
+            margin: 0 2px;
+            padding: .35em .625em .75em
+        }
+
+        legend {
+            box-sizing: border-box;
+            color: inherit;
+            display: table;
+            max-width: 100%;
+            padding: 0;
+            white-space: normal
+        }
+
+        progress {}
+
+        textarea {
+            overflow: auto
+        }
+
+        [type=checkbox],
+        [type=radio] {
+            box-sizing: border-box;
+            padding: 0
+        }
+
+        [type=number]::-webkit-inner-spin-button,
+        [type=number]::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        [type=search]::-webkit-search-cancel-button,
+        [type=search]::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        [hidden],
+        template {
+            display: none
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/6035/grid.css" data-inprogress="" />
+    <style type="text/css" media="" data-href="https://fonts.googleapis.com/css?family=Montserrat">
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat Regular'), local('Montserrat-Regular'), url('https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459WRhyzbi.woff2') format('woff2');
+            unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        /* cyrillic */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat Regular'), local('Montserrat-Regular'), url('https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459W1hyzbi.woff2') format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        /* vietnamese */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat Regular'), local('Montserrat-Regular'), url('https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459WZhyzbi.woff2') format('woff2');
+            unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat Regular'), local('Montserrat-Regular'), url('https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wdhyzbi.woff2') format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat Regular'), local('Montserrat-Regular'), url('https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/6035/icomoon-scrtpxls.css" data-inprogress="" />
+    <style type="text/css">
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: sub;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #ebebeb;
+            padding-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #f2f2f2;
+            border-radius: 3px;
+            color: #7a7a7a;
+            font-size: 0.8125em;
+            transition: background .3s ease, color .3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #e5e5e5;
+            color: #929797;
+        }
+
+        .btn.btn-primary {
+            background: #dd5555;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .btn.btn-primary:hover,
+        .btn.btn-primary.active {
+            background: #d94040;
+        }
+
+        .btn.btn-large {
+            padding: 12px 28px;
+        }
+
+        .btn.btn-caps {
+            text-transform: uppercase;
+        }
+
+        .btn.btn-block {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            border: 1px solid #cfcfcf;
+            background: #ebebeb;
+            height: 28px;
+            font-size: 0.75em;
+            padding: 5px;
+            outline: none;
+            border-radius: 3px;
+            margin-bottom: 7px;
+            transition: background .3s ease;
+        }
+
+        input[type="text"]:focus {
+            background: #f0f0f0;
+        }
+
+        .checkbox {
+            color: #ccc;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+            font-size: 0.6875em;
+            margin-bottom: 7px;
+            display: inline-block;
+        }
+
+        .box {
+            background: #f9f9f9;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .box h2 {
+            color: #dd5555;
+            font-size: 0.875em;
+        }
+
+        .box p {
+            font-size: 0.75em;
+            color: #7d7d7d;
+        }
+
+        .locations {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .locations .avatar {
+            border-radius: 50%;
+        }
+
+        .locations .avatar img {
+            border-radius: 50%;
+        }
+
+        .locations .details {
+            margin-top: 30px;
+        }
+
+        .locations .btn {
+            margin-top: 30px;
+        }
+
+        .calendar {
+            text-align: center;
+        }
+
+        .calendar .header {
+            padding: 10px 0;
+        }
+
+        .calendar [class*="icon-"] {
+            color: #dd5555;
+            position: relative;
+            top: 2px;
+            margin: 0 5px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .calendar .days {
+            background: #dd5555;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .calendar .days ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .calendar .days li {
+            display: inline-block;
+            color: #fff;
+            padding: 5px 0;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        @media (max-width: 767px) {
+            .calendar .days li {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .calendar .days li.next,
+        .calendar .days li.previous {
+            color: rgba(0, 0, 0, 0.2);
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #cccccc;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+            font-size: 0.75em;
+        }
+
+        .nav a:hover {
+            color: #dd5555;
+        }
+
+        .nav [class*="icon-"] {
+            font-size: 2em;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .nav li {
+            display: inline-block;
+        }
+
+        .nav li a {
+            display: block;
+            padding: 20px 18px;
+        }
+
+        .weather .header {
+            border-radius: 5px 5px 0 0;
+            padding: 20px 0;
+            background: #dd5555;
+            text-align: center;
+            color: #fff;
+            font-size: 3.125em;
+        }
+
+        .weather [class*="icon-"] {
+            position: relative;
+            top: 2px;
+        }
+
+        .weather article {
+            text-align: center;
+            padding: 5px 0;
+        }
+
+        .video {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video:before {
+            content: '';
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -20px 0 0 -20px;
+            transition: background .3s ease;
+        }
+
+        .video:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -5px 0 0 2px;
+            border: 10px solid transparent;
+            border-left: 10px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .video:hover:before {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .video img {
+            border-radius: 5px;
+        }
+
+        .post img {
+            border-radius: 5px 5px 0 0;
+        }
+
+        .post .details {
+            padding: 10px 20px;
+        }
+
+        .post .details p {
+            line-height: 1.5em;
+        }
+
+        .audio {
+            position: relative;
+            height: 120px;
+        }
+
+        .audio .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .audio .image img {
+            border-radius: 5px 0 0 5px;
+        }
+
+        .audio .details {
+            padding: 10px 0;
+            margin-left: 140px;
+        }
+
+        .audio .actions {
+            position: absolute;
+            right: 10px;
+            bottom: 20px;
+        }
+
+        .audio .actions .btn {
+            width: 25px;
+            height: 25px;
+            display: block;
+            float: left;
+            margin-left: 5px;
+            padding: 5px 6px;
+            color: #FFF;
+        }
+
+        .audio .player .bar {
+            margin: 30px 0 0;
+            height: 4px;
+            background: #cccccc;
+            width: 60%;
+            border-radius: 2px;
+        }
+
+        .audio .player .bar .progress {
+            width: 45%;
+            background: #dd5555;
+            border-radius: 2px;
+            height: 4px;
+            position: relative;
+        }
+
+        .audio .player .bar .progress:before {
+            content: attr(data-time);
+            background: #dd5555;
+            display: inline;
+            position: absolute;
+            font-size: 0.6875em;
+            color: #fff;
+            padding: 4px 6px;
+            border-radius: 3px;
+            right: -14px;
+            bottom: 9px;
+        }
+
+        .audio .player .bar .progress:after {
+            content: '';
+            border: 5px solid transparent;
+            border-top: 5px solid #dd5555;
+            position: absolute;
+            right: -3px;
+            bottom: 0px;
+        }
+
+        .find {
+            padding: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <div class="grid_4">
+            <section class="box widget locations">
+                <div class="avatar">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/6035/scrtpxls_location.png" alt="" title="" />
+                </div>
+                <div class="details">
+                    <h2>De Westerkerk</h2>
+                    <p>Prinsengracht 281</p>
+                    <a href="#" class="btn btn-primary btn-block btn-large">view on maps</a>
+                </div>
+            </section>
+            <section class="box widget calendar">
+                <header class="header">
+                    <h2>Saturday</h2>
+                    <p><span class="icon-arrow-left"></span>January<span class="icon-arrow-right"></span></p>
+                </header>
+                <article class="days">
+                    <ul>
+                        <li class="previous">30</li>
+                        <li class="previous">31</li>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
+                        <li>11</li>
+                        <li>12</li>
+                        <li>13</li>
+                        <li>14</li>
+                        <li>15</li>
+                        <li>16</li>
+                        <li>17</li>
+                        <li>18</li>
+                        <li>19</li>
+                        <li>20</li>
+                        <li>21</li>
+                        <li>22</li>
+                        <li>23</li>
+                        <li>24</li>
+                        <li>25</li>
+                        <li>26</li>
+                        <li>27</li>
+                        <li>28</li>
+                        <li>29</li>
+                        <li>30</li>
+                        <li>31</li>
+                        <li class="next">1</li>
+                        <li class="next">2</li>
+                    </ul>
+                </article>
+            </section>
+        </div>
+        <div class="grid_8">
+            <nav class="box nav">
+                <ul>
+                    <li>
+                     <a href="#">
+                     <span class="icon-home"></span><br>
+                     <span class="title">Home</span>
+                     </a>
+                  </li>
+                    <li>
+                     <a href="">
+                     <span class="icon-images"></span><br>
+                     <span class="title">Gallery</span>
+                     </a>
+                  </li>
+                    <li>
+                     <a href="">
+                     <span class="icon-bubble"></span><br>
+                     <span class="title">Message</span>
+                     </a>
+                  </li>
+                    <li>
+                     <a href="">
+                     <span class="icon-music"></span><br>
+                     <span class="title">Music</span>
+                     </a>
+                  </li>
+                    <li>
+                     <a href="">
+                     <span class="icon-search"></span><br>
+                     <span class="title">Search</span>
+                     </a>
+                  </li>
+                    <li>
+                     <a href="">
+                     <span class="icon-cog"></span><br>
+                     <span class="title">Settings</span>
+                     </a>
+                  </li>
+                    <li>
+                     <a href="">
+                     <span class="icon-location"></span><br>
+                     <span class="title">Location</span>
+                     </a>
+                  </li>
+                </ul>
+            </nav>
+            <div class="inner_container">
+                <div class="col_1of3">
+                    <section class="box widget video">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/6035/scrtpxls_video.png" alt="" title="" />
+                    </section>
+                    <section class="box widget weather">
+                        <header class="header">
+                            <div class="temp">10° <span class="icon-brightness-half"></span></div>
+                            <span class="icon-partlycloudy"></span>
+                        </header>
+                        <article>
+                            <h2>Saturday 16 January</h2>
+                        </article>
+                    </section>
+                </div>
+                <div class="col_2of3">
+                    <article class="box post">
+                        <div class="image">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/6035/scrtpxls_post.png" alt="" title="" />
+                        </div>
+                        <div class="details">
+                            <h2>Amsterdan</h2>
+                            <p>Amsterdam is the capital city of and the most populous within the Kingdom of the Netherlands. Amsterdam's name derives from Amstelredamme. Amsterdam is located in the western... Netherlands</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col_2of3">
+                    <section class="box widget audio">
+                        <div class="image">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/6035/scrtpxls_audio.png" alt="" title="" />
+                        </div>
+                        <div class="details">
+                            <h2 class="album">Geef mij maar Amsterdam</h2>
+                            <p class="artist">Johnny Jordaan</p>
+                            <div class="player">
+                                <div class="bar">
+                                    <div class="progress" data-time="1:45"></div>
+                                </div>
+                                <div class="actions">
+                                    <a href="#" class="btn"><span class="icon-arrow-left"></span></a>
+                                    <a href="#" class="btn btn-primary"><span class="icon-pause"></span></a>
+                                    <a href="#" class="btn"><span class="icon-arrow-right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col_1of3">
+                    <section class="box widget find">
+                        <input type="text" name="find" placeholder="Find your city place" />
+                        <label for="favorite" class="checkbox">
+                            <input type="checkbox" id="favorite" name="favorite" />
+                            Add to favorites
+                        </label>
+                        <a href="#" class="btn btn-primary btn-large btn-block">Search</a>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

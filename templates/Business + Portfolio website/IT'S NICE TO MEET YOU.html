@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>IT'S NICE TO MEET YOU</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lobster" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ranga" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Sansita" />
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('https://s3.amazonaws.com/StartupStockPhotos/uploads/20160503/6.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            border-radius: 0px;
+            width: 100%;
+            height: 700px;
+            text-align: center;
+        }
+
+        .welcome {
+            text-align: center;
+            padding-top: 200px;
+            color: white;
+            font-size: 40px;
+            font-family: "Ranga";
+        }
+
+        .welcome2 {
+            text-align: center;
+            color: white;
+            text-transform: uppercase;
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 60px;
+        }
+
+        .more:link,
+        .more:visited {
+            background-color: #3673f9;
+            padding: 25px 40px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.4s;
+        }
+
+        .more:hover,
+        .more:active {
+            background-color: #3643f9;
+            padding: 25px 40px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .test {
+            margin-top: 800px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            float: left;
+            margin-top: 20px;
+        }
+
+        .main-nav {
+            float: right;
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .main-nav li {
+            display: inline-block;
+            margin-left: 35px;
+            font-size: 15px;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 8px;
+            transition: border-bottom 0.4s;
+        }
+
+        .main-nav a:hover {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid #3673f9;
+            padding-bottom: 8px;
+        }
+
+        .row {
+            max-width: 1140px;
+            margin: auto;
+        }
+
+        .headtext {
+            text-align: center;
+            margin-top: 100px;
+            font-family: "Sansita";
+        }
+
+        .headtext h2 {
+            font-size: 45px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .headtext h2:after {
+            display: block;
+            height: 2px;
+            background-color: #3673f9;
+            content: ' ';
+            width: 150px;
+            margin: 0 auto;
+            margin-top: 15px;
+        }
+
+        .headtext h4 {
+            margin-bottom: 80px;
+        }
+
+        .about {
+            margin-top: 150px;
+            margin-bottom: 400px;
+            max-width: 1000px;
+            height: auto;
+        }
+
+        .icon {
+            font-size: 80px;
+            color: #3673f9;
+            transition: color 0.4s;
+            padding-bottom: 10px;
+        }
+
+        .icon:hover {
+            font-size: 80px;
+            color: #3643f9;
+            padding-bottom: 10px;
+        }
+
+        .info-box {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .info-row {
+            text-align: justify;
+        }
+
+        .paragraph {
+            line-height: 145%;
+            word-spacing: 2px;
+            font-size: 15px;
+        }
+
+        .hobbies {
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-family: "Sansita";
+            letter-spacing: 1px;
+        }
+
+        #portfolio {
+            padding-top: 30px;
+            padding-bottom: 50px;
+            background-color: #eee;
+        }
+
+        .pics {
+            margin-bottom: 30px;
+        }
+
+        .portfolio-pic {
+            transition: opacity 0.4s;
+        }
+
+        .portfolio-pic:hover {
+            color: red;
+            opacity: 0.4;
+        }
+
+        #contact {
+            padding-bottom: 150px;
+            background-color: #ffffff;
+            background-image: url('https://www.transparenttextures.com/patterns/cream-pixels.png');
+        }
+
+        .form {
+            background-color: #fff;
+            max-width: 500px;
+            text-align: center;
+            margin: auto;
+            margin-top: 100px;
+            border-radius: 6px;
+            box-shadow: 0px 0px 8px #888888;
+        }
+
+        .head {
+            border-radius: 6px 6px 0px 0px;
+            background-color: #3673f9;
+            color: #FAFAFA;
+            padding-top: 5px;
+            padding-bottom: 15px;
+            text-align: center;
+            font-family: "Sansita";
+        }
+
+        .contactbody {
+            background-color: #eee;
+            padding-bottom: 40px;
+            border-radius: 0 0 4px 4px;
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
+
+        input:first-child {
+            margin-top: 50px;
+        }
+
+        textarea {
+            height: 100px;
+            max-width: 200px;
+        }
+
+        input,
+        textarea {
+            font-size: 1em;
+            padding: 15px 10px 10px;
+            font-family: "Sansita", arial, sans-serif;
+            border: 1px solid #cecece;
+            background: #d7d7d7;
+            color: black;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -moz-background-clip: padding;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .message {
+            margin-bottom: 30px;
+        }
+
+        .submit {
+            display: block;
+            background-color: #3673f9;
+            color: #fff;
+            padding: 15px 30px;
+            text-align: center;
+            border-radius: 4px;
+            width: 150px;
+            margin: auto;
+            letter-spacing: 2px;
+            font-family: "Sansita";
+            font-size: 15px;
+            transition: background-color 0.4s;
+        }
+
+        .submit:hover {
+            display: block;
+            background-color: #3643f9;
+            color: #fff;
+            padding: 15px 30px;
+            text-align: center;
+            border-radius: 4px;
+            width: 150px;
+            margin: auto;
+            letter-spacing: 2px;
+            font-family: "Sansita";
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #eee;
+        }
+
+        .foot {
+            padding-top: 30px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .footicon {
+            font-size: 30px;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-bottom: 30px;
+            color: #3673f9;
+            transition: color 0.4s;
+        }
+
+        .footicon:hover {
+            font-size: 30px;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-bottom: 30px;
+            color: #3643f9;
+        }
+
+        .around {
+            text-align: center;
+            padding-top: 30px;
+            font-family: "Sansita";
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .around:after {
+            display: block;
+            height: 2px;
+            background-color: #3673f9;
+            content: ' ';
+            width: 80px;
+            margin: 0 auto;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container-fluid">
+        <header>
+            <div class="container-fluid">
+                <div class="row">
+                    <img src="http://vignette2.wikia.nocookie.net/nightwing/images/2/28/Nightwing_Logo.png/revision/latest?cb=20130813021947" alt="ubunto logo" class="logo">
+                    <ul class="main-nav">
+                        <li><a href="#aboutme" class="mainlinks">ABOUT</a></li>
+                        <li><a href="#portfolio" class="mainlinks">PORTFOLIO</a></li>
+                        <li><a href="#contact" class="mainlinks">CONTACT</a></li>
+                    </ul>
+                </div>
+                <div class="welcome"><em>Welcome To My Portfolio!</em> </div>
+                <div class="welcome2">IT'S NICE TO MEET YOU</div>
+                <a href="#aboutme" class="more">TELL ME MORE</a>
+            </div>
+        </header>
+        <section id="aboutme">
+            <div class="headtext">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>ABOUT ME</h2>
+                        <h4><em>The Man Behind The Code</em></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="info-row">
+                <div class="row">
+                    <div class="col-md-4 info-box">
+                        <i class="fa fa-laptop icon" aria-hidden="true"></i>
+                        <h4 class="hobbies">Hobbies</h4>
+                        <p class="paragraph">When I'm not coding, I'm usually still doing something on my computer. Playing video games, watching Twitch streams or on my favourite sports forums.</p>
+                    </div>
+                    <div class="col-md-4 info-box">
+                        <i class="fa fa-free-code-camp icon" aria-hidden="true"></i>
+                        <h4 class="hobbies">Motivation</h4>
+                        <p>Inspired by unhappiness in my day job, I decided to teach myself a new skill in programming. Using Free Code Camp and other resources, I'm determined to break into a new career.</p>
+                    </div>
+                    <div class="col-md-4 info-box">
+                        <i class="fa fa-battery-full icon" aria-hidden="true"></i>
+                        <h4 class="hobbies">Work</h4>
+                        <p>I'm extremely motivated and I'm working very hard towards a new career. Here I will show off my completed works, I hope you like it!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio">
+            <div class="headtext">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>PORTFOLIO</h2>
+                        <h4><em>A Collection Of My Work</em></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row pics">
+                <div class="col-md-4 col-sm-4">
+                    <img src="https://blackrockdigital.github.io/startbootstrap-agency/img/portfolio/roundicons.png" class="img-responsive portfolio-pic" alt="" title="" />
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <img src="https://blackrockdigital.github.io/startbootstrap-agency/img/portfolio/startup-framework.png" class="img-responsive portfolio-pic" alt="" title="" />
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <img src="https://blackrockdigital.github.io/startbootstrap-agency/img/portfolio/treehouse.png" class="img-responsive portfolio-pic" alt="" title="" />
+                </div>
+            </div>
+            <div class="row pics">
+                <div class="col-md-4 col-sm-4">
+                    <img src="https://blackrockdigital.github.io/startbootstrap-agency/img/portfolio/golden.png" class="img-responsive portfolio-pic" alt="" title="" />
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <img src="https://blackrockdigital.github.io/startbootstrap-agency/img/portfolio/escape.png" class="img-responsive portfolio-pic" alt="" title="" />
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <img src="https://blackrockdigital.github.io/startbootstrap-agency/img/portfolio/dreams.png" class="img-responsive portfolio-pic" alt="" title="" />
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form">
+                        <div class="head">
+                            <h2>Say Hello</h2>
+                        </div>
+                        <div class="contactbody">
+                            <input type="text" name="name" placeholder="Name" /><br>
+                            <input type="email" name="email" placeholder="Email" /><br>
+                            <textarea type="text" name="message" placeholder="Message" class="message"></textarea>
+                            <br>
+                            <div>
+                                <a href="#" class="submit">SUBMIT</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="row">
+                <div class="around"> Around The Web </div>
+                <div class="foot">
+                    <i class="fa fa-twitter footicon" aria-hidden="true"></i>
+                    <i class="fa fa-facebook footicon" aria-hidden="true"></i>
+                    <i class="fa fa-free-code-camp footicon" aria-hidden="true"></i>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

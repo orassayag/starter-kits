@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox Sticky Footer 2</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* The Flexbox Magic. */
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1 auto;
+        }
+
+        body {
+            font-size: 100%;
+            line-height: 1.4;
+            color: #404040;
+        }
+
+        .container {
+            padding: 0 5%;
+            margin: 0 auto;
+            max-width: 760px;
+        }
+
+        .intro {
+            padding: 1.5rem;
+        }
+
+        .hero {
+            background: #699bc4 url('https://source.unsplash.com/E7q00J_8N7A/1600x600/') no-repeat 0 0;
+            background-size: cover;
+            padding: 2.6em 0;
+        }
+
+        .hero-content {
+            background: rgba(5, 5, 5, 0.5);
+            border-radius: 6px;
+            padding: 1.5em;
+        }
+
+        .hero-content h1 {
+            font-size: 2.3rem;
+            color: #eee;
+        }
+
+        .hero-content h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5em;
+            color: #bbb;
+            font-weight: normal;
+        }
+
+        .features {
+            list-style: none;
+            color: #eee;
+            padding: 0;
+        }
+
+        .features li {
+            padding: 0.5rem;
+            margin: 0 12px 12px 0;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        .features .all-css {
+            background: firebrick;
+        }
+
+        .features .js-free {
+            background: steelblue;
+        }
+
+        header,
+        footer {
+            color: #38678f;
+            background-color: #000;
+        }
+
+        @media screen and (min-width: 50rem) {
+            body {
+                font-size: 110%;
+            }
+
+            .hero {
+                padding: 4em 0;
+            }
+
+            .hero-content {
+                max-width: 66%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header>
+        <div class="container">
+            <h3>Header</h3>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Flexbox Sticky Footer</h1>
+                <h2>The simplest, hack-free way to make a sticky footer for modern web browsers.</h2>
+                <ul class="features">
+                    <li class="all-css">100% CSS</li>
+                    <li class="js-free">JavaScript Free</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="intro">
+            <div class="container">
+                <h3>The Problem</h3>
+                <p>On 'short' pages without much content, your footer rides up too high. I know. Embarassing, huh? This of course is not a new problem, but in the old-days before flexbox, we had to resort to using hacks or JavaScript to make our footers sticky. What a mess. Not any more.</p>
+                <h3>The Fix</h3>
+                <p> To use, make the body element the Flex Container and then add a flex-grow property to the main content area. No matter the content size, the div expands to take up any leftover space. See the commments in the CSS for more information.
+                    <h3>Resources</h3>
+                    <p>This pen was inspired by a number of articles inlcuding this one by <a href='https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/'>Phillip Walton</a>.</p>
+                    <p>The image above was taken last year on my space vacation. I wish! No really, the hero image is a NASA photo I yanked from the wonderful free stock photo site, <a href="https://unsplash.com/photos/E7q00J_8N7A" target="_blank">Unsplash</a>.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <h3>Sticky Footer</h3>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Split Screen CSS flexbox</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Kodchasan');
+
+        html,
+        body,
+        section {
+            height: 100%;
+        }
+
+        body {
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .left {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(255, 255, 255, 0.10)), url('https://images.pexels.com/photos/374870/pexels-photo-374870.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-size: cover;
+            background-position: center;
+            flex: 1;
+            padding: 1rem;
+            transition: all .2s ease-in-out;
+        }
+
+        .right {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(164, 222, 102, 0.10)), url('https://images.pexels.com/photos/129830/pexels-photo-129830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-size: cover;
+            background-position: center;
+            flex: 1;
+            padding: 1rem;
+            transition: all .2s ease-in-out;
+        }
+
+        .left:hover,
+        .right:hover {
+            transform: scale(0.95);
+        }
+
+        .left h1 {
+            font-family: 'Kodchasan', sans-serif;
+            font-size: 4em;
+        }
+
+        .right h1 {
+            font-family: 'Kodchasan', sans-serif;
+            font-size: 4em;
+        }
+
+        .button {
+            border-radius: 30px;
+            color: #fff;
+            text-decoration: none;
+            background-color: #fcad26;
+            padding: 15px 25px;
+            margin: 0 2%;
+            text-align: center;
+            font-weight: bold;
+            display: inline-block;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 150px;
+        }
+
+        .button:hover {
+            background: #fcc567;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section class="container">
+        <div class="left">
+            <article>
+                <h1>The City</h1>
+                <a href="" class="button">Explore</a>
+            </article>
+        </div>
+        <div class="right">
+            <article>
+                <h1>The City</h1>
+                <a href="" class="button">Explore</a>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Simple responsive form</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #9de0a3;
+            min-width: 320px;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 50px 0;
+            color: #386c3d;
+            font-size: 47px;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        @media (max-width: 540px) {
+            h2 {
+                font-size: 28px;
+                margin: 30px 0;
+            }
+        }
+
+        form {
+            padding: 0 10%;
+        }
+
+        form section {
+            width: calc(50% - 40px);
+            padding: 20px;
+            background: #8ed294;
+            margin: 20px;
+            border-radius: 5px;
+        }
+
+        form section.left {
+            float: left;
+        }
+
+        form section.right {
+            float: right;
+        }
+
+        form section .input-container {
+            padding: 10px;
+        }
+
+        form section .input-container label {
+            display: block;
+            margin-bottom: 4px;
+            color: white;
+            font-size: 16px;
+            text-shadow: 0px 2px 1px #65ad6b;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        form section .input-container input,
+        form section .input-container textarea {
+            width: 100%;
+            padding: 5px 10px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            background: #d7ffdb;
+            box-shadow: 0 2px 0px #77bd7d;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 16px;
+            color: #757575;
+        }
+
+        form section .input-container input:focus,
+        form section .input-container textarea:focus {
+            outline: none;
+            background: white;
+        }
+
+        form section .input-container textarea {
+            height: 122px;
+            padding: 15px 10px;
+            resize: none;
+        }
+
+        form .send-container {
+            float: right;
+            width: 100%;
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        form .send-container input {
+            background: #77bd7d;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        form .send-container input:hover {
+            background: #8ed294;
+        }
+
+        form:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        @media (max-width: 992px) {
+            form {
+                padding: 0 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            form {
+                margin-bottom: 50px;
+            }
+
+            form section {
+                width: 100%;
+                margin: 0;
+            }
+
+            form section.left {
+                margin-bottom: -30px;
+            }
+
+            form .send-container {
+                margin-right: 0;
+                margin-top: 15px;
+            }
+
+            form .send-container input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <h2>Simple responsive form</h2>
+    <form action="">
+        <section class="left">
+            <div class="input-container">
+                <label for="name">Name</label>
+                <input type="text" />
+            </div>
+            <div class="input-container">
+                <label for="age" required="">Age</label>
+                <input type="text" />
+            </div>
+            <div class="input-container">
+                <label for="phone">Phone</label>
+                <input type="text" />
+            </div>
+            <div class="input-container">
+                <label for="email">Email</label>
+                <input type="text" />
+            </div>
+        </section>
+        <section class="right">
+            <div class="input-container">
+                <label for="address">Address 1</label>
+                <input type="text" />
+            </div>
+            <div class="input-container">
+                <label for="address">Address 2 <span>(opcional)</span></label>
+                <input type="text" />
+            </div>
+            <div class="input-container">
+                <label for="comments">Comments</label>
+                <textarea name="comments" id=""></textarea>
+            </div>
+        </section>
+        <div class="send-container">
+            <input type="submit" value="Send" onclick="return true" />
+        </div>
+    </form>
+</body>
+
+</html>

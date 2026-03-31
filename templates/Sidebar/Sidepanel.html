@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Sidepanel</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100%;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav:before {
+            content: '';
+            flex: 1;
+            background: plum;
+            /* for reference */
+        }
+
+        nav ul {
+            display: flex;
+            background: blue;
+            list-style-type: none;
+            flex: 11;
+        }
+
+        nav ul a {
+            display: block;
+            padding: 20px 20px 0 0;
+            color: white;
+            text-decoration: none;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+        }
+
+        main {
+            background: red;
+            flex: 10;
+        }
+
+        aside {
+            background: green;
+            flex: 1;
+        }
+
+        footer {
+            background: yellow;
+        }
+    </style>
+</head>
+<div class="wrapper">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <aside>Sidebar 1</aside>
+        <main>Main Content Area</main>
+        <aside>Sidebar 2</aside>
+    </div>
+    <footer>Footer</footer>
+</div>
+
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive fluid grid</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            font-size: 100%;
+            vertical-align: baseline
+        }
+
+        html {
+            line-height: 1
+        }
+
+        ol,
+        ul {
+            list-style: none
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+
+        caption,
+        th,
+        td {
+            text-align: left;
+            font-weight: normal;
+            vertical-align: middle
+        }
+
+        q,
+        blockquote {
+            quotes: none
+        }
+
+        q:before,
+        q:after,
+        blockquote:before,
+        blockquote:after {
+            content: '';
+            content: none
+        }
+
+        a img {
+            border: none
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        main,
+        menu,
+        nav,
+        section,
+        summary {
+            display: block
+        }
+
+        img {
+            max-with: 100%
+        }
+
+        .navigation-menu ul {
+            padding: 2em 0 0 0;
+            float: right
+        }
+
+        .navigation-menu ul li {
+            margin-left: 30px;
+            float: left;
+            list-style-type: none
+        }
+
+        .navigation-menu ul li a {
+            text-decoration: none;
+            color: #000;
+            display: block
+        }
+
+        .navigation-toggle {
+            display: none
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto
+        }
+
+        .column-1 {
+            width: 7.41667%
+        }
+
+        .column-2 {
+            width: 15.83333%
+        }
+
+        .column-3 {
+            width: 24.25%
+        }
+
+        .column-4 {
+            width: 32.66667%
+        }
+
+        .column-5 {
+            width: 41.08333%
+        }
+
+        .column-6 {
+            width: 49.5%
+        }
+
+        .column-7 {
+            width: 57.91667%
+        }
+
+        .column-8 {
+            width: 66.33333%
+        }
+
+        .column-9 {
+            width: 74.75%
+        }
+
+        .column-10 {
+            width: 83.16667%
+        }
+
+        .column-11 {
+            width: 91.58333%
+        }
+
+        .column-12 {
+            width: 100%
+        }
+
+        .row {
+            width: 100%;
+            *zoom: 1
+        }
+
+        .row:after {
+            content: '';
+            display: table;
+            clear: both
+        }
+
+        [class*="column"] {
+            float: left;
+            margin-left: 1%
+        }
+
+        [class*="column"]:first-child {
+            margin-left: 0
+        }
+
+        @media only screen and (max-width: 1100px) {
+            .container {
+                width: 90%
+            }
+
+            [class*="column"] {
+                width: 100%;
+                margin: 0
+            }
+
+            .navigation-menu .container {
+                width: 100%
+            }
+
+            .navigation-menu ul {
+                display: none;
+                width: 100%;
+                padding: 0
+            }
+
+            .navigation-menu ul li {
+                width: 100%;
+                margin: 0
+            }
+
+            .navigation-menu ul li:hover {
+                background: #E8E8E8
+            }
+
+            .navigation-menu ul li a {
+                text-align: center;
+                padding: 1em 0;
+                border-bottom: 1px solid #E8E8E8
+            }
+
+            .navigation-toggle {
+                display: block;
+                position: relative;
+                width: 45px;
+                height: 45px;
+                float: right;
+                margin: 20px 20px 0 0;
+                background: none;
+                border: none;
+                cursor: pointer;
+                outline: none
+            }
+
+            .navigation-toggle span,
+            .navigation-toggle span:before,
+            .navigation-toggle span:after {
+                width: 28px;
+                height: 3px;
+                position: absolute;
+                background: black;
+                left: 0
+            }
+
+            .navigation-toggle span {
+                -moz-transition: background 0.2s 0.5s;
+                -o-transition: background 0.2s 0.5s;
+                -webkit-transition: background 0.2s;
+                -webkit-transition-delay: 0.5s;
+                transition: background 0.2s 0.5s;
+                top: 21px;
+                left: 8px
+            }
+
+            .navigation-toggle span:before {
+                -moz-transition: -moz-transform 0.2s 0.5s;
+                -o-transition: -o-transform 0.2s 0.5s;
+                -webkit-transition: -webkit-transform 0.2s;
+                -webkit-transition-delay: 0.5s;
+                transition: transform 0.2s 0.5s;
+                top: 8px;
+                content: ''
+            }
+
+            .navigation-toggle span:after {
+                -moz-transition: -moz-transform 0.2s 0.5s;
+                -o-transition: -o-transform 0.2s 0.5s;
+                -webkit-transition: -webkit-transform 0.2s;
+                -webkit-transition-delay: 0.5s;
+                transition: transform 0.2s 0.5s;
+                bottom: 8px;
+                content: ''
+            }
+
+            .navigation-toggle.close span {
+                visibility: hidden;
+                background-color: rgba(255, 255, 255, 0)
+            }
+
+            .navigation-toggle.close span:before {
+                -moz-transform: translateY(-8px) rotate(45deg);
+                -ms-transform: translateY(-8px) rotate(45deg);
+                -webkit-transform: translateY(-8px) rotate(45deg);
+                transform: translateY(-8px) rotate(45deg);
+                visibility: visible
+            }
+
+            .navigation-toggle.close span:after {
+                -moz-transform: translateY(8px) rotate(-45deg);
+                -ms-transform: translateY(8px) rotate(-45deg);
+                -webkit-transform: translateY(8px) rotate(-45deg);
+                transform: translateY(8px) rotate(-45deg);
+                visibility: visible
+            }
+        }
+
+        /* EXAMPLE STYLING, DELETE FOR ACTUAL USE */
+        html {
+            font: 0.8em/1.5 sans-serif;
+            color: #444;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 4.5em;
+            font-weight: bold;
+        }
+
+        .intro {
+            padding-bottom: 1em;
+        }
+
+        .row p {
+            color: #FFF;
+            padding: 1em 0;
+        }
+
+        [class*="column"] {
+            background: #f43059;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="row">
+        <nav class="navigation-menu">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                    <li><a href="#">Link 5</a></li>
+                    <li><a href="#">Link 6</a></li>
+                </ul>
+            </div>
+            <button type="button" href="#" class="navigation-toggle">
+                <span></span>
+            </button>
+        </nav>
+    </div>
+    <div class="container">
+        <h1>responsive fluid grid</h1>
+        <p class="intro">The grid below shows a combination of columns all using classes in the HTML These column are being created dynamically by the use of a compass calculation. You can specify how many columns you want and also the spacing inbetween these columns.</p>
+        <div class="row">
+            <div class="column-12">
+                <p>.column-12</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-11">
+                <p>.column-11</p>
+            </div>
+            <div class="column-1">
+                <p>.column-1</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-10">
+                <p>.column-10</p>
+            </div>
+            <div class="column-2">
+                <p>.column-2</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-9">
+                <p>.column-9</p>
+            </div>
+            <div class="column-3">
+                <p>.column-3</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-3">
+                <p>.column-3</p>
+            </div>
+            <div class="column-3">
+                <p>.column-3</p>
+            </div>
+            <div class="column-3">
+                <p>.column-3</p>
+            </div>
+            <div class="column-3">
+                <p>.column-3</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

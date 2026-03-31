@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Flexbox Table check</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* COLORS */
+        /* BPs */
+        html,
+        body {
+            background: linear-gradient(to left, #ff008d 0%, #ff005e 100%);
+            font-family: 'Lato', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 15px;
+        }
+
+        h1 {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 50px;
+            letter-spacing: .12em;
+            color: #ffffff;
+            text-shadow: 2px 2px 2px rgba(34, 34, 34, 0.3);
+        }
+
+        @media (max-width: 798px) {
+            h1 {
+                font-size: 40px;
+            }
+        }
+
+        /* FLEX TABLE */
+        .flex-table {
+            width: 100%;
+        }
+
+        .flex-table [class^='flex-table--'] {
+            display: flex;
+            font-size: 15px;
+            width: 100%;
+            letter-spacing: .1em;
+        }
+
+        .flex-table [class^='flex-table--']:not(.flex-table--body):not(.flex-table--header) {
+            padding: 1.4em 1.2em;
+        }
+
+        .flex-table [class^='flex-table--'] span {
+            display: block;
+            flex: 1.5;
+        }
+
+        .flex-table [class^='flex-table--'] span:nth-child(1) {
+            flex: inherit;
+            margin-right: 15px;
+        }
+
+        .flex-table [class^='flex-table--'] span:nth-child(2) {
+            flex: 3;
+        }
+
+        .flex-table .flex-table--header {
+            background: #444444;
+            font-size: 17px;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Raleway', sans-serif;
+            margin-bottom: .6em;
+            box-shadow: 2px 2px 6px -2px rgba(34, 34, 34, 0.2);
+        }
+
+        .flex-table .flex-table--body {
+            flex-direction: column;
+            font-style: italic;
+            color: #aaaaaa;
+            background: #444444;
+            box-shadow: 2px 2px 6px -2px rgba(34, 34, 34, 0.2);
+        }
+
+        .flex-table .flex-table--row {
+            position: relative;
+            transition: .2s;
+        }
+
+        .flex-table .flex-table--row:nth-child(even) {
+            background: #3a3a3a;
+        }
+
+        .flex-table .flex-table--row:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background: #ffffff;
+            height: 10px;
+            width: 10px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: .2s;
+        }
+
+        .flex-table .flex-table--row:hover {
+            color: #ffffff;
+        }
+
+        .flex-table .flex-table--row:hover:after {
+            opacity: 1;
+        }
+
+        @media (max-width: 798px) {
+            .flex-table [class^='flex-table--'] {
+                flex-direction: column;
+            }
+
+            .flex-table .flex-table--body {
+                height: 50vh;
+                overflow-y: auto;
+            }
+
+            .flex-table .flex-table--body .flex-table--row {
+                display: block;
+            }
+
+            .flex-table span:not(:last-child) {
+                margin-bottom: .6em;
+            }
+        }
+
+        /* CHECKBOX */
+        input[type="checkbox"] {
+            display: none;
+            position: relative;
+        }
+
+        input[type="checkbox"]+label {
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]+label span {
+            display: block;
+            top: 0;
+            left: 0;
+            background: #fff;
+            height: 17px;
+            width: 17px;
+            position: relative;
+        }
+
+        input[type="checkbox"]+label span:before {
+            content: "\f00c";
+            font-family: Fontawesome;
+            position: absolute;
+            color: #ff008d;
+            top: -6px;
+            right: -6px;
+            font-size: 22px;
+            transform: scale(0);
+            transition: .2s;
+        }
+
+        input[type="checkbox"]:checked+label span:before {
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <h1>Responsive Flex Table</h1>
+        <div class="flex-table">
+            <div class="flex-table--header">
+                <div class="flex-table--categories">
+                    <span class="flex-table_checkbox">
+                        <input id="c-all" type="checkbox" />
+                        <label for="c-all"><span></span></label>
+                    </span>
+                    <span>Name</span>
+                    <span>Age</span>
+                    <span>City</span>
+                    <span>State</span>
+                </div>
+            </div>
+            <div class="flex-table--body">
+                <div class="flex-table--row">
+                    <span class="flex-table_checkbox">
+                        <input id="c-1" type="checkbox" />
+                        <label for="c-1"><span></span></label>
+                    </span>
+                    <span>André Tronca</span>
+                    <span>24yo</span>
+                    <span>Caxias do Sul</span>
+                    <span>Rio Grande do Sul</span>
+                </div>
+                <div class="flex-table--row">
+                    <span class="flex-table_checkbox">
+                        <input id="c-2" type="checkbox" />
+                        <label for="c-2"><span></span></label>
+                    </span>
+                    <span>André Tronca</span>
+                    <span>24yo</span>
+                    <span>Caxias do Sul</span>
+                    <span>Rio Grande do Sul</span>
+                </div>
+                <div class="flex-table--row">
+                    <span class="flex-table_checkbox">
+                        <input id="c-3" type="checkbox" />
+                        <label for="c-3"><span></span></label>
+                    </span>
+                    <span>André Tronca</span>
+                    <span>24yo</span>
+                    <span>Caxias do Sul</span>
+                    <span>Rio Grande do Sul</span>
+                </div>
+                <div class="flex-table--row">
+                    <span class="flex-table_checkbox">
+                        <input id="c-4" type="checkbox" />
+                        <label for="c-4"><span></span></label>
+                    </span>
+                    <span>André Tronca</span>
+                    <span>24yo</span>
+                    <span>Caxias do Sul</span>
+                    <span>Rio Grande do Sul</span>
+                </div>
+                <div class="flex-table--row">
+                    <span class="flex-table_checkbox">
+                        <input id="c-5" type="checkbox" />
+                        <label for="c-5"><span></span></label>
+                    </span>
+                    <span>André Tronca</span>
+                    <span>24yo</span>
+                    <span>Caxias do Sul</span>
+                    <span>Rio Grande do Sul</span>
+                </div>
+                <div class="flex-table--row">
+                    <span class="flex-table_checkbox">
+                        <input id="c-6" type="checkbox" />
+                        <label for="c-6"><span></span></label>
+                    </span>
+                    <span>André Tronca</span>
+                    <span>24yo</span>
+                    <span>Caxias do Sul</span>
+                    <span>Rio Grande do Sul</span>
+                </div>
+                <div class="flex-table--row">
+                    <span class="flex-table_checkbox">
+                        <input id="c-7" type="checkbox" />
+                        <label for="c-7"><span></span></label>
+                    </span>
+                    <span>André Tronca</span>
+                    <span>24yo</span>
+                    <span>Caxias do Sul</span>
+                    <span>Rio Grande do Sul</span>
+                </div>
+                <div class="flex-table--row">
+                    <span class="flex-table_checkbox">
+                        <input id="c-8" type="checkbox" />
+                        <label for="c-8"><span></span></label>
+                    </span>
+                    <span>André Tronca</span>
+                    <span>24yo</span>
+                    <span>Caxias do Sul</span>
+                    <span>Rio Grande do Sul</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

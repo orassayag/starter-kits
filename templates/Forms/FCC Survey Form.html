@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>FCC Survey Form</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Lato:400,500,700');
+
+        html {
+            box-sizing: border-box;
+            min-width: 300px;
+            line-height: 1.15;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            text-rendering: optimizeLegibility;
+        }
+
+        html,
+        body {
+            margin: 0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        body {
+            background-color: var(--body-background-color, white);
+            text-align: left;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        address {
+            margin-bottom: 1rem;
+            font-style: normal;
+            line-height: inherit;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        svg {
+            overflow: hidden;
+            vertical-align: middle;
+        }
+
+        ol,
+        ul,
+        dl {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        ol ol,
+        ul ul,
+        ol ul,
+        ul ol {
+            margin-bottom: 0;
+        }
+
+        button {
+            border-radius: 0;
+        }
+
+        button,
+        input,
+        select,
+        textarea,
+        optgroup {
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            margin: 0;
+        }
+
+        button,
+        select {
+            text-transform: none;
+        }
+
+        button::-moz-focus-inner,
+        [type="button"]::-moz-focus-inner,
+        [type="reset"]::-moz-focus-inner,
+        [type="submit"]::-moz-focus-inner {
+            padding: 0;
+            border-style: none;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        textarea {
+            overflow: auto;
+            resize: vertical;
+        }
+
+        :root {
+            --font-family: "Helvetica", sans-serif;
+            --text-base-size: 18px;
+            --text-scale-mobile: 1.2;
+            --text-scale-desktop: 1.4;
+            --body-line-height: 1.5;
+            --heading-line-height: 1.2;
+            --text-scale-ratio: var(--text-scale-mobile);
+            --text-size-1: calc(var(--text-scale-ratio) * var(--text-size-2));
+            --text-size-2: calc(var(--text-scale-ratio) * var(--text-size-3));
+            --text-size-3: calc(var(--text-scale-ratio) * var(--text-size-4));
+            --text-size-4: var(--text-base-size);
+        }
+
+        @media (min-width: 900px) {
+            :root {
+                --text-scale-ratio: var(--text-scale-desktop);
+            }
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--text-base-size);
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            line-height: var(--heading-line-height);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        h1,
+        .alpha {
+            font-size: var(--text-size-1);
+        }
+
+        h2,
+        .beta {
+            font-size: var(--text-size-2);
+        }
+
+        h3,
+        .gamma {
+            font-size: var(--text-size-3);
+        }
+
+        h4,
+        .delta {
+            font-size: var(--text-size-4);
+        }
+
+        p {
+            line-height: var(--body-line-height);
+        }
+
+        :root {
+            --text-base-size: 16px;
+            --text-scale-mobile: 1.2;
+            --text-scale-desktop: 1.4;
+        }
+
+        body {
+            background-color: slategray;
+            font-family: "Lato", "Helvetica", sans-serif;
+            padding: 2rem;
+            text-rendering: optimizelegibility;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 0 auto;
+            max-width: 768px;
+            background-color: white;
+        }
+
+        .header {
+            padding: 1rem;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .title,
+        .description {
+            text-align: center;
+        }
+
+        .form {
+            padding: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-gap: 1rem 3rem;
+            margin-bottom: 2rem;
+        }
+
+        @media screen and (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .dev-type,
+        .skills,
+        .bio,
+        .btn {
+            grid-column: 1 / -1;
+        }
+
+        .checkbox-grid,
+        .radio-grid {
+            display: grid;
+            width: 100%;
+            grid-gap: 0.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            padding: 0.5rem;
+        }
+
+        .btn {
+            width: 100%;
+            border-radius: 3px;
+            padding: 0.75rem 1rem;
+            background-color: steelblue;
+            color: white;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            display: block;
+            height: 2.5rem;
+            width: 100%;
+            padding: 0.25rem 0.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            font-family: inherit;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            height: 120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <header class="header">
+            <h1 class="title" id="title">Developer Survey</h1>
+            <p class="description" id="description">Thank you for participating in our developer survey. </p>
+        </header>
+        <form class="form" id="survey-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="name" id="name-label">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required="required" />
+                </div>
+                <div class="form-group">
+                    <label for="email" id="email-label">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required="required" />
+                </div>
+                <div class="form-group">
+                    <label for="age" id="number-label">Age</label>
+                    <input type="number" id="number" min="1" max="110" placeholder="Enter your age" required="required" />
+                </div>
+                <div class="form-group">
+                    <label for="dropdown" id="dropdown-label">What is your experience level?</label>
+                    <select id="dropdown">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                        <option value="expert">Expert</option>
+                    </select>
+                </div>
+                <fieldset class="dev-type">
+                    <legend>What type of developer are you?</legend>
+                    <div class="radio-grid">
+                        <div class="form-radio">
+                            <input type="radio" id="backend" name="dev-type" value="backend" />
+                            <label for="backend">Backend</label>
+                        </div>
+                        <div class="form-radio">
+                            <input type="radio" id="frontend" name="dev-type" value="frontend" />
+                            <label for="frontend">Frontend</label>
+                        </div>
+                        <div class="form-radio">
+                            <input type="radio" id="fullstack" name="dev-type" value="fullstack" />
+                            <label for="fullstack">Full stack</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="skills">
+                    <legend>What skills do you have?</legend>
+                    <div class="checkbox-grid">
+                        <div class="form-check">
+                            <input type="checkbox" id="html" name="skill" value="html" />
+                            <label for="html">HTML</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="css" name="skill" value="css" />
+                            <label for="css">CSS</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="javascript" name="skill" value="javascript" />
+                            <label for="javascript">JavaScript</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="git" name="skill" value="git" />
+                            <label for="git">Git</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="sql" name="skill" value="sql" />
+                            <label for="sql">SQL</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="node" name="skill" value="node" />
+                            <label for="node">Node.js</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="npm" name="skill" value="npm" />
+                            <label for="npm">NPM</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="jQuery" name="skill" value="jQuery" />
+                            <label for="jQuery">jQuery</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="sass" name="skill" value="sass" />
+                            <label for="sass">Sass</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="vue" name="skill" value="vue" />
+                            <label for="vue">Vue</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="angular" name="skill" value="angular" />
+                            <label for="angular">Angular</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="react" name="skill" value="react" />
+                            <label for="react">React</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="text bio">
+                    <label for="bio">Short Bio</label>
+                    <textarea class="comments" id="bio" rows="10" cols="40"></textarea>
+                </div>
+                <button class="btn" id="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

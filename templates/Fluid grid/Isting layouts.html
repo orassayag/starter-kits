@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Isting layouts</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <link rel="stylesheet" type="text/css" href="https://northernterritory.com/css/app.css" />
+    <style type="text/css">
+        .lazyload-wrapper {
+            background: rgba(16, 16, 15, 0.05);
+        }
+
+        .lazyload-wrapper img {
+            width: 100%;
+            display: block;
+        }
+
+        .section--highlighted {
+            background: #f5f4f3;
+            margin-bottom: 4em;
+            padding: 3em 0;
+        }
+
+        .section__heading+p {
+            text-align: center;
+        }
+
+        .editorial-listing {
+            font-size: 0.7em;
+        }
+
+        @media screen and (min-width: 30em) {
+            .editorial-listing {
+                font-size: 0.9em;
+            }
+        }
+
+        @media screen and (min-width: 40em) {
+            .editorial-listing {
+                font-size: 0.9em;
+            }
+        }
+
+        @media screen and (min-width: 48em) {
+            .editorial-listing {
+                font-size: 0.95em;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .editorial-listing {
+                font-size: 1em;
+            }
+        }
+
+        p {
+            line-height: inherit;
+        }
+
+        .editorial-listing__item,
+        .dynamic-listing a {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .editorial-listing__item a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .editorial-listing__item a::before {
+            content: ' ';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: transparent;
+            transition: background 0.3s linear;
+            transition-delay: 0.1s;
+        }
+
+        .editorial-listing__item a:hover::before,
+        .editorial-listing__item a:focus::before {
+            background: rgba(133, 26, 25, 0.88);
+        }
+
+        @media (hover: none) {
+
+            .editorial-listing__item a:hover::before,
+            .editorial-listing__item a:focus::before {
+                background: transparent;
+            }
+        }
+
+        .editorial-listing__item__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0.8em 0.9em 1em;
+            color: #fff;
+            -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+            transition: -webkit-transform 0.3s ease-out;
+            transition: transform 0.3s ease-out;
+            transition-delay: 0.1s;
+        }
+
+        a:hover .editorial-listing__item__overlay,
+        a:focus .editorial-listing__item__overlay {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        @media (hover: none) {
+
+            a:hover .editorial-listing__item__overlay,
+            a:focus .editorial-listing__item__overlay {
+                -webkit-transform: translateY(100%);
+                transform: translateY(100%);
+            }
+        }
+
+        .editorial-listing__item__info {
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7);
+            -webkit-transform: translateY(-100%) translateY(-1.4em);
+            transform: translateY(-100%) translateY(-1.4em);
+            transition: -webkit-transform 0.3s ease-out;
+            transition: transform 0.3s ease-out;
+            transition-delay: 0.1s;
+        }
+
+        a:hover .editorial-listing__item__info,
+        a:focus .editorial-listing__item__info {
+            text-shadow: none;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        @media (hover: none) {
+
+            a:hover .editorial-listing__item__info,
+            a:focus .editorial-listing__item__info {
+                text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7);
+                -webkit-transform: translateY(-100%) translateY(-1.4em);
+                transform: translateY(-100%) translateY(-1.4em);
+            }
+        }
+
+        .editorial-listing__item__info h5 {
+            margin-bottom: 0;
+            font-size: 0.7em;
+            line-height: 1.5;
+            opacity: 1;
+            transition: all 0.15s;
+            transition-delay: 0.1s;
+            position: absolute;
+            bottom: 100%;
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+        }
+
+        a:hover .editorial-listing__item__info h5,
+        a:focus .editorial-listing__item__info h5 {
+            opacity: 0;
+            -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+        }
+
+        @media (hover: none) {
+
+            a:hover .editorial-listing__item__info h5,
+            a:focus .editorial-listing__item__info h5 {
+                opacity: 1;
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+
+        .editorial-listing__item h4 {
+            font-weight: normal;
+            font-size: 1.17em;
+            line-height: 1.15;
+            margin-bottom: 0.2em;
+        }
+
+        .editorial-listing__item__description {
+            line-height: 1.3;
+            font-size: 0.78em;
+            opacity: 0;
+            transition: all 0.2s;
+            transition-delay: 0.1s;
+        }
+
+        a:hover .editorial-listing__item__description,
+        a:focus .editorial-listing__item__description {
+            opacity: 1;
+        }
+
+        @media (hover: none) {
+
+            a:hover .editorial-listing__item__description,
+            a:focus .editorial-listing__item__description {
+                opacity: 0;
+            }
+        }
+
+        .editorial-listing__item__description p {
+            margin-bottom: 0.7em;
+            display: none;
+        }
+
+        @media screen and (min-width: 30em) {
+            .editorial-listing__item__description p {
+                display: block;
+            }
+        }
+
+        .editorial-listing__item--featured p {
+            display: block;
+        }
+
+        .editorial-listing__item__readmore {
+            font-weight: bold;
+        }
+
+        .editorial-listing__item__readmore .svg-icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+            margin-right: 0.05em;
+            margin-top: -0.2em;
+        }
+
+        .editorial-listing__item__readmore:hover {
+            text-decoration: underline;
+        }
+
+        /* featured items */
+        .editorial-listing__item--featured {
+            font-size: 1.19em;
+        }
+
+        .editorial-listing__item--featured h5 {
+            font-size: 0.6em;
+        }
+
+        .editorial-listing__item--featured .editorial-listing__item__description {
+            line-height: 1.7;
+        }
+
+        /* layout */
+        /* The fluid grid class creates flexible, percentage-based gutters. It also adds 15px outside padding to align the edges with other content on the page. It does not support nested rows however. It requires the parent item to have a class "fluid-grid-wrapper". */
+        .fluid-grid-wrapper {
+            padding: 0 0.9375rem;
+        }
+
+        .fluid-grid {
+            list-style: none;
+            margin: 0 -1.283%;
+        }
+
+        .fluid-grid .column,
+        .fluid-grid .columns {
+            padding: 0 1.25%;
+        }
+
+        .fluid-grid .column .column,
+        .fluid-grid .column .columns,
+        .fluid-grid .columns .column,
+        .fluid-grid .columns .columns {
+            padding: 0;
+        }
+
+        /* The asymmetric grid class creates the mosaic layout. */
+        .asymmetric-grid {
+            position: relative;
+        }
+
+        .asymmetric-grid .columns {
+            margin-bottom: 1.7%;
+        }
+
+        @media screen and (min-width: 40em) {
+            .asymmetric-grid--row-of-6 .columns:nth-child(4) {
+                float: right;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+
+            .asymmetric-grid--row-of-6 .columns:nth-child(5),
+            .asymmetric-grid--row-of-6 .columns:nth-child(6) {
+                position: absolute;
+                top: 66.66667%;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .asymmetric-grid--row-of-6 .columns:nth-child(6) {
+                left: 25%;
+            }
+        }
+
+        /* flipped */
+        @media screen and (min-width: 40em) {
+            .editorial-listing--reversed .asymmetric-grid--row-of-6 .columns:nth-child(1) {
+                float: right;
+            }
+        }
+
+        @media screen and (min-width: 40em) {
+            .editorial-listing--reversed .asymmetric-grid--row-of-6 .columns:nth-child(4) {
+                float: left;
+                clear: left;
+            }
+        }
+
+        @media screen and (min-width: 40em) {
+
+            .editorial-listing--reversed .asymmetric-grid--row-of-6 .columns:nth-child(5),
+            .editorial-listing--reversed .asymmetric-grid--row-of-6 .columns:nth-child(6) {
+                position: absolute;
+                left: 66.66667%;
+                top: 50%;
+            }
+        }
+
+        @media screen and (min-width: 40em) {
+            .editorial-listing--reversed .asymmetric-grid--row-of-6 .columns:nth-child(6) {
+                top: 75%;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+
+            .editorial-listing--reversed .asymmetric-grid--row-of-6 .columns:nth-child(5),
+            .editorial-listing--reversed .asymmetric-grid--row-of-6 .columns:nth-child(6) {
+                position: absolute;
+                top: 66.66667%;
+                left: 50%;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .editorial-listing--reversed .asymmetric-grid--row-of-6 .columns:nth-child(6) {
+                left: 75%;
+            }
+        }
+
+        /* incomplete rows */
+        @media screen and (min-width: 40em) {
+            .editorial-listing--reversed .asymmetric-grid--row-of-5 .columns:nth-child(1) {
+                float: right;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+
+            .editorial-listing--reversed .asymmetric-grid--row-of-5 .columns:nth-child(4),
+            .editorial-listing--reversed .asymmetric-grid--row-of-5 .columns:nth-child(5) {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                margin-top: 0;
+            }
+        }
+
+        @media screen and (min-width: 40em) {
+            .editorial-listing--reversed .asymmetric-grid--row-of-5 .columns:nth-child(5) {
+                position: static;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .editorial-listing--reversed .asymmetric-grid--row-of-5 .columns:nth-child(5) {
+                left: 25%;
+            }
+        }
+
+        /* Default listing module */
+        .dynamic-listing a {
+            text-decoration: none;
+            display: block;
+            transition: -webkit-transform 0.2s linear;
+            transition: transform 0.2s linear;
+        }
+
+        .dynamic-listing a:hover,
+        .dynamic-listing a:focus {
+            -webkit-transform: translateY(-0.4rem);
+            transform: translateY(-0.4rem);
+        }
+
+        @media (hover: none) {
+
+            .dynamic-listing a:hover,
+            .dynamic-listing a:focus {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+        }
+
+        .dynamic-listing .lazyload-wrapper {
+            margin-bottom: 0.5em;
+        }
+
+        .dynamic-listing .column-block .dynamic-listing__item__info {
+            padding-left: 2.5%;
+        }
+
+        @media screen and (min-width: 40em) {
+            .dynamic-listing .column-block .dynamic-listing__item__info {
+                padding: 0;
+            }
+        }
+
+        .dynamic-listing h5 {
+            color: #767676;
+            text-transform: uppercase;
+            font-size: 10px;
+            line-height: 1.25;
+            font-weight: bold;
+            margin: 0 0 0.2em;
+        }
+
+        @media screen and (min-width: 30em) {
+            .dynamic-listing h5 {
+                margin: 0 0 0.3em;
+                font-size: 12px;
+            }
+        }
+
+        .dynamic-listing h4 {
+            color: #2b2b2b;
+            font-size: 17px;
+            line-height: 1.21053;
+            font-weight: bold;
+            margin: 0 0 0.2em;
+        }
+
+        @media screen and (min-width: 30em) {
+            .dynamic-listing h4 {
+                font-size: 19px;
+            }
+        }
+
+        .dynamic-listing p {
+            color: #767676;
+            font-size: 13px;
+            line-height: 1.25;
+            margin-bottom: 0.2em;
+        }
+
+        @media screen and (min-width: 30em) {
+            .dynamic-listing p {
+                font-size: 15px;
+            }
+        }
+
+        .dynamic-listing p em {
+            color: #851a19;
+            font-style: normal;
+        }
+
+        .dynamic-listing__item__stars .svg-icon {
+            width: 8px;
+            height: 8px;
+        }
+
+        /* icons */
+        .svg-star-grey {
+            background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1792 1792'%3E%3Cpath fill='%23767474' d='M1728 647c0 14.7-8.7 30.7-26 48l-363 354 86 500c.7 4.7 1 11.3 1 20 0 14-3.5 25.8-10.5 35.5s-17.2 14.5-30.5 14.5c-12.7 0-26-4-40-12l-449-236-449 236c-14.7 8-28 12-40 12-14 0-24.5-4.8-31.5-14.5S365 1583 365 1569c0-4 .7-10.7 2-20l86-500L89 695c-16.7-18-25-34-25-48 0-24.7 18.7-40 56-46l502-73L847 73c12.7-27.3 29-41 49-41s36.3 13.7 49 41l225 455 502 73c37.3 6 56 21.3 56 46z'/%3E%3C/svg%3E");
+        }
+
+        .svg-star-o-grey {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1792 1792'%3E%3Cpath fill='%23767474' d='M1201 1004l306-297-422-62-189-382-189 382-422 62 306 297-73 421 378-199 377 199-72-421zm527-357c0 14.7-8.7 30.7-26 48l-363 354 86 500c.7 4.7 1 11.3 1 20 0 33.3-13.7 50-41 50-12.7 0-26-4-40-12l-449-236-449 236c-14.7 8-28 12-40 12-14 0-24.5-4.8-31.5-14.5S365 1583 365 1569c0-4 .7-10.7 2-20l86-500L89 695c-16.7-18-25-34-25-48 0-24.7 18.7-40 56-46l502-73L847 73c12.7-27.3 29-41 49-41s36.3 13.7 49 41l225 455 502 73c37.3 6 56 21.3 56 46z'/%3E%3C/svg%3E");
+        }
+
+        @media (prefers-reduced-motion) {
+
+            .editorial-listing__item a::before,
+            .editorial-listing__item__overlay,
+            .editorial-listing__item__info,
+            .editorial-listing__item__description,
+            .editorial-listing__item__info h5 {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section class="editorial-listing">
+        <h2 class="section__heading regional">Editorial layout, parent labels</h2>
+        <div class="row asymmetric-grid asymmetric-grid--row-of-6 fluid-grid-wrapper">
+            <ul class="fluid-grid">
+                <li class="medium-8 xlarge-6 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                        <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w,  //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                        <div class="editorial-listing__item__overlay">
+                           <div class="editorial-listing__item__info">
+                              <h5>Accommodation</h5>
+                              <h4>Kings Canyon Resort</h4>
+                           </div>
+                           <div class="editorial-listing__item__description">
+                              <p>Seek sanctuary from the rugged desert in the resort's deluxe rooms, budget lodge rooms or serene campsites, a perfect base for exploring Kings Canyon.</p>
+                              <div class="editorial-listing__item__readmore"><i class="svg-icon svg-angle-right icon-white"></i>Read more</div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 medium-4 xlarge-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                        <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                        <div class="editorial-listing__item__overlay">
+                           <div class="editorial-listing__item__info">
+                              <h5>Things to do</h5>
+                              <h4>Kings Creek Station</h4>
+                           </div>
+                           <div class="editorial-listing__item__description">
+                              <p>Start your Outback adventure by discovering the real Northern Territory, with friendly hosts&hellip;</p>
+                              <div class="editorial-listing__item__readmore"><i class="svg-icon svg-angle-right icon-white"></i>Read more</div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 medium-4 xlarge-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="medium-8 xlarge-6 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 medium-4 xlarge-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 medium-4 xlarge-3 columns editorial-listing__item end">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+            </ul>
+        </div>
+    </section>
+    <section class="editorial-listing section--highlighted editorial-listing--reversed">
+        <h2 class="section__heading regional">Editorial reversed layout, no labels, highlight</h2>
+        <p>Add a class to flip the layout, add a class to the section to add a grey highlight</p>
+        <div class="row asymmetric-grid asymmetric-grid--row-of-6 fluid-grid-wrapper">
+            <ul class="fluid-grid">
+                <li class="medium-8 xlarge-6 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                        <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                        <div class="editorial-listing__item__overlay">
+                           <div class="editorial-listing__item__info">
+                              <h4>Kings Canyon Resort</h4>
+                           </div>
+                           <div class="editorial-listing__item__description">
+                              <p>Seek sanctuary from the rugged desert in the resort's deluxe rooms, budget lodge rooms or serene campsites, a perfect base for exploring Kings Canyon.</p>
+                              <div class="editorial-listing__item__readmore"><i class="svg-icon svg-angle-right icon-white"></i>Read more</div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 medium-4 xlarge-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                        <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" class="lazyload" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                        <div class="editorial-listing__item__overlay">
+                           <div class="editorial-listing__item__info">
+                              <h4>Kings Creek Station</h4>
+                           </div>
+                           <div class="editorial-listing__item__description">
+                              <p>Start your Outback adventure by discovering the real Northern Territory, with friendly hosts, intrepid camels&hellip;</p>
+                              <div class="editorial-listing__item__readmore"><i class="svg-icon svg-angle-right icon-white"></i>Read more</div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 medium-4 xlarge-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="medium-8 xlarge-6 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 medium-4 xlarge-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 medium-4 xlarge-3 columns editorial-listing__item end">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+            </ul>
+        </div>
+    </section>
+    <section class="editorial-listing">
+        <h2 class="section__heading regional">Incomplete rows</h2>
+        <div class="row asymmetric-grid asymmetric-grid--row-of-1 fluid-grid-wrapper">
+            <ul class="fluid-grid">
+                <li class="small-centered medium-6 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+            </ul>
+        </div>
+        <div class="row asymmetric-grid asymmetric-grid--row-of-2 fluid-grid-wrapper">
+            <ul class="fluid-grid">
+                <li class="medium-6 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="medium-6 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+            </ul>
+        </div>
+        <div class="row asymmetric-grid asymmetric-grid--row-of-3 fluid-grid-wrapper">
+            <ul class="fluid-grid">
+                <li class="medium-4 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="medium-4 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="medium-4 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+            </ul>
+        </div>
+        <div class="row asymmetric-grid asymmetric-grid--row-of-4 fluid-grid-wrapper">
+            <ul class="fluid-grid">
+                <li class="small-6 large-3 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 large-3 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 large-3 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 large-3 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+            </ul>
+        </div>
+        <div class="row asymmetric-grid asymmetric-grid--row-of-5 fluid-grid-wrapper">
+            <ul class="fluid-grid">
+                <li class="large-6 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 large-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" class="lazyload" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 large-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 large-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 large-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+            </ul>
+        </div>
+    </section>
+    <section class="editorial-listing--reversed">
+        <div class="row asymmetric-grid asymmetric-grid--row-of-5 fluid-grid-wrapper">
+            <ul class="fluid-grid">
+                <li class="large-6 columns editorial-listing__item editorial-listing__item--featured">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img class="lazyload" sizes="auto" data-srcset="//via.placeholder.com/320x213/d3d3d3 320w, //via.placeholder.com/380x253/d3d3d3 380w, //via.placeholder.com/570x380/d3d3d3 570w" data-src="//via.placeholder.com/380x253/d3d3d3" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 large-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 large-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 large-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+                <li class="small-6 large-3 columns editorial-listing__item">
+                  <div class="ratio--3-2 lazyload-wrapper">
+                     <a href="#">
+                     <img sizes="auto" data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" class="lazyload" alt="" title="" />
+                     </a>
+                  </div>
+               </li>
+            </ul>
+        </div>
+    </section>
+    <section class="dynamic-listing">
+        <h2 class="section__heading regional">Dynamic listing module</h2>
+        <div class="row fluid-grid-wrapper">
+            <ul class="fluid-grid medium-up-2 large-up-4">
+                <li class="column column-block">
+                  <a href="#">
+                     <div class="small-4 medium-12 columns">
+                        <div class="ratio--3-2 lazyload-wrapper">
+                           <img data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" sizes="auto" class="lazyload" alt="" title="" />
+                        </div>
+                     </div>
+                     <div class="dynamic-listing__item__info small-8 medium-12 columns">
+                        <h5>This is the breadcrumb</h5>
+                        <h4>This is the listing title</h4>
+                        <p><em>Prices or event dates</em></p>
+                        <p>Operated by</p>
+                        <p class="dynamic-listing__item__stars"><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-o-grey"></i></p>
+                     </div>
+                  </a>
+               </li>
+                <li class="column column-block">
+                  <a href="#">
+                     <div class="small-4 medium-12 columns">
+                        <div class="ratio--3-2 lazyload-wrapper">
+                           <img data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" sizes="auto" class="lazyload" alt="" title="" />
+                        </div>
+                     </div>
+                     <div class="dynamic-listing__item__info small-8 medium-12 columns">
+                        <h5>This is the breadcrumb</h5>
+                        <h4>This is the listing title</h4>
+                        <p><em>Prices or event dates</em></p>
+                        <p>Operated by</p>
+                        <p class="dynamic-listing__item__stars"><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-o-grey"></i></p>
+                     </div>
+                  </a>
+               </li>
+                <li class="column column-block">
+                  <a href="#">
+                     <div class="small-4 medium-12 columns">
+                        <div class="ratio--3-2 lazyload-wrapper">
+                           <img data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" sizes="auto" class="lazyload" alt="" title="" />
+                        </div>
+                     </div>
+                     <div class="dynamic-listing__item__info small-8 medium-12 columns">
+                        <h5>This is the breadcrumb</h5>
+                        <h4>This is the listing title</h4>
+                        <p><em>Prices or event dates</em></p>
+                        <p>Operated by</p>
+                        <p class="dynamic-listing__item__stars"><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-o-grey"></i></p>
+                     </div>
+                  </a>
+               </li>
+                <li class="column column-block">
+                  <a href="#">
+                     <div class="small-4 medium-12 columns">
+                        <div class="ratio--3-2 lazyload-wrapper">
+                           <img data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" sizes="auto" class="lazyload" alt="" title="" />
+                        </div>
+                     </div>
+                     <div class="dynamic-listing__item__info small-8 medium-12 columns">
+                        <h5>This is the breadcrumb</h5>
+                        <h4>This is the listing title</h4>
+                        <p><em>Prices or event dates</em></p>
+                        <p>Operated by</p>
+                        <p class="dynamic-listing__item__stars"><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-o-grey"></i></p>
+                     </div>
+                  </a>
+               </li>
+                <li class="column column-block">
+                  <a href="#">
+                     <div class="small-4 medium-12 columns">
+                        <div class="ratio--3-2 lazyload-wrapper">
+                           <img data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" sizes="auto" class="lazyload" alt="" title="" />
+                        </div>
+                     </div>
+                     <div class="dynamic-listing__item__info small-8 medium-12 columns">
+                        <h5>This is the breadcrumb</h5>
+                        <h4>This is the listing title</h4>
+                        <p><em>Prices or event dates</em></p>
+                        <p>Operated by</p>
+                        <p class="dynamic-listing__item__stars"><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-o-grey"></i></p>
+                     </div>
+                  </a>
+               </li>
+                <li class="column column-block">
+                  <a href="#">
+                     <div class="small-4 medium-12 columns">
+                        <div class="ratio--3-2 lazyload-wrapper">
+                           <img data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" sizes="auto" class="lazyload" alt="" title="" />
+                        </div>
+                     </div>
+                     <div class="dynamic-listing__item__info small-8 medium-12 columns">
+                        <h5>This is the breadcrumb</h5>
+                        <h4>This is the listing title</h4>
+                        <p><em>Prices or event dates</em></p>
+                        <p>Operated by</p>
+                        <p class="dynamic-listing__item__stars"><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-o-grey"></i></p>
+                     </div>
+                  </a>
+               </li>
+                <li class="column column-block">
+                  <a href="#">
+                     <div class="small-4 medium-12 columns">
+                        <div class="ratio--3-2 lazyload-wrapper">
+                           <img data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" sizes="auto" class="lazyload"  alt="" title="" />
+                        </div>
+                     </div>
+                     <div class="dynamic-listing__item__info small-8 medium-12 columns">
+                        <h5>This is the breadcrumb</h5>
+                        <h4>This is the listing title</h4>
+                        <p><em>Prices or event dates</em></p>
+                        <p>Operated by</p>
+                        <p class="dynamic-listing__item__stars"><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-o-grey"></i></p>
+                     </div>
+                  </a>
+               </li>
+                <li class="column column-block">
+                  <a href="#">
+                     <div class="small-4 medium-12 columns">
+                        <div class="ratio--3-2 lazyload-wrapper">
+                           <img data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" sizes="auto" class="lazyload" alt="" title="" />
+                        </div>
+                     </div>
+                     <div class="dynamic-listing__item__info small-8 medium-12 columns">
+                        <h5>This is the breadcrumb</h5>
+                        <h4>This is the listing title</h4>
+                        <p><em>Prices or event dates</em></p>
+                        <p>Operated by</p>
+                        <p class="dynamic-listing__item__stars"><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-o-grey"></i></p>
+                     </div>
+                  </a>
+               </li>
+                <li class="column column-block">
+                  <a href="#">
+                     <div class="small-4 medium-12 columns">
+                        <div class="ratio--3-2 lazyload-wrapper">
+                           <img data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" sizes="auto" class="lazyload" alt="" title="" />
+                        </div>
+                     </div>
+                     <div class="dynamic-listing__item__info small-8 medium-12 columns">
+                        <h5>This is the breadcrumb</h5>
+                        <h4>This is the listing title</h4>
+                        <p><em>Prices or event dates</em></p>
+                        <p>Operated by</p>
+                        <p class="dynamic-listing__item__stars"><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-o-grey"></i></p>
+                     </div>
+                  </a>
+               </li>
+                <li class="column column-block">
+                  <a href="#">
+                     <div class="small-4 medium-12 columns">
+                        <div class="ratio--3-2 lazyload-wrapper">
+                           <img data-srcset="//via.placeholder.com/270x180/d3d3d3 270w, //via.placeholder.com/320x213/d3d3d3 320w" data-src="//via.placeholder.com/380x253/d3d3d3" sizes="auto" class="lazyload" alt="" title="" />
+                        </div>
+                     </div>
+                     <div class="dynamic-listing__item__info small-8 medium-12 columns">
+                        <h5>This is the breadcrumb</h5>
+                        <h4>This is the listing title</h4>
+                        <p><em>Prices or event dates</em></p>
+                        <p>Operated by</p>
+                        <p class="dynamic-listing__item__stars"><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-grey"></i><i class="svg-icon svg-star-o-grey"></i></p>
+                     </div>
+                  </a>
+               </li>
+            </ul>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Pseudo material design inputs</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 2em;
+            background-color: #fff;
+        }
+
+        .demonstration {
+            display: flex;
+        }
+
+        section {
+            width: 32%;
+            padding: 20px;
+        }
+
+        textarea.codesnip {
+            width: 100%;
+            height: 10em;
+            border: none;
+            resize: none;
+        }
+
+        .text-field {
+            position: relative;
+            display: inline-flex;
+            width: 100%;
+            max-width: 30em;
+            margin: .75em .5em .25em 0;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .text-field input {
+            border: 0;
+            background: transparent;
+            width: 100%;
+            padding: 1em;
+        }
+
+        .text-field input:focus {
+            outline: none;
+        }
+
+        .text-field label {
+            position: absolute;
+            background-color: #fff;
+            left: 1em;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: 85ms ease-in-out;
+            padding: 0;
+            max-width: calc(100% - (1em * 2));
+        }
+
+        .text-field.has-focus label,
+        .text-field.has-value label {
+            top: 0;
+            left: 1em !important;
+            font-size: .75em;
+            padding: 0 4px;
+        }
+
+        .text-field.has-focus {
+            color: #6200ee;
+        }
+
+        .text-field.error,
+        .text-field.error+.text-field-helper-text {
+            color: #f00;
+        }
+
+        .text-field.text-field--is-disabled.text-field--outlined,
+        .text-field.text-field--is-disabled.text-field--outlined:hover {
+            border-color: #aaa;
+        }
+
+        .text-field.text-field--is-disabled input,
+        .text-field.text-field--is-disabled label {
+            color: #aaa;
+        }
+
+        .text-field.text-field--is-disabled.has-value label {
+            color: black;
+        }
+
+        .text-field.text-field--outlined {
+            border: 1px solid #999;
+            border-radius: 4px;
+        }
+
+        .text-field.text-field--outlined:hover {
+            border-color: black;
+        }
+
+        .text-field.text-field--outlined.has-focus {
+            border-color: #6200ee;
+            box-shadow: 0px 0px 0px 1px #6200ee;
+        }
+
+        .text-field.text-field--outlined.error {
+            border-color: #f00;
+        }
+
+        .text-field.text-field--outlined.error.has-focus {
+            box-shadow: 0px 0px 0px 1px #f00;
+        }
+
+        .text-field.text-field--leading-icon .fa,
+        .text-field.text-field--trailing-icon .fa,
+        .text-field.text-field--double-icon .fa {
+            position: absolute;
+        }
+
+        .text-field.text-field--leading-icon label,
+        .text-field.text-field--trailing-icon label,
+        .text-field.text-field--double-icon label {
+            max-width: calc(100% - (1.75em + (1em * 2)));
+        }
+
+        .text-field.text-field--leading-icon .fa {
+            left: 1em;
+        }
+
+        .text-field.text-field--leading-icon input {
+            padding-left: 2.75em;
+        }
+
+        .text-field.text-field--leading-icon label {
+            left: 2.75em;
+        }
+
+        .text-field.text-field--trailing-icon .fa {
+            right: 1em;
+        }
+
+        .text-field.text-field--trailing-icon input {
+            padding-right: 2.75em;
+        }
+
+        .text-field.text-field--double-icon .fa.leading {
+            left: 1em;
+        }
+
+        .text-field.text-field--double-icon .fa.trailing {
+            right: 1em;
+        }
+
+        .text-field.text-field--double-icon input {
+            padding-left: 2.75em;
+            padding-right: 2.75em;
+        }
+
+        .text-field.text-field--double-icon label {
+            left: 2.75em;
+            max-width: calc(100% - ((1.75em * 2) + (1em * 2)));
+        }
+
+        .text-field-helper-text {
+            margin-top: 0;
+            margin-left: 1em;
+            margin-right: 1em;
+            line-height: .75;
+        }
+
+        .text-field-helper-text span {
+            font-size: .75em;
+            line-height: 1;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="tabbables">
+        <button>Just</button>
+        <button>Catching</button>
+        <button>Tabs</button>
+        <button>No</button>
+        <button>Functions</button>
+    </div>
+    <div class="demonstration">
+        <section>
+            <div class="text-field-container">
+                <div class="text-field text-field--outlined">
+                    <input id="standard" type="text" />
+                    <label for="standard">Standard</label>
+                </div>
+            </div>
+            <div class="text-field-container">
+                <div class="text-field text-field--outlined text-field--leading-icon">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    <input id="icon-leading" type="text" />
+                    <label for="icon-leading">Leading Icon</label>
+                </div>
+            </div>
+            <div class="text-field-container">
+                <div class="text-field text-field--outlined text-field--trailing-icon">
+                    <input id="icon-trailing" type="text" />
+                    <label for="icon-trailing">Trailing Icon</label>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="text-field-container">
+                <div class="text-field text-field--outlined text-field--double-icon">
+                    <i class="fa fa-envelope-o leading" aria-hidden="true"></i>
+                    <input id="icon-double" type="text" />
+                    <label for="icon-double">Leading and Trailing Icon</label>
+                    <i class="fa fa-times trailing" aria-hidden="true"></i>
+                </div>
+                <p class="text-field-helper-text"><span>Helper text</span></p>
+            </div>
+        </section>
+        <section>
+            <div class="text-field-container">
+                <div class="text-field text-field--outlined has-value">
+                    <input id="has-val" type="text" value="has something here" />
+                    <label for="has-val">Existing Value</label>
+                </div>
+            </div>
+            <div class="text-field-container">
+                <div class="text-field text-field--outlined has-value">
+                    <input id="has-val-focus" type="text" value="has something here, and I'll start out having focus so you can see that" />
+                    <label for="has-val-focus">Existing Value Focused</label>
+                </div>
+            </div>
+            <div class="text-field-container">
+                <div class="text-field text-field--outlined error">
+                    <input id="error" type="text" />
+                    <label for="error">Error Label</label>
+                </div>
+            </div>
+            <div class="text-field-container">
+                <div class="text-field text-field--outlined has-value error">
+                    <input id="error-focus" type="text" value="has something here" />
+                    <label for="error-focus">Error has Focus</label>
+                </div>
+                <p class="text-field-helper-text"><span>Error text</span></p>
+            </div>
+        </section>
+        <section>
+            <div class="text-field-container">
+                <div class="text-field text-field--outlined text-field--is-disabled">
+                    <input id="disabled" type="text" value="" disabled="" />
+                    <label for="disabled">Disabled</label>
+                </div>
+                <p class="text-field-helper-text error"><span>Should not be tabbable</span></p>
+            </div>
+            <div class="text-field-container">
+                <div class="text-field text-field--outlined text-field--is-disabled has-value">
+                    <input id="disabled-value" type="text" value="content disabled" disabled="" />
+                    <label for="disabled-value">Disabled Value</label>
+                </div>
+                <p class="text-field-helper-text error"><span>Should not be tabbable</span></p>
+            </div>
+            <div class="text-field-container">
+                <div class="text-field text-field--outlined">
+                    <input id="long-label" type="text" />
+                    <label for="long-label">Just a standard input with a long label to wrap around because it's important to see what happens and how it's handled</label>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="tabbables">
+        <button>Just</button>
+        <button>Catching</button>
+        <button>Tabs</button>
+        <button>No</button>
+        <button>Functions</button>
+    </div>
+    <div class="demonstration">
+        <section>
+            <h2>Basic Structure:</h2>
+            <p><textarea class="codesnip" readonly="">&lt;div class="text-field-container"&gt;
+               &lt;div class="text-field text-field--outlined"&gt;
+               &lt;input id="unique" type="text" /&gt;
+               &lt;label for="unique"&gt;Label&lt;/label&gt;
+               &lt;/div&gt;
+               &lt;p class="text-field-helper-text"&gt;&lt;span&gt;Optional/conditional helper text&lt;/span&gt;&lt;/p&gt;
+               &lt;/div&gt;</textarea>
+            </p>
+        </section>
+        <section>
+            <h2>Additional Considerations:</h2>
+            <p>Scripting needs to handle adding/removing relevant classes based on interactions...</p>
+            <ul>
+                <li>Want to add character counter as optional right-side helper text (essentially secondary helper text)</li>
+                <li>Wrapping div '.text-field' needs 'has-focus' set or unset on focus/blur of the input</li>
+                <li>Wrapping div '.text-field' needs 'has-value' set or unset on input value being updated</li>
+                <li><b>Disabled</b> inputs need to have 'disabled' applied to input, as well as 'text-field--is-disabled' on the wrapping div '.text-field'</li>
+                <li>Assumption of FontAwesome icons and classes</li>
+            </ul>
+        </section>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" id="rendered-js">
+        $('input').on('focus', function() {
+            $(this).closest('.text-field').addClass('has-focus');
+        });
+
+        $('input').on('blur', function() {
+            $(this).closest('.text-field').removeClass('has-focus');
+        });
+
+        $('input').on('change', function() {
+            $wrapper = $(this).closest('.text-field');
+            $value = $(this).val();
+            console.log($value);
+            if ($value) {
+                $wrapper.addClass('has-value');
+            } else {
+                $wrapper.removeClass('has-value');
+            }
+        });
+    </script>
+</body>
+
+</html>

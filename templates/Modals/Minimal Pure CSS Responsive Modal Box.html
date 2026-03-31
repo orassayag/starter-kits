@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Minimal Pure CSS Responsive Modal Box</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <style type="text/css">
+        #modal {
+            left: 50%;
+            margin: -250px 0 0 -32%;
+            opacity: 0;
+            position: absolute;
+            top: -50%;
+            visibility: hidden;
+            width: 65%;
+            box-shadow: 0 3px 7px rgba(0, 0, 0, .25);
+            box-sizing: border-box;
+            transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out
+        }
+
+        #modal:target {
+            opacity: 1;
+            top: 50%;
+            visibility: visible
+        }
+
+        #modal .header,
+        #modal .footer {
+            border-bottom: 1px solid #1ABC9C;
+            border-radius: 5px 5px 0 0
+        }
+
+        #modal .footer {
+            border: none;
+            border-top: 1px solid #e7e7e7;
+            border-radius: 0 0 5px 5px
+        }
+
+        #modal h2 {
+            margin: 0;
+            color: #fff
+        }
+
+        #modal .btn {
+            float: right
+        }
+
+        #modal .copy,
+        #modal .header,
+        #modal .footer {
+            padding: 10px;
+            color: #fff
+        }
+
+        .modal-content {
+            background: #34BC9D;
+            position: relative;
+            z-index: 20;
+            border-radius: 5px;
+            color: #fff
+        }
+
+        #modal .copy {
+            background: #46CFB0
+        }
+
+        #modal .overlay {
+            background-color: #000;
+            background: rgba(0, 0, 0, .8);
+            height: 100%;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10
+        }
+
+        .copy a {
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #E74C3C;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <a href="#modal">
+         <h1 align="center">Open Modal</h1>
+      </a>
+    <div id="modal">
+        <div class="modal-content">
+            <div class="header">
+                <h2>Projects</h2>
+            </div>
+            <div class="copy">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+                <a href="#">Close</a>
+            </div>
+        </div>
+        <div class="overlay"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Oregen Game Shop</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <style type="text/css">
+        * {
+            font-family: "Open Sans", sans-serif;
+        }
+
+        body {
+            background: #edf1f2;
+            min-height: 825px;
+        }
+
+        h1 {
+            margin: 5px 0px 0px;
+            text-align: center;
+            font-family: "Roboto", sans-serif;
+            font-size: 42px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .disclaimer {
+            text-align: center;
+            font-size: 10px;
+            margin: 0px 0px 10px;
+        }
+
+        .flex-info {
+            text-align: center;
+            font-size: 10px;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            margin: 0px auto;
+        }
+
+        .house-info {
+            position: relative;
+            top: 30px;
+        }
+
+        .house-pays {
+            color: white;
+            text-align: center;
+            background: #f56c2d;
+            position: relative;
+            top: -4px;
+            padding: 10px;
+            margin: 0px;
+            cursor: pointer;
+        }
+
+        .house-pays:hover {
+            background: #c85e36;
+        }
+
+        .game-card {
+            position: relative;
+            height: 265px;
+            background-color: white;
+            box-shadow: 0 0 2px 0 rgba(20, 27, 32, 0.25);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 180px;
+        }
+
+        .game-card:hover {
+            box-shadow: 0 0 10px 0 rgba(20, 27, 32, 0.6);
+        }
+
+        .game-card-overlay {
+            position: absolute;
+            top: 0px;
+            visibility: hidden;
+            height: 180px;
+            width: 200px;
+            opacity: 0;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .game-pic:hover>.game-card-overlay {
+            display: block;
+            height: 180px;
+            width: 200px;
+            visibility: visible;
+            opacity: 1;
+            background-color: rgba(20, 27, 32, 0.9);
+        }
+
+        .overlay-button {
+            display: block;
+            position: relative;
+            top: 37%;
+            width: 90%;
+            margin: 0px auto 5px;
+            font-size: 14px;
+            text-align: center;
+            color: white;
+            background-color: #f56c2d;
+            border: 1px solid #f56c2d;
+            border-radius: 4px;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .overlay-button:hover {
+            background: #c85e36;
+            border: 1px solid #c85e36;
+        }
+
+        #overlay-double {
+            top: 22%;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 850px;
+            margin: 0px auto 100px;
+        }
+
+        .row>.game-card {
+            margin: 10px 5px;
+            width: 200px;
+        }
+
+        .title {
+            text-align: left;
+            font-size: 14px;
+            line-height: 18px;
+            font-family: "Open Sans", sans-serif;
+            padding: 0px 10px;
+            margin: 0px;
+        }
+
+        .price {
+            cursor: pointer;
+            position: absolute;
+            max-width: 55px;
+            top: 219px;
+            height: 25px;
+            color: #f56c2d;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 24px;
+            padding: 0px 10px;
+            margin: 15px 0px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .price p {
+            margin: 0px;
+        }
+
+        .price .cart {
+            visibility: hidden;
+            opacity: 0;
+            height: 0px;
+            width: 0px;
+        }
+
+        .price .cart p {
+            margin: 0px;
+            padding-top: 2px;
+        }
+
+        .price:hover>.cart {
+            cursor: pointer;
+            position: relative;
+            visibility: visible;
+            opacity: 1;
+            top: -31px;
+            left: -10px;
+            width: 190px;
+            height: 28px;
+            margin: 0px;
+            padding: 5px;
+            z-index: 100;
+            font-size: 16px;
+            text-align: center;
+            color: white;
+            background: #c85e36;
+        }
+
+        .owned {
+            color: white;
+            text-align: center;
+            background: #04bd68;
+            position: relative;
+            top: 26px;
+            padding: 10px;
+            margin: 0px;
+            cursor: pointer;
+        }
+
+        .info {
+            position: absolute;
+            padding: 3px 2px 0px 2px;
+            top: 232px;
+            left: 70px;
+            height: 20px;
+            width: 20px;
+            color: #f56c2d;
+            cursor: pointer;
+        }
+
+        .info .hidden-text {
+            display: none;
+        }
+
+        .info:hover .hidden-text {
+            z-index: 100;
+            line-height: 20px;
+            position: relative;
+            left: -100px;
+            font-size: 12px;
+            padding: 20px;
+            background: white;
+            border: 1px solid #c3c6ce;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px 0 rgba(20, 27, 32, 0.3);
+            color: black;
+            width: 250px;
+            text-align: left;
+            display: block;
+        }
+
+        .hidden-text strong,
+        .hidden-text p {
+            color: #1e262c;
+        }
+
+        .hidden-text p {
+            margin: 0px;
+        }
+
+        .hidden-text a {
+            text-decoration: none;
+            color: #2ac4f5;
+        }
+
+        .hidden-text a:hover {
+            text-decoration: underline;
+            color: #2ac4f5;
+        }
+
+        .house-info .hidden-text {
+            display: none;
+        }
+
+        .house-info:hover .hidden-text {
+            z-index: 100;
+            line-height: 20px;
+            position: relative;
+            left: -40px;
+            top: 5px;
+            font-size: 12px;
+            padding: 20px;
+            background: white;
+            border: 1px solid #c3c6ce;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px 0 rgba(20, 27, 32, 0.3);
+            color: black;
+            width: 250px;
+            text-align: left;
+            display: block;
+        }
+
+        @media screen and (max-width: 890px) {
+            .row {
+                width: 430px;
+            }
+        }
+
+        @media screen and (max-width: 460px) {
+            .row {
+                width: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <h1>Oregen Game shoppe*</h1>
+    <h2>Now with an added sense of pride and accomplishment!</h2>
+    <p class="disclaimer">*Created for satire and educational purposes</p>
+    <p class="flex-info">Flexbox is king (this mobilizes the layout), RIP IE support.</p>
+    <div class="content">
+        <div class="row">
+            <div class="game-card">
+                <div class="game-pic">
+                    <img src="http://fillmurray.com/230/180" alt="" title="" />
+                    <div class="game-card-overlay">
+                        <div class="overlay-button" id="overlay-double">
+                            <p>View Store</p>
+                        </div>
+                        <div class="overlay-button" id="overlay-double">
+                            <p>Oregen Access</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="title">Bill Murray's Excellent ™ Adventure ™</p>
+                <div class="price">
+                    <p>$49.99
+                    </p>
+                    <div class="cart">
+                        <p>Add to Cart</p>
+                    </div>
+                    <p></p>
+                </div>
+                <div class="info">
+                    <span><i class="fa fa-gg-circle" aria-hidden="true"></i></span>
+                    <div class="hidden-text">
+                        <strong>Available with Oregen Access</strong>
+                        <p>Download and play a growing collection of great PC games for $6.99 per month.</p>
+                        <a href="#0">Learn more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-pic">
+                    <img src="http://www.placecage.com/g/230/180" alt="" title="" />
+                    <div class="game-card-overlay">
+                        <div class="overlay-button">
+                            <p>View Store</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="title">Nicholas, Rage !™</p>
+                <p class="owned"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Owned</p>
+            </div>
+            <div class="game-card">
+                <div class="game-pic">
+                    <img src="http://stevensegallery.com/230/180" alt="" title="" />
+                    <div class="game-card-overlay">
+                        <div class="overlay-button">
+                            <p>View Store</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="title">Cooking with ™ Steve ™</p>
+                <div class="price">
+                    <p>$109.99
+                    </p>
+                    <div class="cart">
+                        <p>Add to Cart</p>
+                    </div>
+                    <p></p>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-pic">
+                    <img src="http://www.placecage.com/c/230/180" alt="" title="" />
+                    <div class="game-card-overlay">
+                        <div class="overlay-button" id="overlay-double">
+                            <p>View Store</p>
+                        </div>
+                        <div class="overlay-button" id="overlay-double">
+                            <p>Oregen Access</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="title">Nic's Crazy Crazy™ simulator ™</p>
+                <div class="price">
+                    <p>$39.99
+                    </p>
+                    <div class="cart">
+                        <p>Add to Cart</p>
+                    </div>
+                    <p></p>
+                </div>
+                <div class="info">
+                    <span><i class="fa fa-gg-circle" aria-hidden="true"></i></span>
+                    <div class="hidden-text">
+                        <strong>Available with Oregen Access</strong>
+                        <p>Download and play a growing collection of great PC games for $6.99 per month.</p>
+                        <a href="#0">Learn more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-pic">
+                    <img src="http://fillmurray.com/g/230/180" alt="" title="" />
+                    <div class="game-card-overlay">
+                        <div class="overlay-button">
+                            <p>View Store</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="title">Bill Murray's Busters: Premium edition™</p>
+                <div class="price">
+                    <p>$119.99
+                    </p>
+                    <div class="cart">
+                        <p>Add to Cart</p>
+                    </div>
+                    <p></p>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-pic">
+                    <img src="http://www.placecage.com/230/180" alt="" title="" />
+                    <div class="game-card-overlay">
+                        <div class="overlay-button" id="overlay-double">
+                            <p>View Store</p>
+                        </div>
+                        <div class="overlay-button" id="overlay-double">
+                            <p>Oregen Access</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="title">SASS 2045™</p>
+                <div class="price">
+                    <p>$19.99
+                    </p>
+                    <div class="cart">
+                        <p>Add to Cart</p>
+                    </div>
+                    <p></p>
+                </div>
+                <div class="info">
+                    <span><i class="fa fa-gg-circle" aria-hidden="true"></i></span>
+                    <div class="hidden-text">
+                        <strong>Available with Oregen Access</strong>
+                        <p>Download and play a growing collection of great PC games for $6.99 per month.</p>
+                        <a href="#0">Learn more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-pic">
+                    <img src="http://stevensegallery.com/230/182" alt="" title="" />
+                    <div class="game-card-overlay">
+                        <div class="overlay-button">
+                            <p>Add To Your Library</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="title">RYUJIN NO KEN WO KURAE!</p>
+                <div class="house-info">
+                    <p class="house-pays">ON THE HOUSE
+                    </p>
+                    <div class="hidden-text">
+                        <strong>On the House</strong>
+                        <p>Get full games and expansions, completely free. On the House content is yours to keep once you add it to your library.</p>
+                        <a href="#0">Learn more</a>
+                    </div>
+                    <p></p>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-pic">
+                    <img src="http://www.placecage.com/c/231/182" alt="" title="" />
+                    <div class="game-card-overlay">
+                        <div class="overlay-button" id="overlay-double">
+                            <p>View Store</p>
+                        </div>
+                        <div class="overlay-button" id="overlay-double">
+                            <p>Oregen Access</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="title">Not the Bees!™</p>
+                <div class="price">
+                    <p>$29.99
+                    </p>
+                    <div class="cart">
+                        <p>Add to Cart</p>
+                    </div>
+                    <p></p>
+                </div>
+                <div class="info">
+                    <span><i class="fa fa-gg-circle" aria-hidden="true"></i></span>
+                    <div class="hidden-text">
+                        <strong>Available with Oregen Access</strong>
+                        <p>Download and play a growing collection of great PC games for $6.99 per month.</p>
+                        <a href="#0">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

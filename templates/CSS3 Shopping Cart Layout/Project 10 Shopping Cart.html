@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Project 10 Shopping Cart</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Coda');
+
+        /* SCAFFOLDING */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: rgb(215, 215, 225);
+            color: rgb(33, 33, 33);
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            font-family: 'Roboto', sans-serif;
+            min-width: 320px;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            display: -webkit-box;
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a:link,
+        a:hover,
+        a:focus,
+        a:visited {
+            color: rgb(33, 33, 33);
+            text-decoration: none;
+        }
+
+        /* HEADER */
+        .header {
+            background: rgb(33, 33, 33);
+            box-shadow: 1px 1px 1.5rem rgb(0, 0, 0);
+            width: 100%;
+        }
+
+        .nav {
+            -webkit-box-align: center;
+            align-items: center;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .nav .logo {
+            -webkit-box-align: center;
+            align-items: center;
+            color: rgb(233, 233, 233);
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            font-family: 'Varela Round', sans-serif;
+            -webkit-box-pack: center;
+            justify-content: center;
+            padding: 0.75rem 0 0.25rem 0;
+        }
+
+        .nav .logo>svg {
+            margin-right: 0.5rem;
+        }
+
+        .nav .logo>svg path {
+            fill: rgb(97, 196, 36);
+        }
+
+        .nav .logo>h1 {
+            margin: 0;
+        }
+
+        .nav ul {
+            font-family: 'Coda', sans-serif;
+            margin: 0.5rem 0;
+        }
+
+        .nav ul>li {
+            display: inline-block;
+        }
+
+        .nav ul>li:not(:first-child) {
+            margin-left: 1rem;
+        }
+
+        .nav ul>li a:link,
+        .nav ul>li a:active,
+        .nav ul>li a:visited {
+            border: 1px solid transparent;
+            border-radius: 0.3rem;
+            color: rgb(133, 233, 143);
+            display: block;
+            padding: 0.5rem;
+            -webkit-transition: all 250ms ease-in-out;
+            transition: all 250ms ease-in-out;
+        }
+
+        .nav ul>li a:hover,
+        .nav ul>li a:focus {
+            background: rgb(66, 66, 66);
+            border: 1px solid rgba(55, 95, 55, 0.5);
+            -webkit-transition: all 250ms ease-in-out;
+            transition: all 250ms ease-in-out;
+        }
+
+        .nav ul>li a:link>svg,
+        .nav ul>li a:active>svg,
+        .nav ul>li a:visited>svg {
+            fill: rgb(133, 233, 143);
+        }
+
+        .nav ul>li.active a:link,
+        .nav ul>li.active a:active,
+        .nav ul>li.active a:visited {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            background: rgb(146, 196, 166);
+            border-radius: 0.3rem;
+            color: rgb(33, 33, 33);
+            -webkit-transition: background-color 400ms;
+            transition: background-color 400ms;
+        }
+
+        .nav ul>li.active a:hover,
+        .nav ul>li.active a:focus {
+            background: rgb(126, 176, 133);
+            -webkit-transition: background-color 400ms;
+            transition: background-color 400ms;
+        }
+
+        .nav ul>li.active a:link>svg,
+        .nav ul>li.active a:active>svg,
+        .nav ul>li.active a:visited>svg {
+            fill: rgb(33, 33, 33);
+        }
+
+        @media screen and (min-width: 375px) {
+            .nav {
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                flex-direction: row;
+                padding: 0 2rem;
+            }
+
+            .nav .logo {
+                -webkit-box-pack: start;
+                justify-content: flex-start;
+                padding: 0.75rem 0;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            .nav {
+                padding: 0 3rem;
+            }
+        }
+
+        /* MAIN */
+        .main {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            -webkit-box-flex: 1;
+            flex: 1 0 auto;
+            margin: 2rem auto;
+            width: 100%;
+        }
+
+        .main .container {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            margin: 0 auto;
+            padding: 0 3rem;
+            max-width: 1200px;
+        }
+
+        .disclaimer {
+            background: rgb(121, 199, 165);
+            border: 1px solid rgb(99, 139, 113);
+            border-radius: 0.3rem;
+            color: rgb(33, 75, 61);
+            font-family: 'Coda', sans-serif;
+            margin-bottom: 2rem;
+            -webkit-transition: background 0.4s;
+            transition: background 0.4s;
+        }
+
+        .disclaimer:hover {
+            background: rgb(121, 219, 155);
+            -webkit-transition: background 0.4s;
+            transition: background 0.4s;
+        }
+
+        .disclaimer p {
+            margin: 0;
+            padding: 0.5rem;
+        }
+
+        .main>#content {
+            opacity: 1;
+            -webkit-transition: all 350ms;
+            transition: all 350ms;
+        }
+
+        #content h2 {
+            border-bottom: 1px solid rgba(33, 33, 33, 0.25);
+            font-family: 'Varela Round', sans-serif;
+            padding-bottom: 0.5rem;
+        }
+
+        .item-list {
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            justify-content: center;
+            max-height: 100%;
+        }
+
+        .item-list>.item {
+            background: rgb(33, 33, 33);
+            border: 1px solid rgb(33, 33, 33);
+            border-radius: 0.3rem;
+            box-shadow: 1px 1px 10px 1px rgba(33, 33, 33, 0.75);
+            cursor: pointer;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            -webkit-box-flex: 1;
+            flex: 1 1 auto;
+            margin: 1rem 0;
+            overflow: hidden;
+            outline: none;
+            position: relative;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: -webkit-transform 250ms ease-in-out;
+            transition: -webkit-transform 250ms ease-in-out;
+            transition: transform 250ms ease-in-out;
+            transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+        }
+
+        .item-list>.item:hover,
+        .item-list>.item:focus {
+            outline: none;
+        }
+
+        @media screen and (min-width: 600px) and (max-width: 826px) {
+            .item-list {
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+            }
+
+            .item-list>.item {
+                -webkit-box-flex: 0;
+                flex: 0 0 45%;
+                max-width: 350px;
+            }
+        }
+
+        @media screen and (min-width: 827px) {
+            .item-list {
+                -webkit-box-pack: start;
+                justify-content: flex-start;
+            }
+
+            .item-list>.item {
+                -webkit-box-flex: 0;
+                flex: 0 0 31.25%;
+                margin: 2% 0;
+            }
+
+            .item-list>.item:nth-child(3n-1) {
+                margin-left: 3%;
+                margin-right: 3%;
+            }
+        }
+
+        .item img {
+            height: 100%;
+            -webkit-transition: -webkit-filter 250ms linear;
+            transition: -webkit-filter 250ms linear;
+            transition: filter 250ms linear;
+            transition: filter 250ms linear, -webkit-filter 250ms linear;
+            width: 100%;
+        }
+
+        .item:hover img,
+        .item:focus img {
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            -webkit-transition: -webkit-filter 250ms linear;
+            transition: -webkit-filter 250ms linear;
+            transition: filter 250ms linear;
+            transition: filter 250ms linear, -webkit-filter 250ms linear;
+        }
+
+        .item>.item-details {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            background: rgba(33, 33, 33, 0.75);
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            height: 100%;
+            position: absolute;
+            top: calc(100% - 48px);
+            width: 100%;
+            z-index: 1;
+            -webkit-transition: top 500ms ease-in-out;
+            transition: top 500ms ease-in-out;
+        }
+
+        .item:hover>.item-details,
+        .item:focus>.item-details {
+            top: 0%;
+            opacity: 1;
+            -webkit-transition: top 500ms ease-in-out;
+            transition: top 500ms ease-in-out;
+        }
+
+        .item-details>.item-title {
+            -webkit-box-align: center;
+            align-items: center;
+            display: -webkit-box;
+            display: flex;
+            min-height: 48px;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .item-details>.item-title h3 {
+            color: rgb(215, 215, 215);
+            font-family: 'Coda', sans-serif;
+            text-shadow: 1px 1px 1rem rgb(33, 33, 33);
+            padding: 0.5rem;
+        }
+
+        .item-details>.item-title>button,
+        button.add-to-cart {
+            background-color: rgb(31, 166, 122);
+            border: 1px outset rgba(255, 255, 255, 0.5);
+            border-radius: 0.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            cursor: pointer;
+            margin: 0.5rem;
+            outline: none;
+            padding-left: 1.45rem;
+            position: relative;
+            width: 64px;
+            height: 32px;
+            -webkit-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+        }
+
+        .item-details>.item-title>button:active,
+        button.add-to-cart:active {
+            border: 1px inset rgba(255, 255, 255, 0.5);
+            top: 1px;
+            right: -1px;
+            -webkit-transition: all 100ms ease-out;
+            transition: all 100ms ease-out;
+        }
+
+        button.add-to-cart {
+            background: rgb(31, 166, 122) url('https://vignette3.wikia.nocookie.net/olympians/images/c/c2/Pictogram_voting_support.svg/revision/latest?cb=20100724033056') 5px 6px no-repeat;
+            background-size: 16px 16px;
+        }
+
+        .item-details>.item-title>button {
+            opacity: 1;
+            -webkit-transition: opacity 200ms linear, -webkit-transform 500ms ease-in-out;
+            transition: opacity 200ms linear, -webkit-transform 500ms ease-in-out;
+            transition: opacity 200ms linear, transform 500ms ease-in-out;
+            transition: opacity 200ms linear, transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+        }
+
+        .item:hover>.item-details>.item-title>button,
+        .item:focus>.item-details>.item-title>button {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: opacity 200ms linear, -webkit-transform 500ms ease-in-out;
+            transition: opacity 200ms linear, -webkit-transform 500ms ease-in-out;
+            transition: opacity 200ms linear, transform 500ms ease-in-out;
+            transition: opacity 200ms linear, transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+            -webkit-transition-delay: 200ms;
+            transition-delay: 200ms;
+        }
+
+        .item>.item-details>.item-description {
+            color: rgb(200, 200, 200);
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.85rem;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .item-description>p {
+            letter-spacing: 1px;
+            line-height: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* PRODUCT VIEW */
+        .product h2 {
+            margin-bottom: 1rem;
+        }
+
+        .product-image {
+            position: relative;
+            float: left;
+            margin-bottom: 1rem;
+        }
+
+        .product-image>img {
+            border-radius: 0.3rem;
+            box-shadow: 2px 2px 1rem rgba(33, 33, 33, 0.85);
+            height: auto;
+            width: 100%;
+        }
+
+        .product-desc>p:first-of-type {
+            margin-top: 0;
+        }
+
+        .product-desc>p {
+            line-height: 1.5rem;
+        }
+
+        .product-image>button.add-to-cart {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            margin: 0;
+            -webkit-transform: translate(-50%, -25%);
+            transform: translate(-50%, -25%);
+            min-width: 25%;
+        }
+
+        @media screen and (min-width: 525px) {
+            .product-image {
+                margin-bottom: 0.5rem;
+                margin-right: 1.5rem;
+                max-width: 50%;
+            }
+        }
+
+        /* SHOPPING CART */
+        .cart-items {
+            border-bottom: 1px solid rgba(33, 33, 33, 0.25);
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-flow: column nowrap;
+            padding: 1rem 0;
+        }
+
+        .cart-item {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-flow: row nowrap;
+            margin: 0.5rem 0;
+            width: 100%;
+        }
+
+        .cart-item-name {
+            -webkit-box-flex: 1;
+            flex: 1 1 75%;
+        }
+
+        .cart-item-name:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .remove-item {
+            background: rgba(195, 100, 125, 0.75) url('https://cdn3.iconfinder.com/data/icons/cleaning-icons/512/Trash_Can-512.png') -2px 0px no-repeat;
+            background-size: 16px 16px;
+            border: 1px solid rgba(33, 33, 33, 0.25);
+            border-radius: 0.3rem;
+            cursor: pointer;
+            -webkit-box-flex: 0;
+            flex: 0 0 16px;
+            margin-right: 0.75rem;
+            outline: none;
+        }
+
+        .cart-total {
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .hide {
+            opacity: 0;
+            -webkit-transition: opacity 350ms;
+            transition: opacity 350ms;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: rgb(55, 55, 45);
+            border-top-right-radius: 1rem;
+            border-top-left-radius: 1rem;
+            box-shadow: 0px 0px 0px 0px rgb(33, 33, 33);
+            color: rgb(210, 210, 210);
+            margin: 0 auto;
+            padding: 0.5rem 1.5rem;
+            text-align: center;
+            -webkit-transition: all 750ms ease-in-out;
+            transition: all 750ms ease-in-out;
+        }
+
+        .footer:hover {
+            background-color: rgb(5, 50, 135);
+            box-shadow: 1px 1px 10px 0px rgb(33, 33, 33);
+            color: rgb(210, 210, 210);
+            -webkit-transition: all 500ms ease-in-out;
+            transition: all 500ms ease-in-out;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        a.credits,
+        a.credits:link,
+        a.credits:hover,
+        a.credits:active,
+        a.credits:visited {
+            color: rgb(210, 210, 210);
+            text-decoration: none;
+        }
+
+        a.credits .heart {
+            -webkit-transition: color 750ms linear;
+            transition: color 750ms linear;
+        }
+
+        .footer:hover a.credits .heart,
+        a.credits:hover .heart {
+            -webkit-animation: pulse 2s ease-in-out infinite;
+            animation: pulse 2s ease-in-out infinite;
+            color: rgb(210, 0, 110);
+            -webkit-transition: color 750ms linear;
+            transition: color 750ms linear;
+        }
+
+        .heart {
+            display: inline-block;
+        }
+
+        @-webkit-keyframes pulse {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            30% {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+
+            55% {
+                -webkit-transform: scale(0.9);
+                transform: scale(0.9);
+            }
+
+            80% {
+                -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            30% {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+
+            55% {
+                -webkit-transform: scale(0.9);
+                transform: scale(0.9);
+            }
+
+            80% {
+                -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo" data-navigo="">
+               <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path>
+               </svg>
+               <h1>devmart</h1>
+            </a>
+            <ul>
+                <li class="active">
+                  <a href="/" data-navigo="">home</a>
+               </li>
+                <li>
+                  <a href="/cart" id="showCart" data-navigo="">
+                     <svg width="16" height="16" viewBox="0 0 24 24">
+                        <path d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"></path>
+                     </svg>
+                     <span id="itemCount">0</span>
+                  </a>
+               </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="container">
+            <section id="content">
+                <h2>Web Development Courses</h2>
+                <ul id="shopItems" class="item-list">
+                    <li id="item-1" class="item" tabindex="0">
+                     <div class="item-details">
+                        <div class="item-title">
+                           <h3>Web Dev 101</h3>
+                           <button class="add-to-cart">$99</button>
+                        </div>
+                        <div class="item-description">
+                           <p>Get started learning web development with the most comprehensive course ever written! 40+ hours of HTML, CSS, and JavaScript.</p>
+                        </div>
+                     </div>
+                     <img src="https://images.pexels.com/photos/326424/pexels-photo-326424.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="" title="" />
+                  </li>
+                    <li id="item-2" class="item" tabindex="1">
+                     <div class="item-details">
+                        <div class="item-title">
+                           <h3>Coffee 'n Code</h3>
+                           <button class="add-to-cart">$349</button>
+                        </div>
+                        <div class="item-description">
+                           <p>I'll bring you coffee and then we can code together!</p>
+                        </div>
+                     </div>
+                     <img src="https://images.pexels.com/photos/414584/pexels-photo-414584.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb"alt="" title="" />
+                  </li>
+                    <li id="item-3" class="item" tabindex="2">
+                     <div class="item-details">
+                        <div class="item-title">
+                           <h3>Learn JavaScript</h3>
+                           <button class="add-to-cart">$149</button>
+                        </div>
+                        <div class="item-description">
+                           <p>Take your web development to the next level! Go beyond the fundamentals with 40+ hours of lessons and 30 projects.</p>
+                        </div>
+                     </div>
+                     <img src="https://images.pexels.com/photos/360591/pexels-photo-360591.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="" title="" />
+                  </li>
+                    <li id="item-4" class="item" tabindex="3">
+                     <div class="item-details">
+                        <div class="item-title">
+                           <h3>NodeJS + React</h3>
+                           <button class="add-to-cart">$199</button>
+                        </div>
+                        <div class="item-description">
+                           <p>Continue on your journey to become a fullstack web developer by learning NodeJS and React. 25+ hours of lessons and 5 projects.</p>
+                        </div>
+                     </div>
+                     <img src="https://images.pexels.com/photos/34676/pexels-photo.jpg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb"alt="" title="" />
+                  </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <p><a href="https://github.com/tophergates" target="_blank" class="credits">Made with <span class="heart">♥</span> by tophergates</a></p>
+    </footer>
+    <script type="text/javascript" src="https://cdn.rawgit.com/krasimir/navigo/master/lib/navigo.min.js"></script>
+    <script type="text/javascript">
+        (function(Navigo, window) {
+            // Event class to publish/subscribe to events
+            const Events = function() {
+                // The event class itself
+                class Events {
+                    // Event class constructor
+                    constructor() {
+                        // Contains the events being subscribed to
+                        this.events = {};
+                    }
+
+                    // Subscribes to 'eventName' and uses 'callback' function when the event occurs
+                    on(eventName, callback) {
+                        this.events[eventName] = this.events[eventName] || [];
+                        this.events[eventName].push(callback);
+                    }
+
+                    // Unsubscribes to 'eventName'
+                    off(eventName, callback) {
+                        if (this.events[eventName]) {
+                            let eventsLength = this.events[eventName].length;
+                            for (let i = 0; i < eventsLength; i++) {
+                                if (this.events[eventName][i] === callback) {
+                                    this.events[eventName].splice(i, 1);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    // Emits 'eventName' with 'data' so any subscribers to the event can call their callbacks
+                    emit(eventName, data) {
+                        if (this.events[eventName]) {
+                            this.events[eventName].forEach(callback => callback(data));
+                        }
+                    }
+                }
+                // Return a new instance of the event class (singleton)
+                return new Events();
+            }();
+
+            // Router class extends Navigo for client-side routing
+            const Router = function(Navigo, root, useHash, hash) {
+                // Extending the Navigo class with our own router class
+                class Router extends Navigo {
+                    constructor(root, useHash, hash) {
+                        super(root, useHash, hash);
+                    }
+                    // Enable setting routes with assignment
+                    set routes(routes) {
+                        routes = routes || {};
+                        this.on(routes);
+                        this.resolve();
+                    }
+                }
+                // Return a new instance of the Router class (singleton)
+                return new Router(root, useHash, hash);
+            }(Navigo, null, true, '#!');
+
+            // The model serves as our gatekeeper for all shop data
+            const Model = function() {
+                // Our product data (ideally, you would get this information from a database)
+                const products = [{ "id": 1, "name": "Web Dev 101", "short_desc": "Get started learning web development with the most comprehensive course ever written! 40+ hours of HTML, CSS, and JavaScript.", "long_desc": "<p>Get started learning web development with the most comprehensive course ever written! 40+ hours of HTML, CSS, and JavaScript.</p><p>Spicy jalapeno bacon ipsum dolor amet frankfurter strip steak venison, jowl shank turkey burgdoggen turducken. Jerky tongue porchetta landjaeger beef ribs. Pancetta salami chicken venison flank andouille, ham hock turducken bresaola hamburger brisket. Filet mignon shank bresaola leberkas flank burgdoggen boudin sirloin pork. T-bone brisket chicken, flank hamburger pork chop venison tenderloin porchetta tail bresaola picanha ham hock.</p><p>Bresaola andouille landjaeger leberkas biltong turkey meatball tail frankfurter salami ham hock. Pork turkey frankfurter meatball. Pig short ribs sirloin shank. T-bone sirloin shoulder cupim burgdoggen. Ham hock short loin tri-tip filet mignon tenderloin t-bone shoulder hamburger chuck shank.</p><p>Picanha ball tip tail pork pork loin, spare ribs cow pancetta cupim. Capicola ground round ham hock t-bone, picanha spare ribs beef rump landjaeger bacon chicken brisket. Tail porchetta t-bone biltong beef ribs bacon doner pork belly. Ribeye tail flank brisket fatback tenderloin beef ribs bacon tongue.</p>", "price": 99, "image": "https://images.pexels.com/photos/326424/pexels-photo-326424.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" }, { "id": 2, "name": "Coffee 'n Code", "short_desc": "I'll bring you coffee and then we can code together!", "long_desc": "<p>I'll bring you coffee and then we can code together!</p><p>Spicy jalapeno bacon ipsum dolor amet frankfurter strip steak venison, jowl shank turkey burgdoggen turducken. Jerky tongue porchetta landjaeger beef ribs. Pancetta salami chicken venison flank andouille, ham hock turducken bresaola hamburger brisket. Filet mignon shank bresaola leberkas flank burgdoggen boudin sirloin pork. T-bone brisket chicken, flank hamburger pork chop venison tenderloin porchetta tail bresaola picanha ham hock.</p><p>Bresaola andouille landjaeger leberkas biltong turkey meatball tail frankfurter salami ham hock. Pork turkey frankfurter meatball. Pig short ribs sirloin shank. T-bone sirloin shoulder cupim burgdoggen. Ham hock short loin tri-tip filet mignon tenderloin t-bone shoulder hamburger chuck shank.</p><p>Picanha ball tip tail pork pork loin, spare ribs cow pancetta cupim. Capicola ground round ham hock t-bone, picanha spare ribs beef rump landjaeger bacon chicken brisket. Tail porchetta t-bone biltong beef ribs bacon doner pork belly. Ribeye tail flank brisket fatback tenderloin beef ribs bacon tongue.</p>", "price": 349, "image": "https://images.pexels.com/photos/414584/pexels-photo-414584.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" }, { "id": 3, "name": "Learn JavaScript", "short_desc": "Take your web development to the next level! Go beyond the fundamentals with 40+ hours of lessons and 30 projects.", "long_desc": "<p>Take your web development to the next level! Go beyond the fundamentals with 40+ hours of lessons and 30 projects.</p><p>Spicy jalapeno bacon ipsum dolor amet frankfurter strip steak venison, jowl shank turkey burgdoggen turducken. Jerky tongue porchetta landjaeger beef ribs. Pancetta salami chicken venison flank andouille, ham hock turducken bresaola hamburger brisket. Filet mignon shank bresaola leberkas flank burgdoggen boudin sirloin pork. T-bone brisket chicken, flank hamburger pork chop venison tenderloin porchetta tail bresaola picanha ham hock.</p><p>Bresaola andouille landjaeger leberkas biltong turkey meatball tail frankfurter salami ham hock. Pork turkey frankfurter meatball. Pig short ribs sirloin shank. T-bone sirloin shoulder cupim burgdoggen. Ham hock short loin tri-tip filet mignon tenderloin t-bone shoulder hamburger chuck shank.</p><p>Picanha ball tip tail pork pork loin, spare ribs cow pancetta cupim. Capicola ground round ham hock t-bone, picanha spare ribs beef rump landjaeger bacon chicken brisket. Tail porchetta t-bone biltong beef ribs bacon doner pork belly. Ribeye tail flank brisket fatback tenderloin beef ribs bacon tongue.</p>", "price": 149, "image": "https://images.pexels.com/photos/360591/pexels-photo-360591.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" }, { "id": 4, "name": "NodeJS + React", "short_desc": "Continue on your journey to become a fullstack web developer by learning NodeJS and React. 25+ hours of lessons and 5 projects.", "long_desc": "<p>Continue on your journey to become a fullstack web developer by learning NodeJS and React. 25+ hours of lessons and 5 projects.</p><p>Spicy jalapeno bacon ipsum dolor amet frankfurter strip steak venison, jowl shank turkey burgdoggen turducken. Jerky tongue porchetta landjaeger beef ribs. Pancetta salami chicken venison flank andouille, ham hock turducken bresaola hamburger brisket. Filet mignon shank bresaola leberkas flank burgdoggen boudin sirloin pork. T-bone brisket chicken, flank hamburger pork chop venison tenderloin porchetta tail bresaola picanha ham hock.</p><p>Bresaola andouille landjaeger leberkas biltong turkey meatball tail frankfurter salami ham hock. Pork turkey frankfurter meatball. Pig short ribs sirloin shank. T-bone sirloin shoulder cupim burgdoggen. Ham hock short loin tri-tip filet mignon tenderloin t-bone shoulder hamburger chuck shank.</p><p>Picanha ball tip tail pork pork loin, spare ribs cow pancetta cupim. Capicola ground round ham hock t-bone, picanha spare ribs beef rump landjaeger bacon chicken brisket. Tail porchetta t-bone biltong beef ribs bacon doner pork belly. Ribeye tail flank brisket fatback tenderloin beef ribs bacon tongue.</p>", "price": 199, "image": "https://images.pexels.com/photos/34676/pexels-photo.jpg?w=1260&h=750&auto=compress&cs=tinysrgb" }];
+
+                // The shopping cart
+                let cart = [];
+
+                // Returns an array of products
+                const getProducts = () => {
+                    return [...products];
+                };
+
+                // Checks for a product with 'id' and returns it
+                const getProductById = id => {
+                    id = +id || null;
+                    return id ? products.filter(item => item.id === id)[0] : null;
+                };
+
+                // Returns the shopping cart (array of product id's)
+                const getCart = () => {
+                    return [...cart];
+                };
+
+                // Used to add or remove an item from the shopping cart
+                const modifyCart = (method, id) => {
+                    // Adding an item
+                    if (method === 'add') {
+                        // Check the the item they want to add is actually a shop item
+                        if (cart.indexOf(id) === -1) {
+                            // Push the item into the shopping cart
+                            cart.push(id);
+                            // Update the localStorage with the new cart
+                            localStorage.setItem('cart', JSON.stringify({ items: getCart() }));
+                            // Emit an event to let everyone know the cart was updated
+                            Events.emit('cartupdated', getCart());
+                            return true;
+                        }
+
+                        // Removing an item
+                    } else if (method === 'remove') {
+                        // Check if the item they want to add is actually a shop item
+                        if (cart.indexOf(id) !== -1) {
+                            // Remove the item from the cart
+                            cart.splice(cart.indexOf(id), 1);
+                            // Update the localStorage with the new cart
+                            localStorage.setItem('cart', JSON.stringify({ items: getCart() }));
+                            // Emit an event to let everyone know the cart was updated
+                            Events.emit('cartupdated', getCart());
+                            return true;
+                        }
+                    }
+                    return false;
+                };
+
+                // Initializes the shopping cart
+                const initCart = () => {
+                    // Check if localStorage is available
+                    if ('localStorage' in window) {
+                        // Get the cart stored in localStorage
+                        let storedCart = JSON.parse(localStorage.getItem('cart'));
+                        // Did we find an existing cart?
+                        if (storedCart) {
+                            // Cool, set the stored cart equal to our app cart
+                            cart = storedCart.items;
+                        } else {
+                            // Otherwise, create a new localStorage item for our cart
+                            localStorage.setItem('cart', JSON.stringify({ items: getCart() }));
+                        }
+                    }
+                    // Tell everyone we've updated the cart
+                    Events.emit('cartupdated', getCart());
+                };
+
+                return {
+                    getCart,
+                    modifyCart,
+                    initCart,
+                    getProducts,
+                    getProductById
+                };
+
+            }();
+
+            // Various helpers and utility functions
+            const utils = function(window) {
+                // Hides content
+                const hideContent = contentEl => {
+                    return new Promise((resolve, reject) => {
+                        contentEl.classList.add('hide');
+                        window.setTimeout(() => {
+                            resolve();
+                        }, 350);
+                    });
+                };
+
+                // Shows content
+                const showContent = contentEl => {
+                    return new Promise((resolve, reject) => {
+                        contentEl.classList.remove('hide');
+                        window.setTimeout(() => {
+                            resolve();
+                        }, 350);
+                    });
+                };
+
+                // Sets the active navigation item
+                const setActiveNavItem = (nav, params) => {
+                    nav.forEach(li => li.classList.remove('active'));
+                    if (params === null) {
+                        nav[1].classList.add('active');
+                    } else if (params === '' || params === undefined) {
+                        nav[0].classList.add('active');
+                    }
+                };
+
+                // Removes all children from a parent node
+                const removeAllChildren = parent => {
+                    return new Promise((resolve, reject) => {
+                        while (parent.firstChild) {
+                            parent.removeChild(parent.firstChild);
+                        }
+                        resolve();
+                    });
+                };
+
+                // Paul Irish's solution to cross-browser requestAnimationFrame
+                // This is used to scroll the page to the top after navigating
+                const requestAnimFrame = function() {
+                    return window.requestAnimationFrame ||
+                        window.webkitRequestAnimationFrame ||
+                        window.mozRequestAnimationFrame ||
+                        function(callback) {
+                            window.setTimeout(callback, 1000 / 60);
+                        };
+                }();
+
+                // Scrolls the page to the top after navigating
+                const scrollToY = (scrollTargetY, speed, easing) => {
+                    scrollTargetY = scrollTargetY || 0;
+                    speed = speed || 2000;
+                    easing = easing || 'easeOutSine';
+                    const scrollY = window.scrollY || document.documentElement.scrollTop;
+                    let currentTime = 0;
+                    let time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8));
+
+                    const easingEquations = {
+                        easeOutSine: pos => {
+                            return Math.sin(pos * (Math.PI / 2));
+                        },
+                        easeInOutSine: pos => {
+                            return -0.5 * (Math.cos(Math.PI * pos) - 1);
+                        },
+                        easeInOutQuint: pos => {
+                            if ((pos /= 0.5) < 1) {
+                                return 0.5 * Math.pow(pos, 5);
+                            }
+                            return 0.5 * (Math.pow(pos - 2, 5) + 2);
+                        }
+                    };
+
+                    const tick = () => {
+                        currentTime += 1 / 60;
+                        const p = currentTime / time;
+                        const t = easingEquations[easing](p);
+                        if (p < 1) {
+                            requestAnimFrame(tick);
+                            window.scrollTo(0, scrollY + (scrollTargetY - scrollY) * t);
+                        } else {
+                            window.scrollTo(0, scrollTargetY);
+                        }
+                    };
+                    tick();
+                };
+
+                return {
+                    hideContent,
+                    setActiveNavItem,
+                    showContent,
+                    scrollToY,
+                    removeAllChildren
+                };
+            }(window);
+
+            // Handles the rendering and interactions with the shop and shopping cart
+            const Shop = function() {
+                // Shopping Cart class
+                class ShoppingCart {
+                    // Class constructor binds events and initializes the shopping cart
+                    constructor() {
+                        this._bindEvents();
+                        Model.initCart();
+                    }
+
+                    // Updates the shopping cart instance when the cart changes
+                    _bindEvents() {
+                        Events.on('cartupdated', cart => {
+                            this.cartItems = cart;
+                            this._updateCartNav(cart.length);
+                        });
+                    }
+
+                    // Updates the shopping cart navigation when the cart changes
+                    _updateCartNav(numItems) {
+                        const itemCount = document.getElementById('itemCount');
+                        itemCount.textContent = numItems;
+                    }
+
+                    // Returns the cart items
+                    get items() {
+                        return this.cartItems;
+                    }
+
+                    // Removes an item from the cart
+                    removeItem(id) {
+                        Model.modifyCart('remove', id);
+                    }
+
+                    // Adds an item to the cart
+                    addItem(id) {
+                        Model.modifyCart('add', parseInt(id));
+                    }
+                }
+
+                // Shop class
+                class Shop {
+                    // Shop constructor gets shop products and shopping cart
+                    constructor() {
+                        this.products = Model.getProducts();
+                        this.cart = new ShoppingCart();
+                        this.handleProductItemClick = this.handleProductItemClick.bind(this);
+                        this.handleAddToCartClick = this.handleAddToCartClick.bind(this);
+                    }
+
+                    // Public method to loads a single product
+                    loadProduct(id) {
+                        return this._loadSingleProduct(id);
+                    }
+
+                    // Loads a product list item
+                    _loadProductListItem(item, index) {
+                        const fragment = document.createDocumentFragment();
+                        const div = document.createElement('div');
+
+                        // Shop item container
+                        const li = document.createElement('li');
+                        li.setAttribute('id', `item-${item.id}`);
+                        li.classList.add('item');
+                        li.setAttribute('tabindex', index);
+
+                        // Shop item image
+                        const img = document.createElement('img');
+                        img.setAttribute('src', item.image);
+                        img.onload = function() {
+                            li.appendChild(this);
+                        };
+
+                        // Create the item details container
+                        const itemDetails = div.cloneNode(true);
+                        itemDetails.classList.add('item-details');
+
+                        // Create the item title container
+                        const itemTitle = div.cloneNode(true);
+                        itemTitle.classList.add('item-title');
+
+                        // Create the title
+                        const h3 = document.createElement('h3');
+                        h3.appendChild(document.createTextNode(item.name));
+                        itemTitle.appendChild(h3);
+
+                        // Create the button
+                        const button = document.createElement('button');
+                        button.classList.add('add-to-cart');
+                        if (this.cart.items.indexOf(item.id) !== -1) {
+                            button.innerHTML = '&check;';
+                        } else {
+                            button.appendChild(document.createTextNode(`$${item.price}`));
+                        }
+
+                        itemTitle.appendChild(button);
+
+                        // Create the item description container
+                        const itemDescription = div.cloneNode(true);
+                        itemDescription.classList.add('item-description');
+
+                        // Create the description
+                        const p = document.createElement('p');
+                        p.appendChild(document.createTextNode(item.short_desc));
+                        itemDescription.appendChild(p);
+
+                        // Append the children to the item
+                        itemDetails.appendChild(itemTitle);
+                        itemDetails.appendChild(itemDescription);
+                        li.appendChild(itemDetails);
+                        fragment.appendChild(li);
+                        return fragment;
+                    }
+
+                    // Loads a single product
+                    _loadSingleProduct(id) {
+                        const product = Model.getProductById(id);
+                        const productFragment = document.createDocumentFragment();
+                        const div = document.createElement('div');
+
+                        const productWrapper = div.cloneNode(true);
+                        productWrapper.classList.add('product');
+
+                        const productBody = div.cloneNode(true);
+                        productBody.classList.add('product-body');
+
+                        const imgWrapper = div.cloneNode(true);
+                        imgWrapper.classList.add('product-image');
+
+                        const productDescription = div.cloneNode(true);
+                        productDescription.classList.add('product-desc');
+
+                        const title = document.createElement('h2');
+                        title.appendChild(document.createTextNode(product.name));
+                        productWrapper.appendChild(title);
+
+                        const img = document.createElement('img');
+                        img.setAttribute('src', product.image);
+
+                        const btn = document.createElement('button');
+                        btn.classList.add('add-to-cart');
+
+                        if (this.cart.items.indexOf(product.id) !== -1) {
+                            btn.innerHTML = '&check;';
+                        } else {
+                            btn.appendChild(document.createTextNode(`$${product.price}`));
+                        }
+
+                        imgWrapper.appendChild(img);
+                        imgWrapper.appendChild(btn);
+                        productBody.appendChild(imgWrapper);
+
+                        // This is just me being lazy... meh
+                        productDescription.innerHTML = `${product.long_desc}`;
+                        productBody.appendChild(productDescription);
+                        productWrapper.appendChild(productBody);
+                        productFragment.appendChild(productWrapper);
+                        return productFragment;
+                    }
+
+                    // Handles Product item click events
+                    handleProductItemClick(e) {
+                        const productsList = e.currentTarget;
+                        const target = e.target;
+
+                        if (target !== productsList) {
+                            let product = target;
+                            while (product.nodeName !== 'LI') {
+                                product = product.parentNode;
+                            }
+                            const productID = parseInt(product.id.split('-')[1], 10);
+
+                            if (target.nodeName === 'BUTTON') {
+                                this.cart.addItem(productID);
+                                target.innerHTML = '&check;';
+                            } else {
+                                Router.navigate(`/products/${productID}`);
+                            }
+                        }
+                        e.stopPropagation();
+                    }
+
+                    // Handles add to cart click events
+                    handleAddToCartClick(target, itemID) {
+                        this.cart.addItem(itemID);
+                        target.innerHTML = '&check;';
+                    }
+
+                    // Renders the shopping cart
+                    renderCart() {
+                        const cartFragment = document.createDocumentFragment();
+                        const button = document.createElement('button');
+                        const li = document.createElement('li');
+                        const span = document.createElement('span');
+                        const p = document.createElement('p');
+
+                        const cartTitle = document.createElement('h2');
+                        cartTitle.textContent = 'My Cart';
+                        cartFragment.appendChild(cartTitle);
+
+                        if (this.cart.items.length <= 0) {
+                            const para = p.cloneNode(true);
+                            para.textContent = 'It\'s sad and lonely here...';
+                            cartFragment.appendChild(para);
+                        } else {
+                            const cartItems = document.createElement('ul');
+                            cartItems.classList.add('cart-items');
+                            let total = 0;
+
+                            this.cart.items.forEach(itemID => {
+                                const item = Model.getProductById(itemID);
+                                total += item.price;
+
+                                const itemRow = li.cloneNode(true);
+                                itemRow.setAttribute('id', `item-${item.id}`);
+                                itemRow.classList.add('cart-item');
+
+                                const itemTitle = span.cloneNode(true);
+                                itemTitle.classList.add('cart-item-name');
+                                itemTitle.textContent = `${item.name}`;
+
+                                const itemPrice = span.cloneNode(true);
+                                itemPrice.classList.add('cart-item-price');
+                                itemPrice.textContent = `$${item.price}`;
+
+                                const removeBtn = button.cloneNode(true);
+                                removeBtn.classList.add('remove-item');
+
+                                itemRow.appendChild(removeBtn);
+                                itemRow.appendChild(itemTitle);
+                                itemRow.appendChild(itemPrice);
+                                cartItems.appendChild(itemRow);
+                            });
+
+                            cartFragment.appendChild(cartItems);
+
+                            const totalPrice = p.cloneNode(true);
+                            totalPrice.classList.add('cart-total');
+                            totalPrice.textContent = `TOTAL: $${total}`;
+                            cartFragment.appendChild(totalPrice);
+                        }
+                        return cartFragment;
+                    }
+
+                    // Renders the default product list
+                    render() {
+                        const elementsFragment = document.createDocumentFragment();
+                        const productsFragment = document.createDocumentFragment();
+
+                        const title = document.createElement('h2');
+                        title.appendChild(document.createTextNode('Web Development Courses'));
+                        elementsFragment.appendChild(title);
+
+                        const ul = document.createElement('ul');
+                        ul.setAttribute('id', 'shopItems');
+                        ul.classList.add('item-list');
+
+                        this.products.forEach((item, index) => {
+                            productsFragment.appendChild(this._loadProductListItem(item, index));
+                        });
+
+                        ul.appendChild(productsFragment);
+                        elementsFragment.appendChild(ul);
+
+                        return elementsFragment;
+                    }
+                }
+                return new Shop();
+            }();
+
+            // Components for rendering each separate page
+            const Pages = MOUNT_NODE => {
+                const HomePage = () => {
+                    class HomePage {
+                        render() {
+                            MOUNT_NODE.appendChild(Shop.render());
+
+                            const shopItems = MOUNT_NODE.querySelector('#shopItems');
+                            if (shopItems.onclick !== undefined) {
+                                shopItems.addEventListener('click', Shop.handleProductItemClick, false);
+                            }
+                        }
+                    }
+                    return new HomePage().render();
+                };
+
+                const ProductPage = (params, query) => {
+                    class ProductPage {
+                        render(params, query) {
+                            MOUNT_NODE.appendChild(Shop.loadProduct(params.id));
+
+                            const button = document.querySelectorAll('.add-to-cart')[0];
+                            button.addEventListener('click', e => Shop.handleAddToCartClick(e.target, params.id), false);
+                        }
+                    }
+                    new ProductPage().render(params, query);
+                };
+
+                const CartPage = () => {
+                    class CartPage {
+                        render() {
+                            MOUNT_NODE.appendChild(Shop.renderCart());
+
+                            const cartItems = document.querySelectorAll('.cart-items')[0];
+                            if (cartItems) {
+                                cartItems.addEventListener('click', e => {
+                                    const productsList = e.currentTarget;
+                                    const target = e.target;
+
+                                    if (target !== productsList) {
+                                        let product = target;
+                                        while (product.nodeName !== 'LI') {
+                                            product = product.parentNode;
+                                        }
+                                        const productID = parseInt(product.id.split('-')[1], 10);
+
+                                        if (target.nodeName === 'BUTTON') {
+                                            Shop.cart.removeItem(productID);
+                                            if (Shop.cart.items.length > 0) {
+                                                const cartTotal = document.querySelectorAll('.cart-total')[0];
+
+                                                productsList.removeChild(product);
+
+                                                let total = 0;
+                                                Shop.cart.items.forEach(id => {
+                                                    const item = Model.getProductById(id);
+                                                    total += item.price;
+                                                });
+                                                cartTotal.textContent = `TOTAL: $${total}`;
+                                            } else {
+                                                Router.navigate('/');
+                                            }
+                                        } else if (target.className === 'cart-item-name') {
+                                            Router.navigate(`/products/${productID}`);
+                                        }
+                                    }
+                                    e.stopPropagation();
+                                }, false);
+                            }
+                        }
+                    }
+                    new CartPage().render();
+                };
+
+                return {
+                    HomePage,
+                    ProductPage,
+                    CartPage
+                };
+            };
+
+            // Initializes the application
+            const init = () => {
+                const MOUNT_NODE = document.getElementById('content');
+                const NAV = document.querySelectorAll('.nav ul > li');
+
+                // Defines the application routes
+                Router.routes = {
+                    '/products/:id': Pages(MOUNT_NODE).ProductPage,
+                    '/': Pages(MOUNT_NODE).HomePage,
+                    '/cart': Pages(MOUNT_NODE).CartPage
+                };
+
+                // Defines the application hooks
+                Router.hooks({
+                    'before': (done, params) => {
+                        utils.setActiveNavItem(NAV, params);
+
+                        utils.hideContent(MOUNT_NODE).then(() => {
+                            return utils.removeAllChildren(MOUNT_NODE);
+                        }).then(done);
+                    },
+                    'after': done => {
+                        utils.scrollToY(0, 1500, 'easeInOutQuint');
+                        utils.showContent(MOUNT_NODE).then(done);
+                    }
+                });
+            };
+
+            // Fire away
+            window.addEventListener('load', init, false);
+        })(Navigo, window);
+    </script>
+</body>
+
+</html>

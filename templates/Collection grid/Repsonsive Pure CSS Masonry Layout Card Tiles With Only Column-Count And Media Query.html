@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Repsonsive Pure CSS Masonry Layout Card Tiles With Only Column-Count And Media Query</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            font-family: 'Open Sans', Helvetica, Aria, sans-serif;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1250px;
+            min-width: 320px;
+            height: auto;
+            padding: 2.5vw;
+            margin: auto;
+        }
+
+        .mason {
+            list-style: none;
+            font-size: 0;
+            box-sizing: border-box;
+            border: 1px solid black;
+            overflow: auto;
+            padding: 1rem;
+            column-gap: 1rem;
+            margin: auto;
+        }
+
+        img {
+            box-sizing: border-box;
+            width: 100%;
+            height: auto;
+        }
+
+        li {
+            display: block;
+            width: 100%;
+            height: auto;
+            position: relative;
+            box-sixing: border-box;
+            margin-bottom: 1rem;
+        }
+
+        li:after {
+            content: '';
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.3;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        li:hover::after {
+            opacity: 0;
+        }
+
+        li:hover {
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        @media only screen and (max-width: 550px) {
+            .mason {
+                -webkit-column-count: 1;
+                -moz-column-count: 1;
+                column-count: 1;
+                background: cyan;
+            }
+
+            h1 {
+                color: black;
+                background: cyan;
+            }
+        }
+
+        @media only screen and (min-width: 550px) {
+            .mason {
+                -webkit-column-count: 2;
+                -moz-column-count: 2;
+                column-count: 2;
+                background: yellow;
+            }
+
+            li:first-child:nth-last-child(1) {
+                column-span: all;
+            }
+
+            h1 {
+                color: black;
+                background: yellow;
+            }
+        }
+
+        @media only screen and (min-width: 1150px) {
+            .mason {
+                -webkit-column-count: 3;
+                -moz-column-count: 3;
+                column-count: 3;
+                background: orange;
+            }
+
+            li:first-child:nth-last-child(2),
+            li:first-child:nth-last-child(2)~li {
+                column-span: all;
+            }
+
+            h1 {
+                color: black;
+                background: orange;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <main class="container">
+        <h1>Brutalist Architecture</h1>
+        <h2>
+            Inspired By Jen Simmon "Mondrian Series"
+            <h2>
+                <div class="mason">
+                    <li><img src="https://source.unsplash.com/D6RlVksk14g" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/gX9geMV-I3E" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/v01fum9ZgJw" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/FTclDoMeCQY" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/C0LW-BhEuFc" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/3nkyNIooMtY" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/SSnkBMLbErM" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/hu5mY7UEqww" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/UnAgD4n8RiU" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/TgAqZAd9InA" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/zOhA_EH8O3U" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/2IvusDCbmlQ" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/ToS5EvwsFaw" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/d3jyRt2N1gs" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/zOhA_EH8O3U" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/lxIDlssshjA" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/jSh85O_trWY" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/OxeG5GiOiqM" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/jVB9GYicytQ" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/7Ttt-YU-Qyg" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/7YZJ_jhQVNM" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/tOhkfHtINt8" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/HTyvOy1rN0w" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/BK00-RIxFLc" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/eAa_gD0HJtI" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/TyKU12wV3Z0" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/Hz6z9cNBw4Q" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/nMHY0SHuiVQ" alt="" title="" /></li>
+                    <li><img src="https://source.unsplash.com/RFDP7_80v5A" alt="" title="" /></li>
+                </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox - Split Screen Layout 2</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* Global Settings */
+        html>* {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 100%;
+            font-family: "Open-Sans", sans-serif;
+            line-height: 100%;
+        }
+
+        main {
+            width: 100%;
+            height: 100%;
+        }
+
+        p,
+        small,
+        span {
+            line-height: 1.5em;
+        }
+
+        h1 {
+            font-size: 3.25em;
+            font-weight: bold;
+            line-height: 1em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            line-height: 1.842em;
+        }
+
+        h3 {
+            font-size: 1.375em;
+            font-weight: bold;
+            line-height: 1.2em;
+        }
+
+        h2,
+        small {
+            color: #B3B4B5;
+        }
+
+        /* Setting flex containers so they are....flexible -__- */
+        .wrapper,
+        .container,
+        .col-1,
+        .col-2 {
+            display: flex;
+            flex: 1 100%;
+        }
+
+        .social-container {
+            display: flex;
+        }
+
+        /* Adjusting alignment and layout for each flex parent */
+        .container {
+            flex-flow: column nowrap;
+            min-height: 90vh;
+            width: 100%;
+        }
+
+        .col-1,
+        .col-2 {
+            justify-content: center;
+        }
+
+        .col-1 {
+            align-items: center;
+            flex-basis: 100%;
+            height: 10vh;
+        }
+
+        .col-2 {
+            flex-flow: column nowrap;
+            padding: 6% 4%;
+        }
+
+        /* Medium to larger screens. Breakpoint at 980px */
+        @media (min-width: 61.25em) {
+            .container {
+                flex-flow: row nowrap;
+            }
+
+            .col-2 {
+                padding: 11% 9%;
+            }
+        }
+
+        /* Styling the rest of the items */
+        /* Article Cover Section */
+        .article-cover {
+            align-items: center;
+            text-align: center;
+        }
+
+        #article-tip1-cover {
+            background: #0C0D11;
+            color: white;
+        }
+
+        .article-cover-title {
+            padding: 4%;
+        }
+
+        .social-container {
+            justify-content: center;
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .social-container>li {
+            margin: 0 2%;
+        }
+
+        .social-container>li>a {
+            border: solid 1px #fff;
+            border-radius: 90px;
+            color: #fff;
+            padding: 5px 8px;
+            text-decoration: none;
+        }
+
+        .social-container>li>a:hover {
+            background: #3498DB;
+        }
+
+        /* Article Content Section */
+        #article-tip1-content {
+            background: #3498DB;
+            color: white;
+        }
+
+        .article-content-summary {
+            background: #fff;
+            color: #0c0d11;
+            border: dashed 5px #f1c40f;
+            padding: 4%;
+            margin: 4% 0;
+        }
+
+        #article-tip1-content a:hover {
+            color: #0C0D11;
+            font-size: 110%;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <main id="wrapper">
+        <div class="cta-section col-1">
+            <h2>My Flex Articles</h2>
+        </div>
+        <section id="article-tip1" class="container">
+            <div id="article-tip1-cover" class="article-cover col-2 col-left ">
+                <h2>Tip #1</h2>
+                <h1 class="article-cover-title">Bannana Flex</h1>
+                <h3>Rhyan Vargas</h3>
+                <small>Web Developer & Designer</small>
+                <ul class="social-container">
+                    <li><a href="#">facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+            <div id="article-tip1-content" class="article-content col-2 col-right">
+                <h1 class="article-content-title">Flex Caution</h1>
+                <h3 class="article-content-summary">Apply flex sparingly. Unecessarily using it on everything may cause mental breakdown</h3>
+                <p>Affogato aesthetic photo booth bicycle rights kitsch tumblr. Farm-to-table sustainable put a bird on it, messenger bag everyday carry wayfarers green juice food truck cold-pressed thundercats. Mlkshk portland vegan, biodiesel ugh dreamcatcher put a bird on it 90's chia. Stumptown flexitarian kogi austin banjo godard, sustainable lomo fap organic. Tofu meh street art godard, drinking vinegar intelligentsia before they sold out seitan yuccie pour-over. Authentic raw denim shabby chic gastropub before they sold out aesthetic. Affogato pop-up chartreuse fixie mlkshk, meh man braid brunch vegan gluten-free.</p>
+                <span><a href="#">Read more</a></span>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flex Feature lists</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .main {
+            font-family: 'Archivo', sans-serif;
+            margin: 0 auto;
+            width: 90%;
+            padding: 1em;
+        }
+
+        .product-summary {
+            background-color: #f8f8ff;
+            border: 1px solid #666;
+            padding: 0.1em 0.5em 1.5em;
+            margin: 0 1em 2em 0;
+        }
+
+        .product-summary__add-to-cart {
+            display: block;
+            background-color: #111;
+            color: #fff;
+            padding: 0.3em;
+            transition: all 0.2s linear;
+        }
+
+        .product-summary__add-to-cart:hover {
+            text-decoration: none;
+            background-color: #444;
+        }
+
+        .product-summary__add-to-cart-text {
+            border: 1px solid #fff;
+            padding: 0.6em 1.4em;
+        }
+
+        .product-summary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-summary__desc {
+            flex-grow: 1;
+        }
+
+        @media (min-width: 800px) {
+            .products-list {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section class="main products-list">
+        <section class="product-summary">
+            <h2 class="product-summary__title">
+                <a class="product-summary__link" href="">
+               Product 1
+               </a>
+            </h2>
+            <a href="" class="product-summary__image-wrapper">
+            <img src="http://via.placeholder.com/200x200" class="product-summary__image-wrapper-img" alt="Image of Product 1" title="Image of Product 1" />
+            </a>
+            <div class="product-summary__desc">
+                <p>
+                    This the description of Product 1
+                </p>
+            </div>
+            <a href="" class="product-summary__add-to-cart">
+               <div class="product-summary__add-to-cart-text">
+                  Add To Cart
+               </div>
+            </a>
+        </section>
+        <section class="product-summary">
+            <h2 class="product-summary__title">
+                <a class="product-summary__link" href="">
+               Product 2
+               </a>
+            </h2>
+            <a href="" class="product-summary__image-wrapper">
+            <img src="http://via.placeholder.com/200x200" class="product-summary__image-wrapper-img" alt="Image of Product 1" title="Image of Product 1" />
+            </a>
+            <div class="product-summary__desc">
+                <p>
+                    This the description of Product 2.
+                </p>
+            </div>
+            <a href="" class="product-summary__add-to-cart">
+               <div class="product-summary__add-to-cart-text">
+                  Add To Cart
+               </div>
+            </a>
+        </section>
+        <section class="product-summary">
+            <h2 class="product-summary__title">
+                <a class="product-summary__link" href="">
+               Product 3
+               </a>
+            </h2>
+            <a href="" class="product-summary__image-wrapper">
+            <img src="http://via.placeholder.com/200x200" class="product-summary__image-wrapper-img" alt="Image of Product 1" title="Image of Product 1" />
+            </a>
+            <div class="product-summary__desc">
+                <p>
+                    This the description of Product 3.
+                </p>
+                <p>
+                    With some extra info.
+                </p>
+            </div>
+            <a href="" class="product-summary__add-to-cart">
+               <div class="product-summary__add-to-cart-text">
+                  Add To Cart
+               </div>
+            </a>
+        </section>
+        <section class="product-summary">
+            <h2 class="product-summary__title">
+                <a class="product-summary__link" href="">
+               Product 4
+               </a>
+            </h2>
+            <a href="" class="product-summary__image-wrapper">
+            <img src="http://via.placeholder.com/200x200" class="product-summary__image-wrapper-img" alt="Image of Product 1" title="Image of Product 1" />
+            </a>
+            <div class="product-summary__desc">
+                <p>
+                    This the description of Product 4.
+                </p>
+            </div>
+            <a href="" class="product-summary__add-to-cart">
+               <div class="product-summary__add-to-cart-text">
+                  Add To Cart
+               </div>
+            </a>
+        </section>
+    </section>
+</body>
+
+</html>

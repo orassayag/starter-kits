@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Grid Layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            -o-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #fff;
+            color: #666;
+            font-family: monospace, Helvetica, Verdana, Geneva, sans-serif;
+            font-size: 16px;
+        }
+
+        /* borders for almost every element */
+        #pagewrap,
+        #main,
+        nav,
+        .left-section,
+        .right-section,
+        .imgs,
+        footer {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        #pagewrap {
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* main header */
+        #main,
+        nav,
+        section,
+        footer {
+            margin: 1%;
+        }
+
+        #main {
+            width: 98%;
+            height: auto;
+            margin: 2% auto;
+        }
+
+        #main h1 {
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* end of main header */
+        /* navigation section */
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            text-align: center;
+            padding: 20px;
+            height: 2%;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #666;
+            padding: 20px;
+        }
+
+        /* an underline appears at the bottom on hover of each link */
+        nav ul li a:hover,
+        nav ul li a:active {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 8px;
+        }
+
+        /* end of navigation section*/
+        /* left column of first content */
+        .left-section {
+            float: left;
+            width: 48%;
+            height: auto;
+            padding: 30px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .left-section h3 {
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* end of left column of first content */
+        /* right column of first content */
+        .right-section {
+            float: right;
+            width: 48%;
+            height: auto;
+            padding: 30px;
+            line-height: 1.8;
+            text-indent: 5px;
+            text-align: justify;
+        }
+
+        .right-section h3 {
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* end of right column of first content */
+        /* images section */
+        #image-section {
+            clear: both;
+        }
+
+        #left-image,
+        #middle-image {
+            margin-right: 2%;
+        }
+
+        .imgs {
+            width: 32%;
+            float: left;
+            margin-bottom: 1.5%;
+            margin-top: 1%;
+        }
+
+        .imgs img {
+            max-width: 100%;
+            height: auto;
+            padding: 10px;
+        }
+
+        .imgs p {
+            line-height: 1.8;
+            text-align: justify;
+            padding: 20px;
+            font-size: .90em;
+        }
+
+        /* end of images section */
+        /* footer */
+        footer {
+            clear: both;
+        }
+
+        footer p {
+            padding: 30px;
+        }
+
+        /* end of footer */
+        /* media queries */
+        @media screen and (max-width: 900px) {
+            #pagewrap {
+                width: auto;
+                float: none;
+            }
+
+            .left-section {
+                width: auto;
+                float: none;
+                margin: 1%;
+            }
+
+            .right-section {
+                width: auto;
+                float: none;
+                margin: 1%;
+            }
+
+            .imgs {
+                width: 100%;
+                float: none;
+            }
+
+            #left-image,
+            #middle-image {
+                margin: none;
+            }
+
+            nav ul li a {
+                text-align: center;
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            nav ul li {
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div id="pagewrap">
+        <header id="main">
+            <h1>Responsive Grid Layout</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </nav>
+        <section class="left-section">
+            <h3>This is a title</h3>
+            <article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius venenatis mauris a tincidunt. Proin non mi in libero gravida lobortis a quis ante. Mauris interdum quis massa nec convallis. Cras rhoncus nibh id ante congue luctus. Maecenas condimentum risus eget augue lacinia, sit amet tempor felis tincidunt. Aenean dapibus magna feugiat risus commodo lobortis. Suspendisse vel scelerisque justo, in feugiat dolor. Vestibulum euismod sapien metus, quis ullamcorper erat vestibulum non. Nullam fermentum dui nec maximus mollis.</p>
+                <p>Proin egestas non sapien ac consequat. Mauris ornare sodales nulla a luctus. Pellentesque pretium odio a eleifend tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus metus est, suscipit feugiat tortor nec, placerat vestibulum mi. Praesent at nulla interdum, vehicula lectus quis, tempor ligula. Nullam libero lacus, lobortis quis porta ac, faucibus gravida tellus. Integer id nisl eget turpis sodales ultricies at ultricies est. Morbi finibus eros eu nisl accumsan, nec pellentesque mi eleifend. Vivamus feugiat nisl a erat tincidunt aliquam. Mauris consequat non erat quis congue. Vestibulum in quam in justo volutpat rutrum nec sit amet dolor. Ut aliquet eu tellus eget tempor. Morbi feugiat nibh eget sem fringilla fringilla. Phasellus elementum nec metus et maximus. Sed id velit gravida, tempor ligula nec, aliquet massa</p>
+            </article>
+        </section>
+        <section class="right-section">
+            <h3>This is a title</h3>
+            <article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius venenatis mauris a tincidunt. Proin non mi in libero gravida lobortis a quis ante. Mauris interdum quis massa nec convallis. Cras rhoncus nibh id ante congue luctus. Maecenas condimentum risus eget augue lacinia, sit amet tempor felis tincidunt. Aenean dapibus magna feugiat risus commodo lobortis. Suspendisse vel scelerisque justo, in feugiat dolor. Vestibulum euismod sapien metus, quis ullamcorper erat vestibulum non. Nullam fermentum dui nec maximus mollis.</p>
+                <p>Proin egestas non sapien ac consequat. Mauris ornare sodales nulla a luctus. Pellentesque pretium odio a eleifend tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus metus est, suscipit feugiat tortor nec, placerat vestibulum mi. Praesent at nulla interdum, vehicula lectus quis, tempor ligula. Nullam libero lacus, lobortis quis porta ac, faucibus gravida tellus. Integer id nisl eget turpis sodales ultricies at ultricies est. Morbi finibus eros eu nisl accumsan, nec pellentesque mi eleifend. Vivamus feugiat nisl a erat tincidunt aliquam. Mauris consequat non erat quis congue. Vestibulum in quam in justo volutpat rutrum nec sit amet dolor. Ut aliquet eu tellus eget tempor. Morbi feugiat nibh eget sem fringilla fringilla. Phasellus elementum nec metus et maximus. Sed id velit gravida, tempor ligula nec, aliquet massa</p>
+            </article>
+        </section>
+        <section id="image-section">
+            <article id="left-image" class="imgs">
+                <img src="https://res.cloudinary.com/dnroxbmjk/image/upload/v1455463867/second_u1xbxx.jpg" alt="" title="" />
+                <p>Proin egestas non sapien ac consequat. Mauris ornare sodales nulla a luctus. Pellentesque pretium odio a eleifend tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus metus est, suscipit feugiat tortor nec, placerat vestibulum mi. Praesent at nulla interdum, vehicula lectus quis, tempor ligula. Nullam libero lacus, lobortis quis porta ac, faucibus gravida tellus.</p>
+            </article>
+            <article id="middle-image" class="imgs">
+                <img src="https://res.cloudinary.com/dnroxbmjk/image/upload/v1455463861/first_p8o4kb.jpg" alt="" title="" />
+                <p>Proin egestas non sapien ac consequat. Mauris ornare sodales nulla a luctus. Pellentesque pretium odio a eleifend tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus metus est, suscipit feugiat tortor nec, placerat vestibulum mi. Praesent at nulla interdum, vehicula lectus quis, tempor ligula. Nullam libero lacus, lobortis quis porta ac, faucibus gravida tellus.</p>
+            </article>
+            <article id="right-image" class="imgs">
+                <img src="https://res.cloudinary.com/dnroxbmjk/image/upload/v1455463863/third_i20wzc.jpg" alt="" title="" />
+                <p>Proin egestas non sapien ac consequat. Mauris ornare sodales nulla a luctus. Pellentesque pretium odio a eleifend tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus metus est, suscipit feugiat tortor nec, placerat vestibulum mi. Praesent at nulla interdum, vehicula lectus quis, tempor ligula. Nullam libero lacus, lobortis quis porta ac, faucibus gravida tellus.</p>
+            </article>
+        </section>
+        <footer>
+            <p>&copy mariacheline
+        </footer>
+    </div>
+</body>
+
+</html>

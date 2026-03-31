@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive website layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/144467/normalize.css" media="screen" title="no title" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700%7CPT+Sans:400,700" />
+    <style type="text/css">
+        body {
+            font-family: 'Noto Sans', sans-serif, Helvetica;
+            font-size: 16px;
+            color: #6d6d6d;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        p {
+            line-height: 25px;
+            font-weight: 400;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            letter-spacing: 0.8px;
+            font-family: 'PT Sans', sans-serif, Helvetica;
+            font-weight: 400;
+            color: #ecf0f1;
+        }
+
+        small {
+            font-family: 'Noto Sans', sans-serif, Georgia;
+            font-weight: 400;
+            color: #6d6d6d;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding-top: 30px;
+            background: #2c3e50;
+            height: 100%;
+        }
+
+        .logo {
+            line-height: 16px;
+            font-size: 1.2em;
+            padding-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-weight: 700;
+            text-shadow: 3px 3px 20px #000;
+        }
+
+        .logo h1:nth-child(2) {
+            color: #a4aaae;
+        }
+
+        .menubar {
+            position: relative;
+            display: block;
+            margin: 0 auto 50px auto;
+            padding: 12px 10px 0px 10px;
+            text-align: center;
+            font-family: 'Noto Sans', sans-serif, Georgia;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            height: 25px;
+            -webkit-transition: height 0.3s;
+            transition: height 0.3s;
+            width: 70%;
+            background: #1c2c3c;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .menubar-checkbox {
+            position: absolute;
+            top: 157px;
+            left: 15%;
+            width: 70%;
+            height: 35px;
+            z-index: 100;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .menubar ul {
+            height: 0;
+            display: inline-block;
+            opacity: 0;
+            margin: 0;
+            padding: 10px 0px 0px 0px;
+            width: 90%;
+        }
+
+        .menubar li {
+            list-style-type: none;
+        }
+
+        .menubar a {
+            color: #6d6d6d;
+            display: block;
+            padding: 5px 10px;
+        }
+
+        .menubar li:hover a {
+            color: #ecf0f1;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .menubar-handle {
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            width: 15%;
+            height: 15px;
+            padding: 0 40%;
+            background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/144467/bar_1.png') repeat-x;
+            background-clip: content-box;
+        }
+
+        .menubar .active {
+            color: #ecf0f1;
+        }
+
+        @-webkit-keyframes menu-fade-in {
+            0% {
+                opacity: 0;
+                height: 0;
+            }
+
+            100% {
+                opacity: 1;
+                height: 135px;
+            }
+        }
+
+        @-webkit-keyframes menu-fade-out {
+            0% {
+                opacity: 1;
+                height: 135px;
+            }
+
+            100% {
+                opacity: 0;
+                height: 0px;
+            }
+        }
+
+        #menubar-checkbox:checked+.menubar {
+            -webkit-transition: height .3s;
+            transition: height .3s;
+            height: 155px;
+        }
+
+        #menubar-checkbox:checked+.menubar>ul {
+            display: inline-block;
+            -webkit-animation: menu-fade-in 1s forwards;
+            animation: menu-fade-in 1s forwards;
+        }
+
+        #menubar-checkbox:checked+.menubar-handle {
+            margin: 0 auto;
+        }
+
+        .banner {
+            background: rgb(44, 62, 80) url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/144467/banner_2.png') no-repeat center;
+            margin: 0;
+            background-size: cover;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .banner h2 {
+            font-size: 1.3em;
+            padding: 29% 0;
+            margin: 0;
+            color: #bdc3c7;
+        }
+
+        html,
+        body,
+        .about-info,
+        .personalised,
+        .experienced,
+        .passionate {
+            height: 100%;
+        }
+
+        .about-info {
+            width: 100%;
+            position: relative;
+            background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/144467/bg.png');
+            margin: 0;
+        }
+
+        .about-info p {
+            font-size: 0.95em;
+        }
+
+        .personalised,
+        .experienced,
+        .passionate {
+            box-sizing: border-box;
+            position: relative;
+            padding: 60px 20px 0px 0;
+            vertical-align: top;
+            text-align: center;
+            color: #6d6d6d;
+        }
+
+        .about-info div:last-child {
+            padding: 60px 20px 30px 0;
+        }
+
+        .personalised h3,
+        .experienced h3,
+        .passionate h3 {
+            padding-bottom: 30px;
+        }
+
+        .about-info img {
+            position: relative;
+            height: 52px;
+            width: 57px;
+            margin: 0px 0 0 -15px;
+        }
+
+        .personalised img {
+            width: 38px;
+        }
+
+        .passionate img {
+            width: 45px;
+        }
+
+        .passionate:hover img {
+            -webkit-animation: heartbeat 1.5s infinite;
+        }
+
+        @-webkit-keyframes heartbeat {
+            0% {
+                -webkit-transform: scale(1);
+            }
+
+            25% {
+                -webkit-transform: scale(0.9);
+            }
+
+            50% {
+                -webkit-transform: scale(1.2);
+            }
+
+            75% {
+                -webkit-transform: scale(0.9);
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+            }
+        }
+
+        @-webkit-keyframes fade {
+            0% {
+                -webkit-filter: hue-rotate(0deg);
+            }
+
+            25% {
+                -webkit-filter: hue-rotate(90deg);
+            }
+
+            50% {
+                -webkit-filter: hue-rotate(180deg);
+            }
+
+            75% {
+                -webkit-filter: hue-rotate(270deg);
+            }
+
+            100% {
+                -webkit-filter: hue-rotate(360deg);
+            }
+        }
+
+        .cta {
+            margin-top: -20px;
+            width: 100%;
+            background: rgb(181, 181, 181);
+            text-align: center;
+        }
+
+        .cta h2 {
+            padding-top: 150px;
+            padding-bottom: 20px;
+            color: #2e2e2e;
+        }
+
+        .cta button {
+            margin-bottom: 120px;
+            text-transform: uppercase;
+            background: rgba(236, 240, 241, 0.6);
+            border: 2px #2e2e2e solid;
+            border-radius: 2px;
+            padding: 15px;
+            font-family: 'Noto Sans', sans-serif, Georgia;
+            font-weight: 700;
+            color: #2e2e2e;
+        }
+
+        .cta button:hover {
+            background: rgba(236, 240, 241, 0.8);
+            transition-property: background;
+            transition-duration: 0s;
+        }
+
+        .footer {
+            background: rgb(32, 32, 32);
+            height: 100%;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .credits {
+            padding-bottom: 20px;
+        }
+
+        .social {
+            margin: 0 auto;
+        }
+
+        .social a {
+            display: inline-block;
+            padding: 0 2px;
+        }
+
+        .facebook {
+            background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/144467/facebook.png') no-repeat;
+            background-size: cover;
+            width: 40px;
+            height: 40px;
+            display: block;
+        }
+
+        .linkedin {
+            background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/144467/linkedin.png') no-repeat;
+            background-size: cover;
+            width: 40px;
+            height: 40px;
+            display: block;
+        }
+
+        .googlep {
+            background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/144467/google-plus.png') no-repeat;
+            background-size: cover;
+            width: 40px;
+            height: 40px;
+            display: block;
+        }
+
+        @media screen and (min-width:768px) {
+            .header {
+                border-bottom: 15px solid #1c2c3c;
+                position: relative;
+                height: 100%;
+                text-align: left;
+                padding: 50px 0 20px 0;
+                background: #2c3e50;
+            }
+
+            .logo {
+                left: 0;
+                display: inline-block;
+                line-height: 16px;
+                font-size: 21px;
+                padding-left: 20px;
+            }
+
+            .logo h1 {
+                font-weight: 700;
+                text-shadow: 3px 3px 20px #000;
+            }
+
+            .logo h1:nth-child(2) {
+                padding-left: 0px;
+                color: #a4aaae;
+                -webkit-transition-duration: 0.3s;
+                -webkit-transition-timing-function: linear;
+            }
+
+            .logo h1:last-child {
+                padding-left: 0px;
+                -webkit-transition-duration: 0.3s;
+                -webkit-transition-timing-function: linear;
+            }
+
+            .logo a {
+                display: inline-block;
+            }
+
+            .logo:hover h1:last-child {
+                margin-left: 40px;
+            }
+
+            .logo:hover h1:nth-child(2) {
+                margin-left: 20px;
+            }
+
+            .menubar {
+                cursor: default;
+                position: absolute;
+                top: 35%;
+                right: 0;
+                display: inline-block;
+                padding: 0px 10px;
+                height: auto;
+                width: auto;
+                -webkit-transition: none;
+                -moz-transition: none;
+                transition: none;
+                border-radius: 3px;
+            }
+
+            .menubar-checkbox {
+                display: none;
+                z-index: -100;
+            }
+
+            .menubar-handle {
+                display: none;
+            }
+
+            .menubar ul {
+                height: auto;
+                max-height: 50px;
+                width: auto;
+                display: block;
+                opacity: 1;
+                padding: 20px;
+            }
+
+            .menubar a {
+                padding: 5px 0;
+                display: inline-block;
+                color: #a4aaae;
+                text-align: center;
+                text-transform: uppercase;
+                font-family: Noto Sans, sans-serif, Georgia;
+                font-weight: 700;
+                font-size: 14px;
+            }
+
+            .menubar li {
+                display: inline-block;
+                list-style-type: none;
+                color: #6d6d6d;
+                padding: 0 8px;
+            }
+
+            .menubar li:hover a {
+                background: none;
+            }
+
+            .active {
+                border-bottom: 3px solid #ecf0f1;
+            }
+
+            .about-info {
+                padding: 0px;
+            }
+
+            .personalised,
+            .experienced,
+            .passionate {
+                display: inline-block;
+                padding: 50px 30px;
+                width: 32%;
+            }
+
+            .about-info div:last-child {
+                padding: 50px 30px;
+            }
+
+            .footer {
+                width: 100%;
+                display: inline-block;
+                text-align: left;
+            }
+
+            .credits {
+                display: inline-block;
+            }
+
+            .social {
+                display: inline-block;
+                float: right;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <div class="header">
+            <div class="wrapper">
+                <div class="logo">
+                    <a href="#">
+                     <h1>Business</h1>
+                     <h1>Excellence</h1>
+                     <h1>Consulting</h1>
+                  </a>
+                </div>
+                <input type="checkbox" id="menubar-checkbox" class="menubar-checkbox" />
+                <div class="menubar">
+                    <label for="menubar-checkbox" class="menubar-handle"></label>
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="wrapper">
+                <h2>Our passion is to see our clients Strive, Succeed &amp; Thrive.</h2>
+            </div>
+        </div>
+        <div class="about-info">
+            <div class="wrapper">
+                <div class="personalised">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/144467/personalised.png" alt="" title="" />
+                    <h3>Personalised</h3>
+                    <p>We take pride in being small enough to stay in touch with fellow entrepreneurs, while ensuring we stay at the forefront of knowledge by offering cutting edge advice. Our vision is to be a partner for success of small to medium enterprises in Australia.</p>
+                </div>
+                <div class="experienced">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/144467/experienced_1.png" alt="" title="" />
+                    <h3>Experienced</h3>
+                    <p>Our experience in both the demanding corporate environment and fiercely competitive small business field, gives us a passion to assist businesses by adding strategic value through intimate involvement to see them Strive, Succeed &amp; Thrive.</p>
+                </div>
+                <div class="passionate">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/144467/passionate.png" alt="" title="" />
+                    <h3>Passionate</h3>
+                    <p>Our experience as manufacturing specialists allows us to assist clients in operational and strategic planning. We optimise businesses through process improvements, streamlining processes and strategic planning assistance.</p>
+                </div>
+            </div>
+        </div>
+        <div class="cta">
+            <div class="wrapper">
+                <h2>We offer a FREE initial consultation to determine how you can value from our services.</h2>
+                <button type="submit" name="submitButton" value="quote">Contact us</button>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="wrapper">
+                <div class="credits">
+                    <small>© 2013 Business Excellence Consulting. All Rights Reserved</small>
+                </div>
+                <div class="social">
+                    <a href="#">
+                  <span class="linkedin">&nbsp;</span>
+                  </a>
+                    <a href="#">
+                  <span class="facebook">&nbsp;</span>
+                  </a>
+                    <a href="#">
+                  <span class="googlep">&nbsp;</span>
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

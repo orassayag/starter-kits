@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Sverige Science Feed</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        .flexbox-masonry {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flexbox-masonry .col {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .main-header {
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-header .site-info {
+            display: flex;
+            align-items: baseline;
+            padding: 1rem 1rem;
+            flex: 1;
+        }
+
+        .main-header .site-title {
+            font-size: 1rem;
+            margin: 0;
+            font-weight: 500;
+            color: #565656;
+        }
+
+        .main-header .site-title:hover {
+            color: black;
+        }
+
+        .main-header .site-description {
+            color: #868686;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            flex: 1;
+        }
+
+        .main-header .channels {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 1rem;
+        }
+
+        main.feed {
+            padding: 0 1rem;
+        }
+
+        main.feed article {
+            display: flex;
+            flex-direction: column;
+            margin: 1rem;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        main.feed article footer {
+            padding: 1.5rem 0;
+        }
+
+        main.feed article footer p,
+        main.feed article footer>a {
+            padding: 0 1rem;
+            margin: 0;
+        }
+
+        main.feed article footer p {
+            padding-bottom: 0.6666666667rem;
+            color: #212121;
+        }
+
+        main.feed article footer>a {
+            padding-top: 0;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 0.6666666667rem;
+        }
+
+        main.feed article .meta {
+            padding: 0 1rem;
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            color: #868686;
+        }
+
+        main.feed article .meta a {
+            padding: 0;
+        }
+
+        main.feed article .meta .row:not(:first-child) {
+            margin-top: 0.5rem;
+        }
+
+        main.feed article .meta .fa {
+            width: 1rem;
+        }
+
+        main.feed article header {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        main.feed article header:hover figure img {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        main.feed article header:hover h2 {
+            opacity: 0;
+            transform: translateY(50%);
+        }
+
+        main.feed article header h2 {
+            margin: 0;
+            padding: 1rem;
+            font-weight: 100;
+            position: absolute;
+            bottom: 0;
+            color: white;
+            will-change: transform, opacity;
+            transition: all 500ms ease;
+        }
+
+        main.feed article header figure {
+            margin: 0;
+            background-image: linear-gradient(to bottom, #646464, black);
+        }
+
+        main.feed article header figure img {
+            display: block;
+            opacity: 0.5;
+            max-width: 100%;
+            will-change: transform;
+            transition: all 500ms ease;
+        }
+
+        @media all and (max-width: 700px) {
+            .site-info .site-description {
+                display: none;
+            }
+        }
+
+        @media all and (max-width: 600px) {
+            .main-header .channels {
+                display: none;
+            }
+
+            .main-header {
+                justify-content: center;
+            }
+
+            .main-header .site-title {
+                flex: 1;
+                text-align: center;
+            }
+        }
+
+        .main-footer {
+            background-color: #242424;
+            color: #999;
+            padding: 2rem 0;
+            font-size: 0.7rem;
+        }
+
+        .main-footer a {
+            color: currentColor;
+            text-decoration: none;
+        }
+
+        .main-footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .main-footer .row {
+            max-width: 600px;
+            margin: 0.4rem auto;
+            padding: 0 2rem;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header class="main-header">
+        <div class="site-info">
+            <h1 class="site-title"><a href="#">Sverige Science</a></h1>
+            <span class="site-description">Korta, snabblästa och bra vetenskapsnyheter från hela världen på svenska.</span>
+        </div>
+        <nav class="channels" itemscope itemtype="http://schema.org/Organization">
+            <link itemprop="url" href="https://sverige.science">
+            <a title="RSS Feed" href="/rss/">
+            <span class="fa fa-fw fa-rss-square"></span>
+            </a>
+            <a title="Facebook" href="https://www.facebook.com/pages/Sverige-Science/1573102716308904" itemprop="sameAs">
+            <span class="fa fa-fw fa-facebook-square"></span>
+            </a>
+            <a title="Twitter" href="https://twitter.com/SverigeScience/" itemprop="sameAs">
+            <span class="fa fa-fw fa-twitter-square"></span>
+            </a>
+            <a title="Google Plus" href="https://plus.google.com/100720233675890372160" itemprop="sameAs" rel="publisher">
+            <span class="fa fa-fw fa-google-plus-square"></span>
+            </a>
+        </nav>
+    </header>
+    <main class="feed flexbox-masonry" data-cols="1" data-breakpoints="600:2,960:3,1280:4">
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/lightbulb-min.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Supereffektiva lampor med grafen kommer snart ut på marknaden</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/oltillverkning-ol-egypten.jpg" alt="Öl" title="Öl" />
+                </figure>
+                <h2>Material för öltillverkning från antika Egypten hittat i Israel</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/chevrolet-2016.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Utvecklingen av elbilar går fort framåt</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/bra-fett-daligt-fett.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Ny typ av fettceller omvandlar de dåliga till bra</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/exoskelett.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Exoskelett ger effektivare promenader</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/lightbulb-min.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Supereffektiva lampor med grafen kommer snart ut på marknaden</h2>
+            </header>
+            <p>En lampa gjord av supermaterialet grafen kommer börja säljas senare i år. Lampan skall vara ljusare och billigare, hålla längre och även förbruka 10 % mindre...</p>
+            <a href="#lampa">Läs mer…</a>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/oltillverkning-ol-egypten.jpg" alt="Öl" title="Öl" />
+                </figure>
+                <h2>Material för öltillverkning från antika Egypten hittat i Israel</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/chevrolet-2016.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Utvecklingen av elbilar går fort framåt</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/bra-fett-daligt-fett.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Ny typ av fettceller omvandlar de dåliga till bra</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/exoskelett.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Exoskelett ger effektivare promenader</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/lightbulb-min.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Supereffektiva lampor med grafen kommer snart ut på marknaden</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/oltillverkning-ol-egypten.jpg" alt="Öl" title="Öl" />
+                </figure>
+                <h2>Material för öltillverkning från antika Egypten hittat i Israel</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/chevrolet-2016.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Utvecklingen av elbilar går fort framåt</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/bra-fett-daligt-fett.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Ny typ av fettceller omvandlar de dåliga till bra</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/exoskelett.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Exoskelett ger effektivare promenader</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/lightbulb-min.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Supereffektiva lampor med grafen kommer snart ut på marknaden</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/oltillverkning-ol-egypten.jpg" alt="Öl" title="Öl" />
+                </figure>
+                <h2>Material för öltillverkning från antika Egypten hittat i Israel</h2>
+            </header>
+            <p>Unga som gamla, rika som fattiga, alla i det antika Egypten tros ha älskat öl, och tydligen har detta öl rest en bit. Hundratals bitar…</p>
+            <a href="#beer">Läs mer…</a>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/chevrolet-2016.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Utvecklingen av elbilar går fort framåt</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/bra-fett-daligt-fett.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Ny typ av fettceller omvandlar de dåliga till bra</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        <article>
+            <header>
+                <figure>
+                    <img src="https://sverige.science/content/images/2015/04/exoskelett.jpg" alt="Lampa" title="Lampa" />
+                </figure>
+                <h2>Exoskelett ger effektivare promenader</h2>
+            </header>
+            <footer>
+                <p>Forskare har utvecklat ett icke strömdrivande exoskelett som reducerar mängden energi som förbrukas när man är ute och går. Skon har en fjäder som ligger…</p>
+                <a href="#fett-mannen">Läs mer…</a>
+                <div class="meta">
+                    <div class="row">
+                        <span class="fa fa-calendar-o"></span>
+                        <time>för 3 dagar sedan</time>
+                    </div>
+                    <div class="row">
+                        <span class="fa fa-user"></span>
+                        <span><a href="#">Jeremy Karlsson</a></span>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </main>
+    <footer class="main-footer">
+        <div class="row">
+            COPYRIGHT © SVERIGE SCIENCE. ALL RIGHTS RESERVED.
+        </div>
+        <div class="row">
+            Published with <a class="icon-ghost" href="http://ghost.org">Ghost</a>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        function guid() {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+            }
+            return 'g' + s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+        }
+
+        var MediaQuery = function(minWidth, columnCount) {
+            return {
+                matchMedia: window.matchMedia('(min-width:' + minWidth + 'px)'),
+                matches: function() {
+                    return this.matchMedia.matches;
+                },
+                columns: columnCount
+            };
+        };
+
+        var Masonry = function(guid) {
+            this.masonry = document.querySelector('#' + guid);
+            this.mediaQueries = [];
+
+            this.addMediaQuery = function(minWidth, columnCount) {
+                this.mediaQueries.push(new MediaQuery(minWidth, columnCount));
+            };
+
+            this.supposedColumns = function() {
+                var cols = 1;
+                for (var m = 0; m < this.mediaQueries.length; m++) {
+                    var mq = this.mediaQueries[m];
+                    if (mq.matches()) {
+                        cols = mq.columns;
+                    }
+                }
+                return cols;
+            };
+
+            this.setColumns = function(columnCount) {
+                this.saveArticles();
+                var currentColumns = this.masonry.querySelectorAll('.col');
+                this.masonry.dataset.cols = columnCount;
+                if (currentColumns.length > columnCount) {
+                    for (var c = 0; c < currentColumns.length; c++) {
+                        if (c + 1 > columnCount) {
+                            currentColumns[c].remove();
+                        }
+                    }
+                } else if (currentColumns.length < columnCount) {
+                    for (var c = currentColumns.length; c < columnCount; c++) {
+                        var newCol = document.createElement('div');
+                        newCol.classList.add('col');
+                        newCol.classList.add('col-' + (c + 1));
+                        this.masonry.appendChild(newCol);
+                    }
+                } else {
+                    return;
+                }
+                this.fillArticles();
+            };
+
+            this.addToColumn = function(columnIndex, element) {
+                var col = this.masonry.querySelector('.col-' + columnIndex);
+                col.appendChild(element);
+            };
+
+            this.saveArticles = function() {
+                var articles = this.masonry.querySelectorAll('article');
+                for (var a = 0; a < articles.length; a += 1) {
+                    var art = articles[a];
+                    this.masonry.appendChild(art);
+                }
+            };
+
+            this.fillArticles = function() {
+                var articles = this.masonry.querySelectorAll('article');
+                var lastCol = 0;
+                for (var a = 0; a < articles.length; a++) {
+                    lastCol++;
+                    this.addToColumn(lastCol, articles[a]);
+                    if (lastCol == this.supposedColumns()) {
+                        lastCol = 0;
+                    }
+                }
+            };
+
+            this.update = function() {
+                if (this.supposedColumns() === this.masonry.dataset.cols) {
+                    return;
+                }
+                this.setColumns(this.supposedColumns());
+                this.fillArticles();
+            };
+
+            var breakpoints = this.masonry.dataset.breakpoints.split(',');
+            var points = [],
+                desiredCol = [];
+            for (var b = 0; b < breakpoints.length; b++) {
+                var breakpoint = breakpoints[b].split(':');
+                this.addMediaQuery(breakpoint[0], breakpoint[1]);
+            }
+
+            console.debug('Masonry created with mediq queries:');
+            console.debug(this.mediaQueries);
+        };
+
+        var FlexboxMasonry = {
+            flexIt: function(masonry) {
+                masonry.id = guid();
+                var m = new Masonry(masonry.id);
+                var columnOne = document.createElement('div');
+                columnOne.classList.add('col');
+                columnOne.classList.add('col-1');
+                masonry.appendChild(columnOne);
+
+                window.addEventListener('resize', function() {
+                    m.update();
+                }, false);
+
+                m.update();
+            },
+            run: function() {
+                var masonries = document.querySelectorAll('.flexbox-masonry');
+                for (var i = 0; i < masonries.length; i++) {
+                    var masonry = masonries[i];
+                    this.flexIt(masonry);
+                }
+            }
+        };
+
+        function pageLoad() {
+            FlexboxMasonry.run();
+            document.querySelector('.site-title a').href = document.location.origin;
+            document.querySelector('.feed article header').addEventListener('click', function() {
+                this.parentNode.querySelector('a').click();
+            }, false);
+        }
+
+        pageLoad();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Grid & Flexbox Blog Section</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Merriweather:400,900&display=swap');
+
+        html {
+            box-sizing: border-box;
+            font-size: 62.5%;
+        }
+
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+        }
+
+        body {
+            font-size: 1.8rem;
+            padding: 0 1.5rem;
+            font-family: 'Merriweather', serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section_title {
+            margin-top: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            margin: 0;
+        }
+
+        .articles {
+            width: 100%;
+            display: grid;
+            grid-gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            flex-wrap: wrap;
+            margin-bottom: 5rem;
+        }
+
+        .article {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 0;
+            flex-grow: 1;
+            padding: 2rem;
+            background-color: white;
+            margin-top: 3rem;
+        }
+
+        .article:hover img {
+            transform: scale(1.05);
+        }
+
+        .article:hover .read_more {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .article:hover .author {
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .article a {
+            color: #333;
+        }
+
+        .article .preview {
+            position: relative;
+            margin-bottom: 1.3rem;
+            overflow: hidden;
+            margin-top: -4rem;
+            width: 100%;
+            padding-bottom: 50%;
+        }
+
+        .article .preview .stretch {
+            position: absolute;
+        }
+
+        .article .preview img {
+            vertical-align: middle;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .article .cat {
+            margin-bottom: 1rem;
+            padding: 0.4rem 0.5rem;
+            align-self: flex-start;
+            transition: all 0.3s;
+        }
+
+        .article .cat a {
+            color: #fff;
+        }
+
+        .article .photography {
+            background-color: rgba(43, 158, 179, 0.8);
+        }
+
+        .article .photography:hover {
+            background-color: rgba(43, 158, 179, 1);
+        }
+
+        .article .art {
+            background-color: rgba(247, 23, 53, 0.8);
+        }
+
+        .article .art:hover {
+            background-color: rgba(247, 23, 53, 1);
+        }
+
+        .article .cat,
+        .article .article_footer {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .article .title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article .description {
+            margin-bottom: 2.5rem;
+            font-size: 1.7rem;
+        }
+
+        .article .article_footer {
+            border-top: 1px solid #e2e2e2;
+            margin-top: auto;
+            padding-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            overflow: hidden;
+        }
+
+        .article .author,
+        .article .read_more {
+            display: block;
+            grid-column: 1;
+            grid-row: 1;
+            transition: all 0.3s ease-out;
+        }
+
+        .article .read_more {
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .article .read_more a {
+            display: block;
+        }
+
+        .article .read_more:hover a {
+            color: #2b9eb3;
+        }
+
+        .article .author {
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wrapper">
+        <h2 class="section_title">Recent Articles</h2>
+        <div class="articles">
+            <div class="article">
+                <div class="preview">
+                    <div class="stretch"><a href="#"><img src="https://cdn.stocksnap.io/img-thumbs/960w/RL7HOU1GLR.jpg" alt="Article Image" title="Article Image" /></a></div>
+                </div>
+                <div class="cat photography"><a href="#">Photography</a></div>
+                <h3 class="title"><a href="#">Midst Set Beast Morning Be Likeness Behold</a></h3>
+                <p class="description">
+                    Upon open their seed. Bearing is fly, midst you'll, good place bring darkness days which
+                    own earth made all under.
+                </p>
+                <footer class="article_footer">
+                    <span class="author">Tyrone Fowler</span>
+                    <span class="read_more"><a href="#">Read More &#8594</a></span>
+                </footer>
+            </div>
+            <div class="article ">
+                <div class="preview">
+                    <div class="stretch"><a href="#"><img src="https://cdn.stocksnap.io/img-thumbs/960w/SJWJRHWNW5.jpg" alt="Article Image" title="Article Image" /></a></div>
+                </div>
+                <div class="cat art"><a href="#">Art</a></div>
+                <h3 class="title"><a href="#">Fish Darkness Fourth Called One A Waters Gathered</a></h3>
+                <p class="description">
+                    Fly. Land man land subdue years creepeth beast it divide. Winged one seed. Shall. Saying
+                    yielding female earth night one.
+                </p>
+                <footer class="article_footer">
+                    <span class="author">Lula Lynch</span>
+                    <span class="read_more"><a href="#">Read More &#8594</a></span>
+                </footer>
+            </div>
+            <div class="article">
+                <div class="preview">
+                    <div class="stretch"><a href="#"><img src="https://cdn.stocksnap.io/img-thumbs/960w/E1SW91E921.jpg" alt="Article Image" title="Article Image" /></a></div>
+                </div>
+                <div class="cat art"><a href="#">Art</a></div>
+                <h3 class="title"><a href="#">Good I Lesser Abundantly Was Have Forth</a></h3>
+                <p class="description">
+                    Spirit place divided beast itself all thing man won't moving darkness. Two itself whales
+                    form he unto brought she'd morning. Saying yielding female earth night one.
+                </p>
+                <footer class="article_footer">
+                    <span class="author">Julie Ballard </span>
+                    <span class="read_more"><a href="#">Read More &#8594</a></span>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

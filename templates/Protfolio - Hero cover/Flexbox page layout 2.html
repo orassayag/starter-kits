@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox page layout 2</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,300">
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #fff;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0 auto 1.5em;
+            font-weight: 300;
+        }
+
+        [role="banner"] {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 5em;
+            background: #292772;
+        }
+
+        @media (max-width: 25em) {
+            [role="banner"] {
+                padding: 2em;
+            }
+        }
+
+        .logo {
+            flex: 100%;
+        }
+
+        @media (min-width: 37.5em) {
+            .logo {
+                flex: 0 1 40%;
+            }
+        }
+
+        .tagline {
+            display: block;
+            color: rgba(255, 255, 255, .7);
+            font-weight: 300;
+            font-size: 0.65em;
+            text-transform: uppercase;
+        }
+
+        [role="navigation"] {
+            flex: 0 1 100%;
+            align-self: center;
+            height: 5em;
+            overflow: hidden;
+            transform: translateY(1em);
+            transition: all 0.2s ease-in-out;
+        }
+
+        [role="navigation"]:hover {
+            height: 10em;
+        }
+
+        @media (min-width: 37.5em) {
+            [role="navigation"] {
+                flex: 0 1 60%;
+                height: auto;
+                transform: translateY(0);
+                text-align: right;
+            }
+
+            [role="navigation"]:hover {
+                height: auto;
+            }
+        }
+
+        .nav-link {
+            color: #ec008c;
+            background: #292772;
+            padding: 0.5em;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            background: #222065;
+        }
+
+        @media (max-width: 37.5em) {
+            .nav-link {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        [role="main"] {
+            padding: 4em;
+            background: #222065;
+        }
+
+        @media (max-width: 25em) {
+            [role="main"] {
+                padding: 2em;
+            }
+        }
+
+        article {
+            display: flex;
+            flex-flow: row wrap;
+            max-width: 60em;
+            margin: auto;
+        }
+
+        article .article__header {
+            padding: 0;
+            flex: 0 1 100%;
+        }
+
+        @media (min-width: 37.5em) {
+            article .article__header {
+                padding: 0 1em;
+            }
+        }
+
+        .tile {
+            flex: 100%;
+            padding: 0 1em;
+            font-weight: 300;
+        }
+
+        @media (min-width: 37.5em) {
+            .tile {
+                flex: 0 1 50%;
+            }
+        }
+
+        .tile>p {
+            margin: 0 auto 1.75em;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        [role="contentinfo"] {
+            padding: 3em 5em;
+            background: #19184b;
+        }
+
+        @media (max-width: 25em) {
+            [role="contentinfo"] {
+                padding: 2em;
+            }
+        }
+
+        .copyright {
+            margin: 0;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header role="banner">
+        <div class="logo">Logo or Company Name
+            <span class="tagline">What's a company w/ a tagline?</span>
+        </div>
+        <nav role="navigation">
+            <a href="#" class="nav-link">One</a>
+            <a href="#" class="nav-link">Two</a>
+            <a href="#" class="nav-link">Three</a>
+            <a href="#" class="nav-link">Four</a>
+        </nav>
+    </header>
+    <main role="main">
+        <article>
+            <header class="article__header">
+                <h1>Big headline for your viewing pleasure.</h1>
+            </header>
+            <div class="tile tile--l">
+                <p>Bacon ipsum dolor amet cupim biltong kielbasa, pork chop ham ribeye andouille tenderloin filet mignon venison swine leberkas short loin. Cow swine short ribs, t-bone shank jerky kielbasa landjaeger meatball. Biltong strip steak drumstick swine ground round shoulder andouille turducken boudin spare ribs. Rump boudin meatloaf cow shank ball tip brisket pork chop short ribs flank shoulder kielbasa fatback. Jerky chicken turducken cupim pancetta venison sirloin boudin bresaola beef pork landjaeger pork loin spare ribs.</p>
+                <p>Pork pancetta sirloin picanha bacon short loin brisket tail boudin. Meatball andouille turducken alcatra spare ribs. Leberkas pork chop ball tip flank capicola shankle tri-tip brisket jowl meatball swine salami jerky meatloaf cow. Meatball strip steak swine filet mignon porchetta ground round, flank doner hamburger beef frankfurter pork chop chuck pancetta cupim. Sirloin ball tip landjaeger jerky, ham hock cupim meatloaf beef strip steak capicola picanha salami. Swine capicola pancetta shankle. Shankle ham tail pork ham hock strip steak shank.</p>
+            </div>
+            <div class="tile tile--r">
+                <p>Shank beef ribs boudin spare ribs tri-tip tail porchetta cow. Leberkas cupim pork belly ham hock, pancetta pork chop sirloin beef ribs frankfurter short ribs fatback. Picanha flank swine filet mignon cupim. Swine bresaola ham hock, kevin fatback tenderloin tongue drumstick.</p>
+                <p>T-bone flank ham hock ground round bresaola porchetta rump fatback kielbasa tenderloin. Boudin turkey pork chop ham hock rump beef bresaola. Strip steak ground round drumstick pig, tenderloin pastrami corned beef flank ham landjaeger pork. Porchetta meatloaf cow short loin landjaeger swine spare ribs flank doner strip steak. Tenderloin tail hamburger venison prosciutto pork belly.</p>
+                <p>Ham hock shoulder strip steak sausage short loin. Bresaola ball tip hamburger andouille rump ground round, leberkas picanha pork meatball ham chuck drumstick. Bresaola ball tip frankfurter, filet mignon porchetta rump brisket venison fatback swine shank beef ribs sausage ribeye alcatra. Hamburger biltong leberkas brisket. Hamburger short ribs picanha chuck salami pork.</p>
+            </div>
+        </article>
+    </main>
+    <footer role="contentinfo">
+        <p class="copyright">&copy; No really, it's not.</p>
+    </footer>
+</body>
+
+</html>

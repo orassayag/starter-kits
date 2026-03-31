@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox table</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            font-size: 16px;
+            overflow: hidden;
+        }
+
+        .table {
+            height: 100%;
+        }
+
+        .table-head {
+            padding-right: 17px;
+            background-color: #ddd;
+            border-collapse: collapse;
+            font-weight: bold;
+        }
+
+        .table-body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .table-row {
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid #ddd;
+            border-collapse: collapse;
+        }
+
+        .table-body .table-row:hover {
+            background-color: #eee;
+        }
+
+        .table-col {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            min-height: 28px;
+            padding: 2px;
+        }
+
+        .table-col--label {
+            padding-left: 4px;
+        }
+
+        .table-cell {
+            width: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .table-cell--fixed {
+            width: 30px;
+            text-align: center;
+            flex-grow: 0;
+        }
+
+        .col {
+            flex-grow: 1;
+        }
+
+        .col-auto {
+            flex-grow: 0;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 4px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="body">
+        <div class="main">
+            <div class="table">
+                <div class="table-head">
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell col-auto table-cell--fixed"></div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">Username</div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">Last Name</div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">First Name</div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">Email</div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">Birthday</div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">Country</div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">Address</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                    <div class="table-row row">
+                        <div class="table-col col-auto">
+                            <div class="table-cell table-cell--fixed">
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+                        <div class="table-col col">
+                            <div class="table-cell col">
+                                <input type="text" value="user" />
+                            </div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Pekkonen</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Martti</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">my.email@gmail.com</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">14.09.1900</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesia</div>
+                        </div>
+                        <div class="table-col table-coll--label col">
+                            <div class="table-cell col">Malesiankatu 8 mosambik Malesiankatu 8 mosambik</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Layout using Flexbox</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 1em;
+            font: 1.2em/1.3em 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Roboto-Light', 'Roboto Light', 'Roboto', 'Segoe UI Web Light', 'Segoe UI Light', 'Segoe UI Web Regular', 'Segoe UI', Helvetica, Arial, sans-serif;
+            color: #fff;
+        }
+
+        h1 {
+            font-weight: normal;
+            text-align: center;
+        }
+
+        p {
+            margin: 0 0 1em 0;
+        }
+
+        #main {
+            margin: 0;
+            padding: 0;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: row;
+            flex-flow: row;
+        }
+
+        header,
+        footer,
+        #main>article,
+        #main>nav,
+        #main>aside {
+            margin: 4px;
+            padding: 1em;
+        }
+
+        #main>article {
+            background: #996;
+            -webkit-flex: 4 1 0;
+            flex: 4 1 0;
+            -webkit-order: 2;
+            order: 2;
+        }
+
+        #main>nav,
+        #main>aside {
+            background: #663;
+            -webkit-flex: 1 6 0;
+            flex: 1 6 0;
+        }
+
+        #main>nav {
+            -webkit-order: 1;
+            order: 1;
+        }
+
+        #main>aside {
+            -webkit-order: 3;
+            order: 3;
+        }
+
+        header,
+        footer {
+            display: block;
+            min-height: 80px;
+        }
+
+        header {
+            background: #633;
+        }
+
+        footer {
+            background: #c66;
+        }
+
+        /* Too narrow to support three columns */
+        @media all and (max-width: 640px) {
+
+            #main,
+            #page {
+                -webkit-flex-flow: column;
+                flex-flow: column;
+            }
+
+            #main>article,
+            #main>nav,
+            #main>aside {
+                -webkit-order: 0;
+                order: 0;
+            }
+
+            #main>nav,
+            #main>aside,
+            header,
+            footer {
+                min-height: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header>
+        <h1>Responsive Layout using Flexbox</h1>
+    </header>
+    <div id="main">
+        <nav>nav</nav>
+        <aside>aside</aside>
+        <article>
+            <p>Kitty ipsum dolor sit amet, sunbathe claw bat puking, stretching feed me eat catnip fluffy fur claw sleep in the sink sleep in the sink. Hiss hairball fluffy fur lick biting, run eat the grass chase the red dot attack your ankles meow. Rip the couch catnip run meow stuck in a tree, sleep on your face stretching lick climb the curtains purr jump on the table jump on the table. Sleep in the sink feed me sniff give me fish toss the mousie, I don't like that food eat eat knock over the lamp scratched chase the red dot.</p>
+            <p>Attack your ankles puking chase the red dot lay down in your way, knock over the lamp sunbathe eat the grass sleep on your keyboard jump sleep in the sink shed everywhere. Jump on the table sleep on your keyboard jump on the table scratched sunbathe judging you, give me fish climb the curtains sleep on your face sleep in the sink bat sniff. Knock over the lamp jump sleep in the sink tail flick, sleep in the sink I don't like that food sleep on your face rip the couch bat sleep on your keyboard toss the mousie.</p>
+        </article>
+    </div>
+    <footer>
+        Footer
+    </footer>
+</body>
+
+</html>

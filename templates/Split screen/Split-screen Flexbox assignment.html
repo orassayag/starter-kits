@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Split-screen Flexbox assignment</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            background: bisque;
+            padding: 15px;
+        }
+
+        .container {
+            background: pink;
+            width: 960px;
+            height: 620px;
+            display: flex;
+            box-sizing: content-box;
+            border: 5px solid deeppink;
+            margin: 0 auto;
+        }
+
+        .midway {
+            width: 480px;
+            height: 620px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .passage {
+            width: 180px;
+            height: 180px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            color: deeppink;
+            font-weight: bold;
+            background: lightpink;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            width: 320px;
+            height: 380px;
+            padding: 0 5px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-style: oblique;
+            font-size: 1.6em;
+            color: deeppink;
+            background: lightpink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main>div:first-child {
+            border-right: 2px solid deeppink;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <main class="container">
+        <div class="midway">
+            <div class="passage">John 1:12-13</div>
+        </div>
+        <div class="midway">
+            <div class="content">But as many as received him to them gave he power to become the sons of God; even to them that believe on his name. Which were born not of blood, nor of the will of the flesh, nor of the will of man, but of God.</div>
+        </div>
+    </main>
+</body>
+
+</html>

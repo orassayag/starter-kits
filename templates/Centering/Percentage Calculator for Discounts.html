@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Percentage Calculator for Discounts</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100vh;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-family: "Oswald", sans-serif;
+        }
+
+        #percentage,
+        #wholenumber,
+        #result,
+        #discount {
+            border: 1px solid #ccc;
+            border-radius: 1em;
+            background-color: #f8f8f8;
+            box-sizing: border-box;
+            display: inline-block;
+            margin: 8px 0;
+            padding: 10px 10px;
+            width: 100%;
+        }
+
+        form {
+            width: 300px;
+        }
+
+        button {
+            background-color: black;
+            border: none;
+            border-radius: 1em;
+            color: white;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            padding: 10px 10px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <h1>Percentage Calculator</h1>
+        <form action="">
+            <div>
+                <label for="percentage">Percentage:</label>
+                <input type="number" id="percentage" />
+            </div>
+            <div>
+                <label for="wholenumber">Amount:</label>
+                <input type="number" id="wholenumber" />
+            </div>
+            <div>
+                <label for="result">Result:</label>
+                <div id="result">0</div>
+            </div>
+            <div>
+            </div>
+        </form>
+        <div>
+            <button id="button">Calculate</button>
+        </div>
+    </div>
+</body>
+
+</html>

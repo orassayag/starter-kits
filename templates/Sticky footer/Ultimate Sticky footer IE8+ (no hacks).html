@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ultimate Sticky footer IE8+ (no hacks)</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        html,
+        body,
+        #wrap {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #wrap {
+            display: table;
+            width: 100%
+        }
+
+        /* if ie7 support is needed then set height of #wrap and header and footer to auto in CC's and just let it have a normal layout (or: *+html #wrap{height:auto}) */
+        .content {
+            background: #ccc;
+        }
+
+        header {
+            background: #999;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0
+        }
+
+        header,
+        .footer,
+        main {
+            display: block
+        }
+
+        /* ie7 and under */
+        header,
+        .footer,
+        main {
+            display: table-row
+        }
+
+        /* height 1px on the header and footer is the sticky footer technique */
+        header,
+        .footer {
+            height: 1px
+        }
+
+        h1 {
+            padding: 10px;
+            margin: 0;
+        }
+
+        .footer {
+            background: #999;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+            padding: 10px
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div id="wrap">
+        <header>
+            <h1>Fluid Height Sticky footer simple - IE8+ (no hacks )</h1>
+        </header>
+        <main class="content">Content</main>
+        <footer class="footer">
+            <p>Sticky footer - <a target="blank" href="#">See flexbox version with 2 columns</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

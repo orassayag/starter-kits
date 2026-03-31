@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Flexbox center block</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .flex-center {
+            background-color: #222;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            max-width: 400px;
+            position: absolute;
+            top: calc(50% - 200px);
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="flex-center">
+        <p>Center Block</p>
+    </div>
+</body>
+
+</html>

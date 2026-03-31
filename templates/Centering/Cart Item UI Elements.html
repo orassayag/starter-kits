@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Cart Item UI Elements</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body,
+        body * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Roboto;
+        }
+
+        html,
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: stretch;
+            height: 100%;
+            width: 100%;
+            background-color: #ccc;
+        }
+
+        .list {
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            align-content: stretch;
+            flex-flow: column nowrap;
+            width: 420px;
+            height: 500px;
+            padding: 7px;
+            border-radius: 5px;
+            background-color: #fff;
+            width: 100%;
+        }
+
+        .red {
+            background-color: #c00;
+        }
+
+        .red .text {
+            background-color: #ffb3b3;
+        }
+
+        .blue {
+            background-color: #08c;
+        }
+
+        .blue .text {
+            background-color: #b3e5ff;
+        }
+
+        .yellow {
+            background-color: #ca0;
+        }
+
+        .yellow .text {
+            background-color: #fff2b3;
+        }
+
+        .purple {
+            background-color: #7f00ff;
+        }
+
+        .purple .text {
+            background-color: #debdff;
+        }
+
+        .card {
+            overflow: hidden;
+            height: 90px;
+            margin: 7px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+
+        .card .header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: stretch;
+            height: 45px;
+        }
+
+        .card .header .name {
+            flex: 1 0 auto;
+            padding: 0 15px;
+            font-weight: 500;
+        }
+
+        .card .header .name span {
+            margin-left: 5px;
+            padding: 2px 5px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            vertical-align: 5%;
+            font-size: 14px;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        .card .header .category {
+            padding: 0 15px;
+            opacity: 0.8;
+        }
+
+        .card .header .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: stretch;
+            width: 45px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .card .calculator {
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: stretch;
+            height: 45px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .card .calculator>* {
+            margin: 0 5px;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.25);
+        }
+
+        .card .calculator>*:first-child {
+            margin-left: 0;
+        }
+
+        .card .calculator>*:last-child {
+            margin-right: 0;
+        }
+
+        .card .calculator .emboss {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            margin: 0;
+        }
+
+        .card .calculator .emboss+* {
+            margin-left: 0;
+        }
+
+        .card .calculator .text {
+            flex: 1 0 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: stretch;
+            height: 100%;
+            padding: 0 15px;
+            color: #000;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .card .calculator .base {
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+        }
+
+        .card .calculator .total {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            align-content: stretch;
+            margin-left: 3px;
+            background-color: #4d4d4d;
+            color: #fff;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10px 50%);
+        }
+
+        .card .calculator .input {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: stretch;
+            height: 100%;
+            border-bottom: 3px solid transparent;
+        }
+
+        .card .calculator .input> :first-child {
+            border-radius: 3px 0px 0px 3px;
+        }
+
+        .card .calculator .input> :last-child {
+            border-radius: 0px 3px 3px 0px;
+        }
+
+        .card .calculator .input>input {
+            width: 40px;
+            height: 60%;
+            padding: 0 7px;
+            border: none;
+            outline: none;
+            background-color: #fff;
+            text-align: right;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .card .calculator .input>input:focus {
+            opacity: 1;
+        }
+
+        .card .calculator .input>.label {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: stretch;
+            height: 60%;
+            padding: 0 10px;
+            background-color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+        }
+
+        .card .calculator .input.weight>input {
+            width: 53px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="list">
+        <div class="yellow card">
+            <div class="header">
+                <div class="name">Jumbo Cookies</div>
+                <div class="category">Bakery</div>
+                <div class="icon fas fa-times"></div>
+            </div>
+            <div class="calculator">
+                <div class="emboss"></div>
+                <div class="text base">$3.99</div>
+                <div class="input">
+                    <div class="label">Quantity</div>
+                    <input value="2" />
+                </div>
+                <div class="text total">$7.98</div>
+            </div>
+        </div>
+        <div class="red card">
+            <div class="header">
+                <div class="name">Pizza Slice</div>
+                <div class="category">Pizza Bar</div>
+                <div class="icon fas fa-times"></div>
+            </div>
+            <div class="calculator">
+                <div class="emboss"></div>
+                <div class="text base">$3.99</div>
+                <div class="input">
+                    <div class="label">Quantity</div>
+                    <input value="2" />
+                </div>
+                <div class="text total">$7.98</div>
+            </div>
+        </div>
+        <div class="blue card">
+            <div class="header">
+                <div class="name">
+                    Burger Loaf
+                    <span>+ Sides</span>
+                </div>
+                <div class="category">Signature Bar</div>
+                <div class="icon fas fa-times"></div>
+            </div>
+            <div class="calculator">
+                <div class="emboss"></div>
+                <div class="text base">$0.49</div>
+                <div class="weight input">
+                    <div class="label">Weight</div>
+                    <input value="7.52" />
+                    <div class="label">oz</div>
+                </div>
+                <div class="text total">$3.68</div>
+            </div>
+        </div>
+        <div class="purple card">
+            <div class="header">
+                <div class="name">Apple</div>
+                <div class="category">Fresh Fruit Bar</div>
+                <div class="icon fas fa-times"></div>
+            </div>
+            <div class="calculator">
+                <div class="emboss"></div>
+                <div class="text base">$1.99</div>
+                <div class="input">
+                    <div class="label">Quantity</div>
+                    <input value="1" />
+                </div>
+                <div class="text total">$1.99</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

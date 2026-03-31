@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox Masonry Layout 1</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        .item {
+            border-radius: 10px;
+            background: #edf;
+            padding: 15px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        p {
+            text-align: left;
+        }
+
+        @media (min-width : 600px) {
+            .flexbox {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                max-height: 800px;
+            }
+
+            .item {
+                width: 28%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="flexbox">
+        <div class="item">
+            <img src="http://placehold.it/240x150" alt="" title="" />
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+        <div class="item">
+            <img src="http://placehold.it/240x150" alt="" title="" />
+            <p>
+                Nulla pharetra porta sagittis. Mauris et suscipit diam. Sed sollicitudin, dui at vulputate varius, tellus nunc euismod eros, sed venenatis purus diam at eros.
+            </p>
+        </div>
+        <div class="item">
+            <img src="http://placehold.it/240x150" alt="" title="" />
+            <p>
+                Phasellus ullamcorper, urna ut auctor elementum, enim tortor vestibulum ligula, eget commodo elit massa vel erat. Mauris a erat enim. Suspendisse mollis hendrerit dapibus. Ut lorem enim, ultricies commodo elit vitae, rhoncus sodales odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+        </div>
+        <div class="item">
+            <img src="http://placehold.it/240x150" alt="" title="" />
+            <p>
+                Sed a maximus dui, quis semper felis.
+            </p>
+        </div>
+        <div class="item">
+            <img src="http://placehold.it/240x150" alt="" title="" />
+            <p>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, Sed eu sem lacinia, commodo orci non, vulputate neque.
+            </p>
+        </div>
+        <div class="item">
+            <img src="http://placehold.it/240x150" alt="" title="" />
+            <p>
+                Quisque tincidunt dapibus pellentesque. Quisque varius tortor lectus, vitae rutrum eros pellentesque sit amet. Integer aliquam ante ullamcorper risus consectetur placerat.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

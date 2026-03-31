@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox - Center properties</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        :root {
+            --bg-contrast: #000;
+            --font-color-contrast: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .cover {
+            background-color: var(--bg-contrast);
+            color: var(--font-color-contrast);
+            width: 100vw;
+            height: 100vh;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1,
+        p,
+        img {
+            display: block;
+            line-height: 1.6;
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="cover">
+        <h1>Content Title</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+</body>
+
+</html>

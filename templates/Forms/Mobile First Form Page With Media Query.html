@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mobile First Form Page With Media Query</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <style type="text/css">
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        header {
+            width: 100%;
+            height: 10%;
+            color: #404040;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        article {
+            width: 100%;
+            min-height: 80%;
+            color: #FFFFFF;
+            background-color: #404040;
+        }
+
+        form {
+            width: 90vw;
+            padding: 1em;
+            margin: 1em auto;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .column {
+            width: 100%;
+            max-width: 400px;
+            min-width: 300px;
+        }
+
+        .column input:not([type="radio"]) {
+            width: 100%;
+            display: block;
+            margin-bottom: .5rem;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: .5em;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 7px;
+            border: 4px solid #000000;
+            background-color: #F00000;
+        }
+
+        footer {
+            height: 10%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            color: #404040;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-color: #FFFFFF;
+        }
+
+        footer p {
+            font-weight: bold;
+        }
+
+        @media (min-width: 1360px) {
+            form {
+                max-width: 1250px;
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                flex-direction: row;
+                -ms-flex-pack: distribute;
+                justify-content: space-around;
+            }
+
+            .column {
+                -ms-flex-item-align: start;
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header>
+        <h1>SIGN UP FORM</h1>
+    </header>
+    <article>
+        <form action="/">
+            <div class="column">
+                <label for="first-name"></label>
+                <input type="text" name="first-name" aria-required="true" placeholder="First Name" pattern="[A-Za-z]+" required="" />
+                <label for="last-name"></label>
+                <input type="text" name="last-name" aria-required="true" placeholder="Last Name" pattern="[A-Za-z]+" required="" />
+                <label for="date-of-birth"></label>
+                <input type="date" name="date-of-birth" required="" />
+                <label for="phone-number"></label>
+                <input type="tel" name="phone-number" aria-required="true" placeholder="Phone Number" pattern="\d{3}-\d{3}-\d{4}" required="" />
+                <label for="gender">
+                    <input type="radio" id="female" name="gender" />
+                    <label for="female">Female</label>
+                    <input type="radio" id="male" name="gender" />
+                    <label for="male">Male</label>
+                    <input type="radio" id="other" name="gender" />
+                    <label for="other">Other</label>
+                </label>
+            </div>
+            <div class="column">
+                <label for="address"></label>
+                <input type="text" name="address" placeholder="Address" required="" />
+                <label for="city"></label>
+                <input type="text" name="city" placeholder="City" pattern="[A-Za-z]+" required="" />
+                <label for="state"></label>
+                <input type="text" name="state" placeholder="State" pattern="[A-Za-z]+" required="" />
+                <label for="zip-code"></label>
+                <input type="text" name="zip-code" placeholder="Zip Code" aria-required="true" minlength="5" maxlength="5" pattern="\d{5}" required="" />
+                <label for="country"></label>
+                <input type="text" name="country" placeholder="Country" pattern="[A-Za-z]+" required="" />
+            </div>
+            <div class="column">
+                <label for="email"></label>
+                <input type="email" name="email" placeholder="Email" aria-required="true" required="" />
+                <label for="password1"></label>
+                <input type="password" name="password1" placeholder="Password" aria-required="true" required="" />
+                <label for="password2"></label>
+                <input type="password" name="password2" placeholder="Re-enter Password" aria-required="true" required="" />
+                <label for="credit-card"></label>
+                <input type="tel" name="credit-card" placeholder="Credit Card" aria-required="true" maxlength="16" pattern="\d*" required="" />
+                <label for="social-security"></label>
+                <input type="text" name="social-security" placeholder="Social Security Number" aria-required="true" maxlength="11" pattern="\d{3}-\d{2}-\d{4}" required="" />
+                <label for="maiden-name"></label>
+                <input type="text" name="maiden-name" placeholder="Mother's Maider Name" aria-required="true" pattern="[A-Za-z]+" required="" />
+                <button type="submit">SUBMIT</button>
+            </div>
+        </form>
+    </article>
+    <footer>
+        <p>copyright © 2018</p>
+    </footer>
+</body>
+
+</html>

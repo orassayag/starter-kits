@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Complete Responsive Website</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        *,
+        *:after,
+        *:before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: 'Nunito', sans-serif;
+            font-size: 10px;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        p {
+            font-size: 1.6rem;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        /* HEADER */
+        header {
+            width: 100%;
+            height: 5rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 98rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .2);
+        }
+
+        .nav-brand {
+            width: 2rem;
+        }
+
+        .menu-icons {
+            font-size: 3.5rem;
+            color: #FAFAFA;
+            cursor: pointer;
+        }
+
+        .close i {
+            color: #EB648C;
+        }
+
+        .nav-list {
+            width: 25rem;
+            height: 100vh;
+            background-color: #D7E4ED;
+            position: fixed;
+            top: 0;
+            right: -26rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1500;
+            transition: all 650ms ease-in-out;
+        }
+
+        .nav-list.active {
+            right: 0;
+        }
+
+        .close {
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+        }
+
+        .nav-link {
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            color: rgba(0, 0, 0, .7);
+        }
+
+        /* HERO */
+        .hero {
+            width: 100%;
+            height: 80vh;
+            background: linear-gradient(135deg, rgba(49, 24, 131, .9) 0%, rgba(72, 56, 149, .8) 100%), url('https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/header-bg.jpg') center no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 4.7rem;
+            background: url('https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/wave-small.png') center no-repeat;
+            background-size: cover;
+        }
+
+        .main-message {
+            width: 100%;
+            max-width: 50rem;
+            color: #FAFAFA;
+            text-transform: uppercase;
+            transform: translateY(20%);
+        }
+
+        .main-message h3 {
+            font-size: 1.6rem;
+        }
+
+        .main-message h1 {
+            font-family: 'ALdrich', sans-serif;
+            font-size: 4rem;
+            margin: 1rem 0;
+        }
+
+        .main-message p {
+            text-transform: lowercase;
+        }
+
+        .btn {
+            background-color: #EB648C;
+            border-radius: 2rem;
+            color: #FAFAFA;
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            text-transform: uppercase;
+            transition: background-color 650ms;
+        }
+
+        .btn:hover {
+            background-color: #CE587B;
+        }
+
+        /* EXPERIENCE THE OUTDOORS */
+        .experience-outdoors {
+            padding: 0;
+        }
+
+        .title-heading {
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 4rem;
+            color: rgba(0, 0, 0, .7);
+        }
+
+        .title-heading h3 {
+            font-size: 1.4rem;
+        }
+
+        .title-heading h1 {
+            font-family: 'Aldrich', sans-serif;
+            font-size: 2rem;
+            margin: .5rem 0 1rem;
+        }
+
+        .title-heading p {
+            text-transform: lowercase;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            grid-gap: 2.5rem;
+        }
+
+        .activities-grid-item {
+            height: 40rem;
+            padding: 5rem;
+            color: #FAFAFA;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .activities-grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(49, 24, 131, .9) 0%, rgba(72, 56, 149, .8) 100%);
+            z-index: -1;
+        }
+
+        .star-gazing {
+            background: url('https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/stars.jpg') center no-repeat;
+        }
+
+        .hiking {
+            background: url('https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/hiking.jpg') center no-repeat;
+        }
+
+        .camping {
+            background: url('https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/camping.jpg') center no-repeat;
+        }
+
+        .activities-grid-item i {
+            font-size: 4rem;
+            color: #EB648C;
+        }
+
+        .activities-grid-item h1 {
+            font-family: 'Aldrich', sans-serif;
+            font-size: 1.7rem;
+            text-transform: uppercase;
+            margin: 2rem 0;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            width: 100%;
+            height: 80vh;
+            background: linear-gradient(135deg, rgba(49, 24, 131, .9) 0%, rgba(72, 56, 149, .8) 100%), url('https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/header-bg.jpg') center no-repeat fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 0;
+            width: 100%;
+            height: 4.7rem;
+            background: url('https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/wave-small-reversed.png') center no-repeat;
+            background-size: cover;
+        }
+
+        .testimonial {
+            width: 100%;
+            color: #FAFAFA;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .testimonial-text-box {
+            padding: 0 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonial-text-box i {
+            position: absolute;
+            top: -8rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8rem;
+            color: #EB648C;
+            opacity: .5;
+            z-index: -1;
+        }
+
+        .testimonial-costumer img {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 100%;
+            border: 3px solid #EB648C;
+        }
+
+        /* BEGING ADVENTURES */
+        .adventure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            grid-gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .adventure-grid-item p {
+            color: rgba(0, 0, 0, .7);
+        }
+
+        footer {
+            padding: 2.5rem 0;
+            background-color: #D7D4ED;
+            text-align: center;
+            color: rgba(0, 0, 0, .7);
+        }
+
+        /* MEDIA QUERIES */
+        @media screen and (min-width: 350px) {
+            .main-message {
+                transform: translateY(40%);
+            }
+        }
+
+        @media screen and (min-width: 470px) {
+            .hero::before {
+                height: 9.4rem;
+                background: url('https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/wave-medium.png');
+                background-size: cover;
+            }
+
+            .testimonials::before {
+                height: 12.4rem;
+                background: url('https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/wave-large-reversed.png');
+                background-size: cover;
+            }
+
+            .testimonial {
+                top: 70%;
+            }
+        }
+
+        @media screen and (min-width: 700px) {
+            header {
+                height: 8rem;
+            }
+
+            .nav-brand {
+                width: 3.5rem;
+            }
+
+            .nav-list {
+                width: initial;
+                height: initial;
+                background-color: transparent;
+                position: initial;
+                top: initial;
+                right: initial;
+                flex-direction: row;
+                transition: initial;
+            }
+
+            .menu-icons {
+                display: none;
+            }
+
+            .nav-item {
+                margin: 0 2.5rem;
+            }
+
+            .nav-link,
+            .current {
+                color: #FAFAFA;
+                position: relative;
+                font-size: 1.3rem;
+            }
+
+            .nav-link::before,
+            .current::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -.5rem;
+                background-color: #EB648C;
+                width: 100%;
+                height: 2px;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 650ms;
+            }
+
+            .current::before {
+                transform: scaleX(1);
+            }
+
+            .nav-link:hover::before {
+                transform: scaleX(1)
+            }
+
+            .hero {
+                height: 80vh;
+            }
+
+            .main-message {
+                transform: translateY(50%);
+            }
+
+            .title-heading h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media screen and (min-width: 950px) {
+            .hero {
+                height: 85vh;
+            }
+
+            .hero::before {
+                height: 20.7rem;
+                background: url('https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/wave-large.png');
+                background-size: cover;
+            }
+
+            .testimonials {
+                height: 80vh;
+            }
+
+            .testimonials::before {
+                height: 15.7rem;
+                background: url('https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/wave-large-reversed.png');
+                background-size: cover;
+            }
+
+            .testimonial {
+                top: 70%;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .hero {
+                height: 85vh;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-brand">
+                    <a href="index.html">
+                  <img src="https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/logo.png" alt="" title="" />
+                  </a>
+                </div>
+                <div class="menu-icons open">
+                    <i class="icon ion-md-menu"></i>
+                </div>
+                <ul class="nav-list">
+                    <div class="menu-icons close">
+                        <i class="icon ion-md-close"></i>
+                    </div>
+                    <li class="nav-item"><a href="#home" class="nav-link current">Home</a></li>
+                    <li class="nav-item"><a href="#destinations" class="nav-link">Destinations</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li class="nav-item"><a href="#booking" class="nav-link">Booking</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="main-message">
+                    <h3>The Great Outdoor</h3>
+                    <h1>Adventure</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati inventore
+                        blanditiis voluptatum tempora ipsum perferendis, quo animi molestias quasi
+                        eos culpa eaque nisi quos nam debitis eligendi expedita incidunt quisquam!
+                    </p>
+                    <div class="cta">
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="experience-outdoors" id="destinations">
+            <div class="container">
+                <div class="title-heading">
+                    <h3>Experience</h3>
+                    <h1>The thrilling outdoors</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="activities-grid">
+                    <div class="activities-grid-item star-gazing">
+                        <i class="icon ion-md-star"></i>
+                        <h1>Star Gazing</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
+                            distinctio molestiae pariatur voluptates porro. Consequuntur excepturi
+                            soluta labore cum enim, tempora laudantium dicta voluptates, sed quo
+                            perspiciatis natus minus atque.
+                        </p>
+                    </div>
+                    <div class="activities-grid-item hiking">
+                        <i class="icon ion-md-compass"></i>
+                        <h1>Hiking</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
+                            distinctio molestiae pariatur voluptates porro. Consequuntur excepturi
+                            soluta labore cum enim, tempora laudantium dicta voluptates, sed quo
+                            perspiciatis natus minus atque.
+                        </p>
+                    </div>
+                    <div class="activities-grid-item camping">
+                        <i class="icon ion-md-bonfire"></i>
+                        <h1>Camping</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
+                            distinctio molestiae pariatur voluptates porro. Consequuntur excepturi
+                            soluta labore cum enim, tempora laudantium dicta voluptates, sed quo
+                            perspiciatis natus minus atque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="testimonials" id="pricing">
+            <div class="container">
+                <div class="testimonial">
+                    <div class="testimonial-text-box">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, ad.
+                        </p>
+                        <i class="icon ion-md-quote"></i>
+                    </div>
+                    <div class="testimonial-costumer">
+                        <img src="https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/profile-pic.jpg" alt="" title="" />
+                        <h1>Martin G.</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="begin-adventure" id="about">
+            <div class="container">
+                <div class="title-heading">
+                    <h3>Let the</h3>
+                    <h1>Adventure begin</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="adventure-grid">
+                    <div class="adventure-grid-item">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Eum recusandae eveniet, deleniti fugit eligendi sequi?
+                            Ea doloribus corporis deserunt deleniti!
+                        </p>
+                    </div>
+                    <div class="adventure-grid-item">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Eum recusandae eveniet, deleniti fugit eligendi sequi?
+                            Ea doloribus corporis deserunt deleniti!
+                        </p>
+                    </div>
+                </div>
+                <a class="btn" href="#">Book your adventure</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2019 Outdoorsie. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

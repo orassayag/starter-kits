@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Form Validation 2</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <style type="text/css">
+        /* Reset form elements */
+        html {
+            font-size: 100%;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        a:focus {
+            outline: none;
+        }
+
+        a:hover,
+        a:active {
+            outline: 0;
+        }
+
+        b,
+        strong {
+            font-weight: bold;
+        }
+
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 0;
+        }
+
+        pre,
+        code,
+        kbd,
+        samp {
+            font-family: monospace, monospace;
+            _font-family: 'courier new', monospace;
+            font-size: 1em;
+        }
+
+        pre {
+            white-space: pre;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        q {
+            quotes: none;
+        }
+
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        small {
+            font-size: 85%;
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        sup {
+            top: -0.5em;
+        }
+
+        sub {
+            bottom: -0.25em;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-weight: 500 !important;
+        }
+
+        ul,
+        ol {
+            margin: 1em 0;
+            padding: 0 0 0 40px;
+        }
+
+        img {
+            border: 0;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        svg:not(:root) {
+            overflow: hidden;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        fieldset {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        legend {
+            border: 0;
+            *margin-left: -7px;
+            padding: 0;
+        }
+
+        label[for] {
+            cursor: pointer;
+        }
+
+        label {
+            font-weight: 400;
+            vertical-align: middle;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-size: 100%;
+            padding-left: 1px;
+            border: 1px solid #cdcdcd;
+            margin: 0;
+            border-radius: 2px;
+            vertical-align: middle;
+            font-weight: normal;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        /* select, input {height: 22px;} */
+        select {
+            padding-left: 0px;
+        }
+
+        /* input {*height: 15px;} */
+        button,
+        input {
+            line-height: normal;
+        }
+
+        button,
+        input[type="button"],
+        input[type="reset"],
+        input[type="submit"] {
+            cursor: pointer;
+            -webkit-appearance: button;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            box-sizing: border-box;
+            height: 13px !important;
+            width: 13px !important;
+            padding: 0;
+            vertical-align: middle;
+            margin-right: 0.25em;
+            *overflow: hidden;
+            border: none;
+        }
+
+        input[type="search"] {
+            -moz-box-sizing: content-box;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+
+        button::-moz-focus-inner,
+        input::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }
+
+        textarea {
+            overflow: auto;
+            vertical-align: top;
+            font-weight: normal;
+        }
+    </style>
+    <style type="text/css">
+        /* Panel elements */
+        html {
+            overflow-x: hidden;
+        }
+
+        html,
+        body {
+            background-color: #ddd;
+            font-family: 'Lucida Grande', Tahoma, Arial, Verdana, sans-serif;
+            font-size: 100%;
+            margin: 0;
+            padding-top: 10px;
+            padding-bottom: 0px;
+            *margin-bottom: 12px;
+            *padding-bottom: 0px;
+            height: 100%;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        .page {
+            color: #333;
+            background-color: #f9f9f9;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            min-height: 100%;
+            position: relative;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        .page>.header {
+            xbackground: #ff0;
+            padding: 10px;
+        }
+
+        .page>.body {
+            padding: 0.5em 0.5em 0.5em 0.5em;
+            *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("span")).className="footer-height");
+        }
+
+        .page>.body:after,
+        .page>.body>.footer-height {
+            display: block;
+            content: '';
+            visibility: hidden;
+        }
+
+        .page>.footer,
+        .page>.body:after,
+        .page>.body>.footer-height {
+            height: 60px;
+        }
+
+        .page>.footer {
+            background: #6cf;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+        }
+
+        /* Widgets */
+        .payment-icon {
+            display: inline-block;
+            height: 26px;
+            width: 39px;
+            margin-right: 0.25em;
+        }
+
+        .logo {
+            margin: 0 auto;
+            width: 19em;
+            height: 1.9375em;
+            background: url('/wp-includes/images/responsive-form/logo.png') no-repeat scroll 0 0 transparent;
+            background-size: cover;
+        }
+
+        .vs-icon {
+            background: url('/wp-includes/images/responsive-form/VS.png') no-repeat scroll 0 0 transparent;
+        }
+
+        .ax-icon {
+            background: url('/wp-includes/images/responsive-form/AX.png') no-repeat scroll 0 0 transparent;
+        }
+
+        .mc-icon {
+            background: url('/wp-includes/images/responsive-form/MC.png') no-repeat scroll 0 0 transparent;
+        }
+
+        .dn-icon {
+            background: url('/wp-includes/images/responsive-form/DN.png') no-repeat scroll 0 0 transparent;
+        }
+
+        /* Form container and line elements */
+        form,
+        fieldset {
+            font-family: 'helvetica neue', helvetica, arial, sans-serif;
+            font-size: 100%;
+            margin: 0;
+            padding: 0px;
+            border: none;
+            color: #52585D;
+        }
+
+        form ul,
+        fieldset ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        form li,
+        fieldset li {
+            padding-bottom: 10px;
+            width: 100%;
+        }
+
+        /* Form elements */
+        /* Labels */
+        label {
+            display: inline-block;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            text-align: right;
+            vertical-align: middle;
+            font-size: 1em;
+            font-weight: normal;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            display: inline-block;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            margin-right: 0.5em;
+            border: 1px solid #cdcdcd;
+            border-radius: 2px;
+            width: 18.25em;
+            vertical-align: top;
+            font-weight: normal;
+            *padding: 0px 0 0px 0;
+            *margin-right: 0.4em;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: 0.8125em !important;
+            height: 0.875em !important;
+            display: inline !important;
+            padding: 0;
+            margin-bottom: 1px !important;
+            border: none;
+            *overflow: hidden;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 0.13em;
+        }
+
+        .mandatory {
+            color: red;
+            margin-left: 2px;
+            margin-right: -2px;
+            vertical-align: middle;
+        }
+
+        span.error,
+        label.error,
+        .note,
+        .tag,
+        .instruct,
+        .choice,
+        .sep {
+            display: inline-block;
+            vertical-align: middle;
+            width: auto;
+            text-align: left;
+            font-size: 1em;
+            font-weight: normal;
+            *display: inline;
+            *zoom: 1;
+        }
+
+        span.error,
+        label.error {
+            margin-right: 0.5em;
+            color: red;
+            font-size: 95%;
+        }
+
+        .tag {
+            color: #555;
+            font-size: 95%;
+            font-weight: normal;
+        }
+
+        .sep,
+        .inline .sep {
+            width: 0.48em;
+            text-align: center;
+            margin-left: -0.50em;
+            padding-right: 0;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        .note {
+            color: gray;
+            font-size: 95%;
+            font-style: italic;
+        }
+
+        .choice,
+        .instruct {
+            font-size: 95%;
+            margin-right: 0.25em;
+        }
+
+        small,
+        .text-small,
+        label.text-small,
+        span.text-small {
+            font-size: 75%;
+            line-height: 1em;
+            *line-height: 1.3em;
+        }
+
+        /* Form element sizing */
+        label {
+            width: 30%;
+            padding-right: 0.5em;
+        }
+
+        .title-width {
+            margin-left: 30%;
+            *padding-left: 0.5em;
+        }
+
+        .width-content {
+            width: 70%;
+        }
+
+        .field-double {
+            width: 37em !important;
+            max-width: 100%
+        }
+
+        .field1of1 {
+            width: 18.25em !important;
+        }
+
+        .field1of2 {
+            width: 8.875em !important;
+        }
+
+        .field1of3 {
+            width: 5.75em !important;
+        }
+
+        .field1of4 {
+            width: 4.1875em !important;
+        }
+
+        .field1of5 {
+            width: 3.25em !important;
+        }
+
+        .field1of6 {
+            width: 2.625em !important;
+        }
+
+        /* Layout and align elements */
+        form li,
+        fieldset li,
+        li .inline {
+            line-height: 1.31em;
+            *line-height: 1.6em;
+            word-spacing: -0.25em;
+            *zoom: expression(this.runtimeStyle.zoom="1", this.insertBefore(document.createElement("span")).className="row-height");
+        }
+
+        .row-height {
+            vertical-align: middle;
+            margin: 0 0 0 -0.25em;
+            height: 1.5em;
+            xword-spacing: 0.25em;
+            visibility: hidden;
+            *display: inline;
+            *zoom: 1;
+        }
+
+        form li>*,
+        fieldset li>*,
+        .inline>* {
+            word-spacing: normal;
+            line-height: normal;
+        }
+
+        li.field-set,
+        .inline.field-set {
+            white-space: nowrap;
+        }
+
+        .stack label {
+            display: block;
+            width: auto;
+            text-align: left;
+            margin: 0 0 0.125em 0;
+        }
+
+        .stack input,
+        .stack select,
+        .stack textarea {
+            display: block;
+        }
+
+        span.stack {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .inline {
+            display: inline-table;
+            vertical-align: top;
+            *display: inline;
+            *zoom: 1;
+        }
+
+        .inline>* {
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+        }
+
+        .inline>label {
+            width: auto;
+            display: inline-block;
+        }
+
+        .inline>input,
+        .inline>select,
+        .inline>textarea {
+            display: inline-block;
+        }
+
+        .inline.wrap {
+            width: 70%;
+            max-width: 70%;
+            margin-right: -0.5em;
+            *width: auto;
+        }
+
+        .remainder-set {
+            float: left;
+        }
+
+        .remainder-set~*,
+        .inline>.remainder-set~* {
+            overflow: hidden;
+            display: block;
+            zoom: 1;
+        }
+
+        .remainder-set~.row-height {
+            *height: 0px;
+        }
+
+        .fluid {
+            width: auto !important;
+        }
+
+        /* Align elements */
+        body .left {
+            text-align: left;
+        }
+
+        body .centre {
+            text-align: center;
+        }
+
+        body .right {
+            text-align: right;
+        }
+
+        /* Reset text-align inherit */
+        .left>*,
+        .centre>*,
+        .right>* {
+            text-align: initial;
+        }
+
+        /* .class for table cells or elements, .class > * for inline-block elements */
+        body .top,
+        .top>* {
+            vertical-align: top;
+        }
+
+        body .middle,
+        .mid>* {
+            vertical-align: middle;
+        }
+
+        body .bottom,
+        .base>* {
+            vertical-align: bottom;
+        }
+
+        /* Inline vertical alignment requires a parent line-height or marker sibling node with 'vertical-align: middle' to define base height */
+        .align {
+            *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("span")).className="align-height");
+        }
+
+        .align:after,
+        .align-height {
+            display: inline-block;
+            height: 100%;
+            width: 0;
+            vertical-align: middle;
+            content: '';
+            visibility: hidden;
+        }
+
+        .set-height {
+            vertical-align: middle;
+        }
+
+        .button {
+            -moz-box-shadow: inset 0px 0px 0px 0px #d9fbbe;
+            -webkit-box-shadow: inset 0px 0px 0px 0px #d9fbbe;
+            box-shadow: inset 0px 0px 0px 0px #d9fbbe;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b8e356), color-stop(1, #a5cc52));
+            background: -moz-linear-gradient(center top, #b8e356 5%, #a5cc52 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52');
+            background-color: #b8e356;
+            -webkit-border-radius: 0.5em;
+            -moz-border-radius: 0.5em;
+            border-radius: 0.5em;
+            text-indent: 0px;
+            border: 1px solid #83c41a;
+            display: inline-block;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 1em;
+            font-weight: bold;
+            font-style: normal;
+            height: 2em;
+            line-height: 2em;
+            width: 18.25em;
+            text-decoration: none;
+            text-align: center;
+            text-shadow: 1px 1px 0px #86ae47;
+        }
+
+        .button:hover {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #a5cc52), color-stop(1, #b8e356));
+            background: -moz-linear-gradient(center top, #a5cc52 5%, #b8e356 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5cc52', endColorstr='#b8e356');
+            background-color: #a5cc52;
+        }
+
+        .button:active {
+            position: relative;
+            top: 1px;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 720px) {
+            form {
+                width: 18.5em;
+                margin: 0 auto;
+                font-size: 200%;
+            }
+
+            label {
+                display: block;
+                width: auto;
+                text-align: left;
+                margin: 0;
+            }
+
+            input,
+            select,
+            textarea {
+                display: block;
+                margin-right: 0.5em;
+            }
+
+            span.stack {
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+            }
+
+            .title-width {
+                margin: 0;
+            }
+
+            .inline {
+                display: table;
+                *display: block;
+            }
+
+            .inline.wrap {
+                width: auto;
+                max-width: none;
+            }
+
+            .wide-only,
+            .error+.wide-only-when-error {
+                display: none !important;
+            }
+        }
+
+        @media only screen and (max-width: 620px) {
+            .logo {
+                font-size: 55%;
+            }
+
+            form {
+                font-size: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 319px) {
+            form {
+                font-size: 75%;
+            }
+
+            .logo {
+                font-size: 40%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="page">
+        <div class="header">
+            <div class="logo">&nbsp;</div>
+        </div>
+        <div class="body">
+            <form>
+                <h1 style="text-align:center;font-size:1em">Responsive Form - css-response.com</h1>
+                <ul>
+                    <li>
+                     <label for="customer.title">Title</label>
+                     <select id="customer.title" name="customer.title">
+                        <option value="" selected="selected">---------------- Select ----------------</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Ms">Ms</option>
+                        <option value="Prof">Prof</option>
+                        <option value="Dr">Dr</option>
+                        <option value="Sir">Sir</option>
+                     </select>
+                     <span id="customer.title.errors" class="error">Please enter your title</span>
+                  </li>
+                    <li>
+                     <label>Short description<span class="mandatory">*</span></label>
+                     <input id="description" name="description" type="text" />
+                     <span id="description" class="error">Please enter the description</span>
+                  </li>
+                    <li>
+                     <label>Long error message</label>
+                     <span class="inline wrap">
+                     <input id="longerr" name="longerr" type="text" />
+                     <span class="error">Error message that will wrap around if it is too long</span>
+                     </span>
+                  </li>
+                    <li>
+                     <label for="phone">Phone number</label>
+                     <span class="stack">
+                     <input id="phone" name="phone" class="error" type="text" />
+                     <label class="note text-small wide-only-when-error">Numbers only permitted</label>
+                     </span>
+                     <span id="description" class="error">Please enter your phone number</span>
+                  </li>
+                    <li>
+                     <label>Date</label>
+                     <span class="inline">
+                     <span class="stack field-set">
+                     <input id="day" class="field1of6" name="day" type="text" maxlength="2" />
+                     <label class="tag text-small centre" style="min-width: 2.62em">Day</label>
+                     </span>
+                     <label class="sep">/</label>
+                     <span class="stack">
+                     <input id="month" class="field1of6" name="month" type="text" maxlength="2" />
+                     <label class="tag text-small centre">Month</label>
+                     </span>
+                     <label class="sep">/</label>
+                     <span class="stack">
+                     <input id="year" class="field1of6" name="year" type="text" maxlength="4" />
+                     <label class="tag text-small centre">Year</label>
+                     </span>
+                     </span>
+                  </li>
+                    <li>
+                     <label>Name</label>
+                     <span class="inline wrap">
+                     <span class="inline field-set remainder-set">
+                     <span class="stack">
+                     <input id="firstName" class="field1of2" name="firstName" type="text" size="20" />
+                     <label class="tag">First name</label>
+                     </span>
+                     <span class="stack">
+                     <input id="lastName" class="field1of2" name="lastName" type="text" size="25" />
+                     <label class="tag">Last name</label>
+                     </span>
+                     </span>
+                     <label class="error text-small">This is a very long error that will wrap over two lines given limited space</label>
+                     </span>
+                  </li>
+                    <li>
+                     <label>Choice</label>
+                     <span class="inline">
+                     <input id="c1" name="c1" type="radio" />
+                     <label for="c1" class="choice">Inbound</label>
+                     </span>
+                     <span class="inline">
+                     <input id="c2" name="c2" type="radio" />
+                     <label for="c2" class="choice">Outbound</label>
+                     </span>
+                     <span class="inline">
+                     <input id="c3" name="c3" type="radio" />
+                     <label for="c3" class="choice">Conference</label>
+                     </span>
+                  </li>
+                    <li>
+                     <span class="title-width inline">
+                     <input id="r3" name="r3" type="radio" />
+                     <label for="r3" class="choice wide-only">Pay with Credit or Debit Card</label>
+                     <span class="set-height">
+                     <span class="payment-icon vs-icon">&nbsp;</span>
+                     <span class="payment-icon mc-icon">&nbsp;</span>
+                     <span class="payment-icon ax-icon">&nbsp;</span>
+                     <span class="payment-icon dn-icon">&nbsp;</span>
+                     </span>
+                     </span>
+                  </li>
+                    <li>
+                     <span class="title-width inline">
+                     <input id="c4" class="remainder-set" name="c4" type="checkbox" />
+                     <label id="l4" for="c4" class="instruct ">
+                     Have you check the identity of the person, there phone details
+                     and what times they are available to return call?
+                     </label>
+                     </span>
+                  </li>
+                    <li>
+                     <label>Check</label>
+                     <input id="c4" name="c4" type="checkbox" />
+                     <label for="c1" class="choice">One</label>
+                     <input id="c4" name="c4" type="checkbox" />
+                     <label for="c1" class="choice">Two</label>
+                  </li>
+                    <li>
+                     <label>Description</label>
+                     <textarea id="input_6" class="form-textarea" name="q6_notes" rows="6"></textarea>
+                  </li>
+                    <li>
+                     <span class="title-width"><a href="#" class="button">Button</a></span>
+                  </li>
+                </ul>
+            </form>
+        </div>
+        <div class="footer">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;© Copyright 2013 - Paul Caruana
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>UI Music Player Widget</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Lato');
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: Lato;
+        }
+
+        body {
+            background-color: #dedfe1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .wrapper {
+            height: 380px;
+            width: 320px;
+            background-color: white;
+            box-shadow: 0 20px 40px 3px #b4b5b6;
+            border-radius: 32px;
+            overflow: hidden;
+        }
+
+        .wrapper .top {
+            height: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: url('http://res.cloudinary.com/dydew5zd6/image/upload/v1514906036/sffahj_tjl1tf.jpg') center center no-repeat;
+            background-size: cover;
+            color: white;
+        }
+
+        .wrapper .top .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 75%;
+            margin-bottom: 8px;
+        }
+
+        .wrapper .top h3 {
+            line-height: 52px;
+            font-size: 32px;
+        }
+
+        .wrapper .top p {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+        }
+
+        .wrapper .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 60%;
+        }
+
+        .wrapper .bottom p {
+            color: #969696;
+            font-weight: 500;
+            line-height: 22px;
+            font-size: 18px;
+        }
+
+        .wrapper .bottom h3 {
+            color: #424242;
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 0.6px;
+            padding-bottom: 20px;
+        }
+
+        .wrapper .bottom .progressbar {
+            height: 4.5px;
+            width: 75%;
+            background-color: #e4e3ea;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .wrapper .bottom .progressbar::after {
+            content: '';
+            display: block;
+            height: 4.5px;
+            width: 70%;
+            background-color: #8f92f1;
+            border-radius: 3px;
+        }
+
+        .wrapper .bottom .button-container {
+            width: 75%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #42434c;
+            -webkit-text-stroke: 1.5px #43434c;
+        }
+
+        .wrapper .bottom .button-container i.fa-play {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wrapper">
+        <div class="top">
+            <div class="button-container"><i class="fa fa-cog"></i><i class="fa fa-bars"></i></div>
+            <h3>Mujuice</h3>
+            <p>Downshifting</p>
+        </div>
+        <div class="bottom">
+            <p>Mujuice</p>
+            <h3>Adventure</h3>
+            <div class="progressbar"></div>
+            <div class="button-container"><i class="fa fa-fast-backward"></i><i class="fa fa-play"></i><i class="fa fa-fast-forward"></i></div>
+        </div>
+    </div>
+</body>
+
+</html>

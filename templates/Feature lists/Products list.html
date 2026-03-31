@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Products list</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* PALETTE */
+        /* END PALETTE */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #fefefe;
+            color: #242424;
+            font-family: 'Libre Franklin', sans-serif;
+        }
+
+        ul,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .pro-card-wrap {
+            width: 100%;
+            max-width: 1320px;
+            margin: auto;
+            clear: both;
+        }
+
+        .pro-card-wrap .pro-cards {
+            display: block;
+            width: 100%;
+            list-style-type: none;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            justify-content: center;
+        }
+
+        .pro-card-wrap .pro-cards .pc {
+            float: left;
+            width: calc(25% - 30px);
+            max-width: 390px;
+            padding: 15px 15px;
+            color: #242424;
+        }
+
+        .pro-card-wrap .pro-cards .pc .pc-img-wrap {
+            display: block;
+            box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+            padding: 0;
+            margin: 0;
+        }
+
+        .pro-card-wrap .pro-cards .pc .pc-img-wrap .pc-img {
+            display: block;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pro-card-wrap .pro-cards .pc .pc-ct {
+            display: block;
+            width: 100%;
+            padding: 30px 5px;
+        }
+
+        .pro-card-wrap .pro-cards .pc .pc-ct .pc-title {
+            font-size: 1.09em;
+            letter-spacing: 0.025em;
+        }
+
+        .pro-card-wrap .pro-cards .pc .pc-ct .pc-ct-int {
+            margin: 15px 0;
+            font-size: 0.85em;
+            line-height: 1.45em;
+        }
+
+        .pro-card-wrap .pro-cards .pc .pc-ct .pc-link {
+            display: inline-block;
+            padding: 10px 25px;
+            text-decoration: underline;
+            color: #242424;
+        }
+
+        .pro-card-wrap .pro-cards .pc .pc-ct .pc-link.pcl-prime {
+            background: #a42e2e;
+            color: #fefefe;
+            font-weight: 500;
+            text-decoration: none;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.5);
+        }
+
+        .pro-card-wrap .pro-cards .pc .pc-ct .pc-link.pcl-prime:hover {
+            background: #bf3037;
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+            box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.6);
+        }
+
+        .pro-card-wrap .pro-cards .pc .pc-ct .pc-link.pcl-alt {
+            padding: 10px 15px;
+        }
+
+        .pro-card-wrap .pro-cards .pc .pc-ct .pc-link.pcl-alt:hover {
+            color: #ec434b;
+        }
+
+        @media (max-width: 1200px) {
+            .pro-card-wrap .pro-cards .pc {
+                width: calc(50% - 30px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pro-card-wrap .pro-cards .pc {
+                width: calc(100% - 30px);
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="pro-card-wrap">
+        <ul class="pro-cards">
+            <li class="pc">
+               <span class="pc-img-wrap">
+               <img src="https://unsplash.it/400/300" class="pc-img" alt="LENS" title="LENS" />
+               </span>
+               <span class="pc-ct">
+                  <h6 class="pc-title">
+                     Product Name
+                  </h6>
+                  <p class="pc-ct-int">
+                     Basic Product Description, a couple of sentences about the thing being showcased here. You can put a considerable amount of content in these cards. There's really no limit, you can even put feature lists.
+                  </p>
+                  <span class="pc-linkbar">
+                  <a href="#" class="pc-link pcl-prime">
+                  Get Quote
+                  </a>
+                  <a href="#" class="pc-link pcl-alt">
+                  See Details
+                  </a>
+                  </span>
+               </span>
+            </li>
+            <li class="pc">
+               <span class="pc-img-wrap">
+               <img src="https://unsplash.it/400/300" class="pc-img" alt="LENS" title="LENS" />
+               </span>
+               <span class="pc-ct">
+                  <h6 class="pc-title">
+                     Product Name
+                  </h6>
+                  <p class="pc-ct-int">
+                     Basic Product Description, a couple of sentences about the thing being showcased here. You can put a considerable amount of content in these cards. There's really no limit, you can even put feature lists.
+                  </p>
+                  <span class="pc-linkbar">
+                  <a href="#" class="pc-link pcl-prime">
+                  Get Quote
+                  </a>
+                  <a href="#" class="pc-link pcl-alt">
+                  See Details
+                  </a>
+                  </span>
+               </span>
+            </li>
+            <li class="pc">
+               <span class="pc-img-wrap">
+               <img src="https://unsplash.it/400/300/" class="pc-img" alt="LENS" title="LENS" />
+               </span>
+               <span class="pc-ct">
+                  <h6 class="pc-title">
+                     Product Name
+                  </h6>
+                  <p class="pc-ct-int">
+                     Basic Product Description, a couple of sentences about the thing being showcased here. You can put a considerable amount of content in these cards. There's really no limit, you can even put feature lists.
+                  </p>
+                  <span class="pc-linkbar">
+                  <a href="#" class="pc-link pcl-prime">
+                  Get Quote
+                  </a>
+                  <a href="#" class="pc-link pcl-alt">
+                  See Details
+                  </a>
+                  </span>
+               </span>
+            </li>
+            <li class="pc">
+               <span class="pc-img-wrap">
+               <img src="https://unsplash.it/400/300/" class="pc-img" alt="LENS" title="LENS" />
+               </span>
+               <span class="pc-ct">
+                  <h6 class="pc-title">
+                     Product Name
+                  </h6>
+                  <p class="pc-ct-int">
+                     Basic Product Description, a couple of sentences about the thing being showcased here. You can put a considerable amount of content in these cards. There's really no limit, you can even put feature lists.
+                  </p>
+                  <span class="pc-linkbar">
+                  <a href="#" class="pc-link pcl-prime">
+                  Get Quote
+                  </a>
+                  <a href="#" class="pc-link pcl-alt">
+                  See Details
+                  </a>
+                  </span>
+               </span>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

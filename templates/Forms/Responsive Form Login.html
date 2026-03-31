@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Form Login</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style type="text/css">
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 50px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 5px;
+            margin: 25px 0;
+            padding: 12px;
+            width: 100%;
+            background: goldenrod;
+            color: #FFF;
+        }
+
+        .btn:hover {
+            background: rgb(80, 159, 190);
+            ;
+            color: #333;
+            ;
+            cursor: pointer;
+        }
+
+        /* Main Styling */
+        html,
+        body {
+            font: 16px/1.2 Segoe UI, sans-serif;
+            background: rgb(80, 159, 190);
+            color: #FFF;
+        }
+
+        a {
+            text-decoration: none;
+            color: goldenrod;
+        }
+
+        /* Form Styling */
+        #form-wrap {
+            margin: auto;
+            background: #333;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        #form-wrap h1,
+        #form-wrap p {
+            text-align: center;
+            padding: 5px 0;
+        }
+
+        #form-wrap .form-group label {
+            display: block;
+            padding: 15px 0;
+        }
+
+        #form-wrap .form-group input {
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        #form-wrap .form-group input:focus {
+            outline: none;
+            border: 1px solid goldenrod;
+        }
+
+        #form-wrap .bottom-text {
+            font-size: 12px;
+        }
+
+        footer p {
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <div id="form-wrap">
+            <form action="#">
+                <h1>Sign Up</h1>
+                <p>It's free and only takes a minute</p>
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" name="firstName" id="first-name" />
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" name="lastName" id="last-name" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" />
+                </div>
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password2" name="password2" id="password2" />
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+                <p class="bottom-text">By clicking the Sign Up, you agree to our
+                    <a href="#">Terms &amp; Conditions</a> and
+                    <a href="#">Privacy Policy</a>
+                </p>
+            </form>
+        </div>
+        <footer>
+            <p>Already have an account? <a href="#">Login Here</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox Cards Layout + Fallback</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        *+* {
+            margin-top: 1.5em;
+        }
+
+        html {
+            background-color: #f0f0f0;
+            color: #444;
+        }
+
+        body {
+            max-width: 80em;
+            margin: 0 auto;
+            padding: 2em 0;
+            line-height: 1.45;
+        }
+
+        @media screen and (min-width: 42em) {
+            body {
+                padding: 2em 1em;
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1.1;
+            margin-bottom: -0.1em;
+        }
+
+        p {
+            font-size: 0.875em;
+            color: #777;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        a {
+            display: inline-block;
+            padding: 0.8em 1em 0.6em;
+            font-weight: 700;
+            line-height: 1;
+            text-decoration: none;
+            background-color: #aaa;
+            color: #fff;
+        }
+
+        /* CARDS LAYOUT */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cards_item {
+            display: flex;
+            margin-top: 0;
+            padding: 0 1em 2em;
+        }
+
+        .no-flexbox .cards_item {
+            float: left;
+        }
+
+        @media screen and (min-width: 42em) and (max-width: 60em) {
+            .cards_item {
+                width: 50%;
+            }
+
+            .no-flexbox .cards_item:nth-child(2n+1) {
+                clear: both;
+            }
+        }
+
+        @media screen and (min-width: 60em) {
+            .cards_item {
+                width: 33.3333%;
+            }
+
+            .no-flexbox .cards_item:nth-child(3n+1) {
+                clear: both;
+            }
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border: 0 solid #eee;
+            border-radius: 0;
+        }
+
+        .card_image img {
+            width: 100%;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .card_content {
+            display: flex;
+            flex: 1 0 auto;
+            flex-direction: column;
+            margin-top: 0;
+            padding: 1.5em;
+        }
+
+        .card_content p {
+            flex: 1 0 auto;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <ul class="cards">
+        <li class="cards_item">
+            <div class="card">
+               <div class="card_image">
+                  <img src="http://placehold.it/500x300&text=%20" alt="" title="" />
+               </div>
+               <div class="card_content">
+                  <h2 class="card_heading">First</h2>
+                  <p>I'm a card and I'm first. Quisque commodo hendrerit lorem quis egestas. Maecenas quis tortor arcu. Vivamus rutrum nunc non neque consectetur quis placerat neque.</p>
+                  <a href="#" class="card_button">Button</a>
+               </div>
+            </div>
+         </li>
+        <li class="cards_item">
+            <div class="card">
+               <div class="card_image">
+                  <img src="http://placehold.it/500x300&text=%20" alt="" title="" />
+               </div>
+               <div class="card_content">
+                  <h2 class="card_heading">Second</h2>
+                  <p>I'm a card and I'm second. Aliquam erat volutpat. Mauris vel neque sit amet nunc gravida congue sed sit amet purus. Quisque lacus quam, egestas ac tincidunt a, lacinia vel velit. Aenean facilisis nulla vitae urna tincidunt congue sed ut dui.</p>
+                  <a href="#" class="card_button">Button</a>
+               </div>
+            </div>
+         </li>
+        <li class="cards_item">
+            <div class="card">
+               <div class="card_image">
+                  <img src="http://placehold.it/500x300&text=%20" alt="" title="" />
+               </div>
+               <div class="card_content">
+                  <h2 class="card_heading">Third</h2>
+                  <p>I'm a card and I'm third. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor.</p>
+                  <a href="#" class="card_button">Button</a>
+               </div>
+            </div>
+         </li>
+        <li class="cards_item">
+            <div class="card">
+               <div class="card_image">
+                  <img src="http://placehold.it/500x300&text=%20" alt="" title="" />
+               </div>
+               <div class="card_content">
+                  <h2 class="card_heading">Fourth</h2>
+                  <p>I'm a card and I'm fourth. Aliquam erat volutpat. Mauris vel neque sit amet nunc gravida congue sed sit amet purus. Quisque lacus quam, egestas ac tincidunt a, lacinia vel velit. Aenean facilisis nulla vitae urna tincidunt congue sed ut dui.</p>
+                  <a href="#" class="card_button">Button</a>
+               </div>
+            </div>
+         </li>
+        <li class="cards_item">
+            <div class="card">
+               <div class="card_image">
+                  <img src="http://placehold.it/500x300&text=%20" alt="" title="" />
+               </div>
+               <div class="card_content">
+                  <h2 class="card_heading">Fifth</h2>
+                  <p>I'm a card and I'm fifth. Quisque commodo hendrerit lorem quis egestas. Maecenas quis tortor arcu. Vivamus rutrum nunc non neque consectetur quis placerat neque.</p>
+                  <a href="#" class="card_button">Button</a>
+               </div>
+            </div>
+         </li>
+    </ul>
+</body>
+
+</html>

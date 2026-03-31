@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive DIV-Table</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+        body {
+            background-color: #222;
+            font: 500 1rem/normal 'Open Sans', sans-serif;
+            margin: 2% 20%;
+        }
+
+        /* Responsive Table */
+        .rsptable {
+            color: #616161;
+            display: table;
+            margin: 0 0 1em 0;
+            width: 100%;
+        }
+
+        .rsptable .row {
+            background-color: #f6f6f6;
+            display: table-row;
+        }
+
+        .rsptable .row:nth-of-type(odd) {
+            background-color: #e0e0e0;
+        }
+
+        .rsptable .row.header {
+            color: #fff;
+            background-color: #616161;
+            font-weight: 700;
+        }
+
+        .rsptable .cell {
+            display: table-cell;
+            padding: 6px 12px;
+        }
+
+        @media screen and (max-width: 599px) {
+            .rsptable {
+                display: block;
+            }
+
+            .rsptable .row {
+                display: block;
+                padding: 8px 0;
+            }
+
+            .rsptable .cell {
+                display: block;
+                padding: 2px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="rsptable">
+        <div class="row header">
+            <div class="cell">Name</div>
+            <div class="cell">Alter</div>
+            <div class="cell">Beruf</div>
+            <div class="cell">Wohnort</div>
+        </div>
+        <div class="row">
+            <div class="cell">Henriette Hummel</div>
+            <div class="cell">35</div>
+            <div class="cell">Schauspielerin</div>
+            <div class="cell">Hummelstadt</div>
+        </div>
+        <div class="row">
+            <div class="cell">Werner Wespe</div>
+            <div class="cell">53</div>
+            <div class="cell">Feuerwehrmann</div>
+            <div class="cell">Feuerdorf</div>
+        </div>
+        <div class="row">
+            <div class="cell">Beate Biene</div>
+            <div class="cell">27</div>
+            <div class="cell">Stewardess</div>
+            <div class="cell">Bienenbrunn</div>
+        </div>
+        <div class="row">
+            <div class="cell">Ferdinand Fliege</div>
+            <div class="cell">45</div>
+            <div class="cell">Web-Designer</div>
+            <div class="cell">Fliegersheim</div>
+        </div>
+    </div>
+</body>
+
+</html>

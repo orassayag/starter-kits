@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flex box with fixed width sidebars</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import "compass/css3";
+
+        /* example coloring */
+        .row {
+            border: 1px dashed #888;
+            background: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .col__fluid,
+        .col__fixed {
+            border-radius: 5px;
+        }
+
+        .col__fluid {
+            background: #3f92d2;
+        }
+
+        .col__fixed {
+            background: #ff6b40;
+        }
+
+        .col__fluid:first-child:after {
+            content: " first";
+        }
+
+        .col__fluid:last-child:after {
+            content: " last";
+        }
+
+        /* Flex Example */
+        .example--flex .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .example--flex .col__fixed {
+            width: 300px;
+        }
+
+        .example--flex .col__fluid {
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        .example--flex .row__fixed--left>.col__fixed {
+            order: 1;
+        }
+
+        .example--flex .row__fixed--left>.col__fluid {
+            order: 2;
+        }
+
+        .example--flex .row__fixed--right>.col__fixed {
+            order: 2;
+        }
+
+        .example--flex .row__fixed--right>.col__fluid {
+            order: 1;
+        }
+
+        @media all and (max-width: 500px) {
+            .example--flex .row {
+                flex-direction: column;
+            }
+
+            .example--flex .col__fixed {
+                width: 100%;
+                flex-grow: 1;
+            }
+
+            .example--flex .row>.col__fixed,
+            .example--flex .row>.col__fluid {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="example--flex">
+        <h2>Flex Example</h2>
+        <p>
+            Seems to work pretty well. Except for the fact it can't be used "everywhere" <a href="http://caniuse.com/flexbox">at the moment</a>.
+        </p>
+        <div class="row row__fixed--left">
+            <div class="col__fluid">
+                content
+            </div>
+            <div class="col__fixed">
+                sidebar
+            </div>
+        </div>
+        <div class="row row__fixed--left">
+            <div class="col__fluid">
+                content
+            </div>
+            <div class="col__fixed">
+                sidebar<br />sidebar<br />sidebar
+            </div>
+        </div>
+        <div class="row row__fixed--left">
+            <div class="col__fluid">
+                content<br />content<br />content
+            </div>
+            <div class="col__fixed">
+                sidebar
+            </div>
+        </div>
+        <div class="row row__fixed--left">
+            <div class="col__fixed">
+                sidebar
+            </div>
+            <div class="col__fluid">
+                content
+            </div>
+        </div>
+        <div class="row row__fixed--right">
+            <div class="col__fluid">
+                content
+            </div>
+            <div class="col__fixed">
+                sidebar
+            </div>
+        </div>
+        <div class="row row__fixed--right">
+            <div class="col__fixed">
+                sidebar
+            </div>
+            <div class="col__fluid">
+                content
+            </div>
+        </div>
+        <div class="row row__fixed--right">
+            <div class="col__fixed">
+                sidebar
+            </div>
+            <div class="col__fluid">
+                <div class="row row__fixed--left">
+                    <div class="col__fixed">
+                        nested<br />sidebar
+                    </div>
+                    <div class="col__fluid">
+                        nested content
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row__fixed--left">
+            <div class="col__fixed">
+                sidebar
+            </div>
+            <div class="col__fluid">
+                <div class="row row__fixed--right">
+                    <div class="col__fixed">
+                        nested<br />sidebar
+                    </div>
+                    <div class="col__fluid">
+                        nested content
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

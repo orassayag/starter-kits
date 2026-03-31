@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive flexbox 100% height sidebar</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700');
+        @import url('https://fonts.googleapis.com/css?family=Hind:400,600');
+
+        /* TYPOGRAPHY */
+        /* Box Sizing */
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        /* Media Queries */
+        /* General */
+        html,
+        body {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind', sans-serif;
+            color: #444;
+            background: #1d1f20;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 500px) {
+            body {
+                flex-direction: row;
+            }
+        }
+
+        .sidebar {
+            background: #222;
+            order: 0;
+            flex: 0 1 100%;
+        }
+
+        @media (min-width: 500px) {
+            .sidebar {
+                flex: 0 1 300px;
+                flex-direction: row;
+            }
+        }
+
+        .content {
+            background: #111;
+            order: 1;
+            flex: 0 1 100%;
+            min-height: 100vh;
+            padding: 20px;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="sidebar">
+        <ul>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+            <li>Navigation Item</li>
+        </ul>
+    </div>
+    <div class="content">
+        <p>Leggings fanny pack listicle, Vice umami cliche four loko heirloom migas. Whatever American Apparel ugh post-ironic. Hashtag tofu irony, yr Marfa sustainable Vice Austin keffiyeh gluten-free. Intelligentsia cornhole Odd Future, Blue Bottle keffiyeh swag tofu locavore. Irony Williamsburg gluten-free farm-to-table. Church-key pork belly Kickstarter banh mi gentrify. Literally Banksy fashion axe pug.</p>
+        <p>Austin Pinterest heirloom, Wes Anderson cred locavore pickled lo-fi High Life 3 wolf moon pour-over stumptown messenger bag chia. Hashtag selvage chambray irony. Polaroid cornhole iPhone, distillery skateboard typewriter blog Pinterest. Slow-carb mixtape fanny pack street art Williamsburg, seitan ethical aesthetic authentic squid four dollar toast. Odd Future pour-over retro normcore butcher High Life kale chips actually, wayfarers Portland skateboard swag forage YOLO PBR. Narwhal letterpress master cleanse Tumblr. Plaid you probably haven't heard of them chillwave Carles asymmetrical.</p>
+        <p>Seitan forage Etsy artisan. Portland Intelligentsia PBR&B, cred lomo Schlitz fap. Distillery Echo Park Helvetica drinking vinegar Brooklyn, Wes Anderson pork belly Kickstarter Blue Bottle Bushwick PBR&B sustainable slow-carb. Quinoa sriracha hashtag hoodie, forage roof party swag. Keytar actually YOLO try-hard umami, Williamsburg jean shorts selvage typewriter squid PBR&B aesthetic. Banksy whatever food truck kogi forage, Carles single-origin coffee next level gentrify. Cred vegan fashion axe you probably haven't heard of them, gastropub skateboard Tumblr squid hoodie church-key.</p>
+        <p>Taxidermy plaid wayfarers, heirloom lomo Pitchfork chambray. Gluten-free ethical single-origin coffee +1 whatever hoodie. Hoodie organic cliche, tote bag pickled viral bespoke. Cold-pressed readymade vinyl Brooklyn, freegan hella hashtag try-hard put a bird on it Carles YOLO. Kickstarter chillwave post-ironic seitan. Tilde gluten-free fanny pack, retro Godard crucifix pour-over Odd Future pork belly chambray paleo bespoke. Farm-to-table Truffaut dreamcatcher, letterpress cronut plaid tote bag small batch gluten-free leggings paleo twee shabby chic listicle.</p>
+        <p>Taxidermy migas flexitarian DIY bespoke, swag slow-carb pop-up Marfa viral gastropub +1. Blog direct trade shabby chic asymmetrical salvia, mumblecore Blue Bottle DIY aesthetic whatever tote bag tofu chambray ennui crucifix. Before they sold out hashtag ethical forage, biodiesel artisan Schlitz semiotics selvage tofu. Retro flexitarian Blue Bottle mixtape fingerstache Odd Future, Brooklyn polaroid hella synth YOLO actually Kickstarter. Sriracha typewriter cliche tilde, Etsy tofu street art flannel butcher leggings meditation forage hoodie distillery lumbersexual. Wayfarers chia bitters, XOXO readymade leggings you probably haven't heard of them skateboard scenester typewriter chambray asymmetrical authentic. Taxidermy lomo dreamcatcher +1 plaid, whatever butcher master cleanse quinoa selvage Intelligentsia polaroid Kickstarter brunch lumbersexual.</p>
+        <p>Church-key four loko lo-fi salvia, pop-up twee flexitarian tattooed. Put a bird on it typewriter Banksy shabby chic, literally blog salvia Tumblr fashion axe single-origin coffee normcore Thundercats ethical chambray. Cray Vice lumbersexual, drinking vinegar cred post-ironic mumblecore asymmetrical chambray. Flexitarian fanny pack direct trade typewriter ugh literally. Hoodie taxidermy tote bag four loko, Wes Anderson you probably haven't heard of them seitan photo booth chambray mlkshk sriracha literally cray meh. Wayfarers mustache cornhole, viral vinyl cardigan High Life chia literally listicle pour-over leggings. Photo booth organic try-hard fixie fanny pack seitan.</p>
+        <p>Semiotics next level Bushwick, tote bag kitsch four loko raw denim Banksy food truck banh mi aesthetic you probably haven't heard of them. Letterpress heirloom gluten-free kogi hashtag lo-fi tousled, viral gentrify salvia vinyl fixie pour-over. Chillwave chambray Pinterest Pitchfork, crucifix post-ironic pour-over Neutra readymade swag fanny pack cronut retro leggings small batch. Gastropub asymmetrical normcore messenger bag meggings, taxidermy Austin Brooklyn next level lumbersexual Odd Future master cleanse fashion axe. Echo Park next level wolf meggings Odd Future, Carles XOXO 8-bit tousled PBR&B biodiesel. Put a bird on it deep v aesthetic, gluten-free cliche salvia butcher direct trade. Semiotics kitsch beard roof party freegan.</p>
+        <p>Williamsburg forage Vice post-ironic keffiyeh, taxidermy put a bird on it aesthetic skateboard. Cold-pressed actually shabby chic ugh fashion axe hoodie. Master cleanse roof party pork belly, messenger bag keytar disrupt Bushwick bitters bespoke four dollar toast Odd Future irony. Squid swag typewriter Kickstarter viral. Etsy quinoa seitan food truck drinking vinegar migas. Freegan yr Echo Park ugh selvage cardigan PBR. Raw denim meh organic, mustache +1 slow-carb selfies seitan.</p>
+        <p>Squid selvage taxidermy Truffaut. Synth cardigan salvia Vice disrupt, ethical photo booth organic Odd Future. You probably haven't heard of them cornhole street art, brunch taxidermy readymade try-hard Portland migas cardigan butcher. Austin bespoke photo booth Pitchfork. Sriracha yr dreamcatcher, vinyl typewriter kitsch distillery VHS craft beer post-ironic. Hashtag photo booth whatever Pitchfork. IPhone Helvetica art party, Odd Future squid Schlitz twee four dollar toast.</p>
+        <p>High Life letterpress Bushwick, pour-over Brooklyn ugh Wes Anderson 8-bit master cleanse before they sold out selvage. Chambray PBR flannel typewriter bitters, pour-over keffiyeh craft beer mumblecore brunch Austin. Pug Pitchfork cornhole seitan YOLO, Etsy mixtape fanny pack. Flexitarian Vice wolf Tumblr, keffiyeh irony ugh. Fanny pack banjo hashtag actually. Banksy dreamcatcher tilde, actually McSweeney's biodiesel Brooklyn salvia meggings vegan yr fixie lomo gluten-free. Leggings Banksy tousled photo booth trust fund tilde pour-over, aesthetic Thundercats beard slow-carb VHS.</p>
+    </div>
+</body>
+
+</html>

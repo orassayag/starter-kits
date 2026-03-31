@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox Holy grail layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .layout__body {
+            display: flex;
+            flex: 1;
+        }
+
+        .layout__content {
+            flex: 1;
+        }
+
+        .layout__columns {
+            flex: 0 0 12em;
+        }
+
+        .layout__nav {
+            order: -1;
+        }
+
+        .layout__content {
+            background: orange;
+        }
+
+        .layout__columns {
+            background: green;
+        }
+
+        header,
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 10px;
+        }
+
+        footer a {
+            flex: 1;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Helvetica;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header>
+        <h1>Holy Grail layout made easy with flexbox</h1>
+    </header>
+    <div class="layout__body">
+        <main class="layout__content">...</main>
+        <nav class="layout__nav layout__columns">...</nav>
+        <aside class="layout__aside layout__columns">...</aside>
+    </div>
+    <footer>
+        <a href="https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/">Adapted from this awesome site</a>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flex Layout - Side Nav</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:400');
+
+        .site {
+            display: flex;
+            min-height: 100vh;
+            background: red;
+        }
+
+        .site-nav {
+            background: #4e87ea;
+            width: 120px;
+            border: 1px solid red;
+        }
+
+        .site-content {
+            background: #eee;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-header {
+            background: #fff;
+            height: 40px;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, .15);
+        }
+
+        .content-topic {
+            background: #fff;
+            flex-grow: 1;
+            margin: 30px 50px;
+            box-shadow: 5px 5px 0 rgba(0, 0, 0, .15);
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-family: 'Open Sans', sans-serif;
+            color: rgba(0, 0, 0, .25);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body translate="no" class="site">
+    <nav class="site-nav flex-center">
+        <h1 class="section-title">NAV</h1>
+    </nav>
+    <main class="site-content">
+        <header class="content-header flex-center">
+            <h1 class="section-title">HEADER</h1>
+        </header>
+        <section class="content-topic flex-center">
+            <h1 class="section-title">TOPIC</h1>
+        </section>
+    </main>
+</body>
+
+</html>

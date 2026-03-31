@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Dashboard</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="http://brick.a.ssl.fastly.net/Ubuntu:300,400,500,700" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <style type="text/css">
+        @import url('http://weloveiconfonts.com/api/?family=iconicfill');
+
+        [class*="iconicfill-"]::before {
+            font-family: 'IconicFill', sans-serif;
+            font-size: 1.2rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body,
+        .dashboard {
+            width: 100%;
+            height: 100%;
+        }
+
+        html,
+        body,
+        input,
+        textarea {
+            font: 300 1rem "Ubuntu", Helvetica, Verdana, sans-serif;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        h1 {
+            font: 700 1.75rem "Ubuntu", Helvetica, Verdana, sans-serif;
+            border-bottom: 0.5rem solid #2c3e50;
+            margin: 0 0 2rem 0;
+        }
+
+        h2 {
+            font: 700 1.5rem "Ubuntu", Helvetica, Verdana, sans-serif;
+            margin: 0 0 1rem 0;
+        }
+
+        h3 {
+            font-weight: 500;
+        }
+
+        p {
+            margin: 0 0 1rem 0;
+        }
+
+        .dashboard {
+            font: 300 1rem "Ubuntu", Helvetica, Verdana, sans-serif;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-flow: row wrap;
+            height: auto;
+        }
+
+        aside {
+            background: #2c3e50;
+            -webkit-box-flex: 2;
+            flex: 2 1 0%;
+            -webkit-box-ordinal-group: 2;
+            order: 1;
+        }
+
+        aside li a,
+        aside .search {
+            display: block;
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 1rem;
+            border-bottom: 1px solid #34495e;
+            -webkit-transition: background 0.15s ease;
+            transition: background 0.15s ease;
+        }
+
+        aside li a:hover,
+        aside li a:active,
+        aside li a:focus,
+        aside .search:hover,
+        aside .search:active,
+        aside .search:focus {
+            background: #34495e;
+        }
+
+        aside li a::before,
+        aside .search::before {
+            display: inline-block;
+            width: 1.5rem;
+        }
+
+        aside .search input {
+            width: 80%;
+        }
+
+        main {
+            background: #ecf0f1;
+            -webkit-box-flex: 6;
+            flex: 6 1 0%;
+            -webkit-box-ordinal-group: 3;
+            order: 2;
+            padding: 1rem 0 1rem 1rem;
+        }
+
+        main .overview {
+            min-height: 100vh;
+        }
+
+        main .overview .widget-container {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-flow: row wrap;
+        }
+
+        main .overview .widget-container .widget {
+            background: #bdc3c7;
+            -webkit-box-flex: 6;
+            flex: 6 1 0%;
+            margin: 0 1rem 1rem 0;
+            min-width: 15rem;
+        }
+
+        main .overview .widget-container .widget header {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+        }
+
+        main .overview .widget-container .widget header h3::before {
+            display: inline-block;
+            width: 1.5rem;
+        }
+
+        main .overview .widget-container .widget .content {
+            padding: 1rem;
+        }
+
+        main .overview .widget-container .widget .content li {
+            list-style-type: square;
+            margin: 0 0 0 1rem;
+        }
+
+        main .overview .widget-container .widget .content .ok::before {
+            content: '';
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            background: #27ae60;
+            border-radius: 50%;
+            margin: 0 1rem 0 0;
+        }
+
+        main footer p {
+            text-align: right;
+            font-size: .85rem;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="dashboard">
+        <main>
+            <div class="overview">
+                <h1>Dashboard</h1>
+                <h2>Overview</h2>
+                <div class="widget-container">
+                    <div class="widget">
+                        <header>
+                            <h3 class="iconicfill-document-alt-fill">Files</h3>
+                        </header>
+                        <div class="content">
+                            <ul>
+                                <li>README.md</li>
+                                <li>humans.txt</li>
+                                <li>style.css</li>
+                                <li>index.htm</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <header>
+                            <h3 class="iconicfill-mail">Messages</h3>
+                        </header>
+                        <div class="content">
+                            <ul>
+                                <li>09/04/15 - Spam</li>
+                                <li>07/04/15 - Hello my friend</li>
+                                <li>06/04/15 - Awesome business opportunity</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <header>
+                            <h3 class="iconicfill-user">Users</h3>
+                        </header>
+                        <div class="content">
+                            <ul>
+                                <li>admin</li>
+                                <li>Mr. Crazypants</li>
+                                <li>Josh</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <header>
+                            <h3 class="iconicfill-bars">Monitoring</h3>
+                        </header>
+                        <div class="content">
+                            <p class="ok">All Systems operating normal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>© 2015 Dashboard by @reimersjan</p>
+            </footer>
+        </main>
+        <aside>
+            <ul>
+                <li><a class="iconicfill-home" href="#">Overview</a></li>
+                <li><a class="iconicfill-document-alt-fill" href="#">Files</a></li>
+                <li><a class="iconicfill-mail" href="#">Messages</a></li>
+                <li><a class="iconicfill-user" href="#">Users</a></li>
+                <li><a class="iconicfill-bars" href="#">Monitoring</a></li>
+                <li><a class="iconicfill-cog" href="#">Settings</a></li>
+                <li class="search iconicfill-magnifying-glass">
+                  <input placeholder="Search" />
+               </li>
+            </ul>
+        </aside>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</body>
+
+</html>

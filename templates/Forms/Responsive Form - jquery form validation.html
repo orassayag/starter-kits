@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Form - jquery form validation</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <style type="text/css">
+        html {
+            padding: 15px;
+        }
+
+        .container.shop-form-container {
+            clear: both;
+        }
+
+        .container.shop-form-container .fieldset-wrapper {
+            background-color: #E9E9E9;
+            padding: 20px;
+        }
+
+        .container.shop-form-container #gender-radios-wrapper {
+            border: 1px solid #FFFFFF;
+            padding: 10px;
+        }
+
+        .container.shop-form-container #gender-radios-wrapper label {
+            margin: 0px;
+            width: 60px;
+        }
+
+        .container.shop-form-container #gender-radios-wrapper label input {
+            margin-right: 5px;
+        }
+
+        .container.shop-form-container #agree-checkbox-wrapper {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            border: 1px solid #FFFFFF;
+            padding: 10px;
+        }
+
+        .container.shop-form-container #agree-checkbox-wrapper input {
+            margin-right: 10px;
+        }
+
+        .container.shop-form-container #agree-checkbox-wrapper label {
+            margin: 0px;
+        }
+
+        .container.shop-form-container #agree-checkbox-wrapper label a {
+            text-decoration: underline;
+        }
+
+        .container.shop-form-container label.error.success {
+            color: #8BC34A;
+        }
+
+        .container.shop-form-container label.error {
+            color: #DF002C;
+        }
+
+        .container.shop-form-container input:focus {
+            outline-color: #94AEB8;
+            border: 1px solid #94AEB8;
+        }
+
+        .container.shop-form-container input.error:focus {
+            outline-color: #DF002C;
+            border: 1px solid #DF002C;
+        }
+
+        .container.shop-form-container input.valid:focus {
+            outline-color: #8BC34A;
+            border: 1px solid #8BC34A;
+        }
+
+        .container.shop-form-container input.error {
+            border: 1px solid #DF002C;
+        }
+
+        .container.shop-form-container input.valid {
+            border: 1px solid #8BC34A;
+        }
+
+        .container.shop-form-container .form-headline {
+            background-color: #F6F6F6;
+            border-bottom: 1px solid #89A5B2;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .container.shop-form-container .shop-form {
+            border: 1px solid #B9B9B9;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+
+        .container.shop-form-container .shop-form fieldset {}
+
+        .container.shop-form-container .shop-form fieldset #Gender-error,
+        .container.shop-form-container .shop-form fieldset #agree-error {
+            padding-left: 0;
+        }
+
+        .container.shop-form-container .shop-form fieldset .form-input-block {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .container.shop-form-container .shop-form fieldset .form-input-block .input-wrapper {
+            display: -webkit-box;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .container.shop-form-container .shop-form fieldset .form-input-block .input-wrapper label {
+            width: 35%;
+        }
+
+        .container.shop-form-container .shop-form fieldset .form-input-block .input-wrapper label.error,
+        .container.shop-form-container .shop-form fieldset .form-input-block .input-wrapper label.error.success {
+            width: 100%;
+            padding-left: 35%;
+        }
+
+        .container.shop-form-container .shop-form fieldset .form-input-block .input-wrapper input[type=text],
+        .container.shop-form-container .shop-form fieldset .form-input-block .input-wrapper input[type=email],
+        .container.shop-form-container .shop-form fieldset .form-input-block .input-wrapper input[type=password] {
+            width: 65%;
+        }
+
+        .container.shop-form-container .shop-form fieldset .form-input-block .input-wrapper .agree-label {
+            width: 100%;
+        }
+
+        .container.shop-form-container .submit {
+            background-color: #89A5B2;
+            border: none;
+            color: #FFFFFF;
+            float: right;
+            padding: 0.625em 5em 0.625em 5em;
+            margin-top: 20px;
+            -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+        }
+
+        .container.shop-form-container .submit:hover {
+            cursor: pointer;
+            background-color: #474747;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* .container.shop-form-container */
+        .shop-form-container * {
+            color: #474747;
+            font-weight: 300;
+            font-size: 12px;
+        }
+
+        #myModal {
+            padding: 20px;
+        }
+
+        #myModal .modal-dialog {
+            border: 1px solid #FFFFFF;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+        }
+
+        #myModal .modal-dialog * {
+            font-weight: 200;
+        }
+
+        #myModal .modal-dialog .modal-content {}
+
+        #myModal .modal-dialog .modal-content .modal-header {
+            position: relative;
+            border-bottom: 0px;
+        }
+
+        #myModal .modal-dialog .modal-content .modal-header .modal-title {
+            border-bottom: 1px solid #89A5B2;
+            width: 100%;
+            text-align: center;
+        }
+
+        #myModal .modal-dialog .modal-content .modal-header button.close {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #FFFFFF;
+            right: -50px;
+            top: -50px;
+            border-radius: 50%;
+            color: #FFFFFF;
+            opacity: 1;
+        }
+
+        #myModal .modal-dialog .modal-content .modal-header button.close:hover {
+            opacity: .75;
+        }
+
+        #myModal .modal-dialog .modal-content .modal-body {
+            max-height: 80vh;
+            overflow-y: scroll;
+        }
+
+        #myModal .modal-dialog .modal-content .modal-body .modal-sub-title {
+            color: #89A5B2;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #89A5B2;
+        }
+
+        /* #myModal */
+        @media only screen and (min-width: 768px) {
+            .container.shop-form-container * {
+                color: #474747;
+                font-weight: 300;
+                font-size: 18px;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            .container.shop-form-container {}
+
+            .container.shop-form-container .shop-form {}
+
+            .container.shop-form-container .shop-form #regular-info-input-group {}
+
+            .container.shop-form-container .shop-form #regular-info-input-group #Gender-error,
+            .container.shop-form-container .shop-form #regular-info-input-group #agree-error {
+                padding-left: 0;
+            }
+
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block {
+                float: left;
+                margin: auto;
+                width: calc((100% - 10px) / 2);
+            }
+
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block:nth-child(1),
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block:nth-child(3),
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block:nth-child(5) {
+                margin-right: 10px;
+            }
+
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block .input-wrapper {
+                display: -webkit-box;
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block .input-wrapper label {
+                width: 100%;
+            }
+
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block .input-wrapper label.error,
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block .input-wrapper label.error.success {
+                width: 100%;
+                padding-left: 0px;
+            }
+
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block .input-wrapper input[type=text],
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block .input-wrapper input[type=email],
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block .input-wrapper input[type=password] {
+                width: 100%;
+            }
+
+            .container.shop-form-container .shop-form #regular-info-input-group .form-input-block .input-wrapper .agree-label {
+                width: 100%;
+            }
+
+            .modal-dialog {
+                max-width: 700px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section>
+        <div class="container shop-form-container">
+            <h2 class="form-headline">Ausfüllen, abschicken und sofort shoppen:</h2>
+            <div class="form-wrapper">
+                <form class="shop-form" id="signupForm" method="get" action="" novalidate="novalidate">
+                    <div class="fieldset-wrapper">
+                        <fieldset id="gender-radios-group">
+                            <label for="Gender">Anrede:*</label>
+                            <div class="form-input-block" id="gender-radios-wrapper">
+                                <label><input type="radio" name="Gender" value="Frau" />Frau</label>
+                                <label><input type="radio" name="Gender" value="Herr" />Herr</label>
+                            </div>
+                        </fieldset>
+                        <fieldset id="regular-info-input-group">
+                            <div class="form-input-block">
+                                <div class="input-wrapper">
+                                    <label for="firstname">Vorname: *</label>
+                                    <input id="firstname" name="firstname" type="text" />
+                                </div>
+                            </div>
+                            <div class="form-input-block">
+                                <div class="input-wrapper">
+                                    <label for="lastname">Nachname: *</label>
+                                    <input id="lastname" name="lastname" type="text" />
+                                </div>
+                            </div>
+                            <div class="form-input-block">
+                                <div class="input-wrapper">
+                                    <label for="company">Firma:</label>
+                                    <input id="company" name="company" type="text" />
+                                </div>
+                            </div>
+                            <div class="form-input-block">
+                                <div class="input-wrapper">
+                                    <label for="email">Email-Adresse: *</label>
+                                    <input id="email" name="email" type="email" />
+                                </div>
+                            </div>
+                            <div class="form-input-block">
+                                <div class="input-wrapper">
+                                    <label for="password">Passwort: *</label>
+                                    <input id="password" name="password" type="password" />
+                                </div>
+                            </div>
+                            <div class="form-input-block">
+                                <div class="input-wrapper">
+                                    <label for="password_confirm">Passwort bestätigen: *</label>
+                                    <input id="password_confirm" name="password_confirm" type="password" />
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend id="check-agree">Bitte bestätigen: *</legend>
+                            <div class="form-input-block" id="agree-checkbox-wrapper">
+                                <input type="checkbox" id="agree" name="agree" />
+                                <label class="agree-label" for="agree">Ja, Ich stimme den
+                                    <a href="#myModal" class="trigger-modal" data-toggle="modal">ABG</a> und
+                                    <a href="#myModal" class="trigger-modal" data-toggle="modal">Datenschutzbestimmungen</a>
+                                    der ***Company Name Placeholder*** Shop GmhH zu.</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <input class="submit" type="submit" value="KUNDENKONTO ERSTELLEN" />
+                </form>
+            </div>
+        </div>
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">DATENSCHUTZ-HINWEISE</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="modal-sub-title">SCHÖNER WOHNEN-SHOP</h4>
+                        <p class="modal-body-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem nesciunt nulla sed minus soluta esse consequuntur eligendi ipsum perferendis maiores deserunt maxime sit dolore odio, praesentium, consectetur delectus nobis quod eaque iusto quasi excepturi laudantium, quo labore ut! Fuga vel dignissimos aliquam beatae voluptas quae labore corrupti doloremque reiciendis fugiat sequi eos, voluptatum, numquam nisi quam molestias eum debitis laudantium aliquid praesentium natus veritatis iusto! Aliquid quasi inventore ab incidunt magnam officia voluptas minima ad, molestias quas. Ullam praesentium magni nulla sunt eos ea porro necessitatibus ipsum placeat architecto doloremque, beatae accusantium officiis ipsa veniam facilis laboriosam. Quibusdam itaque, alias nulla maxime ex hic animi placeat ipsa. Qui iste optio totam, enim, ea quam eligendi suscipit consequuntur animi ducimus fuga soluta deserunt, ex autem impedit iusto sed rem quaerat exercitationem natus voluptatem, dolore. Harum, quibusdam est. Exercitationem accusantium, voluptas vero, cumque quas magni saepe, fugiat cupiditate porro nemo sunt animi.
+                        </p>
+                        <h4 class="modal-sub-title">SCHÖNER WOHNEN-SHOP</h4>
+                        <p class="modal-body-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates unde dolor, expedita vel a omnis quae perferendis possimus, saepe ab error cum earum labore molestiae, amet voluptate fugiat repellendus quidem velit vero excepturi delectus? Perferendis eius voluptatum assumenda cumque dolorem placeat, illo vel facilis est eos quam ipsa culpa ab ducimus voluptatibus modi. Quaerat animi corporis voluptatibus error possimus provident repellendus rerum quasi, dolorem amet iste quam officiis at eos maiores quo. Cum beatae totam sequi est magnam perferendis magni non facilis, soluta ipsam laudantium, quaerat voluptatum velit hic eius optio. Aperiam nostrum voluptatibus, ad, dolorum cupiditate distinctio aut. Voluptas dolores delectus odit rerum accusantium, fugit architecto deleniti facere pariatur aliquid totam, libero maiores reiciendis error cumque. Eius rem, assumenda sit qui laborum sunt nihil, ipsam ea mollitia, temporibus, necessitatibus praesentium sed libero porro architecto voluptas. Nam ab est voluptates inventore, sunt, quae, dolores, quisquam error quidem incidunt repellat doloremque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/jquery-validation/jquery-validation/master/src/localization/messages_de.js"></script>
+    <script type="text/javascript" id="rendered-js">
+        $(document).ready(function() {
+            // validate signup form on keyup and submit
+            $("form").validate({
+                rules: {
+                    Gender: { required: true },
+                    firstname: "required",
+                    lastname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                        // remote: "emails.action"
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+
+                    password_confirm: {
+                        required: true,
+                        minlength: 5,
+                        equalTo: "#password"
+                    },
+
+                    agree: "required"
+                },
+
+                messages: {
+                    Gender: {
+                        required: "Dies ist ein Pflichtfeld."
+                    },
+
+                    firstname: "Dies ist ein Pflichtfeld.",
+                    lastname: "Dies ist ein Pflichtfeld.",
+                    email: {
+                        required: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+                        minlength: "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+                        // remote: jQuery.validator.format("{0} is already in use")
+                    },
+                    password: {
+                        required: "Dies ist ein Pflichtfeld.",
+                        minlength: jQuery.validator.format("Geben Sie bitte mindestens {0} Zeichen ein.")
+                    },
+
+                    password_confirm: {
+                        required: "Dies ist ein Pflichtfeld.",
+                        minlength: jQuery.validator.format("Geben Sie bitte mindestens {0} Zeichen ein."),
+                        equalTo: "Bitte denselben Wert wiederholen."
+                    },
+
+                    agree: "Dies ist ein Pflichtfeld."
+                },
+
+                // the errorPlacement has to take the table layout into account
+                errorPlacement: function(error, element) {
+                    if (element.is(":radio"))
+                        error.insertAfter(element.parents('#gender-radios-wrapper'));
+                    else
+                    if (element.is(":checkbox"))
+                        error.insertAfter(element.parent('#agree-checkbox-wrapper'));
+                    else
+
+                        error.appendTo(element.parent());
+                },
+                // set this class to error-labels to indicate valid fields
+                success: function(label) {
+                    label.text("Eingaben OK").addClass("success");
+                },
+                // specifying a submitHandler prevents the default submit, good for the demo
+                submitHandler: function() {
+                    alert("submitted!");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Form</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <style type="text/css">
+        /* basic styles */
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 101%;
+            font-size: 16px;
+            font-family: Helvetica, Arial, Tahoma, sans-serif;
+            color: #333;
+            background: #d6d6d6;
+            padding-top: 10px;
+        }
+
+        a {
+            color: #4681da;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a:active,
+        a:focus {
+            outline: none;
+            -moz-outline-style: none;
+        }
+
+        /* Header */
+        .header {
+            margin: 0;
+            background-color: #d9d9d9;
+        }
+
+        h4 {
+            color: #ee1e57;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 25px;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #container {
+            display: block;
+            max-width: 543px;
+            margin: 0 auto;
+            margin-top: 5px;
+            margin-bottom: 66px;
+            padding: 20px 15px;
+            background: #fff;
+            border-radius: 6px;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        /* the form elements */
+        input[type=text],
+        input[type=email] {
+            background-color: #fff;
+            border: solid 1px #cbc9c9;
+            -webkit-appearance: none;
+            height: 51px;
+            margin-left: -5px;
+            margin-top: 13px;
+            padding-left: 10px;
+            width: 84%;
+        }
+
+        .txtinput:focus {
+            color: #333;
+            border-color: rgba(222, 0, 61, 0.6);
+            outline: 0 none;
+            transition: all 0.4s ease-in-out;
+        }
+
+        #icon {
+            display: inline-block;
+            width: 45px;
+            background-color: #de003d;
+            color: white;
+            -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
+            -moz-box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
+            box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
+            border: 1px solid #de003d;
+            font-size: 25px;
+            padding: 8px 0 16px 19px;
+        }
+
+        @-moz-document url-prefix() {
+            #icon {
+                padding: 8px 0 13px 19px;
+            }
+        }
+
+        #wrapping {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* all @group clearfix */
+        .clearfix:after {
+            content: ".";
+            display: block;
+            clear: both;
+            visibility: hidden;
+            line-height: 0;
+            height: 0;
+        }
+
+        .clearfix {
+            display: inline-block;
+        }
+
+        html[xmlns] .clearfix {
+            display: block;
+        }
+
+        * html .clearfix {
+            height: 1%;
+        }
+
+        /* custom buttons */
+        #buttons {
+            display: block;
+            margin-top: 1.3em;
+        }
+
+        .btn {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            white-space: nowrap;
+            width: 100%;
+            padding: .7em 0em;
+            font-family: Open Sans, Helvetica, Arial, sans-serif;
+            line-height: 18px;
+            display: inline-block;
+            zoom: 1;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        /* ABSENDEN */
+        .btn.btn-absenden {
+            background-color: #de003d;
+            border-color: #de003d;
+            margin-top: 0.3em;
+        }
+
+        .btn.btn-absenden:active {
+            top: 3px;
+            outline: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        /* all devices and responsive browser windows */
+        @media screen and (max-width: 800px) {
+            body {
+                padding: 10px 15px;
+            }
+
+            #container {
+                width: 100%;
+            }
+
+            #tellja-form #form_aligned {
+                width: 100%;
+                float: none;
+                display: block;
+            }
+
+            #tellja-form .txtinput {
+                width: 83%;
+            }
+
+            #awardbtn {
+                margin-bottom: 15px;
+            }
+
+            .buttonchk {
+                max-width: 45%;
+            }
+        }
+
+        /* smaller screen dropoff */
+        @media only screen and (max-width: 550px) {
+
+            #tellja-form .txtinput,
+            #tellja-form textarea {
+                width: 70%;
+            }
+
+            .buttonchk {
+                max-width: 45%;
+            }
+        }
+
+        /* iPhone Landscape */
+        @media only screen and (max-width: 480px) {
+            body {
+                padding: 10px 0px;
+            }
+
+            #awardbtn {
+                margin-bottom: 15px;
+            }
+
+            h4 {
+                width: 100%;
+            }
+
+            .buttonchk {
+                max-width: 45%;
+            }
+        }
+
+        /* iPhone portrait */
+        @media only screen and (max-width: 320px) {
+            body {
+                padding: 10px 0px;
+            }
+
+            #tellja-form .txtinput,
+            #tellja-form textarea {
+                width: 67%;
+            }
+
+            #tellja-form #form_aligned {
+                overflow: hidden;
+            }
+
+            .buttonchk {
+                max-width: 45%;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section id="container">
+        <form name="tellja" id="tellja-form" method="post" action="#">
+            <h4>For this we need your contact information:</h4>
+            <div id="wrapping" class="clearfix">
+                <label id="icon" for="name"><i class="fa fa-user"></i></label>
+                <input class="txtinput" type="text" name="name" id="name" placeholder="First name" required="" />
+                <label id="icon" for="name"><i class="fa fa-user-plus"></i></label>
+                <input class="txtinput" type="text" name="name" id="name" placeholder="Last name" required="" />
+                <label id="icon" for="name"><i class="fa fa-envelope-o"></i></label>
+                <input class="txtinput" type="email" name="name" id="name" placeholder="Email" required="" />
+                <section id="buttons">
+                    <a href="#" class="btn btn-absenden">Submit</a>
+                    <br style="clear:both;">
+                </section>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

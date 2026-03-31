@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Photo Life - responsive website</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Nunito:400,800" />
+    <style type="text/css">
+        * {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #4e4e4e;
+        }
+
+        body,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            text-align: center;
+        }
+
+        p,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #4e4e4e;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        a:hover {
+            color: #16a086;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        main {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background: url('https://images.unsplash.com/photo-1504190171281-53bcec256266?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5a19dac35be0db22f9f4a3cb70c58aeb&auto=format&fit=crop&w=1491&q=80') no-repeat;
+            background-size: ;
+            background-position: center;
+            padding: 20px 0;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            margin: 0;
+            text-indent: -100000px;
+            float: left;
+        }
+
+        header nav {
+            text-align: center;
+            margin-top: 10px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        header:after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+
+        header nav ul {
+            text-align: center;
+        }
+
+        header nav li {
+            list-style-type: none;
+            display: inline-block;
+            padding: 0 30px;
+            text-align: center;
+        }
+
+        header nav i.fa-camera-retro {
+            color: #fff;
+            font-size: 2.5em;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        header nav li a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.3em;
+        }
+
+        header nav li a.active {
+            color: #18c44d;
+        }
+
+        header nav li a:hover,
+        header nav a:hover {
+            color: #1eb59e;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .banner {
+            position: relative;
+            height: 400px;
+            width: 60%;
+            margin: 0 auto;
+            padding: 80px 0;
+            resize: both;
+            overflow: hidden;
+        }
+
+        .banner-content {
+            width: 100%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            padding: 0px;
+            resize: both;
+            overflow: hidden;
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+
+        .banner h2 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 40px;
+            margin: 0;
+            color: #fff;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            text-align: center;
+        }
+
+        .banner p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            margin: 10px;
+            color: #fff;
+            font-weight: bold;
+            text-transform: lowercase;
+            letter-spacing: 0.25em;
+        }
+
+        i.fa-twitter,
+        i.fa-facebook-official,
+        i.fa-instagram {
+            font-size: 30px;
+            margin-top: 510px;
+            padding: 0 5px;
+        }
+
+        .button-main {
+            vertical-align: top;
+            background-color: #16a086;
+            border: none;
+            color: #fff;
+            padding: 16px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.7em;
+            letter-spacing: 0.25em;
+            font-weight: bold;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button-main:hover {
+            background-color: #4CAF50;
+        }
+
+        /* Get Started SECTION - first row */
+        section,
+        footer {
+            margin: 0px;
+            padding: 80px;
+        }
+
+        h3 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+            margin: 0;
+            color: #16a086;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+        }
+
+        #section-get-started {
+            background: url('https://image.ibb.co/cgqn3m/phone_hand.png') no-repeat;
+            background-color: #f0f1f3;
+            background-size: cover;
+            background-position: right;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 80px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+
+        .get-started-1 p {
+            text-align: justify;
+            letter-spacing: 2px;
+        }
+
+        #section-design {
+            background: url('https://image.ibb.co/eiWuim/phone_plain.png') no-repeat;
+            background-color: #fff;
+            background-size: 700px;
+            background-position: left;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 80px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+
+        section div img {
+            width: 100%;
+        }
+
+        .get-started-2 p {
+            text-align: justify;
+            letter-spacing: 2px;
+        }
+
+        section div i.fa-camera-retro {
+            color: #16a086;
+            font-size: 4em;
+            vertical-align: middle;
+            padding-top: 30px;
+        }
+
+        h4,
+        h6 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+            margin: 0;
+            padding-top: 10px;
+            color: #2c2d2f;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+        }
+
+        #section-community {
+            background-color: #f5f6f8;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+
+        .one {
+            grid-column: 1;
+            grid-row: 1;
+            text-align: center;
+            grid-gap: auto;
+        }
+
+        .two {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .three {
+            grid-column: 3;
+            grid-row: 1;
+        }
+
+        #section-subscribe {
+            background: url('https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e5e8c1c5e29d1a72d4870d188b49a598&auto=format&fit=crop&w=1950&q=80') no-repeat;
+            background-position: center;
+            background-size: cover;
+            padding: 300px 0;
+            text-align: center;
+        }
+
+        h5 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+            color: #fff;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            margin-top: 0;
+        }
+
+        input[type=text] {
+            vertical-align: top;
+            border: 0;
+            color: #2c2d2f;
+            font-weight: 700;
+            -webkit-box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.8);
+            -moz-box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.8);
+            box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.8);
+            padding: 0 10px;
+            background: rgba(255, 255, 255, 1.0);
+            margin: 0;
+            height: 43px;
+        }
+
+        #section-download {
+            background-color: #f5f6f8;
+            text-align: center;
+        }
+
+        .button-disabled {
+            vertical-align: top;
+            background-color: #1bbc9b;
+            border: none;
+            color: #fff;
+            width: 43px;
+            height: 43px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        .button-space-right {
+            margin-right: 12px;
+        }
+
+        .button-space-left {
+            margin-left: 12px;
+        }
+
+        .gap {
+            color: #1bbc9b;
+            font-weight: bold;
+            padding: 0 4px;
+        }
+
+        footer {
+            padding-top: 40px;
+            padding-bottom: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 80px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+
+        footer a {
+            color: #2c2d2f;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        footer p {
+            color: #2c2d2f;
+            font-weight: bold;
+            vertical-align: middle;
+            font-size: 12px;
+        }
+
+        .four {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .six {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        footer div i.fa-camera-retro {
+            color: rgba(27, 188, 155, 0.8);
+            font-size: 4em;
+            vertical-align: middle;
+            float: right;
+        }
+
+        @media screen and (max-width: 1120px) {
+            section {
+                padding: 50px;
+            }
+
+            .wrapper {
+                justify-content: center;
+            }
+
+            .get-started-1 {
+                background: rgba(240, 241, 243, 0.8);
+                padding: 80px;
+            }
+
+            #section-get-started .get-started-2 {
+                display: none;
+            }
+
+            #section-get-started {
+                background-color: #f0f1f3;
+                background-size: cover;
+                background-position: right;
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: 0;
+                grid-auto-rows: minmax(100px, auto);
+                text-align: center;
+                padding: 0;
+            }
+
+            #section-get-started p {
+                color: #4e4e4e;
+                font-weight: 400;
+                padding: 30px;
+            }
+
+            .get-started-2 {
+                background: rgba(255, 255, 255, 0.8);
+                padding: 80px;
+            }
+
+            #section-design {
+                background-color: #fff;
+                background-size: auto;
+                background-position: center;
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: 0;
+                grid-auto-rows: minmax(100px, auto);
+                text-align: center;
+                padding: 0;
+            }
+
+            #section-design p {
+                color: #4e4e4e;
+                font-weight: 400;
+                padding: 30px;
+            }
+
+            #section-design .get-started-1 {
+                display: none;
+            }
+
+            #section-community {
+                background-color: #f5f6f8;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+            }
+
+            .one {
+                grid-column: 1;
+                grid-row: 1;
+                text-align: center;
+            }
+
+            .two {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .three {
+                grid-column: 2;
+                grid-row: 2;
+            }
+        }
+
+        @media screen and (max-width: 760px) {
+            #section-community {
+                background-color: #f5f6f8;
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: 20px;
+            }
+
+            .one {
+                grid-column: 1;
+                grid-row: 1;
+                text-align: center;
+                grid-gap: auto;
+            }
+
+            .two {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .three {
+                grid-column: 1;
+                grid-row: 3;
+            }
+
+            header {
+                margin: 0;
+                padding: 0;
+            }
+
+            header nav li {
+                float: none;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            header nav li a {
+                display: block;
+                text-align: center;
+                padding: 10px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+            }
+
+            #burger-nav {
+                width: 100%;
+                height: 60px;
+                background: url('https://thumb.ibb.co/iX15pR/burger_icon.png') no-repeat 98% center;
+                cursor: pointer;
+            }
+
+            header nav ul {
+                height: 0;
+                overflow: hidden;
+            }
+
+            header nav ul.open {
+                height: auto;
+            }
+
+            header nav i.fa-camera-retro {
+                display: none;
+            }
+
+            footer {
+                padding-top: 40px;
+                padding-bottom: 0;
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: 0;
+                grid-auto-rows: minmax(100px, auto);
+            }
+
+            .four {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .six {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            footer div i.fa-camera-retro {
+                float: none;
+                text-align: center;
+            }
+
+            #section-download p {
+                text-align: justify;
+            }
+
+            .banner {
+                padding: 20px;
+            }
+
+            .banner-content {
+                top: 25%;
+            }
+        }
+
+        @media screen and (max-width: 625px) {
+            #section-get-started {
+                padding: 0;
+            }
+
+            #section-design {
+                padding: 0;
+            }
+
+            .get-started-2 {
+                background: rgba(255, 255, 255, 0.8);
+                padding: 40px 20px;
+            }
+
+            .get-started-1 {
+                background: rgba(240, 241, 243, 0.8);
+                padding: 40px 20px;
+            }
+
+            footer p {
+                font-size: 8px;
+            }
+
+            footer a {
+                font-size: 10px;
+            }
+
+            #section-subscribe {
+                padding: 150px 0;
+            }
+
+            h5 {
+                font-size: 12px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .btn-mobile {
+                display: block;
+                margin: 20px auto;
+                text-align: center;
+                width: 205px;
+            }
+
+            .button-disabled {
+                display: none;
+            }
+
+            .banner h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header>
+        <div class="wrapper">
+            <h1 class="logo">Camera</h1>
+            <nav>
+                <div id="burger-nav"></div>
+                <ul class="">
+                    <li><a href="#"><i class="fa fa-camera-retro fa-align-center" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#section-get-started">PhotoApp</a></li>
+                    <li><a href="#section-design">Design</a></li>
+                    <li><a href="#section-download">Download</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper banner">
+            <div class="banner-content">
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"> <i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </div>
+            <div class="banner-content">
+                <h2>Your life - a photo</h2>
+                <p>print your life in a simple photo</p>
+                <button class="button-main">Get Started</button><br>
+            </div>
+        </div>
+    </header>
+    <main class="wrapper">
+        <section id="section-get-started">
+            <div class="get-started-1">
+                <h3>Represent your life with a simple photo</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus qui quasi est incidunt adipisci ipsam ex iste illo magnam quis officiis libero voluptatem, quam tempore cumque molestiae, repellendus asperiores! Dolorem recusandae ullam voluptas.
+                    Ipsum unde aperiam optio ipsa necessitatibus? Nesciunt, quas! .
+                </p>
+                <button class="button-main">Get Started</button>
+            </div>
+            <div class="get-started-2"> </div>
+        </section>
+        <section id="section-design">
+            <div class="get-started-1"></div>
+            <div class="get-started-2">
+                <h3>Design</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus qui quasi est incidunt adipisci ipsam ex iste illo magnam quis officiis libero voluptatem, quam tempore cumque molestiae, repellendus asperiores! Dolorem recusandae ullam voluptas.
+                    Ipsum unde aperiam optio ipsa necessitatibus? Nesciunt, quas! Quos voluptate nihil vero maiores.
+                </p>
+                <button class="button-main">Learn More</button>
+            </div>
+        </section>
+        <section id="section-community">
+            <div class="one">
+                <ul>
+                    <li>
+                     <i class="fa fa-camera-retro" aria-hidden="true"></i>
+                     <h4>Our Community</h4>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit..</p>
+                  </li>
+                </ul>
+            </div>
+            <div class="two"><img src="https://images.unsplash.com/photo-1516864356635-5688f0a3fe31?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=d42a84844536f995c15f6d0bab6102e9&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80" alt="camera" title="camera" /></div>
+            <div class="three"><img src="https://images.unsplash.com/photo-1463062511209-f7aa591fa72f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=3c7691cc1fdd32ce188f0b8881476015&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80" alt="camera" title="camera" /></div>
+        </section>
+        <section id="section-subscribe">
+            <h5>Subscribe to our community</h5>
+            <input type="text" name="mail" placeholder="Your Email" /><button class="button-main" type="button" name="button"><i class="fa fa-check" aria-hidden="true"></i></button>
+        </section>
+        <section id="section-download">
+            <h6>Download It</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus qui quasi est incidunt adipisci ipsam ex iste illo magnam quis officiis libero voluptatem, quam tempore cumque molestiae, repellendus asperiores! Dolorem recusandae ullam voluptas.
+                Ipsum unde aperiam optio ipsa necessitatibus? Nesciunt, quas! Quos voluptate nihil vero maiores, quis possimus rerum dolor nemo deserunt ipsum perspiciatis quo maxime, doloremque tempore officiis, in. Animi vitae tenetur deserunt sed quia reiciendis
+                quo dolorum atque amet dolore officiis commodi odit nihil, id mollitia natus aliquam.
+            </p>
+            <button class="button-main btn-mobile">Apple Store</button><button type="button" disabled="" class="button-disabled button-space-right btn-mobile"><i class="fa fa-apple" aria-hidden="true"></i></button><button class="button-main button-space-left btn-mobile">Play Store</button><button type="button" class="button-disabled btn-mobile"><i class="fa fa-android" aria-hidden="true"></i></button>
+        </section>
+    </main>
+    <div class="wrapper">
+        <footer>
+            <div class="four">
+                <a href="#">Credits</a><span class="gap">|</span>
+                <a href="#">Privacy</a><span class="gap">|</span>
+                <a href="#">Our Teams</a>
+                <p>Copyright by phototime - all rights reserved.</p>
+            </div>
+            <div class="six"><a href="#burger-nav"><i class="fa fa-camera-retro" aria-hidden="true"></i></a></div>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#burger-nav").click(function(event) {
+                event.preventDefault();
+                $("header nav ul").toggleClass("open");
+            });
+        });
+    </script>
+</body>
+
+</html>

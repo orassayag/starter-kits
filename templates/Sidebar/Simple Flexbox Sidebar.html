@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Flexbox Sidebar</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300');
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .sideBar {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 300px;
+            width: 150px;
+            border-right: 1px solid #D7DBDD;
+            background-color: #FCFDFD;
+            padding: 10px;
+        }
+
+        .sideBar__item {
+            cursor: pointer;
+            padding: 5px 10px;
+            color: #16A2D7;
+            font-size: 12px;
+        }
+
+        .sideBar__item.is-side-bar-item-selected {
+            background-color: #EEF3F5;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="sideBar">
+        <div class="sideBar__section">
+            <div class="sideBar__item is-side-bar-item-selected">Inbox</div>
+            <div class="sideBar__item">Contacts</div>
+            <div class="sideBar__item">Account</div>
+        </div>
+        <div class="sideBar__section">
+            <div class="sideBar__item">Legal</div>
+        </div>
+    </div>
+</body>
+
+</html>

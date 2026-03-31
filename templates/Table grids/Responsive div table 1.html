@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive div table 1</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0 0 20px 0;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .rsp-table {
+            display: table;
+            width: 100%;
+            font-size: 1rem;
+            border-bottom: 2px solid #dddddd;
+            color: #8d8d8d;
+        }
+
+        .rsp-table .table-head {
+            display: table-header-group;
+        }
+
+        .rsp-table .table-head .column {
+            background: #55C3DC;
+            color: #fcfcfc;
+            border-right: 1px solid #4CAFC5;
+            border-bottom: none;
+            font-weight: 700;
+            padding: 10px;
+        }
+
+        .rsp-table .row {
+            display: table-row;
+        }
+
+        .rsp-table .row:nth-child(odd) {
+            background: #f7f7f7;
+        }
+
+        .rsp-table .row:last-child .column {
+            border-bottom: none;
+        }
+
+        .rsp-table .column {
+            display: table-cell;
+            border-bottom: 1px solid #eeeeee;
+            border-right: 1px solid #eeeeee;
+            padding: 10px;
+        }
+
+        .rsp-table .column:last-child {
+            text-align: right;
+        }
+
+        .rsp-table .column:nth-child(1) {
+            border-left: 1px solid #eeeeee;
+        }
+
+        @media all and (max-width: 767px) {
+            .rsp-table {
+                display: block;
+                border-bottom: none;
+                font-size: 1rem;
+            }
+
+            .rsp-table .table-head {
+                position: absolute;
+                top: -1000em;
+                left: -1000em;
+            }
+
+            .rsp-table .row {
+                display: block;
+                border: 1px solid #eeeeee;
+                border-top: none;
+                border-bottom: 2px solid #dddddd;
+                margin: 0 0 20px 0;
+            }
+
+            .rsp-table .row:nth-child(odd) {
+                background: #fff;
+            }
+
+            .rsp-table .column {
+                overflow: hidden;
+                display: none;
+                text-align: right;
+                position: relative;
+            }
+
+            .rsp-table .column:first-child {
+                cursor: pointer;
+            }
+
+            .rsp-table .column:last-child {
+                border-bottom: none;
+                border-right: none;
+            }
+
+            .rsp-table .column:nth-child(odd) {
+                background: #f7f7f7;
+            }
+
+            .rsp-table .column:nth-child(1) {
+                background: url('http://michaelbreinholdt.com/codepen/circle-plus.svg') no-repeat #55C3DC;
+                background-position: right 10px center;
+                background-size: 22px 22px;
+                color: #fcfcfc;
+                border: none;
+                font-weight: 700;
+                text-align: left;
+            }
+
+            .rsp-table .column:first-child {
+                display: block;
+                transition: .2s ease;
+                -webkit-transition: .2s ease;
+            }
+
+            .rsp-table .row .column:first-child.active {
+                background: url('http://michaelbreinholdt.com/codepen/circle-minus.svg') no-repeat #34a3bc;
+                background-position: right 10px center;
+                background-size: 22px 22px;
+                transition: .2s ease;
+                -webkit-transition: .2s ease;
+            }
+
+            .rsp-table .column:first-child:before {
+                width: auto;
+            }
+
+            .rsp-table .column:nth-child(2) {
+                display: block;
+            }
+
+            .rsp-table .column:before {
+                content: " "attr(data-label) " ";
+                font-weight: 700;
+                float: left;
+                display: block;
+            }
+
+            .rsp-table .column.open {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <h1>Best-selling albums</h1>
+    <div class="rsp-table">
+        <div class="table-head">
+            <div class="column" data-label="#">#</div>
+            <div class="column" data-label="Artist">Artist</div>
+            <div class="column" data-label="Album">Album</div>
+            <div class="column" data-label="Released">Released</div>
+            <div class="column" data-label="Genre">Genre</div>
+            <div class="column" data-label="Claimed sales (millions)">Claimed sales (millions)</div>
+        </div>
+        <div class="row">
+            <div class="column" data-label="#">1</div>
+            <div class="column" data-label="Artist">Michael Jackson</div>
+            <div class="column" data-label="Album">Thriller</div>
+            <div class="column" data-label="Released">1982</div>
+            <div class="column" data-label="Genre">Pop, Rock, R&B</div>
+            <div class="column" data-label="Claimed sales (millions)">65</div>
+        </div>
+        <div class="row">
+            <div class="column" data-label="#">2</div>
+            <div class="column" data-label="Artist">AC/DC</div>
+            <div class="column" data-label="Album">Back in Black</div>
+            <div class="column" data-label="Released">1980</div>
+            <div class="column" data-label="Genre">Hard Rock</div>
+            <div class="column" data-label="Claimed sales (millions)">50</div>
+        </div>
+        <div class="row">
+            <div class="column" data-label="#">3</div>
+            <div class="column" data-label="Artist">Pink Floyd</div>
+            <div class="column" data-label="Album">The Dark Side of the Moon</div>
+            <div class="column" data-label="Released">1973</div>
+            <div class="column" data-label="Genre">Progressive rock</div>
+            <div class="column" data-label="Claimed sales (millions)">45</div>
+        </div>
+        <div class="row">
+            <div class="column" data-label="#">4</div>
+            <div class="column" data-label="Artist">Whitney Houston</div>
+            <div class="column" data-label="Album">The Bodyguard</div>
+            <div class="column" data-label="Released">1992</div>
+            <div class="column" data-label="Genre">Soundtrack/R&B, soul, pop</div>
+            <div class="column" data-label="Claimed sales (millions)">44</div>
+        </div>
+        <div class="row">
+            <div class="column" data-label="#">5</div>
+            <div class="column" data-label="Artist">Meat Loaf</div>
+            <div class="column" data-label="Album">Bat Out of Hell</div>
+            <div class="column" data-label="Released">1977</div>
+            <div class="column" data-label="Genre">Hard rock, progressive rock</div>
+            <div class="column" data-label="Claimed sales (millions)">43</div>
+        </div>
+    </div>
+</body>
+
+</html>

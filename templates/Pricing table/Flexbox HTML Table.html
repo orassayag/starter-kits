@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox HTML Table</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        .section--pricing-table {
+            background: #272829;
+            padding-bottom: 2em;
+        }
+
+        .pricing-table {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .pricing-table-mobile-only {
+            display: none;
+        }
+
+        .pricing-table-row:first-of-type {
+            border-bottom: 2px solid #eee;
+        }
+
+        .pricing-table-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .pricing-table-row,
+        .pricing-table-column {
+            display: flex;
+        }
+
+        .pricing-table-column--rest-items {
+            flex-direction: row;
+            flex: 1;
+        }
+
+        .pricing-table-row.hide-on-mobile:nth-child(2n + 1) {
+            background: #f4f4f4;
+        }
+
+        .rest-items__item--package {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 2px solid #eee;
+            font-family: "Poppins", sans-serif;
+            flex-direction: column;
+            padding-bottom: 26px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .rest-items__item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 14px;
+            border-right: 2px solid #eee;
+            flex: 1;
+        }
+
+        .pricing-table-column--feature-name {
+            align-items: center;
+            padding: 14px;
+            border-right: 2px solid #eee;
+            flex: 0 0 350px;
+            font-size: 15px;
+            justify-content: space-between;
+            font-weight: bold;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .rest-items__item:last-of-type,
+        .rest-items__item--package:last-of-type,
+        .pricing-table-column:last-of-type {
+            border-right: none;
+        }
+
+        /* ITEMS */
+        .package-name {
+            font-weight: bold;
+            font-size: 22px;
+            background: #f4f4f4;
+            display: flex;
+            align-items: center;
+            line-height: 1em;
+            height: 80px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .package-price {
+            margin: 20px 0;
+            display: flex;
+        }
+
+        .package-price__decimal,
+        .package-price__price-amount {
+            font-size: 40px;
+            color: #507701;
+        }
+
+        .package-price__decimal {
+            font-size: 20px;
+            position: relative;
+            left: -6px;
+            top: 6px;
+            font-weight: bold;
+        }
+
+        .package-price__suffix {
+            font-weight: normal;
+            font-size: 12px;
+            color: #c1c1c1;
+        }
+
+        .package-additional-note,
+        .package-description {
+            font-size: 12px;
+            color: #949494;
+            padding: 0 10px 1em;
+            text-align: center;
+        }
+
+        .package-view-detail__view-detail-button,
+        .package-buy-now__buy-now-button {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 60px;
+            background: #507701;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .package-view-detail__view-detail-button {
+            color: #555;
+            background: none;
+            border: 2px solid #555;
+        }
+
+        .fa-check {
+            color: #507701;
+        }
+
+        .fa-times {
+            color: #636363;
+        }
+
+        .tooltip {
+            margin-left: 1em;
+            cursor: help;
+        }
+
+        .feature-value {
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        .package-modal-wrapper {
+            display: none;
+        }
+
+        @media screen and (max-width: 1199px) {
+            .pricing-table-column--feature-name {
+                flex: 0 0 200px;
+            }
+        }
+
+        @media screen and (max-width: 991px) {
+            .pricing-table-mobile-only {
+                display: block;
+            }
+
+            .hide-on-mobile {
+                display: none;
+            }
+
+            .pricing-table {
+                background: none;
+            }
+
+            .pricing-table-column--rest-items {
+                flex-direction: column;
+                flex: 1;
+                margin: 0 30px;
+            }
+
+            .rest-items__item--package {
+                border: 1px solid #000 !important;
+                border-radius: 20px;
+                margin-bottom: 20px;
+                background: #fff;
+                overflow: hidden;
+            }
+
+            .package-name {
+                position: relative;
+            }
+
+            .package-price__price-amount {
+                font-size: 50px;
+            }
+
+            .package-price__decimal {
+                font-size: 23px;
+                left: -6px;
+                top: 9px;
+            }
+
+            .package-price__suffix {
+                position: relative;
+                font-size: 14px;
+                top: 6px;
+                left: 4px;
+            }
+
+            .package-additional-note,
+            .package-description {
+                font-size: 18px;
+            }
+
+            .package-buy-now__buy-now-button,
+            .package-view-detail__view-detail-button {
+                font-size: 19px;
+            }
+
+            .package-modal {
+                margin: 40px;
+                position: relative;
+                border-radius: 0;
+            }
+
+            .package-modal__row {
+                align-self: flex-start;
+                text-align: left;
+                padding: 4px 20px;
+                min-width: 100%;
+            }
+
+            .package-modal__row:nth-child(2n + 1) {
+                background: #f4f4f4;
+            }
+
+            .package-modal-wrapper {
+                background: rgba(0, 0, 0, 0.5);
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding-top: 100px;
+            }
+
+            .package-modal__close-button {
+                position: absolute;
+                left: 22px;
+                top: 120px;
+                width: 40px;
+                height: 40px;
+                border: 4px solid #fff;
+                background: #507701;
+                z-index: 9;
+                border-radius: 50%;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .package-modal__close-button .fa {
+                color: #fff;
+                font-size: 26px;
+                line-height: 40px;
+            }
+
+            .package-price {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section class="section section--pricing-table">
+        <div class="container">
+            <div class="pricing-table">
+                <div class="pricing-table-row">
+                    <div class="pricing-table-column pricing-table-column--feature-name hide-on-mobile"></div>
+                    <div class="pricing-table-column pricing-table-column--rest-items">
+                        <div class="rest-items__item--package">
+                            <div class="package-name">
+                                Data Maint
+                            </div>
+                            <div class="package-price">
+                                <span class="package-price__price-amount">$5</span>
+                                <div class="package-price__right">
+                                    <div class="package-price__decimal">.00</div>
+                                    <div class="package-price__suffix">/month</div>
+                                </div>
+                            </div>
+                            <div class="package-description">
+                                Per active user, per month billed annually
+                            </div>
+                            <div class="package-additional-note">
+                                $8 billed monthly
+                            </div>
+                            <div class="package-view-detail pricing-table-mobile-only">
+                                <div class="package-view-detail__view-detail-button" data-package-id="1">View Features</div>
+                            </div>
+                            <div class="package-buy-now">
+                                <a href="https://thawks.atlassian.net">
+                              <div class="package-buy-now__buy-now-button">Buy Now</div>
+                           </a>
+                            </div>
+                        </div>
+                        <div class="rest-items__item--package">
+                            <div class="package-name">
+                                Business Online
+                            </div>
+                            <div class="package-price">
+                                <span class="package-price__price-amount">$12</span>
+                                <div class="package-price__right">
+                                    <div class="package-price__decimal">.00</div>
+                                    <div class="package-price__suffix">/month</div>
+                                </div>
+                            </div>
+                            <div class="package-description">
+                                Per active user, per month billed annually
+                            </div>
+                            <div class="package-additional-note">
+                                $8 billed monthly
+                            </div>
+                            <div class="package-view-detail pricing-table-mobile-only">
+                                <div class="package-view-detail__view-detail-button" data-package-id="2">View Features</div>
+                            </div>
+                            <div class="package-buy-now">
+                                <a href="http://www.www.www">
+                              <div class="package-buy-now__buy-now-button">Buy Now</div>
+                           </a>
+                            </div>
+                        </div>
+                        <div class="rest-items__item--package">
+                            <div class="package-name">
+                                Business Builder
+                            </div>
+                            <div class="package-price">
+                                <span class="package-price__price-amount">$15</span>
+                                <div class="package-price__right">
+                                    <div class="package-price__decimal">.50</div>
+                                    <div class="package-price__suffix">/month</div>
+                                </div>
+                            </div>
+                            <div class="package-description">
+                                Per active user, per month billed annually
+                            </div>
+                            <div class="package-additional-note">
+                                $8 billed monthly
+                            </div>
+                            <div class="package-view-detail pricing-table-mobile-only">
+                                <div class="package-view-detail__view-detail-button" data-package-id="3">View Features</div>
+                            </div>
+                            <div class="package-buy-now">
+                                <a href="http://www.www.www">
+                              <div class="package-buy-now__buy-now-button">Buy Now</div>
+                           </a>
+                            </div>
+                        </div>
+                        <div class="rest-items__item--package">
+                            <div class="package-name">
+                                Business Manager
+                            </div>
+                            <div class="package-price">
+                                <span class="package-price__price-amount">$25</span>
+                                <div class="package-price__right">
+                                    <div class="package-price__decimal">.00</div>
+                                    <div class="package-price__suffix">/month</div>
+                                </div>
+                            </div>
+                            <div class="package-description">
+                                Per active user, per month billed annually
+                            </div>
+                            <div class="package-additional-note">
+                                $8 billed monthly
+                            </div>
+                            <div class="package-view-detail pricing-table-mobile-only">
+                                <div class="package-view-detail__view-detail-button" data-package-id="4">View Features</div>
+                            </div>
+                            <div class="package-buy-now">
+                                <a href="http://www.www.www">
+                              <div class="package-buy-now__buy-now-button">Buy Now</div>
+                           </a>
+                            </div>
+                        </div>
+                        <div class="rest-items__item--package">
+                            <div class="package-name">
+                                Business Enterprise
+                            </div>
+                            <div class="package-price">
+                                <span class="package-price__price-amount">$125</span>
+                                <div class="package-price__right">
+                                    <div class="package-price__decimal">.00</div>
+                                    <div class="package-price__suffix">/month</div>
+                                </div>
+                            </div>
+                            <div class="package-description">
+                                Per active user, per month billed annually
+                            </div>
+                            <div class="package-additional-note">
+                                $8 billed monthly
+                            </div>
+                            <div class="package-view-detail pricing-table-mobile-only">
+                                <div class="package-view-detail__view-detail-button" data-package-id="5">View Features</div>
+                            </div>
+                            <div class="package-buy-now">
+                                <a href="http://www.www.www">
+                              <div class="package-buy-now__buy-now-button">Buy Now</div>
+                           </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-table-row hide-on-mobile">
+                    <div class="pricing-table-column pricing-table-column--feature-name">
+                        Free Supported Install <span class="tooltip" title="Tooltip..."><i class="fa fa-info-circle"></i></span>
+                    </div>
+                    <div class="pricing-table-column pricing-table-column--rest-items">
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-table-row hide-on-mobile">
+                    <div class="pricing-table-column pricing-table-column--feature-name">
+                        SLA Additional Support Hours <span class="tooltip" title="I don't know either ..."><i class="fa fa-info-circle"></i></span>
+                    </div>
+                    <div class="pricing-table-column pricing-table-column--rest-items">
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value">dammi</span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-table-row hide-on-mobile">
+                    <div class="pricing-table-column pricing-table-column--feature-name">
+                        Gift Vouchers <span class="tooltip" title="Free money but not really. :D"><i class="fa fa-info-circle"></i></span>
+                    </div>
+                    <div class="pricing-table-column pricing-table-column--rest-items">
+                        <div class="rest-items__item">
+                            <span class="feature-value">Marker</span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-times"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-table-row hide-on-mobile">
+                    <div class="pricing-table-column pricing-table-column--feature-name">
+                        Tourism NZ Booking Link <span class="tooltip" title="Some service I guess."><i class="fa fa-info-circle"></i></span>
+                    </div>
+                    <div class="pricing-table-column pricing-table-column--rest-items">
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-times"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-times"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-table-row hide-on-mobile">
+                    <div class="pricing-table-column pricing-table-column--feature-name">
+                        Email Notification <span class="tooltip" title="As it says"><i class="fa fa-info-circle"></i></span>
+                    </div>
+                    <div class="pricing-table-column pricing-table-column--rest-items">
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-times"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-times"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-times"></i></span>
+                        </div>
+                        <div class="rest-items__item">
+                            <span class="feature-value"><i class="fa fa-check"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="package-modal-wrapper">
+        <div class="package-modal__close-button"><i class="fa fa-times"></i></div>
+        <div class="package-modal rest-items__item--package" data-package-id="1">
+            <div class="package-name">
+                Data Maint
+            </div>
+            <div class="package-price">
+                <span class="package-price__price-amount">$5</span>
+                <div class="package-price__right">
+                    <div class="package-price__decimal">.00</div>
+                    <div class="package-price__suffix">/month</div>
+                </div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Free Supported Install</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">SLA Additional Support Hours</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Gift Vouchers</div>
+                <div class="feature-value">Marker</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Tourism NZ Booking Link</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Email Notification</div>
+            </div>
+            <div class="package-buy-now">
+                <a href="https://thawks.atlassian.net">
+                  <div class="package-buy-now__buy-now-button">Buy Now</div>
+               </a>
+            </div>
+        </div>
+        <div class="package-modal rest-items__item--package" data-package-id="2">
+            <div class="package-name">
+                Business Online
+            </div>
+            <div class="package-price">
+                <span class="package-price__price-amount">$12</span>
+                <div class="package-price__right">
+                    <div class="package-price__decimal">.00</div>
+                    <div class="package-price__suffix">/month</div>
+                </div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Free Supported Install</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">SLA Additional Support Hours</div>
+                <div class="feature-value">dammi</div>
+            </div>
+            <div class="package-buy-now">
+                <a href="http://www.www.www">
+                  <div class="package-buy-now__buy-now-button">Buy Now</div>
+               </a>
+            </div>
+        </div>
+        <div class="package-modal rest-items__item--package" data-package-id="3">
+            <div class="package-name">
+                Business Builder
+            </div>
+            <div class="package-price">
+                <span class="package-price__price-amount">$15</span>
+                <div class="package-price__right">
+                    <div class="package-price__decimal">.50</div>
+                    <div class="package-price__suffix">/month</div>
+                </div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Free Supported Install</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">SLA Additional Support Hours</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Gift Vouchers</div>
+            </div>
+            <div class="package-buy-now">
+                <a href="http://www.www.www">
+                  <div class="package-buy-now__buy-now-button">Buy Now</div>
+               </a>
+            </div>
+        </div>
+        <div class="package-modal rest-items__item--package" data-package-id="4">
+            <div class="package-name">
+                Business Manager
+            </div>
+            <div class="package-price">
+                <span class="package-price__price-amount">$25</span>
+                <div class="package-price__right">
+                    <div class="package-price__decimal">.00</div>
+                    <div class="package-price__suffix">/month</div>
+                </div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Free Supported Install</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">SLA Additional Support Hours</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Gift Vouchers</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Tourism NZ Booking Link</div>
+            </div>
+            <div class="package-buy-now">
+                <a href="http://www.www.www">
+                  <div class="package-buy-now__buy-now-button">Buy Now</div>
+               </a>
+            </div>
+        </div>
+        <div class="package-modal rest-items__item--package" data-package-id="5">
+            <div class="package-name">
+                Business Enterprise
+            </div>
+            <div class="package-price">
+                <span class="package-price__price-amount">$125</span>
+                <div class="package-price__right">
+                    <div class="package-price__decimal">.00</div>
+                    <div class="package-price__suffix">/month</div>
+                </div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Free Supported Install</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">SLA Additional Support Hours</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Gift Vouchers</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Tourism NZ Booking Link</div>
+            </div>
+            <div class="package-modal__row">
+                <div class="feature-name">Email Notification</div>
+            </div>
+            <div class="package-buy-now">
+                <a href="http://www.www.www">
+                  <div class="package-buy-now__buy-now-button">Buy Now</div>
+               </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

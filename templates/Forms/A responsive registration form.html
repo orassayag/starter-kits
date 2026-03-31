@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>A responsive registration form</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather">
+    <style type="text/css">
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0;
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+            color: #fff;
+            background-size: cover;
+        }
+
+        .wrapper {
+            background-color: #a9e5e5;
+            padding-right: 1em;
+            padding-left: 1em;
+        }
+
+        header {
+            height: 64px;
+            color: #fff;
+            text-align: center;
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+        }
+
+        header h2 {
+            font-size: 1.8em;
+            margin-top: 0;
+            padding-top: .8em;
+        }
+
+        .wrapper {
+            width: 90%;
+            margin: 0 auto;
+            padding-bottom: 0;
+        }
+
+        .info {
+            text-align: center;
+        }
+
+        .info h3,
+        fieldset legend {}
+
+        .info h3 {
+            margin-top: 0;
+            padding-top: 1.5em;
+            font-size: 2.5em;
+        }
+
+        .info p {
+            font-size: .85em;
+            border-bottom: 4px solid rgba(45, 57, 69);
+            padding-bottom: 3em;
+            margin-bottom: 0;
+        }
+
+        form {
+            border-top: 2px solid rgba(45, 57, 69);
+            margin-top: 2px;
+            padding-top: 1em;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+
+        fieldset legend {
+            font-size: 1.65em;
+            font-weight: bold;
+            padding-bottom: .75em;
+        }
+
+        .contact-info label {
+            display: block;
+            padding-bottom: .65em;
+            font-size: 1.25em;
+        }
+
+        .newsletter label {
+            font-size: 1.25em;
+        }
+
+        .contact-info input,
+        select,
+        textarea {
+            box-shadow: 0 0 1px;
+            width: 100%;
+            height: 4em;
+            background-color: #fff;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            border-color: #fff;
+            text-indent: 10px;
+            transition: border-color .4s ease-in-out;
+        }
+
+        textarea {
+            height: 85px;
+            padding-top: 10px;
+        }
+
+        .contact-info input:focus,
+        select:focus,
+        textarea:focus {
+            border: 2px solid #46698B;
+            border-radius: 0;
+        }
+
+        #name:focus,
+        #email:focus {
+            border: 2px solid #FF7463;
+        }
+
+        [type="submit"] {
+            width: 100%;
+            background-color: #eeeec6;
+            height: 60px;
+            border: none;
+            border-radius: 5px;
+            color: #444444;
+            font-size: 1.25em;
+        }
+
+        [type="submit"]:hover {
+            opacity: .8;
+        }
+
+        .newsletter [type="checkbox"] {
+            transform: scale(1.4);
+        }
+
+        ::placeholder {
+            text-align: right;
+            padding-right: 1em;
+        }
+
+        .footer p {
+            padding-top: 1em;
+            padding-bottom: 1em;
+            text-align: center;
+            margin: 0;
+        }
+
+        @media(min-width: 760px) {
+            .wrapper {
+                max-width: 685px;
+            }
+
+            .info h3 {
+                font-size: 2.5em;
+                letter-spacing: 1px;
+            }
+
+            .info p {
+                font-size: 1.1em;
+            }
+
+            .contact-info label {
+                display: inline-block;
+                width: 20%;
+            }
+
+            .contact-info input,
+            select {
+                width: 78%;
+            }
+
+            .newsletter .checkboxes p {
+                padding-top: 2px;
+                padding-bottom: 2px;
+            }
+        }
+
+        @media(min-width:1024px) {
+            .wrapper {
+                width: 90%;
+                max-width: 950px;
+            }
+
+            .contact-info label {
+                display: inline-block;
+                width: 26%;
+            }
+
+            .contact-info input,
+            select {
+                width: 72%;
+            }
+
+            .contact-info p,
+            .newsletter p {
+                margin-top: .5em;
+                margin-bottom: .5em;
+            }
+
+            form {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                min-width: 340px;
+                height: 500px;
+                justify-content: space-around;
+            }
+
+            fieldset {
+                margin-right: 0;
+                margin-left: 0;
+            }
+
+            .contact-info {
+                width: 55%;
+            }
+
+            .newsletter {
+                width: 41%;
+            }
+
+            form {
+                padding-top: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header>
+        <h2 class="tag-line">{ THE CODE REVIEW }</h2>
+    </header>
+    <div class="wrapper">
+        <main>
+            <div class="info">
+                <h3>Signup for our newsletter</h3>
+                <p>Get the lastest news your code is doing right in your box.</p>
+            </div>
+            <form action="#" method="GET">
+                <fieldset class="contact-info">
+                    <div class="container">
+                        <legend>Contact Information</legend>
+                        <p>
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="user_name" placeholder="Required" title="Please fill out this field" />
+                        </p>
+                        <p>
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="user_email" placeholder="Required" title="Please fill out this field" />
+                        </p>
+                        <p>
+                            <label for="address">Street Adress</label>
+                            <input type="text" id="address" name="user_address" />
+                        </p>
+                        <p>
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="user_city" />
+                        </p>
+                        <p>
+                            <label for="state">State</label>
+                            <select id="state" name="user_state">
+                                <option value="state">Choose State</option>
+                                <option value="abc">ABC</option>
+                                <option value="def">DEF</option>
+                                <option value="geh">GEH</option>
+                                <option value="ijk">IJK</option>
+                                <option value="ftg">FTG</option>
+                                <option value="hjk">HJK</option>
+                                <option value="kil">KIL</option>
+                                <option value="tyu">TYU</option>
+                                <option value="ewt">EWT</option>
+                                <option value="yrt">YRT</option>
+                                <option value="sef">SEF</option>
+                                <option value="bhj">BHJ</option>
+                                <option value="jki">JKI</option>
+                                <option value="lop">LOP</option>
+                                <option value="pol">POL</option>
+                                <option value="rty">RTY</option>
+                                <option value="wer">WER</option>
+                                <option value="aws">AWS</option>
+                                <option value="upe">UPE</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="zipcode">Zipcode</label>
+                            <input type="number" id="zipcode" name="user_zipcode" />
+                        </p>
+                    </div>
+                </fieldset>
+                <fieldset class="newsletter">
+                    <div class="container">
+                        <legend>Newsletter</legend>
+                        <p>Select the newsletter you would like to recieve</p>
+                        <div class="checkboxes">
+                            <p>
+                                <input type="checkbox" id="html_news" name="news" />
+                                <label for="html_news">HTML News</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="css_news" name="news" />
+                                <label for="css_news">CSS News</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="js_news" name="news" />
+                                <label for="js_news">JavaScript News</label>
+                            </p>
+                        </div>
+                        <p>Newsletter format</p>
+                        <div class="radio-btn">
+                            <p>
+                                <input type="radio" id="html" value="html" name="html_format" />
+                                <label for="html">HTML</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="plain_text" value="plain_text" name="plain_text_format" />
+                                <label for="plain_text">Plain text</label>
+                            </p>
+                        </div>
+                        <p>How did you find us?</p>
+                        <p>
+                            <select>
+                                <option value="PickOne">Pick One</option>
+                                <option value="Google">Google</option>
+                                --
+                                <option value="Bing">Bing</option>
+                                <option value="Social Site">Social Site</option>
+                                <option value="Friends/Workplace">Friends/Workplace</option>
+                            </select>
+                        </p>
+                        <p>Other topics you would like to hear about</p>
+                        <p>
+                            <textarea id="interest" name="user_interest"></textarea> <br>
+                        </p>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="footer">
+                <button type="submit">Sign Up</button>
+                <p>© Copyright Aakash Srivastava 2018</p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

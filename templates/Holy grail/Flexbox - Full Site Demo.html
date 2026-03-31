@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox - Full Site Demo</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        /* Accessibility */
+        /* Text meant only for screen readers */
+        .screen-reader-text {
+            clip: rect(1px, 1px, 1px, 1px);
+            position: absolute !important;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        .screen-reader-text:hover,
+        .screen-reader-text:active,
+        .screen-reader-text:focus {
+            background-color: #f1f1f1;
+            border-radius: 3px;
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+            clip: auto !important;
+            color: #21759b;
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            height: auto;
+            left: 5px;
+            line-height: normal;
+            padding: 15px 23px 14px;
+            text-decoration: none;
+            top: 5px;
+            width: auto;
+            z-index: 100000;
+        }
+
+        /* Layouts */
+        body {
+            background: #ecf0f1;
+            line-height: 1.4;
+            font-family: sans-serif;
+        }
+
+        .card-content h2 {
+            font-size: 2em;
+            color: #e74c3c;
+        }
+
+        .centered {
+            margin: 0 auto;
+            padding: 0 1em;
+        }
+
+        @media screen and (min-width: 52em) {
+            .centered {
+                max-width: 52em;
+            }
+        }
+
+        /* Header styles minus menu */
+        .masthead {
+            background: #e74c3c;
+        }
+
+        .site-title {
+            margin: 0 0 1em;
+            padding: 1em 0;
+            font-size: 2em;
+            font-weight: 300;
+            text-align: center;
+            color: #FFF;
+        }
+
+        @media screen and (min-width: 44.44em) {
+            .site-title {
+                font-size: 2em;
+            }
+        }
+
+        @media screen and (min-width: 50em) {
+            .site-title {
+                font-size: 2.5em;
+            }
+        }
+
+        .site-title a {
+            color: hsl(5, 45%, 95%);
+            text-decoration: none;
+        }
+
+        .site-title a:hover {
+            text-decoration: underline;
+        }
+
+        /* Base styles */
+        .site-title {
+            margin-bottom: 0;
+        }
+
+        .main-menu {
+            padding: .4em 1em;
+            color: white;
+            background: hsl(0, 0%, 15%);
+        }
+
+        .post-content {
+            padding: 0 1.4em 1.4em;
+        }
+
+        .sidebar {
+            padding: .5em 1.4em 1em;
+            background: hsl(0, 0%, 90%);
+            overflow: hidden;
+        }
+
+        .example-menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .example-menu a {
+            display: block;
+            padding: .4em 0;
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.5s ease;
+        }
+
+        .example-menu a:hover,
+        .example-menu a:focus {
+            padding: .4em 1em;
+            background: hsl(0, 0%, 20%);
+            color: white;
+        }
+
+        .footer-area {
+            padding: .4em 1em;
+            text-align: center;
+            background: hsl(0, 0%, 75%);
+        }
+
+        /* Sidebar switcher buttons */
+        @media screen and (max-width: 40em) {
+            .sidebar-switcher {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 40em) {
+            .sidebar-switcher {
+                position: absolute;
+                right: 0;
+                padding: .4em 1em;
+                color: #FFF;
+            }
+
+            .sidebar-switcher a {
+                color: #FFF;
+                padding-left: .4em;
+            }
+
+            .sidebar-switcher a:hover,
+            .sidebar-switcher a:focus {
+                color: #FFF;
+            }
+        }
+
+        /* Flexbox styles */
+        @media screen and (min-width: 40em) {
+            .outer-wrap {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .content {
+                display: flex;
+            }
+
+            .post-content {
+                max-width: 40em;
+                margin: 0 auto;
+            }
+
+            .main-area {
+                flex: 1 1 auto;
+                order: 2;
+            }
+
+            .sidebar {
+                flex: 0 0 12em;
+                order: 1;
+            }
+
+            .sidebar-left {
+                order: 0;
+            }
+
+            .no-sidebar {
+                flex-direction: column;
+            }
+
+            .hide {
+                flex: 0 0 0;
+                padding: 0;
+                color: hsla(0, 0%, 0%, 0);
+                transition: color .2s ease, flex .5s ease .3s, padding .5s ease .3s;
+            }
+
+            .hide a {
+                color: hsla(0, 0%, 0%, 0);
+            }
+        }
+
+        /* Base styles that apply to all menu items */
+        .menu-section {
+            padding-bottom: 2em;
+            margin-bottom: 2em;
+            border-bottom: 1px solid hsl(0, 0%, );
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background: hsl(0, 0%, 15%);
+        }
+
+        .menu li a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            padding: .6em 1em;
+        }
+
+        .menu li a:hover {
+            background: hsl(0, 0%, 25%);
+        }
+
+        /* Styles for Single Level Menu */
+        @media screen and (max-width: 30em) {
+            .multi-level-nav ul ul li a {
+                padding-left: 2em;
+            }
+
+            .dropdown-toggle {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 30em) {
+            .multi-level-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .multi-level-nav li {
+                flex: 1 0 auto;
+                position: relative;
+            }
+
+            li.has-children>a {
+                padding-right: 0;
+            }
+
+            .multi-level-nav ul ul {
+                display: none;
+                position: absolute;
+                z-index: 100;
+            }
+
+            .multi-level-nav ul ul li {
+                flex: 1 1 auto;
+            }
+
+            .multi-level-nav ul .toggled-on {
+                display: flex;
+            }
+
+            .dropdown-toggle {
+                margin: 0;
+                padding: 0 .5em;
+                border: 0;
+                font-family: 'FontAwesome';
+                content: '';
+                text-transform: lowercase;
+                background-color: transparent;
+            }
+
+            .dropdown-toggle:after {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 42px;
+                color: white;
+                content: "\f107";
+                line-height: 1em;
+            }
+
+            .dropdown-toggle:hover,
+            .dropdown-toggle:focus {
+                background: hsl(0, 0%, 25%);
+            }
+
+            .dropdown-toggle.toggle-on:after {
+                content: "\f106";
+            }
+        }
+
+        /* Styles for social media menu */
+        /* Find src URL and add in correct social media icon. */
+        .social-menu li a:before {
+            font-family: 'Fontawesome';
+            -webkit-font-smoothing: antialiased;
+            content: '\f08e';
+        }
+
+        .social-menu li a[href*="dribbble.com"]::before {
+            content: '\f17d';
+        }
+
+        .social-menu li a[href*="facebook.com"]::before {
+            content: '\f09a';
+        }
+
+        .social-menu li a[href*="flickr.com"]::before {
+            content: '\f16e';
+        }
+
+        .social-menu li a[href*="foursquare.com"]::before {
+            content: '\f180';
+        }
+
+        .social-menu li a[href*="github.com"]::before {
+            content: '\f09b';
+        }
+
+        .social-menu li a[href*="plus.google.com"]::before {
+            content: '\f0d5';
+        }
+
+        .social-menu li a[href*="instagram.com"]::before {
+            content: '\f16d';
+        }
+
+        .social-menu li a[href*="jsfiddle.com"]::before {
+            content: '\f1cc';
+        }
+
+        .social-menu li a[href*="linkedin.com"]::before {
+            content: '\f0e1';
+        }
+
+        .social-menu li a[href*="pinterest.com"]::before {
+            content: '\f0d2';
+        }
+
+        .social-menu li a[href*="reddit.com"]::before {
+            content: '\f1a1';
+        }
+
+        .social-menu li a[href*="soundcloud.com"]::before {
+            content: '\f1be';
+        }
+
+        .social-menu li a[href*="stackoverflow.com"]::before {
+            content: '\f16c';
+        }
+
+        .social-menu li a[href*="tumblr.com"]::before {
+            content: '\f173';
+        }
+
+        .social-menu li a[href*="twitter.com"]::before {
+            content: '\f099';
+        }
+
+        .social-menu li a[href*="vimeo.com"]::before {
+            content: '\f194';
+        }
+
+        .social-menu li a[href*="vine.co"]::before {
+            content: '\f1ca';
+        }
+
+        .social-menu li a[href*="yelp.com"]::before {
+            content: '\f1e9';
+        }
+
+        .social-menu li a[href*="youtube.com"]::before {
+            content: '\f167';
+        }
+
+        .social-menu li a[href*="wordpress.com"]::before {
+            content: '\f19a';
+        }
+
+        /* Flexbox stuff */
+        .social-menu ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        /* Styles for mixed menu (drop-down + social) */
+        .nav-mixed {
+            background: hsl(0, 0%, 15%);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        /* Card Based Layout - Base styles */
+        .main-area {
+            padding: 2em;
+        }
+
+        .card {
+            background: white;
+            margin-bottom: 2em;
+        }
+
+        .card a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .card a:hover {
+            box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
+        }
+
+        .card-content {
+            padding: 1.4em;
+        }
+
+        .card-content h2 {
+            margin-top: 0;
+            margin-bottom: .5em;
+            font-weight: normal;
+        }
+
+        .card-content p {
+            font-size: 95%;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Flexbox card styles */
+        @media screen and (min-width: 40em) {
+            .cards {
+                margin-top: -1em;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .card {
+                margin-bottom: 1em;
+                display: flex;
+                flex: 0 1 calc(50% - 0.5em);
+            }
+        }
+
+        @media screen and (min-width: 60em) {
+            .cards {
+                margin-top: inherit;
+            }
+
+            .card {
+                margin-bottom: 2em;
+                display: flex;
+                flex: 0 1 calc(33% - 0.5em);
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="outer-wrap">
+        <header class="masthead">
+            <div class="sidebar-switcher">
+                Select layout: <a href="#" class="sidebar-left-toggle"><i class="fa fa-align-left"></i><span class="screen-reader-text">Move sidebar to the left</span></a> <a href="#" class="sidebar-right-toggle"><i class="fa fa-align-right"></i><span class="screen-reader-text">Move sidebar to the right</span></a> <a href="#" class="no-sidebar-toggle"><i class="fa fa-align-justify"></i><span class="screen-reader-text">Display content vertically</span></a> <a href="#" class="hide-sidebar-toggle"><i class="fa fa-arrow-circle-right"></i><span class="screen-reader-text">Remove sidebar</span></a>
+            </div>
+            <div class="centered">
+                <div class="site-branding">
+                    <h1 class="site-title">Flexbox - Full Site Demo</h1>
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="nav-mixed menu">
+                    <nav id="multi-level-nav" class="multi-level-nav" role="navigation">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li class="has-children">
+                           <a href="#">Team<button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">Expand child menu</span></button></a>
+                           <ul class="sub-menu">
+                              <li><a href="#">Subitem</a></li>
+                            <li><a href="#">Subitem</a></li>
+                            <li><a href="#">Subitem</a></li>
+                        </ul>
+                        </li>
+                        <li class="has-children">
+                           <a href="#">Services<button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">Expand child menu</span></button></a>
+                           <ul class="sub-menu">
+                              <li><a href="#">Subitem</a></li>
+                        <li><a href="#">Subitem</a></li>
+                        <li><a href="#">Subitem</a></li>
+                        <li><a href="#">Subitem</a></li>
+                        <li><a href="#">Subitem</a></li>
+                        <li><a href="#">Subitem</a></li>
+                        <li><a href="#">Subitem</a></li>
+                        <li><a href="#">Subitem</a></li>
+                        <li><a href="#">Subitem</a></li>
+                        <li><a href="#">Subitem</a></li>
+                        <li><a href="#">Subitem</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <nav id="social-menu" class="social-menu" role="navigation">
+                        <ul>
+                            <li><a href="https://twitter.com/bugsyAlexander"><span class="screen-reader-text">Twitter</span></a></li>
+                            <li><a href="https://github.com/bugsyAlexander"><span class="screen-reader-text">Github</span></a></li>
+                            <li><a href="https://www.linkedin.com/pub/mynor-alexander/5b/943/877"><span class="screen-reader-text">LinkedIn</span></a></li>
+                            <li><a href="http://dribbble.com"><span class="screen-reader-text">Dribbble</span></a></li>
+                            <li><a href="http://instagram.com"><span class="screen-reader-text">Instagram</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+            <main class="main-area">
+                <div class="centered">
+                    <section class="cards">
+                        <article class="card">
+                            <a href="#">
+                           <figure class="thumbnail">
+                              <img src="http://placekitten.com/810/610" alt="meow" title="meow" />
+                           </figure>
+                           <div class="card-content">
+                              <h2>Whiskey</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum explicabo consequatur consectetur fugit molestias perferendis, sint error iste ut, facilis sunt natus optio dolor nesciunt laboriosam obcaecati corporis numquam.</p>
+                           </div>
+                        </a>
+                        </article>
+                        <article class="card">
+                            <a href="#">
+                           <figure class="thumbnail">
+                              <img src="http://placekitten.com/800/610" alt="meow" title="meow" />
+                           </figure>
+                           <div class="card-content">
+                              <h2>Fluffy</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum explicabo consequatur consectetur fugit molestias perferendis, sint error iste ut, facilis sunt natus optio dolor nesciunt laboriosam obcaecati corporis numquam?</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum explicabo consequatur consectetur fugit molestias perferendis, sint error iste ut, facilis sunt natus optio dolor nesciunt laboriosam obcaecati corporis numquam?</p>
+                           </div>
+                        </a>
+                        </article>
+                        <article class="card">
+                            <a href="#">
+                           <figure class="thumbnail">
+                              <img src="http://placekitten.com/816/610" alt="meow" title="meow" />
+                           </figure>
+                           <div class="card-content">
+                              <h2>Kitty</h2>
+                              <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati recusandae expedita doloribus dicta cumque nostrum, autem eaque soluta atque voluptatem est et, laborum dignissimos error sequi non? Recusandae, aut alias.</p>
+                           </div>
+                        </a>
+                        </article>
+                        <article class="card">
+                            <a href="#">
+                           <figure class="thumbnail">
+                              <img src="http://placekitten.com/816/600" alt="meow" title="meow" />
+                           </figure>
+                           <div class="card-content">
+                              <h2>Patches</h2>
+                              <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati recusandae expedita doloribus dicta cumque nostrum, autem eaque soluta atque voluptatem est et, laborum dignissimos error sequi non? Recusandae, aut alias.</p>
+                           </div>
+                        </a>
+                        </article>
+                        <article class="card">
+                            <a href="#">
+                           <figure class="thumbnail">
+                              <img src="http://placekitten.com/820/620" alt="meow" title="meow" />
+                           </figure>
+                           <div class="card-content">
+                              <h2>Duchess</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati recusandae expedita doloribus dicta cumque nostrum, autem eaque soluta atque voluptatem est et, laborum dignissimos error sequi non? Recusandae, aut alias.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati recusandae expedita doloribus dicta cumque nostrum, autem eaque soluta atque voluptatem est et, laborum dignissimos error sequi non? Recusandae, aut alias.</p>
+                           </div>
+                        </a>
+                        </article>
+                        <article class="card">
+                            <a href="#">
+                           <figure class="thumbnail">
+                              <img src="http://placekitten.com/810/610" alt="meow" title="meow" />
+                           </figure>
+                           <div class="card-content">
+                              <h2>Puchies</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati recusandae expedita doloribus dicta cumque nostrum, autem eaque soluta atque voluptatem est et, laborum dignissimos error sequi non? Recusandae, aut alias.</p>
+                           </div>
+                        </a>
+                        </article>
+                        <article class="card">
+                            <a href="#">
+                           <figure class="thumbnail">
+                              <img src="http://placekitten.com/808/608" alt="meow" title="meow" />
+                           </figure>
+                           <div class="card-content">
+                              <h2>Panchito</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati recusandae expedita doloribus dicta cumque nostrum, autem eaque soluta atque voluptatem est et, laborum dignissimos error sequi non? Recusandae, aut alias.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati recusandae expedita doloribus dicta cumque nostrum, autem eaque soluta atque voluptatem est et, laborum dignissimos error sequi non? Recusandae, aut alias.</p>
+                           </div>
+                        </a>
+                        </article>
+                    </section>
+                </div>
+            </main>
+            <div class="sidebar">
+                <div class="squish-container">
+                    <h3>Explore the other Demos:</h3>
+                    <nav class="example-menu">
+                        <ul>
+                            <li><a href="#" target="_blank">Mixed Menu</a></li>
+                            <li><a href="#" target="_blank">Card Layout</a></li>
+                            <li><a href="#" target="_blank">Holy Grail</a></li>
+                            <li><a href="#" target="_blank">Site Demo</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <footer class="footer-area">
+            <p>&copy; 2015 Some copyright message - All rights reserved</p>
+        </footer>
+    </div>
+</body>
+
+</html>

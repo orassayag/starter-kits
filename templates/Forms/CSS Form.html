@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Form</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand:400,700">
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            height: 100%;
+            padding: 3em;
+        }
+
+        body {
+            background: linear-gradient(to left top, #2FECF7, #0DFF82);
+            background-repeat: no-repeat;
+        }
+
+        form {
+            background-color: white;
+            border-radius: 20px;
+            -webkit-box-shadow: 5px 5px 20px 0px #adadad;
+            -moz-box-shadow: 5px 5px 20px 0px #adadad;
+            box-shadow: 5px 5px 20px 0px #adadad;
+            padding: 2.5em;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        @media screen and (min-width: 700px) {
+            .large-group {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .small-group {
+                width: 45%;
+            }
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            padding: 10px 16px;
+            width: 100%;
+            outline: 0;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border: 0;
+            background-color: #ededed;
+            font-size: 14px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .textarea-div {
+            width: 100%;
+        }
+
+        textarea {
+            padding: 10px;
+            width: 100%;
+            outline: 0;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border: 0;
+            background-color: #ededed;
+            font-size: 14px;
+            height: 100px;
+        }
+
+        .btn {
+            background-color: #0DFF82;
+            padding: 12px 15px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            transition: 0.3s all ease;
+        }
+
+        .btn:hover {
+            background-color: #2FECF7;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <form>
+        <h2>CSS Form</h2>
+        <div class="large-group">
+            <div class="small-group">
+                <label for="firstname">First Name</label>
+                <input id="firstname" type="text" name="firstname" />
+            </div>
+            <div class="small-group">
+                <label for="lastname">Last Name</label>
+                <input for="lastname" type="text" name="lastname" />
+            </div>
+            <div class="small-group">
+                <label for="fruit">Favorite Type of Fruit</label>
+                <select name="fruit">
+                    <option value="strawberry">Strawberry</option>
+                    <option value="peach">Peach</option>
+                    <option value="banana">Banana</option>
+                    <option value="watermelon">Watermelon</option>
+                    <option value="pineapple">Pineapple</option>
+                </select>
+            </div>
+            <div class="small-group">
+                <label for="vegetable">Favorite Type of Vegetable</label>
+                <select name="vegetable">
+                    <option value="carrot">Carrot</option>
+                    <option value="peppers">Pepper</option>
+                    <option value="broccoli">Broccoli</option>
+                    <option value="corn">Corn</option>
+                    <option value="beats">Beats</option>
+                </select>
+            </div>
+            <div class="small-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" />
+            </div>
+            <div class="small-group">
+                <label for="phonenumber">Phone Number</label>
+                <input id="phonenumber" type="tel" name="phonenumber" />
+            </div>
+            <div class="textarea-div">
+                <label for="message">Message</label>
+                <textarea id="message" type="text" name="message"></textarea>
+            </div>
+            <input id="submit" class="btn" type="submit" name="submit" />
+        </div>
+    </form>
+</body>
+
+</html>

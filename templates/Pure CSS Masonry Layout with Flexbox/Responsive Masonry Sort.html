@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Masonry Sort</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        #btn_area {
+            text-align: center;
+            margin: 40px 0 30px 0;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            margin: 0 6px;
+            background: #e5e5e5;
+            display: inline-block;
+            font-size: 0.9em;
+            transition: 0.3s ease all;
+        }
+
+        .btn:hover {
+            background: #e1e1e1;
+            cursor: pointer;
+        }
+
+        .active {
+            background: #ffffff;
+        }
+
+        #parent {
+            -webkit-column-count: 4;
+            -moz-column-count: 4;
+            column-count: 4;
+            -webkit-column-gap: 1.2em;
+            -moz-column-gap: 1.2em;
+            column-gap: 1.2em;
+            margin: 1.5%;
+            padding: 0;
+            font-size: .8em;
+        }
+
+        .item {
+            display: inline-block;
+            background: #fff;
+            padding: 1em;
+            margin: 0 0 1.5em;
+            width: 100%;
+            -webkit-transition: 1s ease all;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-shadow: 2px 2px 4px 0 #ccc;
+        }
+
+        .item img {
+            max-width: 100%;
+        }
+
+        h4 {
+            text-align: center;
+            line-height: 80px;
+            font-weight: normal;
+        }
+
+        @media only screen and (min-width: 300px) {
+            #parent {
+                -moz-column-count: 1;
+                -webkit-column-count: 1;
+                column-count: 1;
+            }
+        }
+
+        @media only screen and (min-width: 600px) {
+            #parent {
+                -moz-column-count: 2;
+                -webkit-column-count: 2;
+                column-count: 2;
+            }
+        }
+
+        @media only screen and (min-width: 900px) {
+            #parent {
+                -moz-column-count: 3;
+                -webkit-column-count: 3;
+                column-count: 3;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            #parent {
+                -moz-column-count: 4;
+                -webkit-column-count: 4;
+                column-count: 4;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <h1>Responsive Masonry Sort</h1>
+    <p>Rearrange the order of item elements based on their data.</p>
+    <div id="btn_area">
+        <div class="active btn" id="all">All</div>
+        <div class="btn" id="newyork">New York</div>
+        <div class="btn" id="london">London</div>
+        <div class="btn" id="tokyo">Tokyo</div>
+    </div>
+    <div id="parent">
+        <div class="item tokyo">
+            Tokyo
+            <img src="https://s-media-cache-ak0.pinimg.com/736x/25/1e/54/251e545adfb3b55af6a5dc3e20f0b985.jpg" alt="" title="" />
+        </div>
+        <div class="item tokyo">
+            Tokyo
+            <img src="http://payload383.cargocollective.com/1/2/90203/9960185/Tokyo_670.jpg" alt="" title="" />
+        </div>
+        <div class="item newyork">
+            NY
+            <img src="http://shannoneileenblog.typepad.com/.a/6a0120a5c8d9a9970c0134899b8697970c-pi" alt="" title="" />
+        </div>
+        <div class="item london">
+            London
+            <img src="http://static1.squarespace.com/static/54345469e4b06f9169880040/t/54dcd02fe4b08f6ad5d7cb24/1423757364030/illustratedlondonmap" alt="" title="" />
+        </div>
+        <div class="item tokyo">
+            Tokyo
+            <img src="https://s-media-cache-ak0.pinimg.com/736x/21/c2/bc/21c2bc8df881b98802e1eca25bf4532b.jpg" alt="" title="" />
+        </div>
+        <div class="item london">
+            London
+            <img src="http://www.wanderarti.com/wp-content/uploads/2014/02/Tilly-at-Running-for-Crayons.jpg" alt="" title="" />
+        </div>
+        <div class="item tokyo">
+            Tokyo
+            <img src="https://s-media-cache-ak0.pinimg.com/736x/ea/44/e5/ea44e538de2f98a7ac3ab85003a203a1.jpg" alt="" title="" />
+        </div>
+        <div class="item newyork">
+            NY
+            <img src="http://d.gr-assets.com/books/1404704785l/18296046.jpg" alt="" title="" />
+        </div>
+        <div class="item tokyo">
+            Tokyo
+            <img src="https://s-media-cache-ak0.pinimg.com/736x/56/fd/6a/56fd6aec313cd544300c211b6245c5e2.jpg" alt="" title="" />
+        </div>
+        <div class="item tokyo">
+            Tokyo
+            <img src="https://s-media-cache-ak0.pinimg.com/736x/ee/e8/e0/eee8e0894002535c6cfa76b9bf92dab4.jpg" alt="" title="" />
+        </div>
+        <div class="item london">
+            London
+            <img src="http://payload216.cargocollective.com/1/2/64089/6639775/GimMick_London-Antoine-Corbineau-Illustrated-Credit_Mutuel.jpg" alt="" title="" />
+        </div>
+        <div class="item newyork">
+            NY
+            <img src="https://www.evermade.com/wp-content/uploads/2012/11/NYC-Hand-Drawn-Map-of-New-York-Williamsburg.jpg" alt="" title="" />
+        </div>
+    </div>
+    <h4>Photo from <a href="https://www.google.com.tw/search?espv=2&tbm=isch&q=hand+drawn+map&spell=1&sa=X&ved=0ahUKEwiP1N2Ls9HLAhVl4qYKHSIzAxEQBQgYKAA&dpr=1&biw=1920&bih=971"> google</a>.</h4>
+</body>
+
+</html>

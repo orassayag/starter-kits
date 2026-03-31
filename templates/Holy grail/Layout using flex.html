@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Layout using flex</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        .wrapper,
+        .main {
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 120px);
+            text-transform: uppercase;
+            color: #efefef;
+            letter-spacing: 0.3px;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        header {
+            background: #06425C;
+            display: flex;
+            flex: 0 0 70px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left-sidebar {
+            background: #51A39D;
+            order: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1 0 auto;
+        }
+
+        .content {
+            background: #B7695C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1 0 auto;
+        }
+
+        .right-sidebar {
+            background: #CDBB79;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1 0 auto;
+        }
+
+        footer {
+            background: #814374;
+            flex: 0 0 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media only screen and (min-width:768px) {
+            .main {
+                flex-direction: row;
+            }
+
+            .left-sidebar,
+            .right-sidebar {
+                flex: 0 0 200px;
+            }
+
+            .content {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="wrapper">
+        <header>header</header>
+        <div class="main">
+            <section class="content">content</section>
+            <section class="left-sidebar">left</section>
+            <section class="right-sidebar">right</section>
+        </div>
+        <footer>footer</footer>
+    </div>
+</body>
+
+</html>

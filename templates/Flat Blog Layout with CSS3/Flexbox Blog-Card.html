@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox Blog-Card</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto|Slabo+27px');
+
+        body {
+            background: #ececec;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-top: 30px;
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+        }
+
+        .blog-wrapper {
+            padding: 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .blog-wrapper .blog-card {
+            max-width: 300px;
+            margin: 15px;
+            background: #fff;
+            border: 1px solid #cb6074;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .blog-wrapper .blog-card:hover {
+            box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .1);
+        }
+
+        .blog-wrapper .blog-card:hover .card-img img {
+            opacity: 0.8;
+        }
+
+        .blog-wrapper .blog-card .card-img {
+            position: relative;
+            text-align: center;
+            background: #cb6074;
+        }
+
+        .blog-wrapper .blog-card .card-img img {
+            max-height: 180px;
+            width: 100%;
+            border-bottom: 4px solid #cb6074;
+        }
+
+        .blog-wrapper .blog-card .card-img:before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            margin-left: -10px;
+            width: 0;
+            height: 0;
+            border-top: solid 10px #cb6074;
+            border-left: solid 10px transparent;
+            border-right: solid 10px transparent;
+        }
+
+        .blog-wrapper .blog-card .card-img h1 {
+            position: absolute;
+            margin: 0;
+            font-size: 42px;
+            bottom: 15px;
+            width: 100%;
+            color: #fff;
+            font-family: 'Slabo 27px', serif;
+        }
+
+        .blog-wrapper .blog-card .card-details {
+            margin-top: 30px;
+            font-family: 'Roboto', sans-serif;
+            color: #3c3c3c;
+        }
+
+        .blog-wrapper .blog-card .card-details span {
+            padding: 0 30px;
+        }
+
+        .blog-wrapper .blog-card .card-details span i {
+            margin-right: 5px;
+        }
+
+        .blog-wrapper .blog-card .card-text {
+            padding: 30px 15px;
+            font-family: 'Roboto', sans-serif;
+            line-height: 22px;
+        }
+
+        .blog-wrapper .blog-card .read-more {
+            display: inline-block;
+            width: auto;
+            text-align: center;
+            text-transform: uppercase;
+            background: #cb6074;
+            color: #fff;
+            padding: 15px;
+            margin-bottom: 30px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .blog-wrapper .blog-card .read-more:hover {
+            background: #943143;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <h1>Flexbox Blog-Card</h1>
+    <div class="blog-wrapper">
+        <div class="blog-card">
+            <div class="card-img">
+                <img src="https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="" title="" />
+                <h1>New York</h1>
+            </div>
+            <div class="card-details"><span><i class="fa fa-calendar"></i>AUG 4</span><span><i class="fa fa-heart"></i>102</span></div>
+            <div class="card-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si verbum sequimur, primum longius verbum praepositum quam bonum.</p>
+            </div>
+            <div class="read-more">Read More</div>
+        </div>
+        <div class="blog-card">
+            <div class="card-img">
+                <img src="https://images.unsplash.com/photo-1445368794737-0cf251429ca0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" alt="" title="" />
+                <h1>San Francisco</h1>
+            </div>
+            <div class="card-details"><span><i class="fa fa-calendar"></i>AUG 1</span><span><i class="fa fa-heart"></i>265</span></div>
+            <div class="card-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si verbum sequimur, primum longius verbum praepositum quam bonum.</p>
+            </div>
+            <div class="read-more">Read More</div>
+        </div>
+    </div>
+</body>
+
+</html>

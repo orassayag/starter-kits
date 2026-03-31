@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>SHS — Development Assignment</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Hind|Open+Sans:400,600');
+
+        html,
+        body {
+            font-size: 16px;
+            line-height: 1.4;
+            background: #fff;
+            width: 100%;
+            max-width: 100vw;
+            height: 100%;
+            max-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        abbr[title="required"] {
+            text-decoration: none;
+        }
+
+        form,
+        fieldset,
+        legend,
+        label,
+        input:not([type="radio"]),
+        select {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+
+        select,
+        input[type="radio"] {
+            cursor: pointer;
+        }
+
+        button,
+        #restartForm {
+            margin: 0;
+            border: none;
+            overflow: visible;
+            cursor: pointer;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0 30px;
+            vertical-align: middle;
+            font-size: .875rem;
+            font-weight: inherit;
+            line-height: 2.375rem;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            -webkit-transition: .2s ease-in-out;
+            transition: .2s ease-in-out;
+            -webkit-transition-property: color, background-color, border-color;
+            transition-property: color, background-color, border-color;
+        }
+
+        .container {
+            box-sizing: content-box;
+            max-width: 640px;
+            padding: 15px;
+            margin: 2vh auto;
+        }
+
+        @media (min-width: 400px) {
+            .container {
+                padding: calc(15px + 15px);
+            }
+        }
+
+        @media (min-width: 600px) {
+            .container {
+                padding: calc(15px + 10px);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: calc(640px + 140px);
+            }
+        }
+
+        .width-1-1,
+        .width-1-2,
+        .child-width-1-2 div,
+        .width-1-3,
+        .child-width-1-3 div,
+        .width-1-4,
+        .child-width-1-4 div,
+        .child-width-3-4 div:last-child,
+        .child-width-4-3 div:first-child,
+        .width-3-4,
+        .child-width-3-4 div:first-child,
+        .child-width-4-3 div:last-child,
+        .child-width-1-1 div,
+        .child-width-1-2 .switch {
+            width: 100%;
+            max-width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        @media (min-width: 640px) {
+
+            .width-1-2,
+            .child-width-1-2 div {
+                width: 50%;
+                padding: .5rem 2rem .5rem 0;
+            }
+
+            .width-1-2:last-child,
+            .child-width-1-2 div:last-child {
+                padding: .5rem 0 .5rem 0;
+            }
+        }
+
+        @media (min-width: 640px) {
+
+            .width-1-3,
+            .child-width-1-3 div {
+                width: 33.3%;
+                padding: .5rem 2rem .5rem 0;
+            }
+
+            .width-1-3:last-child,
+            .child-width-1-3 div:last-child {
+                padding: .5rem 0 .5rem 0;
+            }
+        }
+
+        @media (min-width: 640px) {
+
+            .width-1-4,
+            .child-width-1-4 div,
+            .child-width-3-4 div:last-child,
+            .child-width-4-3 div:first-child {
+                width: 25%;
+                padding: .5rem 2rem .5rem 0;
+            }
+
+            .width-1-4:last-child,
+            .child-width-1-4 div:last-child,
+            .child-width-3-4 div:last-child,
+            .child-width-4-3 div:last-child:first-child {
+                padding: .5rem 0 .5rem 0;
+            }
+        }
+
+        @media (min-width: 640px) {
+
+            .width-3-4,
+            .child-width-3-4 div:first-child,
+            .child-width-4-3 div:last-child {
+                width: 75%;
+                padding: .5rem 2rem .5rem 0;
+            }
+
+            .width-3-4:last-child,
+            .child-width-3-4 div:last-child:first-child,
+            .child-width-4-3 div:last-child {
+                padding: .5rem 0 .5rem 0;
+            }
+        }
+
+        .child-width-1-2 {
+            display: block;
+        }
+
+        @media (min-width: 640px) {
+            .child-width-1-2 {
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                flex-direction: row;
+                -webkit-box-align: start;
+                align-items: flex-start;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+            }
+        }
+
+        .child-width-1-2 div {
+            margin-bottom: .5rem;
+        }
+
+        .child-width-1-2 div:last-child {
+            margin-bottom: 0;
+        }
+
+        .child-width-1-2 .switch {
+            margin-bottom: .5rem;
+        }
+
+        .child-width-1-2 .switch:last-child {
+            margin-bottom: 0;
+        }
+
+        .child-width-1-3 {
+            display: block;
+        }
+
+        @media (min-width: 640px) {
+            .child-width-1-3 {
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                flex-direction: row;
+                -webkit-box-align: start;
+                align-items: flex-start;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+            }
+        }
+
+        .child-width-1-3 div {
+            margin-bottom: .5rem;
+        }
+
+        .child-width-1-3 div:last-child {
+            margin-bottom: 0;
+        }
+
+        .child-width-1-4 {
+            display: block;
+        }
+
+        @media (min-width: 640px) {
+            .child-width-1-4 {
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                flex-direction: row;
+                -webkit-box-align: start;
+                align-items: flex-start;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+            }
+        }
+
+        .child-width-1-4 div {
+            margin-bottom: .5rem;
+        }
+
+        .child-width-1-4 div:last-child {
+            margin-bottom: 0;
+        }
+
+        .child-width-3-4 {
+            display: block;
+        }
+
+        @media (min-width: 640px) {
+            .child-width-3-4 {
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                flex-direction: row;
+                -webkit-box-align: start;
+                align-items: flex-start;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+            }
+        }
+
+        .child-width-3-4 div:first-child {
+            margin-bottom: .5rem;
+        }
+
+        .child-width-3-4 div:last-child {
+            margin-bottom: 0;
+        }
+
+        .child-width-4-3 {
+            display: block;
+        }
+
+        @media (min-width: 640px) {
+            .child-width-4-3 {
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                flex-direction: row;
+                -webkit-box-align: start;
+                align-items: flex-start;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+            }
+        }
+
+        .child-width-4-3 div:first-child {
+            margin-bottom: .5rem;
+        }
+
+        .child-width-4-3 div:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-group {
+            margin-bottom: 0.35rem;
+            clear: both;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Hind", Helvetica Nueue, Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            line-height: 1.1;
+            margin: 0 0 0.67rem;
+        }
+
+        @media (min-width: 375px) {
+            h1 {
+                font-size: calc(2.3rem + .025rem);
+                line-height: calc(1.1 + .15);
+                margin-bottom: calc(0 0 0.67rem + .05rem);
+            }
+        }
+
+        @media (min-width: 400px) {
+            h1 {
+                font-size: calc(2.3rem + .05rem);
+                line-height: calc(1.1 + .2);
+                margin-bottom: calc(0 0 0.67rem + .1rem);
+            }
+        }
+
+        @media (min-width: 600px) {
+            h1 {
+                font-size: calc(2.3rem + .1rem);
+                line-height: calc(1.1 + .3);
+                margin-bottom: calc(0 0 0.67rem + .15rem);
+            }
+        }
+
+        p {
+            font-family: "Open Sans", Helvetica Nueue, Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 1.4;
+            margin: 0 0 1.35rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (min-width: 375px) {
+            p {
+                font-size: calc(1rem + .025rem);
+                margin-bottom: calc(1rem + .05rem);
+            }
+        }
+
+        @media (min-width: 400px) {
+            p {
+                font-size: calc(1rem + .05rem);
+                line-height: calc(1.4 + .05);
+                margin-bottom: calc(1rem + .1rem);
+            }
+        }
+
+        @media (min-width: 600px) {
+            p {
+                font-size: calc(1rem + .1rem);
+                line-height: calc(1.4 + .1);
+                margin-bottom: calc(1rem + .15rem);
+            }
+        }
+
+        .info {
+            font-size: 0.875rem;
+        }
+
+        .info span {
+            color: #d4403a;
+        }
+
+        .form-label {
+            display: inline-block;
+            color: #666666;
+            font-family: "Verdana", sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0;
+            text-transform: capitalize;
+            padding: 0.5rem 0 0;
+        }
+
+        abbr[title="required"] {
+            color: #d4403a;
+        }
+
+        .form-element.valid {
+            color: inherit;
+            background-color: inherit;
+            border-color: #398439;
+            box-shadow: inset 0px 0px 0px 1px transparent;
+        }
+
+        .form-element.valid:hover,
+        .form-element.valid:focus {
+            color: inherit;
+            background-color: inherit;
+            border-color: #398439;
+            box-shadow: inset 0px 0px 0px 1px #398439;
+        }
+
+        label.error {
+            font-size: 0.875rem;
+            font-weight: normal;
+            line-height: 1.1;
+            display: block;
+            color: #fff;
+            background: #a72925;
+            padding: .25rem .75rem .4rem;
+        }
+
+        .form-element.error {
+            color: #a72925;
+            background-color: #fff;
+            border-color: #a72925;
+            box-shadow: inset 0px 0px 0px 2px #a72925;
+        }
+
+        .form-element.error::-webkit-input-placeholder {
+            color: #d6d6d6;
+        }
+
+        .form-element.error::-moz-placeholder {
+            color: #d6d6d6;
+        }
+
+        .form-element.error:-ms-input-placeholder {
+            color: #d6d6d6;
+        }
+
+        .form-element.error::-ms-input-placeholder {
+            color: #d6d6d6;
+        }
+
+        .form-element.error::placeholder {
+            color: #d6d6d6;
+        }
+
+        .form-element.error:hover,
+        .form-element.error:focus {
+            color: #222;
+            background-color: #fff;
+            border-color: #222;
+            box-shadow: inset 0px 0px 0px 2px #222;
+        }
+
+        input:-webkit-autofill,
+        textarea:-webkit-autofill,
+        select:-webkit-autofill {
+            border-color: #398439;
+            background-color: #398439;
+            -webkit-box-shadow: 0 0 0px 1px #398439 inset;
+        }
+
+        .form-element {
+            display: inline-block;
+            color: #141414;
+            background-color: rgba(250, 250, 250, 0.25);
+            border: 1px solid #b1b1b1;
+            border-radius: 0;
+            padding: 10px;
+            margin: 0;
+            position: relative;
+            touch-action: manipulation;
+            -webkit-transition-duration: 300ms;
+            transition-duration: 300ms;
+            -webkit-transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
+            -webkit-transition-property: border-color background-color;
+            transition-property: border-color background-color;
+            -webkit-appearance: none;
+        }
+
+        @media (min-width: 400px) {
+            .form-element {
+                padding: 12px;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .form-element {
+                padding: 13px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .form-element {
+                padding: 16px;
+            }
+        }
+
+        .form-element:hover {
+            color: #141414;
+            background-color: transparent;
+            border-color: #666666;
+            outline: none;
+        }
+
+        .form-element:focus,
+        .form-element:active {
+            color: #141414;
+            background-color: #fff;
+            border-color: #222;
+            box-shadow: inset 0px 0px 0px 1px #222;
+            outline: none;
+        }
+
+        .form-element::-webkit-input-placeholder {
+            color: #6e6e6e;
+        }
+
+        .form-element::-moz-placeholder {
+            color: #6e6e6e;
+        }
+
+        .form-element:-ms-input-placeholder {
+            color: #6e6e6e;
+        }
+
+        .form-element::-ms-input-placeholder {
+            color: #6e6e6e;
+        }
+
+        .form-element::placeholder {
+            color: #6e6e6e;
+        }
+
+        legend[for="submissionForm"] {
+            padding: 0 0 .5rem;
+            margin: 2rem auto .5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        legend[for="submissionForm"]:after {
+            content: '';
+            width: 100%;
+            height: 1px;
+            background-color: #ddd;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .form-select-wrapper {
+            position: relative;
+        }
+
+        .form-select-wrapper .arrow {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            top: 42px;
+            right: 15px;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            border-style: solid;
+            border-width: 10px 7px 0 7px;
+            border-color: #b1b1b1 transparent transparent transparent;
+            -webkit-transition: 300ms ease-in-out;
+            transition: 300ms ease-in-out;
+        }
+
+        @media (min-width: 640px) {
+            .form-select-wrapper .arrow {
+                top: 52px;
+                right: 50px;
+            }
+        }
+
+        .form-select-wrapper:hover .arrow,
+        .form-select-wrapper:focus .arrow {
+            border-color: #666666 transparent transparent transparent;
+        }
+
+        fieldset.form-element {
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+            margin: .5rem auto 1rem;
+        }
+
+        fieldset.form-element:hover,
+        fieldset.form-element:focus,
+        fieldset.form-element:active {
+            background-color: transparent;
+            border-color: transparent;
+            box-shadow: none;
+        }
+
+        fieldset.form-element .form-label {
+            font-size: 1rem;
+        }
+
+        legend[for="question01"],
+        legend[for="question02"] {
+            font-size: 0.875rem;
+            margin-bottom: .15rem;
+        }
+
+        .switch {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            text-align: center;
+            margin: -30px 0 0 -75px;
+            background: #398439;
+            -webkit-transition: all 200ms ease;
+            transition: all 200ms ease;
+            border-radius: 0;
+        }
+
+        @media (min-width: 640px) {
+            .switch {
+                height: 15px;
+            }
+        }
+
+        .switch .icon {
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            top: 52%;
+            left: 50%;
+            margin: -2px 0 0 -4px;
+            background-color: #fff;
+            display: block;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-transition: all .2s ease;
+            transition: all .2s ease;
+            border-radius: 0;
+        }
+
+        .switch .icon:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 2px;
+            height: 12px;
+            margin-top: -10px;
+            background-color: #fff;
+            -webkit-transition: all .2s ease;
+            transition: all .2s ease;
+            border-radius: 0;
+        }
+
+        input[type=radio] {
+            display: none;
+        }
+
+        .switch label {
+            cursor: pointer;
+            color: #222;
+            background: #fff;
+            width: 60px;
+            line-height: 31px;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        label[for=question01Yes],
+        label[for=question02Yes] {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+        }
+
+        label[for=question01No],
+        label[for=question02No] {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            padding: 0;
+        }
+
+        #question01No:checked~.switch,
+        #question02No:checked~.switch {
+            color: #fff;
+            background: #757575;
+        }
+
+        #question01No:checked~.switch .icon,
+        #question02No:checked~.switch .icon {
+            background: #fff;
+            margin-left: -8px;
+        }
+
+        #question01No:checked~.switch .icon:after,
+        #question02No:checked~.switch .icon:after {
+            background: #fff;
+            height: 20px;
+            margin-top: -9px;
+            margin-left: 9px;
+        }
+
+        #question01Yes:checked~.switch label[for=question01Yes],
+        #question02Yes:checked~.switch label[for=question02Yes] {
+            color: #fff;
+            background: #398439;
+        }
+
+        #question01No:checked~.switch label[for=question01No],
+        #question02No:checked~.switch label[for=question02No] {
+            color: #fff;
+            background: #757575;
+        }
+
+        .form-buttons {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            margin: 1rem 0;
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .form-buttons {
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                flex-direction: row;
+                -webkit-box-align: start;
+                align-items: flex-start;
+                -webkit-box-pack: start;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .form-buttons {
+                margin: 1rem 0 2.5rem;
+            }
+        }
+
+        .form-buttons div:first-child {
+            margin: 1rem 0 1.25rem;
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .form-buttons div:first-child {
+                margin: 0 1rem 0 0;
+                width: initial;
+            }
+        }
+
+        .form-buttons button,
+        .form-buttons #restartForm {
+            font-family: "Open Sans", Helvetica Nueue, Arial, sans-serif;
+        }
+
+        button[type=submit],
+        #restartForm {
+            font-weight: bold;
+            border: 1px solid transparent;
+            color: #fff;
+            background-color: #333;
+            width: 100%;
+        }
+
+        button[type=submit]:hover,
+        #restartForm:hover,
+        button[type=submit]:focus,
+        #restartForm:focus {
+            background-color: #141414;
+        }
+
+        @media (min-width: 640px) {
+
+            button[type=submit],
+            #restartForm {
+                width: initial;
+            }
+        }
+
+        button[type=reset],
+        [type=reset]#restartForm {
+            color: #333;
+            background: transparent;
+            border: 1px solid #b1b1b1;
+            margin: 0 auto;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        button[type=reset]:hover,
+        [type=reset]#restartForm:hover,
+        button[type=reset]:focus,
+        [type=reset]#restartForm:focus {
+            color: #141414;
+            border: 1px solid #141414;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <section id="thankYou" class="container" style="display:none;">
+        <h1>Hey, thanks!</h1>
+        <p>
+            Thanks for submitting your super personal information. Again, we probably won't sell it for that sweet bank — relax. Want to submit again? Maybe a friend's info? Click below!
+        </p>
+        <a href="#" id="restartForm">Restart form</a>
+    </section>
+    <section id="contactForm" class="container" itemscope="" itemtype="http://schema.org/ContactPage">
+        <h1 itemprop="mainContentOfPage">Become a member</h1>
+        <p itemprop="description">
+            You want to become a member, right? Of course you do – everyone does. Just fill out the simple little form below and submit your very personal information to us. We promise we won't sell it or anything... probably.
+        </p>
+        <form id="submissionForm" class="form" action="/" method="post" autocomplete="on" novalidate="novalidate">
+            <legend for="submissionForm">Submission form</legend>
+            <div id="formNames" class="form-group width-1-1 child-width-1-2">
+                <div>
+                    <label class="form-label" for="firstName">
+                        First name<abbr title="required">*</abbr>
+                    </label>
+                    <input id="firstName" class="form-element" name="given-name" type="text" autocomplete="given-name" placeholder="John? Jacob?" tabindex="1" required="" aria-required="true" autofocus="" />
+                </div>
+                <div>
+                    <label class="form-label" for="lastName">
+                        Last name<abbr title="required">*</abbr>
+                    </label>
+                    <input id="lastName" class="form-element" name="family-name" type="text" autocomplete="family-name" placeholder="Jingleheimer Schmidt?" tabindex="2" required="" aria-required="true" />
+                </div>
+            </div>
+            <div id="formEmailPhone" class="form-group width-1-1 child-width-3-4">
+                <div>
+                    <label class="form-label" for="emailAddress">
+                        Email address<abbr title="required">*</abbr>
+                    </label>
+                    <input id="emailAddress" class="form-element" name="emailAddress" type="email" autocomplete="on" placeholder="yourname@gmail(probably).com" tabindex="3" required="" aria-required="true" />
+                </div>
+                <div>
+                    <label class="form-label" for="phoneNumber">
+                        Phone number<abbr title="required">*</abbr>
+                    </label>
+                    <input id="phoneNumber" class="form-element" name="phoneNumber" type="tel" autocomplete="on" placeholder="555-555-5555" tabindex="4" required="" aria-required="true" />
+                </div>
+            </div>
+            <div id="formAddress" class="form-group width-1-1 child-width-1-2">
+                <div>
+                    <label class="form-label" for="addressStreet01">
+                        Street address<abbr title="required">*</abbr>
+                    </label>
+                    <input id="addressStreet01" class="form-element" name="address-line1" type="text" autocomplete="shipping street-address" placeholder="333 Grove Street" tabindex="5" required="" aria-required="true" />
+                </div>
+                <div>
+                    <label class="form-label" for="addressStreet02">Street address cont.</label>
+                    <input id="addressStreet02" class="form-element" name="address-line2" type="text" autocomplete="shipping address-line2" placeholder="Apartment number, suite, PO Box, etc." tabindex="6" aria-required="false" />
+                </div>
+            </div>
+            <div id="formCityStateZip" class="form-group width-1-1 child-width-1-3">
+                <div>
+                    <label class="form-label" for="addressCity">
+                        City<abbr title="required">*</abbr>
+                    </label>
+                    <input id="addressCity" class="form-element" name="address-level2" type="text" autocomplete="shipping address-level2" placeholder="Ganton" minlength="2" tabindex="7" required="" aria-required="true" />
+                </div>
+                <div class="form-select-wrapper">
+                    <label class="form-label" for="addressState">
+                        State<abbr title="required">*</abbr>
+                    </label>
+                    <select id="addressState" class="form-element" name="address-level1" type="text" autocomplete="shipping address-level1" placeholder="Please select" tabindex="8" required="" aria-required="true" />
+                    <option value="" disabled="" default="" selected="">Please select</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                    </select>
+                    <div class="arrow"></div>
+                </div>
+                <div>
+                    <label class="form-label" for="addressZIP">
+                        ZIP<abbr title="required">*</abbr>
+                    </label>
+                    <input id="addressZIP" class="form-element" name="postal-code" type="tel" autocomplete="shipping postal-code" placeholder="12345" tabindex="9" minlength="1" maxlength="12" required="" aria-required="true" />
+                </div>
+            </div>
+            <div id="formQuestions" class="form-group width-1-1 child-width-1-2">
+                <div>
+                    <fieldset id="question01" class="form-element">
+                        <legend for="question01">
+                            Do you hate opt-ins that are prefilled?<abbr title="required">*</abbr>
+                        </legend>
+                        <input id="question01Yes" type="radio" name="optIn" value="Yes" tabindex="10" checked="checked" />
+                        <input id="question01No" type="radio" name="optIn" value="No" tabindex="11" />
+                        <div class="switch">
+                            <label class="form-label" for="question01Yes" value="yes">Yes</label>
+                            <label class="form-label" for="question01No" value="no">No</label>
+                            <span class="icon"></span>
+                        </div>
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset id="question02" class="form-element">
+                        <legend for="question02">
+                            Do you desire our precious newsletter?<abbr title="required">*</abbr>
+                        </legend>
+                        <input id="question02Yes" type="radio" name="newsletter" value="Yes" tabindex="12" />
+                        <input id="question02No" type="radio" name="newsletter" value="No" tabindex="13" checked="checked" />
+                        <div class="switch">
+                            <label class="form-label" for="question02Yes">Yes</label>
+                            <label class="form-label" for="question02No">No</label>
+                            <span class="icon"></span>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div id="formHoney" class="form-group width-1-1">
+                <input type="checkbox" name="contact_me_by_fax_only" style="display:none !important" tabindex="-1" autocomplete="off" />
+            </div>
+            <div id="formButtons" class="form-group form-buttons">
+                <div>
+                    <button type="submit" name="Submit" value="Submit form" tabindex="14" itemprop="significantLink">Submit your info</button>
+                </div>
+                <div>
+                    <button type="reset" name="Reset" value="Clear form" tabindex="15">Clear form</button>
+                </div>
+            </div>
+            <div id="formInfo" class="form-group width-1-1">
+                <p class="info"><abbr title="required">*</abbr>Red asterisk marks mean the form item is <span>required</span>.</p>
+            </div>
+        </form>
+    </section>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/additional-methods.min.js"></script>
+    <script type="text/javascript" id="rendered-js">
+        // ==============================================================
+        // # FORM VALIDATION
+        // https://jqueryvalidation.org
+        // ==============================================================
+        $(validate => {
+
+            // -----------------------------------------
+            // ## FORM VALIDATION => Variables
+            let form = $("#submissionForm");
+            let firstName = $("#firstName");
+            let lastName = $("#lastName");
+            let name = $("#firstName, #lastName");
+            let email = $("#emailAddress");
+            let phone = $("#phoneNumber");
+            let street = $("#addressStreet01");
+            let city = $("#addressCity");
+            let zip = $("#addressZIP");
+            let submit = $("button[type='submit']");
+            let msg = jQuery.validator.format;
+
+            form.validate({
+                debug: true
+            });
+
+            // -----------------------------------------
+            // ## FORM VALIDATION => Inject letters only method into script
+            // thx: https://stackoverflow.com/a/20829959
+            jQuery.validator.addMethod("lettersonly", function(value, element) {
+                return this.optional(element) || /^[a-z," "]+$/i.test(value);
+            });
+
+            // -----------------------------------------
+            // ## FORM VALIDATION => Rules for firstName and lastName
+            // Sets the minimum character length (2) and forces letters only
+            name.rules("add", {
+                required: true,
+                minlength: 2,
+                lettersonly: true,
+                messages: {
+                    minlength: msg("Is your name really only one letter?"),
+                    lettersonly: msg("Pfft — c'mon, your name doesn\'t use numbers...")
+                }
+            });
+
+            // -----------------------------------------
+            // ## FORM VALIDATION => Rules for email
+            email.rules("add", {
+                required: true,
+                email: true
+            });
+
+            // -----------------------------------------
+            // ## FORM VALIDATION => Rules for phone#
+            phone.rules("add", {
+                required: true,
+                phoneUS: true
+            });
+
+            // ## FORM VALIDATION => Auto format phone number
+            // omg thx to https://stackoverflow.com/a/26412752
+            // Runs our phone var through an array to auto format it
+            $(function() {
+                phone.keyup(function() {
+                    this.value = this.value.replace(/(\d{3})\-?(\d{3})\-?(\d{4})/, '$1-$2-$3');
+                });
+            });
+
+            // -----------------------------------------
+            // ## FORM VALIDATION => Rules for street address
+            street.rules("add", {
+                required: true,
+                minlength: 2,
+                messages: {
+                    minlength: msg("Please enter, at least, two \(2\) characters.")
+                }
+            });
+
+            // -----------------------------------------
+            // ## FORM VALIDATION => Rules for city
+            city.rules("add", {
+                required: true,
+                minlength: 2,
+                messages: {
+                    minlength: msg("Please enter, at least, two \(2\) characters.")
+                }
+            });
+
+            // -----------------------------------------
+            // ## FORM VALIDATION => Rules for zip
+            zip.rules("add", {
+                required: true,
+                zipcodeUS: true,
+                minlength: 1,
+                maxlength: 12,
+                messages: {
+                    minlength: msg("Minimum four \(4\) characters, please."),
+                    maxlength: msg("Maxmimum twelve \(12\) characters, please."),
+                    zipcodeUS: msg("The US ZIP Code is invalid, please try the format \"12345\" or \"12345-6789\"")
+                }
+            });
+        });
+
+        // ==============================================================
+        // # FORM INTERACTION
+        // ==============================================================
+        // ## FORM INTERACTION => Remove .error on reset click
+        $("button[type='reset']").on("click", () => {
+            $("input").removeClass("error");
+            $("label.error").remove();
+            $(".form-element").removeClass("valid");
+        });
+
+        // -----------------------------------------
+        // ## FORM INTERACTION => Submit action
+        $(submit => {
+
+            // ## FORM INTERACTION => Submit action => Variables
+            let button = $("button[type='submit']");
+            let formPage = $("#contactForm");
+            let form = $("#submissionForm");
+            let thx = $("#thankYou");
+            let restart = $("#restartForm");
+
+            // ## FORM INTERACTION => Submit action => Button click
+            button.on("click", e => {
+                if (form.valid() === true) { // check if form is valid via validator
+                    formPage.fadeOut(); // fadeOut contactForm section
+                    thx.delay(400).fadeIn(); // delay 400ms then fadeIn thankYou section
+                } else {
+                    null; // if form is invalid, do nothing (validator will show errors)
+                }
+            });
+
+            // ## FORM INTERACTION => Submit action => Restart click
+            restart.on("click", () => {
+                thx.fadeOut(); // fadeOut thankYou section
+                formPage.delay(600).fadeIn(); // delay 600ms then fadeIn contactForm section
+                form[0].reset(); // reset for fields via fork: stackoverflow.com/a/44307884
+            });
+        });
+    </script>
+</body>
+
+</html>

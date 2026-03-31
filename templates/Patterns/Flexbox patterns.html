@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexbox patterns</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        body>h2,
+        h1.gutter {
+            margin: 2em 0 0;
+            padding: 2em 0 1em;
+            border-top: 1px dotted #000;
+        }
+
+        /* example 1 */
+        .append {
+            padding: 10px;
+            background: #f9f9f9;
+            display: flex;
+            max-width: 960px;
+            margin: auto;
+        }
+
+        .append input {
+            flex: 1 0 auto;
+            padding: 10px;
+            border: 1px solid #dfdfdf;
+            margin: 0;
+        }
+
+        .append button,
+        .append span {
+            padding: 5px 10px;
+            margin: 0;
+            background: #ccc;
+            border: 1px solid #dfdfdf;
+            display: flex;
+            align-items: center;
+            -webkit-appearance: none;
+        }
+
+        .append button,
+        .append span,
+        .append input:first-child {
+            border-radius: 3px 0 0 3px;
+        }
+
+        .append button:last-child,
+        .append span:last-child,
+        .append input:last-child {
+            border-radius: 0 3px 3px 0;
+        }
+
+        /* example 2 - last item to bottom */
+        .wrap {
+            margin: 0 auto;
+            padding: 0;
+            max-width: 960px;
+            padding: 10px;
+            border: 1px solid #000;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3,
+        p {
+            margin: 0 0 1em;
+        }
+
+        .image {
+            height: 150px;
+            background: red;
+            margin: 10px 0;
+            border: 1px solid #000;
+        }
+
+        .wrap li {
+            margin: 10px 1%;
+            padding: 10px;
+            border: 1px solid #000;
+            display: inline-block;
+            width: 29%;
+            vertical-align: top;
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 29%;
+            min-width: 200px;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+        }
+
+        .footer b {
+            float: right;
+        }
+
+        .footer a {
+            color: #fff;
+        }
+
+        /* example 3 full height nested blocks */
+        ul.full-height {
+            margin: auto;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 980px;
+        }
+
+        .full-height li {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 auto;
+            border: 1px solid #000;
+        }
+
+        .full-height a {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 auto;
+            justify-content: center;
+            text-decoration: none;
+            color: #000;
+            background: red;
+            padding: 5px;
+        }
+
+        .full-height a:hover {
+            background: orange;
+        }
+
+        /* example 4 last ime to the right */
+        .last-item-right {
+            display: flex;
+            max-width: 980px;
+            margin: auto;
+            padding: 10px;
+            background: yellow;
+            list-style: none;
+        }
+
+        .last-item-right a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        /* the magic */
+        .last-item-right li:last-child {
+            margin-left: auto;
+        }
+
+        /* 2 items to right */
+        .last2 li:last-child {
+            margin-left: 0;
+            /* cancel auto */
+        }
+
+        .last2 li:nth-last-child(2) {
+            margin-left: auto;
+        }
+
+        /* the magic */
+        /* example 5 left right and centered in space between left and right */
+        .left-right-center {
+            display: flex;
+            max-width: 980px;
+            margin: auto;
+            padding: 10px;
+            background: yellow;
+            list-style: none;
+        }
+
+        .left-right-center a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        /* the magic*/
+        .left-right-center li:nth-child(2) {
+            margin: auto;
+        }
+
+        /* example 6 - another way to align to bottom */
+        .wrap {
+            display: flex;
+            width: 100%;
+            max-width: 980px;
+            margin: auto;
+            justify-content: space-between;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            background: #f9f9f9;
+            border-bottom: 1px solid red;
+            justify-content: space-between;
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .box {
+            background: red;
+        }
+
+        .box2 {
+            background: yellow;
+        }
+
+        /* example 7 - 3 column responsive layout (Holy Grail) */
+        /* make sure to check ie11 as there are various bugs (which are squashed in this layout) */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            max-width: 980px;
+            margin: auto;
+        }
+
+        .header3,
+        .footer3 {
+            background: lightgreen;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .columns {
+            flex: 1 0 auto;
+            background: red;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .content {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .sidebar {
+            background: green;
+            flex: 0 20%;
+            padding: 10px;
+        }
+
+        .content {
+            background: teal;
+        }
+
+        .content {
+            order: 2;
+        }
+
+        .s1 {
+            order: 1;
+        }
+
+        .s2 {
+            order: 3;
+            background: tomato;
+        }
+
+        @media screen and (max-width: 800px) {
+            .s2 {
+                flex-basis: 100%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .s1 {
+                flex-basis: 100%;
+                order: 3;
+            }
+        }
+
+        /* example 8 curtain blind effect on hover */
+        .blind {
+            max-width: 980px;
+            margin: auto;
+            border: 1px solid #000;
+            display: flex;
+        }
+
+        .blind>div {
+            flex: 1;
+            padding: 10px;
+            transition: all 0.7s ease-out;
+        }
+
+        .blind>div:nth-child(1) {
+            background: red;
+        }
+
+        .blind>div:nth-child(2) {
+            background: orange;
+        }
+
+        .blind>div:nth-child(3) {
+            background: yellow;
+        }
+
+        .blind>div:hover {
+            flex: 2;
+            cursor: pointer;
+        }
+
+        /* example 9 - 2 rows matchhing one column height */
+        .two-col {
+            max-width: 980px;
+            margin: auto;
+            border: 1px solid #000;
+            display: flex;
+        }
+
+        .thecol {
+            flex: 1;
+        }
+
+        .double {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .two-col>div:nth-child(1) {
+            background: red;
+        }
+
+        .two-col>div:nth-child(2) {
+            background: orange;
+        }
+
+        .base {
+            background: yellow;
+            flex: 1;
+        }
+
+        .inner-double,
+        .base,
+        .thecol2 {
+            padding: 10px;
+        }
+
+        /* example 10  - left, center, right and text-align:center */
+        .ex10 {
+            display: flex;
+            max-width: 800px;
+            background: #f9f9f9;
+            margin: auto;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .ex10-mid {
+            margin: auto;
+        }
+
+        /* example 11 flex box gutters */
+        .parent {
+            display: flex;
+            flex-flow: row wrap;
+            margin: 0 0 0 -0.5rem;
+        }
+
+        .child {
+            flex: 1 0 20%;
+            min-width: 200px;
+            padding: 0 0.5rem 1rem;
+            background: #222;
+            color: #fff;
+            margin: 0 0 0.5rem 0.5rem;
+        }
+
+        /* example 2 - 3 across */
+        .parent2 .child {
+            flex: 1 0 25%;
+        }
+
+        /* less than 33% but more than or equal to 25% */
+        .parent2 .child {
+            background: red;
+        }
+
+        /* example 3 - 5 across*/
+        .parent3 .child {
+            flex: 1 0 16.7%;
+        }
+
+        /* less than 25% but more than or equal to 16.666% */
+        .parent3 .child {
+            background: orange;
+        }
+
+        /* example4 3 - 2 across*/
+        .parent4 .child {
+            flex: 1 0 34%;
+        }
+
+        /* less than 50% but more than or equal to 33.33333% */
+        .parent4 .child {
+            background: orange;
+        }
+
+        .container {
+            padding: 1em 0;
+            margin: 2em auto;
+            max-width: 1060px;
+            background: #ccc;
+        }
+
+        /* example 12 nested flexbox columns */
+        .wrapper {
+            max-width: 1280px;
+            min-height: 150px;
+            background-color: red;
+            margin: 25px auto;
+            display: flex;
+        }
+
+        .one,
+        .two,
+        .three {
+            flex: 1 0 33%;
+            background-color: green;
+        }
+
+        .two {
+            background-color: yellow;
+        }
+
+        .three {
+            background-color: tomato;
+        }
+
+        .one {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+        .top {
+            background: orange;
+            padding: 10px;
+        }
+
+        .inner {
+            display: flex;
+            flex: 1 0 0%;
+        }
+
+        .side1,
+        .side2 {
+            flex: 1 0 50%;
+            background: pink;
+            padding: 10px;
+        }
+
+        .side2 {
+            background: teal;
+        }
+
+        /* example 13 */
+        /* vertical centering */
+        .vertical-box {
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+            border: 1px solid #000;
+            background: #f9f9f9;
+            margin: 10px;
+        }
+
+        .vertical-child {
+            margin: auto;
+            background: #ccc;
+            border: 1px solid red;
+        }
+
+        /* example 14 */
+        /* vertical centering */
+        .vertical-box2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            border: 1px solid #000;
+            background: #eee;
+            margin: 10px;
+        }
+
+        .vertical-child2 {
+            background: #aaa;
+            border: 1px solid red;
+        }
+
+        /* example 15 */
+        /* vertical centering */
+        .vertical-box3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            border: 1px solid #000;
+            background: #eee;
+            margin: 10px;
+        }
+
+        .vertical-child3 {
+            margin: 10px;
+            background: #aaa;
+            border: 1px solid red;
+            max-width: 320px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <h1>Flexbox patterns</h1>
+    <h2>Example 1 - appends/prepends</h2>
+    <div class="append">
+        <button>+</button>
+        <input id="test" name="test" type="text" placeholder="Enter quantity ..." />
+        <button>-</button>
+    </div>
+    <div class="append"> <span>£</span>
+        <input id="test2" name="test2" type="text" placeholder="Enter amount ..." />
+        <span>per month</span>
+    </div>
+    <div class="append"> <span>Units</span>
+        <input id="test3" name="test3" type="text" placeholder="Enter unit ..." />
+        <span>per month</span>
+    </div>
+    <div class="append">
+        <input id="test4" name="test4" type="text" placeholder="Enter Time ..." />
+        <span>in hours</span>
+    </div>
+    <div class="append">
+        <input id="test5" name="test5" type="text" placeholder="Enter data ..." />
+        <span>Append only</span>
+    </div>
+    <div class="append"><span>Prepend only</span>
+        <input id="test6" name="test6" type="text" placeholder="Enter Data ..." />
+    </div>
+    <h2>Example 2 - last item to bottom</h2>
+    <ul class="wrap">
+        <li>
+            <div class="image">Product image here</div>
+            <h3>Title goes here</h3>
+            <p class="text">Descriptive text goes here Descriptive text goes Descriptive text goes </p>
+            <p class="meta">25th December 2015</p>
+            <div class="footer"> <a href="#">Help</a> <b><a href="#">Order Now</a></b> </div>
+         </li>
+        <li>
+            <div class="image">Product image here</div>
+            <h3>Title goes here and will wrap around to next line</h3>
+            <p class="text">Descriptive text goes here</p>
+            <p class="meta">25th December 2015</p>
+            <div class="footer"> <a href="#">Help</a> <b><a href="#">Order Now</a></b> </div>
+         </li>
+        <li>
+            <div class="image">Product image here</div>
+            <h3>Title goes here</h3>
+            <p class="text">Descriptive text goes here but some items may have more text than others Descriptive text goes here but some items may have more text than others Descriptive text goes here but some items may have more text than others </p>
+            <p class="text">Descriptive text goes here Descriptive text goes Descriptive text goes </p>
+            <p class="meta">25th December 2015</p>
+            <div class="footer"> <a href="#">Help</a> <b><a href="#">Order Now</a></b> </div>
+         </li>
+    </ul>
+    <h2>Example 3 - Full height blocks in list elements</h2>
+    <ul class="full-height">
+        <li><a href="#">Testing<br>
+            Testing</a>
+         </li>
+        <li><a href="#">Testing<br>
+            Testing <br>
+            Testing</a>
+         </li>
+        <li><a href="#">Testing<br>
+            Testing <br>
+            Testing</a>
+         </li>
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Testing</a></li>
+    </ul>
+    <h2>Example 4 - Last item(s) to right</h2>
+    <ul class="last-item-right">
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Last item to right</a></li>
+    </ul>
+    <ul class="last-item-right last2">
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Testing</a></li>
+        <li><a href="#">Last 2 items to right</a></li>
+        <li><a href="#">Last 2 items to right</a></li>
+    </ul>
+    <h2>Example 5 - Left right and centered in remaining space</h2>
+    <ul class="left-right-center">
+        <li><a href="#">Left</a></li>
+        <li><a href="#">Center</a></li>
+        <li><a href="#">Right</a></li>
+    </ul>
+    <h2>Example 6 - another way to get item to bottom</h2>
+    <div class="wrap">
+        <div class="col">
+            <div class="box">
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+            </div>
+            <div class="box box2">test</div>
+        </div>
+        <div class="col">
+            <div class="box">
+                <p>test</p>
+            </div>
+            <div class="box box2">test</div>
+        </div>
+        <div class="col">
+            <div class="box">
+                <p>test</p>
+                <p>test</p>
+            </div>
+            <div class="box box2">test</div>
+        </div>
+    </div>
+    <h2>Example 7 - 3 column 'holy grail' type layout - responsive</h2>
+    <div class="page">
+        <header class="header3">Header</header>
+        <main class="columns">
+            <div class="content">Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content
+                Content Content Content Content Content Content Content Content
+            </div>
+            <div class="sidebar s1">Left sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar </div>
+            <div class="sidebar s2">Right sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar Right sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar
+                sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar Right sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar Right sidebar sidebar sidebar
+                sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar last
+            </div>
+        </main>
+        <footer class="footer3">footer</footer>
+    </div>
+    <h2>Example 8 - Curtain/blind effect on hover</h2>
+    <div class="blind">
+        <div>
+            <h2>Hover me</h2>
+            <p>Sea of Tranquility Flatland white dwarf preserve and cherish that pale blue dot dispassionate extraterrestrial observer paroxysm of global death Vangelis finite but unbounded gathered by gravity? Concept of the number one, are creatures of the cosmos
+                a mote of dust suspended in a sunbeam astonishment Jean-François Champollion trillion. Emerged into consciousness. Decipherment. Two ghostly white figures in coveralls and helmets are soflty dancing. Cosmos the sky calls to us. Trillion concept
+                of the number one, rings of Uranus colonies Hypatia the sky calls to us?
+            </p>
+        </div>
+        <div>
+            <h2>Hover me</h2>
+            <p>Venture cosmic fugue vastness is bearable only through love star stuff harvesting star light? A still more glorious dawn awaits Rig Veda permanence of the stars! Explorations Flatland extraplanetary, science star stuff harvesting star light laws of
+                physics descended from astronomers extraplanetary tesseract preserve and cherish that pale blue dot bits of moving fluff explorations the carbon in our apple pies how far away emerged into consciousness encyclopaedia galactica ship of the imagination.
+                Vastness is bearable only through love white dwarf galaxies Tunguska event Cambrian explosion, venture.
+            </p>
+        </div>
+        <div>
+            <h2>Hover me</h2>
+            <p>Venture galaxies Sea of Tranquility? Preserve and cherish that pale blue dot vanquish the impossible culture brain is the seed of intelligence, are creatures of the cosmos, with pretty stories for which there's little good evidence! </p>
+        </div>
+    </div>
+    <h2>Example 9 - 2 rows matching one column height </h2>
+    <div class="two-col">
+        <div class="thecol double">
+            <div class="inner-double">
+                <p>Sea of Tranquility Flatland white dwarf preserve and cherish that pale blue dot dispassionate extraterrestrial observer paroxysm of global death Vangelis finite but unbounded gathered by gravity? Concept of the number one, are creatures of the cosmos
+                    a mote of dust suspended in a sunbeam astonishment Jean-François Champollion trillion. Emerged into consciousness. Decipherment. Two ghostly white figures in coveralls and helmets are soflty dancing.
+                </p>
+            </div>
+            <div class="base">
+                <p>Venture cosmic fugue vastness is bearable only through love star stuff harvesting star light? A still more glorious dawn awaits Rig Veda permanence of the stars! Explorations Flatland extraplanetary, science star stuff harvesting star light laws
+                    of physics descended from astronomers extraplanetary tesseract preserve and cherish that pale blue dot bits of moving fluff explorations the carbon in our apple pies how far away emerged into consciousness.
+                </p>
+            </div>
+        </div>
+        <div class="thecol thecol2">
+            <p>Venture galaxies Sea of Tranquility? Preserve and cherish that pale blue dot vanquish the impossible culture brain is the seed of intelligence, are creatures of the cosmos, with pretty stories for which there's little good evidence! </p>
+            <p>Two ghostly white figures in coveralls and helmets are soflty dancing Jean-François Champollion vanquish the impossible white dwarf rogue citizens of distant epochs extraordinary claims require extraordinary evidence finite but unbounded Rig Veda
+                Orion's sword radio telescope dispassionate extraterrestrial observer. Great turbulent clouds, extraplanetary, cosmic fugue. Dream of the mind's eye paroxysm of global death, tesseract hundreds of thousands rich in heavy atoms realm of the galaxies
+                tesseract Euclid made in the interiors of collapsing stars and billions upon billions upon billions upon billions upon billions upon billions upon billions.
+            </p>
+            <p>Sea of Tranquility Flatland white dwarf preserve and cherish that pale blue dot dispassionate extraterrestrial observer paroxysm of global death Vangelis finite but unbounded gathered by gravity? Concept of the number one, are creatures of the cosmos
+                a mote of dust suspended in a sunbeam astonishment Jean-François Champollion trillion. Emerged into consciousness. Decipherment. Two ghostly white figures in coveralls and helmets are soflty dancing.
+            </p>
+        </div>
+    </div>
+    <h2>Example 10 - left, center, right and text-aligned center </h2>
+    <div class="ex10">
+        <div>
+            <p>Test</p>
+            <p>test longer text</p>
+        </div>
+        <div class="ex10-mid">
+            <p>test longer text</p>
+            <p>Test</p>
+        </div>
+        <div>
+            <p>test longer text</p>
+            <p>Test</p>
+        </div>
+    </div>
+    <h1 class="gutter">Example 11 Flexbox Gutters</h1>
+    <h2>4 across</h2>
+    <div class="parent">
+        <div class="child">content</div>
+        <div class="child">content</div>
+        <div class="child">content</div>
+        <div class="child">content<br> content
+        </div>
+        <div class="child">content</div>
+        <div class="child">content</div>
+    </div>
+    <h2>3 across</h2>
+    <div class="parent parent2">
+        <div class="child">content</div>
+        <div class="child">content</div>
+        <div class="child">content</div>
+        <div class="child">content<br> content
+        </div>
+        <div class="child">content</div>
+        <div class="child">content</div>
+    </div>
+    <h2>5 across</h2>
+    <div class="parent parent3">
+        <div class="child">content</div>
+        <div class="child">content</div>
+        <div class="child">content</div>
+        <div class="child">content<br> content
+        </div>
+        <div class="child">content</div>
+        <div class="child">content</div>
+    </div>
+    <h2>2 across</h2>
+    <div class="parent parent4">
+        <div class="child">content</div>
+        <div class="child">content</div>
+        <div class="child">content</div>
+        <div class="child">content<br> content
+        </div>
+        <div class="child">content</div>
+        <div class="child">content</div>
+    </div>
+    <div class="container">
+        <h1>In a Centred container</h1>
+        <h2>4 across</h2>
+        <div class="parent">
+            <div class="child">content</div>
+            <div class="child">content</div>
+            <div class="child">content</div>
+            <div class="child">content<br> content
+            </div>
+            <div class="child">content</div>
+            <div class="child">content</div>
+        </div>
+        <h2>3 across</h2>
+        <div class="parent parent2">
+            <div class="child">content</div>
+            <div class="child">content</div>
+            <div class="child">content</div>
+            <div class="child">content<br> content
+            </div>
+            <div class="child">content</div>
+            <div class="child">content</div>
+        </div>
+        <h2>5 across</h2>
+        <div class="parent parent3">
+            <div class="child">content</div>
+            <div class="child">content</div>
+            <div class="child">content</div>
+            <div class="child">content<br> content
+            </div>
+            <div class="child">content</div>
+            <div class="child">content</div>
+        </div>
+        <h2>2 across</h2>
+        <div class="parent parent4">
+            <div class="child">content</div>
+            <div class="child">content</div>
+            <div class="child">content</div>
+            <div class="child">content<br> content
+            </div>
+            <div class="child">content</div>
+            <div class="child">content</div>
+        </div>
+    </div>
+    <h1 class="gutter">Example 12 - Nested flexbox columns</h1>
+    <div class="wrapper">
+        <div class="one">
+            <div class="top">top</div>
+            <div class="inner">
+                <div class="side1">Side 1</div>
+                <div class="side2">Side 2</div>
+            </div>
+        </div>
+        <div class="two">
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+        </div>
+        <div class="three"></div>
+    </div>
+    <hr>
+    <h1 class="gutter">Example 13 - Vertical centring</h1>
+    <div class="vertical-box">
+        <div class="vertical-child">This will be horizontally &amp; vertically centred within the parent.</div>
+    </div>
+    <h1 class="gutter">Example 14 - Vertical centring</h1>
+    <div class="vertical-box2">
+        <div class="vertical-child2">This will be horizontally &amp; vertically centred within the parent.</div>
+    </div>
+    <h1 class="gutter">Example 15 - Vertical centring</h1>
+    <div class="vertical-box3">
+        <div class="vertical-child3">This will be horizontally &amp; vertically centred within the parent.</div>
+        <div class="vertical-child3">This will be horizontally &amp; vertically centred within the parent.</div>
+    </div>
+    <div class="vertical-box3">
+        <div class="vertical-child3">This will be horizontally &amp; vertically centred within the parent.</div>
+        <div class="vertical-child3">This will be horizontally &amp; vertically centred within the parent. This will be horizontally &amp; vertically centred within the parent.</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flexible grid component using flexbox and BEM</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            line-height: 1.5em;
+        }
+
+        h1,
+        h2 {
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
+
+        .intro {
+            padding: 3em 0;
+        }
+
+        /* COMPONENT SPECIFIC STYLING */
+        /* COMPONENT */
+        .my-component {
+            margin: 0 auto;
+            background: #ddd;
+        }
+
+        @media only screen and (min-width: 480px) {
+            .my-component {
+                max-width: 100%;
+                padding: 0px 0px;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .my-component {
+                padding: 5% 5%;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            .my-component {
+                padding: 5% 10%;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            .my-component {
+                max-width: 100%;
+                padding: 5% 10%;
+            }
+        }
+
+        @media only screen and (min-width: 1681px) {
+            .my-component {
+                max-width: 100%;
+                padding: 5% 5%;
+            }
+        }
+
+        .my-component__inner {
+            background: #eee;
+        }
+
+        @media only screen and (min-width: 480px) {
+            .my-component__inner {
+                padding: 0px 0px 0 0px;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .my-component__inner {
+                padding: 0px 0px 0 0px;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            .my-component__inner {
+                padding: 10px 10px 0 10px;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            .my-component__inner {
+                padding: 0px 0px 0 0px;
+            }
+        }
+
+        @media only screen and (min-width: 1681px) {
+            .my-component__inner {
+                padding: 20px 20px 0 20px;
+            }
+        }
+
+        .my-component__my-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        @media only screen and (min-width: 480px) {
+            .my-component__my-list {
+                width: calc(100% + (2px));
+                margin-left: -1px;
+                margin-right: -1px;
+                padding: 0 0.5px;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .my-component__my-list {
+                width: calc(100% + (10px));
+                margin-left: -5px;
+                margin-right: -5px;
+                padding: 0 2.5px;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            .my-component__my-list {
+                width: calc(100% + (20px));
+                margin-left: -10px;
+                margin-right: -10px;
+                padding: 0 5px;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            .my-component__my-list {
+                width: calc(100% + (2px));
+                margin-left: -1px;
+                margin-right: -1px;
+                padding: 0 0.5px;
+            }
+        }
+
+        @media only screen and (min-width: 1681px) {
+            .my-component__my-list {
+                width: calc(100% + (20px));
+                margin-left: -10px;
+                margin-right: -10px;
+                padding: 0 5px;
+            }
+        }
+
+        .my-list__list-item {
+            display: flex;
+            background: tomato;
+            color: #fff;
+        }
+
+        @media only screen and (min-width: 480px) {
+            .my-list__list-item {
+                flex-basis: calc(100% - 1px);
+                margin: 0 0.5px 1px 0.5px;
+                align-items: flex-start;
+                flex-basis: calc(100%/ 1 - 1px);
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .my-list__list-item {
+                flex-basis: calc(100% - 5px);
+                margin: 0 2.5px 5px 2.5px;
+                align-items: flex-end;
+                flex-basis: calc(100%/ 2 - 5px);
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            .my-list__list-item {
+                flex-basis: calc(100% - 10px);
+                margin: 0 5px 10px 5px;
+                align-items: flex-end;
+                flex-basis: calc(100%/ 3 - 10px);
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            .my-list__list-item {
+                flex-basis: calc(100% - 1px);
+                margin: 0 0.5px 1px 0.5px;
+                align-items: center;
+                flex-basis: calc(100%/ 4 - 1px);
+            }
+        }
+
+        @media only screen and (min-width: 1681px) {
+            .my-list__list-item {
+                flex-basis: calc(100% - 10px);
+                margin: 0 5px 10px 5px;
+                align-items: flex-end;
+                flex-basis: calc(100%/ 5 - 10px);
+            }
+        }
+
+        .list-item__content {
+            flex-grow: 1;
+        }
+
+        .my-custom-content {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="intro">
+        <h1>Flexbox Equal Height Grid Items</h1>
+    </div>
+    <div class="my-component">
+        <div class="my-component__inner">
+            <div class="my-component__my-list">
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>I have much more content than the other items. The other items on this row should equalise heights with me. The content within the other items should also vertically align top/middle/bottom with me based on your variables settings.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>I have much more content than the other items. The other items on this row should equalise heights with me. The content within the other items should also vertically align top/middle/bottom with me based on your variables settings.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-list__list-item">
+                    <div class="list-item__content">
+                        <div class="my-custom-content">
+                            <h2>Grid item heading</h2>
+                            <p>Grid item content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

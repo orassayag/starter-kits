@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive website with carousel</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            font-family: helvetica;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        header {
+            height: 70px;
+            width: 100%;
+        }
+
+        header img {
+            position: relative;
+            top: 20px;
+            left: 20px;
+        }
+
+        .menu__container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        menu {
+            float: right;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .menu li {
+            float: left;
+        }
+
+        .menu-item {
+            color: rgb(100, 200, 100);
+            padding: 1.5em;
+            font-weight: bold;
+        }
+
+        .banner {
+            height: 190px;
+            color: white;
+            text-align: center;
+            background-color: grey;
+        }
+
+        .banner h1 {
+            font-size: 2em;
+            padding-top: 50px;
+            margin-bottom: 10px;
+        }
+
+        .cards__container {
+            min-height: 300px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .card__img {
+            height: 160px;
+            width: 150px;
+            margin: 0 auto;
+            background-color: grey;
+        }
+
+        .card {
+            display: inline-block;
+            text-align: center;
+            width: 220px;
+            height: 280px;
+        }
+
+        .card p {
+            position: relative;
+            top: -10px;
+        }
+
+        .red__container {
+            box-sizing: border-box;
+            background-color: rgb(200, 100, 100);
+            width: 100%;
+            color: white;
+            padding: 20px 50px 20px 50px;
+        }
+
+        .red__container div {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .red__container hr {
+            height: 3px;
+            background-color: white;
+        }
+
+        .car__item {
+            display: inline-block;
+            text-align: center;
+            padding: 10px;
+            margin: 20px;
+            width: 180px;
+            -webkit-box-shadow: 2px 3px 1px grey;
+            border: 1px solid rgb(220, 220, 220);
+            box-shadow: 0px 10px 3px rgb(220, 220, 220);
+        }
+
+        .car__item p {
+            padding: 10px;
+            border-top: 1px solid green;
+            border-bottom: 1px solid green;
+        }
+
+        .car__item h1 {
+            display: inline;
+            color: green;
+            font-size: 4em;
+        }
+
+        .car__item h1::after {
+            content: "/month";
+            font-size: 12px;
+            position: relative;
+            top: 10px;
+            left: 10px;
+        }
+
+        .car__item ul {
+            text-align: left;
+            padding: 10px;
+        }
+
+        .car__item button {
+            color: white;
+            font-size: 1em;
+            width: 100%;
+            padding: 6px 0px 8px 0px;
+            background-color: green;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .carousel {
+            padding-top: 40px;
+            text-align: center;
+        }
+
+        .carousel__container {
+            display: inline-block;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .slick-next {
+            position: relative;
+            top: -200px;
+            left: 450px;
+        }
+
+        .slick-prev {
+            position: relative;
+            top: 192px;
+            left: -450px;
+        }
+
+        .btn {
+            position: relative;
+            top: -120px;
+        }
+
+        .dropdown {
+            display: none;
+        }
+
+        .mob-menu {
+            display: none;
+        }
+
+        @media only screen and (max-width: 690px) {
+            .menu {
+                display: none;
+            }
+
+            .mob-menu {
+                display: inline-block;
+                float: right;
+                position: relative;
+                left: -40px;
+            }
+
+            .dropdown {
+                position: fixed;
+                left: -40px;
+                top: 80px;
+                width: 100%;
+                text-align: center;
+                border: 1px solid grey;
+                background-color: white;
+            }
+
+            .slick-next {
+                top: -218px;
+                left: 145px;
+            }
+
+            .slick-prev {
+                top: 192px;
+                left: -150px;
+            }
+
+            .carousel__container {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <header id="header">
+        <div class="menu__container">
+            <img id="header-img" src="https://raw.githubusercontent.com/rnas/frontend-test/master/assets/logo.png" alt="my page brand" title="my page brand" />
+            <menu>
+                <img class="mob-menu" src="https://raw.githubusercontent.com/rnas/frontend-test/master/assets/menu_icon.png" alt="dropdown menu" title="dropdown menu" />
+                <nav id="nav-bar">
+                    <ul class="dropdown">
+                        <li class="menu-item">About</li>
+                        <li class="menu-item">Uses</li>
+                        <li class="menu-item">Plans</li>
+                        <li class="menu-item">Contact</li>
+                    </ul>
+                    <ul class="menu">
+                        <a href="#about" class="nav-link">
+                        <li class="menu-item">About</li>
+                     </a>
+                        <a href="#uses" class="nav-link">
+                        <li class="menu-item">Uses</li>
+                     </a>
+                        <a href="#plans" class="nav-link">
+                        <li class="menu-item">Plans</li>
+                     </a>
+                        <a href="#">
+                        <li class="menu-item">Contact</li>
+                     </a>
+                    </ul>
+                </nav>
+            </menu>
+        </div>
+    </header>
+    <section class="banner">
+        <h1>A boring Company</h1>
+        <p>Check down below what we can offer you</p>
+    </section>
+    <section id="about" class="cards__container">
+        <div class="card">
+            <div class="card__img">
+            </div>
+            <h1>Harder</h1>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+        </div>
+        <div class="card">
+            <div class="card__img">
+            </div>
+            <h1>Faster</h1>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+        </div>
+        <div class="card">
+            <div class="card__img">
+            </div>
+            <h1>Better</h1>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+        </div>
+        <div class="card">
+            <div class="card__img">
+            </div>
+            <h1>Stronger</h1>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+        </div>
+    </section>
+    <section id="uses" class="red__container">
+        <div>
+            <h1>Product that fits your needs</h1>
+            <hr>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"</p>
+        </div>
+    </section>
+    <section id="plans" class="carousel">
+        <div class="carousel__container">
+            <div class="car__item">
+                <h1>9</h1>
+                <p>Basic plan</p>
+                <ul>
+                    <li>- Unlimited requests</li>
+                    <li>- New features</li>
+                    <li>- Track Opens</li>
+                </ul>
+                <button>get plan</button>
+            </div>
+            <div class="car__item">
+                <h1>49</h1>
+                <p>Medium plan</p>
+                <ul>
+                    <li>- Unlimited requests</li>
+                    <li>- New features</li>
+                    <li>- Track Opens</li>
+                </ul>
+                <button>get plan</button>
+            </div>
+            <div class="car__item">
+                <h1>99</h1>
+                <p>Business plan</p>
+                <ul>
+                    <li>- Unlimited requests</li>
+                    <li>- New features</li>
+                    <li>- Track Opens</li>
+                </ul>
+                <button>get plan</button>
+            </div>
+            <div class="car__item">
+                <h1>149</h1>
+                <p>Master plan</p>
+                <ul>
+                    <li>- Unlimited requests</li>
+                    <li>- New features</li>
+                    <li>- Track Opens</li>
+                </ul>
+                <button>get plan</button>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

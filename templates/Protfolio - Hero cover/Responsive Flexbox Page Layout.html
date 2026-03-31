@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Flexbox Page Layout</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
+    <style type="text/css">
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-content {
+            display: flex;
+            flex: 1;
+        }
+
+        .page-content__main,
+        .page-content__aside {
+            width: calc(100% - 30px);
+        }
+
+        .page-content__main {
+            flex: 1;
+        }
+
+        .page-content__aside {
+            display: flex;
+            justify-content: flex-end;
+            flex: 0 0 15rem;
+        }
+
+        @media screen and (max-width: 960px) {
+            .page-content__aside {
+                flex: 0 0 10rem;
+            }
+        }
+
+        @media screen and (max-width: 760px) {
+            .page-content {
+                flex-direction: column;
+            }
+        }
+
+        .page {
+            background-color: #d0d0d0;
+            color: #fff;
+            padding: 15px;
+        }
+
+        .page-header,
+        .page-footer {
+            background-color: #c1c1c1;
+        }
+
+        .page-header,
+        .page-content,
+        .page-footer {
+            margin: 15px;
+            min-height: 60px;
+            border: 1px solid #c1c1c1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-content {
+            min-height: 500px;
+        }
+
+        .page-content__main,
+        .page-content__aside {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #c1c1c1;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <div class="page">
+            <header class="page-header">
+                Place for header
+            </header>
+            <section class="page-content">
+                <main class="page-content__main">
+                    Place for main content
+                </main>
+                <aside class="page-content__aside">
+                    Place for aside
+                </aside>
+            </section>
+            <footer class="page-footer">
+                Place for footer
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

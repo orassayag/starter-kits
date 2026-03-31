@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Pure CSS popupmodal</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <style type="text/css">
+        body {
+            color: #fff;
+            font-family: 'Helvetica', arial;
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .test-paragraph {
+            color: black;
+            font-size: 14px;
+            background: lightgrey;
+            padding: 150px 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .p-1 {
+            font-size: 28px;
+        }
+
+        .btn {
+            background: #428bca;
+            border: #357ebd solid 1px;
+            border-radius: 3px;
+            color: #fff;
+            display: inline-block;
+            font-size: 14px;
+            padding: 8px 15px;
+            text-decoration: none;
+            text-align: center;
+            min-width: 60px;
+            position: relative;
+            transition: color .1s ease;
+        }
+
+        .btn:hover {
+            background: #357ebd;
+        }
+
+        .btn.btn-big {
+            font-size: 18px;
+            padding: 15px 20px;
+        }
+
+        .btn-close {
+            color: #fff;
+            font-size: 35px;
+            text-decoration: none;
+            position: absolute;
+            right: 20px;
+            top: 5px;
+        }
+
+        .btn-close:hover {
+            color: #919191;
+        }
+
+        .modal:target {
+            display: none;
+        }
+
+        .modal .modal-dialog {
+            border-radius: 10px;
+            background: url('https://images.unsplash.com/photo-1545893835-abaa50cbe628?ixlib=rb-1.2.1&auto=format&fit=crop&w=1473&q=80');
+            background-size: cover;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            z-index: 9999;
+            width: 95%;
+            height: 90%;
+            transform: translate(-50%, -50%);
+            transition: all 5s;
+        }
+
+        .modal-dialog:after {
+            content: '';
+            background: rgba(0, 0, 0, 0.6);
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-header h2 {
+            font-size: 20px;
+        }
+
+        .modal-footer {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <title>Natours | Exciting tours for adventurous people</title>
+    <div class="wrap"> <a href="#" class="btn btn-big">Modal!</a></div>
+    <div class="modal" id="modal-one" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h1>Welcome at CYTOO!</h1>
+                <a href="#modal-one" class="btn-close" aria-hidden="true">×</a>
+            </div>
+            <div class="modal-body">
+                <p class="p-1">We're currently working on a new website to reflect our current focus on muscle disorders!</p>
+                <p>Until then you may join us on LinkedIn</p>
+                <p>However, you can still request quotes on micropattern products on our old website...</p>
+            </div>
+            <div class="modal-footer"><a href="#modal-one" class="btn">Noted, thank you!</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
